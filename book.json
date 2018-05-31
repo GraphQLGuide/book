@@ -1,0 +1,19 @@
+{
+  "title": "📖 The GraphQL Guide",
+  "description": "The best way to learn GraphQL—the new REST ✨",
+  "author": "John Resig and Loren Sands-Ramshaw",
+  "plugins": [
+    "prism",
+    "-highlight",
+    "advanced-emoji"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "lang": {
+        "gql": "graphql",
+        "js": "jsx",
+        "sh": "intentionally-nonexistant"
+      }
+    }
+  }
+}
