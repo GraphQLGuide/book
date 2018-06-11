@@ -6,17 +6,17 @@ GraphQL was released in mid 2015, and its adoption has been accelerating ever si
 
 We’re writing the complete reference: what GraphQL is, why to use it, and most importantly, how to use it—on the server, in the browser, on mobile, with React, Vue, Node, Java, and Swift. We’ll take you step-by-step through building an app, so you can see the practical need behind each part of GraphQL. We’re doing it as an ebook so we can always keep it up to date. A physical book would quickly fall behind best practices in such a hot space.
 
-We’d like to thank everyone who helped out with this book, including our technical reviewers Tom Coleman, Brad Crispin, Abhi Aiyer, Heather Armstrong, Justin Krup, Kamal Radharamanan, and Lewi Gilamichael, our designer Genki Hagata, and our copy editor Lauren Itzla. We’d also like to thank those who wrote the libraries on which this book is based, especially the GraphQL and Apollo communities.
+We’d like to thank everyone who helped out with this book, including our technical reviewers Tom Coleman, Brad Crispin, Abhi Aiyer, Heather Armstrong, Justin Krup, Melek Hakim, Kamal Radharamanan, and Lewi Gilamichael, our designer Genki Hagata, and our copy editor Lauren Itzla. We’d also like to thank those who wrote the libraries on which this book is based, especially the GraphQL and Apollo communities.
 
 If you’d like to improve this resource for those who read after you, we welcome your suggestions in the form of GitHub issues or PRs on the [book repo](https://github.com/GraphQLGuide/book) and the [code repo](https://github.com/GraphQLGuide/guide) 😄.
 
-We’ve found that building apps with GraphQL is easier and more fun, and we think you’ll be similarly impressed. We hope you enjoy 🤗.
+We’ve found that building apps with GraphQL is less difficult and more fun, and we think you’ll be similarly impressed. We hope you enjoy 🤗.
 
 > John Resig and Loren Sands-Ramshaw
 
 > Brooklyn, New York
 
-> May, 2018
+> June, 2018
 
 ---
 

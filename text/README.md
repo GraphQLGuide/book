@@ -1,5 +1,16 @@
 # Introduction
 
+* [Who is this book for?](README.md#who-is-this-book-for)
+* [Background](README.md#background)
+* [The book](README.md#the-book)
+* [The code](README.md#the-code)
+  * [Git](README.md#git)
+  * [Formatting](README.md#formatting)
+* [Resources](README.md#resources)
+* [Version](README.md#version)
+
+---
+
 # Who is this book for?
 
 This book is for most programmers. If you write software that fetches data from a server, or you write server code that provides data to others, this book is for you. It’s particularly relevant to frontend and backend web and mobile developers. If you don’t know modern JavaScript, we recommend [learning that first](bg.md#javascript), but it’s not necessary. For example, if you only know Ruby, you can likely follow the JavaScript server code in Chapter 11 well enough to learn the important concepts of a GraphQL server, most of which will apply to using the `graphql` gem in your Ruby server code.
@@ -62,9 +73,9 @@ If you’re reading this in epub or mobi format on your phone, turning sideways 
 
 ## Git
 
-In Chapters 6–11, you’ll learn through writing an app, step-by-step. Each chapter has its own repository. Each step has a branch in that repo, for example branch `0` for the starter template, branch `1` for the code you write in the first step, etc. These branches contain the most up-to-date version of the code (and are updated through rebasing and force pushing). Snapshots of the steps are taken with tags for every release of the ebook. For instance, in the first version of the book (`the-graphql-guide-r1.pdf`, or r1), the React chapter code is at version `0.1.0`, so the code excerpts correspond exactly with tags `0_0.1.0` for step 0, `1_0.1.0` for step 1, etc. In the second revision of the book (`the-graphql-guide-r2.pdf`), if the code hasn’t changed, the tags will stay the same. In the third revision, if there are small changes to the code, the tags will be in the form `[step number]_0.1.1`.
+In Chapters 6–11, you’ll learn through writing an app, step by step. Each chapter has its own repository. Each step has a branch in that repo, for example branch `0` is the starter template, branch `1` has the code you write in step 1, etc. The branches we link to in the text also have a version number, and have the format: `[step]_[version]`. When this version of the Guide was published, the version of the Chapter 6 code was `0.1.0`, so step 1 links to branch `1_0.1.0`.
 
-So for example, if you’re on r1 (which is on `v0.1.0` of the code), and you skip the beginning of Chapter 6 and go straight to the [Listing reviews](6.md#listing-reviews) section, it says to start with step 9 (`9_0.1.0`). So we can look at the app in that state with these terminal commands:
+If you skip the beginning of Chapter 6 and go straight to the [Listing reviews](6.md#listing-reviews) section, it says to start with step 9 (`9_0.1.0`). So we can look at the app in that state with these terminal commands:
 
 ```sh
 git clone git@github.com:GraphQLGuide/guide.git
@@ -76,7 +87,7 @@ npm start
 
 > Check out the [git](bg.md#git) and [npm](bg.md#npm) background sections if you’re unfamiliar with these commands.
 
-If we get stuck, we can look at the difference between step 9 and step 10 with GitHub’s compare feature:
+If we get stuck, we can look at the diff between step 9 and step 10 with GitHub’s compare feature:
 
 `github.com/[repository]/compare/[tag 1]...[tag 2]`
 
@@ -122,14 +133,18 @@ Another important resource is the docs! Here they are for each library:
 
 # Version
 
-Book version `0.1.0`
+Book version: [`r1`](https://github.com/GraphQLGuide/book/releases)
 
-Published May 7, 2018
+Published June 11, 2018
+
+As we write more of the book, we’ll send you new versions of it (using the email address on the GitHub account you connected when you purchased the book at [graphql.guide](https://graphql.guide)).
+
+## Chapter 6 
+
+Code version: [`0.1.0`](https://github.com/GraphQLGuide/guide/blob/master/CHANGELOG.md)
 
 ```
-graphql @ 0.13
-react-apollo @ 2.1
-react @ 16.3
+react-apollo 2.1
+graphql 0.13
+react 16.3
 ```
-
-As we write more of the book, we’ll send you new versions of it (using the email address of the GitHub account you connected when you purchased the book at [graphql.guide](https://graphql.guide)).

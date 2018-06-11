@@ -119,30 +119,30 @@
 * [Chapter 10: Android](10.md)
 
 * [Chapter 11: Server Dev](11.md)
-  * [Setting up node](11.md#setting-up-node)
-  * [Writing good schemas](11.md#writing-good-schemas)
-  * [Writing resolvers](11.md#writing-resolvers)
-  * [Structuring the server](11.md#structuring-the-server)
-    * [Schema](11.md#schema-server)
-    * [Models & connectors](11.md#models-&-connectors)
-  * [Subscriptions](11.md#subscriptions)
-  * [Connecting data sources](11.md#connecting-data-sources)
-    * [SQL](11.md#sql)
-    * [MongoDB](11.md#mongodb)
-    * [REST APIs](11.md#rest-apis)
-    * [Redis](11.md#redis)
-    * [Elasticsearch](11.md#elasticsearch)
-    * [RethinkDB](11.md#rethinkdb)
-    * [Prisma](11.md#prisma)
-  * [Security](11.md#security)
-    * [Authentication](11.md#authentication-server)
-    * [Authorization](11.md#authorization)
-    * [Denial of service](11.md#denial-of-service)
-  * [Extended topics](11.md#extended-topics)
-    * [Caching](11.md#caching-server)
-    * [Batching](11.md#batching)
-    * [Prepared queries](11.md#prepared-queries)
-    * [Testing](11.md#testing)
+  * Setting up node
+  * Writing good schemas
+  * Writing resolvers
+  * Structuring the server
+    * Schema
+    * Models & connectors
+  * Subscriptions
+  * Connecting data sources
+    * SQL
+    * MongoDB
+    * REST APIs
+    * Prisma
+    * Redis
+    * Elasticsearch
+    * RethinkDB
+  * Security
+    * Authentication
+    * Authorization
+    * Denial of service
+  * Extended topics
+    * Caching
+    * Batching
+    * Prepared queries
+    * Testing
 
 * [Background](bg.md)
   * [JavaScript](bg.md#javascript)
