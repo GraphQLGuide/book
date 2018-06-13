@@ -170,7 +170,7 @@ $ git commit -m 'Added the graphql package'
 When our code is cloned (by others, or by us in the future), there will be no `node_modules/`. If our code is at `https://github.com/me/app`, then we would do:
 
 ```sh
-$ git clone git@github.com:me/app.git
+$ git clone https://github.com/me/app.git
 $ cd app
 $ ls -a
 .  ..  .git  .gitignore  package.json

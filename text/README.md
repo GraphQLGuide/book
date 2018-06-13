@@ -78,7 +78,7 @@ In Chapters 6–11, you’ll learn through writing an app, step by step. Each ch
 If you skip the beginning of Chapter 6 and go straight to the [Listing reviews](6.md#listing-reviews) section, it says to start with step 9 (`9_0.1.0`). So we can look at the app in that state with these terminal commands:
 
 ```sh
-git clone git@github.com:GraphQLGuide/guide.git
+git clone https://github.com/GraphQLGuide/guide.git
 cd guide/
 git checkout 9_0.1.0
 npm install
