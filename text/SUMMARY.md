@@ -76,7 +76,7 @@
       * [Section HOCs](6.md#section-hocs)
       * [Section Query](6.md#section-query)
       * [More routing](6.md#more-routing)
-  * [Auth](6.md#auth)
+  * [Authentication](6.md#authentication)
     * [Logging in](6.md#logging-in)
     * [Resetting](6.md#resetting)
   * [Mutating](6.md#mutating)

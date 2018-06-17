@@ -199,7 +199,7 @@ graphql(schema, query).then(result => {
 
 # HTTP
 
-HTTP is a format for sending messages over the Internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#auth)), and a body (where GraphQL queries and responses go).
+HTTP is a format for sending messages over the Internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#authentication)), and a body (where GraphQL queries and responses go).
 
 # SPA
 
