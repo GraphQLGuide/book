@@ -30,4 +30,4 @@ mkdir out/
 
 ---
 
-[Changelog](https://github.com/GraphQLGuide/book/releases) (we use Github releases)
+[Changelog](https://github.com/GraphQLGuide/book/releases)
