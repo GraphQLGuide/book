@@ -6,14 +6,17 @@ Chapter contents:
 * [JSON](bg.md#json)
 * [Git](bg.md#git)
 * [Node & npm & nvm](bg.md#node-&-npm-&-nvm)
+* [HTTP](bg.md#http)
 * [SPA](bg.md#spa)
 * [SSR](bg.md#ssr)
-* [HTTP](bg.md#http)
 * [Latency](bg.md#latency)
 * [Webhooks](bg.md#webhooks)  
+* [Continuous integration](bg.md#continuous-integration)
 * [Authentication](bg.md#authentication)
   * [Tokens vs. sessions](bg.md#tokens-vs-sessions)
   * [localStorage vs. cookies](bg.md#localstorage-vs-cookies)
+* [Browser performance](bg.md#browser-performance)
+
 
 ---
 
@@ -21,7 +24,7 @@ This chapter provides concise introductions to various background topics. You’
 
 Background: [HTTP](bg.md#http), [JSON](bg.md#json)
 
-Some topics, like Git and Node, are necessary for following along with the coding. Others, like Tokens vs. sessions, are nice to know, but not necessary.
+Some topics, like [Git](#git) and [Node](#node), are necessary for following along with the coding. Others, like [Tokens vs. sessions](#tokens-vs-sessions), are nice to know, but not necessary.
 
 # JavaScript
 
@@ -229,7 +232,7 @@ round-trip min/avg/max/stddev = 3.919/4.912/5.375/0.517 ms
 
 It generally takes longer to reach servers that are physically farther away. The internet backbone is made of fiber optic cables, and the light messages travelling through them has a maximum speed. It takes 75 ms for a message to go from New York across the Atlantic Ocean to Paris and back. And the same to cross the U.S. to San Francisco and back. 164 ms from New York to Tokyo, and 252 ms from New York to Shanghai.
 
-> These numbers will change once [Elon](https://en.wikipedia.org/wiki/Elon_Musk) builds [Starlink](https://en.wikipedia.org/wiki/Starlink_(satellite_constellation)), a network of near-Earth satellites 🤩. The satellites will be so close that the latency from the ground is 7 ms, and the satellites will communicate with each other via light. Light travels faster in straight lines through space than in cables curved over the Earth’s surface, so latency to far-off locations will be reduced!
+> These numbers will change once [Elon](https://en.wikipedia.org/wiki/Elon_Musk) builds [Starlink](https://en.wikipedia.org/wiki/Starlink_(satellite_constellation)), a network of near-Earth satellites 🤩. The satellites will be so near that the latency to them from the ground is 7 ms, and then the satellites will communicate with each other by light. Light travels faster in straight lines through space than in cables curved over the Earth’s surface, so latency to far-off locations will be reduced!
 
 Why do developers need to know about latency? Because we never want to keep our users waiting! If our web server is in New York, our database is in Shanghai, and our user is in San Francisco, and the request requires 3 database requests in series, and our server code takes 20ms, then the user won’t receive a response for (75 + 252 * 3 + 20) = 851 ms! (And this is assuming the [TCP](#http) connection is already set up, which would require another round trip from the user to the server, not to mention the longer SSL handshake if it’s HTTPS.) Almost one second is a long time for our user, whose human brain [notices delays](https://developers.google.com/web/fundamentals/performance/rail)
 as short as 100ms. This is why we try to locate our database server in the same datacenter as our web server (for example both in Amazon’s [`us-east-1`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)). It’s why we use a CDN to get our files on servers around the world, closer to our users. It’s also why we try to reduce the number of sequential requests we need to make between the client and the server, and why it’s so important that we can put all of our queries in a single GraphQL request.
@@ -257,6 +260,14 @@ Webhooks are a system for how one server can notify another server when somethin
 ```
 
 Then our server parses the JSON to figure out what happened. In this case, the `sender` is the user who performed the action, and we see under the `repository` attribute that the repo now has 9 watchers.
+
+# Continuous integration
+
+While continuous integration (CI) technically means merging to master frequently, in modern web development it usually means the process of tests being run automatically on each commit. It's often done with a service like [CircleCI](https://circleci.com/) that monitors our commits on Github, runs the tests on their servers, and provides a webpage for each commit where we can view the test output. We can also set it up to do something after the test, such as:
+
+- Mark a pull request as passing or failing the tests.
+- Mark that commit as passing or failing by adding a red X or green checkmark next to the commit in the repository's history.
+- If successful, deploy the code to a server—for example the staging or production server.
 
 # Authentication
 
@@ -297,3 +308,40 @@ We can store session secrets and signed tokens in either localStorage or cookies
 - **CSRF**: Cookies are vulnerable to [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery), whereas localStorage is not.
 
 While the XSS issue is a serious concern, a common mitigation is setting short expirations, and for applications without strict security requirements, we again recommend using whichever method is easier to set up.
+
+# Browser performance
+
+Users notice when sites are slow, and they don't like it 😄. So if we want our users to feel good using our site, we want things in the browser to happen at a certain speed. 
+
+First let's go over how the browser works. Because JavaScript is single-threaded, it can only run on a single CPU core. We can have particular pieces of JS run in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), which can run on different cores, but most of our JS runs on one core, in the browser's **main thread**. The browser also needs to do most of its page **rendering** (parsing HTML and CSS, laying out elements, painting pixels into images, etc) in the main thread. 
+
+> **Composition**, in which the pixel images are positioned, happens on the GPU.
+
+A CPU core has a limited speed—it can only do a certain amount of work each millisecond. And because both JS and rendering happen on the same core, every millisecond our JS takes up is another millisecond the browser rendering has to wait before it can run. And the user won't see the page update until the browser has a chance to render.
+
+Now that we know what's going on, let's think about different situations the user is in, and how fast our site should be in each:
+
+- **Page load:** The faster the better, but good targets are under 5 seconds *time to interactive* (the page is interactive when content has been displayed and the page is interactable—it can be scrolled, things can be clicked on, etc.) for the first visit and under 2 seconds for subsequent visits.
+- **Response:** When humans take an action like clicking a button, and the page changes within 100 milliseconds, they generally perceive the response as immediate. If the response takes over 100ms, humans perceive a delay. If our event handler runs code that takes 100ms on slow devices, then we want to break the code into two pieces: the minimum amount that will trigger the desired UI change, and the rest. And we schedule the rest to be done later:
+
+```js
+button.onclick = () => {
+  updateUI()
+  window.requestIdleCallback(doTheRest)
+}
+```
+
+or in React:
+
+```js
+class Foo extends Component {
+  onClick = () => {
+    this.setState({ something: 'different' })
+    window.requestIdleCallback(this.doTheRest)
+  }
+}
+```
+
+[requestIdleCallback()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback) runs the given function when the browser is idle, after it has finished rendering the changes triggered by `updateUI()`.
+
+- **Animation:** Humans perceive a motion as smooth at 60 fps—when 60 frames are rendered per second. If we take 1000 milliseconds and divide by 60, we get 16. So while something is moving on the page, we want the browser to be able to render every 16ms. The browser needs 6ms to paint, which gives us 10ms left to run JS in. "Something moving" includes visual animations like entrances/exits and loading indicators, scrolling, and dragging.
