@@ -17,7 +17,6 @@ Chapter contents:
   * [localStorage vs. cookies](bg.md#localstorage-vs-cookies)
 * [Browser performance](bg.md#browser-performance)
 
-
 ---
 
 This chapter provides concise introductions to various background topics. You’re welcome to either read them all up front or individually as you go along—at the beginning of a section, you’ll find a list of topics it assumes knowledge of, like the [Anywhere: HTTP](5.md#anywhere-http) section, which has two listed:
@@ -202,7 +201,40 @@ graphql(schema, query).then(result => {
 
 # HTTP
 
-HTTP is a format for sending messages over the Internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#authentication)), and a body (where GraphQL queries and responses go).
+HTTP is a format for sending messages over the Internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#authentication)), and a body (where GraphQL queries and responses go). 
+
+When we enter a URL like `http://graphql.guide/` into our browser, it goes through these steps:
+
+1. Browser asks DNS server what the IP address of `graphql.guide` is.
+2. DNS server responds with `104.27.191.39`.
+
+We can see for ourselves what the DNS server says using the `nslookup` command:
+
+```sh
+$ nslookup graphql.guide
+Server:         8.8.4.4
+Address:        8.8.4.4#53
+
+Non-authoritative answer:
+Name:   graphql.guide
+Address: 104.27.191.39
+```
+
+3. Browser sends out a message to the Internet that looks like this:
+
+```
+IP to 104.27.191.39
+TCP to port 80
+HTTP GET /
+```
+
+4. Internet routers look at the IP part, see it is addressed to `104.27.191.39`, and pass it off to a router that is closer to `104.27.191.39`.
+
+5. The message arrives at `104.27.191.39` (the IP address of the Guide server), which opens the message, sees that it's trying to connect to port 80, and passes the message to whatever server program (in this case a Node.js process) is listening at the port. 
+
+6. The server process sees that the client wants to GET /, the root path, and sends back an `index.html` to the client.
+
+> This process is a little simplified—it actually takes a separate round-trip message to set up the TCP connection, and for `graphql.guide`, the client is actually redirected to HTTPS at the beginning, which uses port 443 and sets up an SSL connection before sending HTTP GET /.
 
 # SPA
 
@@ -263,7 +295,7 @@ Then our server parses the JSON to figure out what happened. In this case, the `
 
 # Continuous integration
 
-While continuous integration (CI) technically means merging to master frequently, in modern web development it usually means the process of tests being run automatically on each commit. It's often done with a service like [CircleCI](https://circleci.com/) that monitors our commits on Github, runs the tests on their servers, and provides a webpage for each commit where we can view the test output. We can also set it up to do something after the test, such as:
+While continuous integration (CI) technically means merging to master frequently, in modern web development it usually means the process of tests being run automatically on each commit. It's often done with a service like [CircleCI](https://circleci.com/) that monitors our commits on GitHub, runs the tests, and provides a webpage for each commit where we can view the test output. We can also set it up to do something after the test, such as:
 
 - Mark a pull request as passing or failing the tests.
 - Mark that commit as passing or failing by adding a red X or green checkmark next to the commit in the repository's history.
@@ -311,7 +343,7 @@ While the XSS issue is a serious concern, a common mitigation is setting short e
 
 # Browser performance
 
-Users notice when sites are slow, and they don't like it 😄. So if we want our users to feel good using our site, we want things in the browser to happen at a certain speed. 
+Users notice when sites are slow, and they don't like it 😄. So if we want our users to feel good using our site, we want different things in the browser to happen at certain speeds. 
 
 First let's go over how the browser works. Because JavaScript is single-threaded, it can only run on a single CPU core. We can have particular pieces of JS run in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), which can run on different cores, but most of our JS runs on one core, in the browser's **main thread**. The browser also needs to do most of its page **rendering** (parsing HTML and CSS, laying out elements, painting pixels into images, etc) in the main thread. 
 
@@ -319,10 +351,10 @@ First let's go over how the browser works. Because JavaScript is single-threaded
 
 A CPU core has a limited speed—it can only do a certain amount of work each millisecond. And because both JS and rendering happen on the same core, every millisecond our JS takes up is another millisecond the browser rendering has to wait before it can run. And the user won't see the page update until the browser has a chance to render.
 
-Now that we know what's going on, let's think about different situations the user is in, and how fast our site should be in each:
+Now that we know what's going on, let's think about different situations the user is in and how fast our site should be in each:
 
 - **Page load:** The faster the better, but good targets are under 5 seconds *time to interactive* (the page is interactive when content has been displayed and the page is interactable—it can be scrolled, things can be clicked on, etc.) for the first visit and under 2 seconds for subsequent visits.
-- **Response:** When humans take an action like clicking a button, and the page changes within 100 milliseconds, they generally perceive the response as immediate. If the response takes over 100ms, humans perceive a delay. If our event handler runs code that takes 100ms on slow devices, then we want to break the code into two pieces: the minimum amount that will trigger the desired UI change, and the rest. And we schedule the rest to be done later:
+- **Response:** When humans take an action like clicking a button, and the page changes within 100 milliseconds, they generally perceive the response as immediate. If the response takes over 100ms, humans perceive a delay. If our click event handler runs code that takes 100ms on slow devices, then we want to break the code into two pieces: the minimum amount that will trigger the desired UI change, and the rest. And we schedule the rest to be done later:
 
 ```js
 button.onclick = () => {
@@ -342,6 +374,6 @@ class Foo extends Component {
 }
 ```
 
-[requestIdleCallback()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback) runs the given function when the browser is idle, after it has finished rendering the changes triggered by `updateUI()`.
+[requestIdleCallback()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback) runs the given function when the browser is idle, after it has finished rendering the changes triggered by `updateUI()`/`this.setState()`.
 
 - **Animation:** Humans perceive a motion as smooth at 60 fps—when 60 frames are rendered per second. If we take 1000 milliseconds and divide by 60, we get 16. So while something is moving on the page, we want the browser to be able to render every 16ms. The browser needs 6ms to paint, which gives us 10ms left to run JS in. "Something moving" includes visual animations like entrances/exits and loading indicators, scrolling, and dragging.

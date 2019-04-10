@@ -23,9 +23,10 @@ We welcome issues and PRs! For large changes, we recommend opening an issue firs
 If you're working on gitbook-related issues or want to see how your PR will be formatted, follow these steps to get set up after cloning:
 
 ```sh
-npm i -g gitbook
+npm i -g gitbook-cli
 gitbook install
 mkdir out/
+./build.sh
 ```
 
 ---

@@ -121,7 +121,7 @@
       * [Add new reviews](6.md#add-new-reviews)
       * [Update on edit and delete](6.md#update-on-edit-and-delete)
     * [Prefetching](6.md#prefetching)
-      * [On mouse over](6.md#on-mouse-over)
+      * [On mouseover](6.md#on-mouseover)
       * [Cache redirects](6.md#cache-redirects)
     * [Batching](6.md#batching)
     * [Persisting](6.md#persisting)
