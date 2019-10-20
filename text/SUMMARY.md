@@ -12,18 +12,23 @@
 
 * [Background](bg.md)
   * [JavaScript](bg.md#javascript)
+  * [JavaScript classes](bg.md#javascript-classes)
   * [JSON](bg.md#json)
   * [Git](bg.md#git)
   * [Node & npm & nvm](bg.md#node-&-npm-&-nvm)
   * [HTTP](bg.md#http)
+  * [Server](bg.md#server)
+  * [MongoDB](bg.md#mongodb)
   * [SPA](bg.md#spa)
   * [SSR](bg.md#ssr)
+  * [React](bg.md#react)
   * [Latency](bg.md#latency)
   * [Webhooks](bg.md#webhooks)  
+  * [Testing](bg.md#testing)  
   * [Continuous integration](bg.md#continuous-integration)
   * [Authentication](bg.md#authentication)
     * [Tokens vs. sessions](bg.md#tokens-vs-sessions)
-    * [localStorage vs. cookies](bg.md#localstorage-vs-cookies)  
+    * [localStorage vs. cookies](bg.md#localstorage-vs-cookies)
   * [Browser performance](bg.md#browser-performance)
 
 * [Chapter 1: Understanding GraphQL Through REST](1.md)
@@ -144,27 +149,64 @@
 * [Chapter 10: Android](10.md)
 
 * [Chapter 11: Server Dev](11.md)
-  * Setting up node
-  * Writing good schemas
-  * Writing resolvers
-  * Structuring the server
-    * Schema
-    * Models & connectors
-  * Subscriptions
-  * Connecting data sources
-    * SQL
-    * MongoDB
-    * REST APIs
-    * Prisma
-    * Redis
-    * Elasticsearch
-    * RethinkDB
-  * Security
-    * Authentication
-    * Authorization
-    * Denial of service
+  * [Introduction](11.md#introduction)
+    * [Why build a GraphQL server?](11.md#why-build-a-graphql-server)
+    * [What kind of GraphQL server should I build?](11.md#what-kind-of-graphql-server-should-i-build)
+  * [Building](11.md#building)
+    * [Project setup](11.md#project-setup)
+    * [Types and resolvers](11.md#types-and-resolvers)
+    * [Authentication](11.md#authentication)
+    * [Data sources](11.md#data-sources)
+      * [Setting up](11.md#setting-up)
+      * [File structure](11.md#file-structure)
+      * [Creating reviews](11.md#creating-reviews)
+    * [Custom scalars](11.md#custom-scalars)
+    * [Creating users](11.md#creating-users)
+      * [Protecting with secret key](11.md#protecting-with-secret-key)
+      * [Setting user context](11.md#setting-user-context)
+      * [Linking users to reviews](11.md#linking-users-to-reviews)
+    * [Authorization](11.md#authorization)
+    * [Errors](11.md#errors)
+      * [Nullability](11.md#nullability)
+      * [Union errors](11.md#union-errors)
+      * [formatError](11.md#formaterror)
+        * [Logging errors](11.md#logging-errors)
+        * [Masking errors](11.md#masking-errors)
+      * [Error checking](11.md#error-checking)
+      * [Custom errors](11.md#custom-errors)
+    * [Subscriptions](11.md#subscriptions)
+      * [githubStars](11.md#githubstars)
+      * [reviewCreated](11.md#reviewcreated)
+    * [Testing](11.md#testing)
+      * [Static testing](11.md#static-tests)
+      * [Review integration tests](11.md#review-integration-tests)
+      * [Code coverage](11.md#code-coverage)
+      * [User integration tests](11.md#user-integration-tests)
+      * [Unit tests](11.md#unit-tests)
+      * [End-to-end tests](11.md#end-to-end-tests)
+  * [Production]()
+    * [Deploying]()
+    * [Error reporting]()
+    * [Analytics]()
+    * [Security]()
+  * [More data sources]()
+    * [SQL]()
+    * [REST]()
+    * [Redis]()
+    * [Elasticsearch]()
+    * [Custom data source]()
+    * [Prisma]()
   * Extended topics
+    * Pagination
+    * File uploads
+    * Mocking
+    * Schema design
+    * Schema federation
+    * Schema change validation
+    * Subscription design
+    * Auth options
+    * Custom schema directives
     * Caching
-    * Batching
-    * Prepared queries
-    * Testing
+    * Performance
+    * Future
+

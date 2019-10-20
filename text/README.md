@@ -34,14 +34,19 @@ We have a [Background](bg.md) chapter that provides concise introductions to var
 Here’s a full list of the topics:
 
 * [JavaScript](bg.md#javascript)
+* [JavaScript classes](bg.md#javascript-classes)
 * [JSON](bg.md#json)
 * [Git](bg.md#git)
 * [Node & npm & nvm](bg.md#node-&-npm-&-nvm)
 * [HTTP](bg.md#http)
+* [Server](bg.md#server)
+* [MongoDB](bg.md#mongodb)
 * [SPA](bg.md#spa)
 * [SSR](bg.md#ssr)
+* [React](bg.md#react)
 * [Latency](bg.md#latency)
 * [Webhooks](bg.md#webhooks)  
+* [Testing](bg.md#testing)  
 * [Continuous integration](bg.md#continuous-integration)
 * [Authentication](bg.md#authentication)
   * [Tokens vs. sessions](bg.md#tokens-vs-sessions)
@@ -140,9 +145,9 @@ Another important resource is the docs! Here they are for each library:
 
 # Version
 
-Book version: `r3` ([changelog](https://github.com/GraphQLGuide/book/releases))
+Book version: `r4` ([changelog](https://github.com/GraphQLGuide/book/releases))
 
-Published April 10, 2019
+Published TODO September 13, 2019
 
 As we write more of the book, we’ll send you new versions of it (using the email address on the GitHub account you connected when you purchased the book from [graphql.guide](https://graphql.guide)).
 
@@ -154,4 +159,12 @@ Code version: `0.2.0` ([changelog](https://github.com/GraphQLGuide/guide/blob/ma
 react-apollo 2.5
 graphql 0.14
 react 16.8
+```
+
+## Chapter 11
+
+Code version: `0.1.0` ([changelog](https://github.com/GraphQLGuide/guide-api/blob/master/CHANGELOG.md))
+
+```
+apollo-server 2.6
 ```
