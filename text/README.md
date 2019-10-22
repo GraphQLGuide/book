@@ -147,7 +147,7 @@ Another important resource is the docs! Here they are for each library:
 
 Book version: `r4` ([changelog](https://github.com/GraphQLGuide/book/releases))
 
-Published TODO September 13, 2019
+Published October 22, 2019
 
 As we write more of the book, we’ll send you new versions of it (using the email address on the GitHub account you connected when you purchased the book from [graphql.guide](https://graphql.guide)).
 
