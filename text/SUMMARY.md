@@ -15,14 +15,18 @@
   * [JavaScript classes](bg.md#javascript-classes)
   * [JSON](bg.md#json)
   * [Git](bg.md#git)
-  * [Node & npm & nvm](bg.md#node-&-npm-&-nvm)
+  * [Node, npm, and nvm](bg.md#node-npm-and-nvm)
   * [HTTP](bg.md#http)
   * [Server](bg.md#server)
-  * [MongoDB](bg.md#mongodb)
+  * [Databases](bg.md#databases)
+    * [MongoDB](bg.md#mongodb)
+    * [Redis](bg.md#redis)
+    * [SQL](bg.md#sql)
   * [SPA](bg.md#spa)
   * [SSR](bg.md#ssr)
   * [React](bg.md#react)
   * [Latency](bg.md#latency)
+  * [CDN](bg.md#cdn)  
   * [Webhooks](bg.md#webhooks)  
   * [Testing](bg.md#testing)  
   * [Continuous integration](bg.md#continuous-integration)
@@ -43,6 +47,8 @@
   * [Security & error handling](1.md#security-&-error-handling)
   * [Tying this all together](1.md#tying-this-all-together)
 
+### Part I: The Spec
+
 * [Chapter 2: Query Language](2.md)
   * [Document](2.md#document)
   * [Fields]()
@@ -52,6 +58,7 @@
   * [Directives]()
   * [Mutations]()
   * [Subscriptions]()
+
 
 * [Chapter 3: Type System](3.md)
   * [Schema]()
@@ -65,22 +72,26 @@
   * [Unions]()
   * [Interfaces]()
 
+
 * [Chapter 4: Validation & Execution](4.md)
   * [Validation]()
   * [Resolvers]()
   * [Execution]()
   * [Error handling]()
 
+### Part II: The Client
+
 * [Chapter 5: Client Dev](5.md)
   * [Anywhere: HTTP](5.md#anywhere-http)
     * [cURL](5.md#curl)
-    * [Javascript](5.md#javascript)
+    * [JavaScript](5.md#javascript)
   * [Client libraries](5.md#client-libraries)
     * [Streamlined request function](5.md#streamlined-request-function)
     * [Typing](5.md#typing)
     * [View layer integration](5.md#view-layer-integration)
     * [Caching](5.md#caching)
     * [DevTools](5.md#devtools)
+
 
 * [Chapter 6: React](6.md)
   * [Setting up](6.md#setting-up)
@@ -121,7 +132,7 @@
       * [Direct writes](6.md#direct-writes)
       * [Local mutations](6.md#local-mutations)
     * [REST](6.md#rest)
-    * [Reviews subscriptions](6.md#reviews-subscriptions)
+    * [Review subscriptions](6.md#review-subscriptions)
       * [Subscription component](6.md#subscription-component)
       * [Add new reviews](6.md#add-new-reviews)
       * [Update on edit and delete](6.md#update-on-edit-and-delete)
@@ -142,11 +153,16 @@
 
 * [Chapter 7: Vue](7.md)
 
+
 * [Chapter 8: React Native](8.md)
+
 
 * [Chapter 9: iOS](9.md)
 
+
 * [Chapter 10: Android](10.md)
+
+### Part III: The Server
 
 * [Chapter 11: Server Dev](11.md)
   * [Introduction](11.md#introduction)
@@ -177,36 +193,76 @@
     * [Subscriptions](11.md#subscriptions)
       * [githubStars](11.md#githubstars)
       * [reviewCreated](11.md#reviewcreated)
-    * [Testing](11.md#testing)
-      * [Static testing](11.md#static-tests)
-      * [Review integration tests](11.md#review-integration-tests)
-      * [Code coverage](11.md#code-coverage)
-      * [User integration tests](11.md#user-integration-tests)
-      * [Unit tests](11.md#unit-tests)
-      * [End-to-end tests](11.md#end-to-end-tests)
-  * [Production]()
-    * [Deploying]()
-    * [Error reporting]()
-    * [Analytics]()
-    * [Security]()
-  * [More data sources]()
-    * [SQL]()
-    * [REST]()
-    * [Redis]()
-    * [Elasticsearch]()
-    * [Custom data source]()
-    * [Prisma]()
-  * Extended topics
-    * Pagination
-    * File uploads
-    * Mocking
-    * Schema design
-    * Schema federation
-    * Schema change validation
-    * Subscription design
-    * Auth options
-    * Custom schema directives
-    * Caching
-    * Performance
-    * Future
-
+  * [Testing](11.md#testing)
+    * [Static testing](11.md#static-tests)
+    * [Review integration tests](11.md#review-integration-tests)
+    * [Code coverage](11.md#code-coverage)
+    * [User integration tests](11.md#user-integration-tests)
+    * [Unit tests](11.md#unit-tests)
+    * [End-to-end tests](11.md#end-to-end-tests)
+  * [Production](11.md#production)
+    * [Deployment](11.md#deployment)
+      * [Options](11.md#options)
+      * [Deploying](11.md#deploying)
+      * [Environment variables](11.md#environment-variables)
+    * [Database hosting](11.md#database-hosting)
+      * [MongoDB hosting](11.md#mongodb-hosting)
+      * [Redis hosting](11.md#redis-hosting)
+        * [Redis PubSub](11.md#redis-pubsub)
+        * [Redis caching](11.md#redis-caching)
+    * [Querying in production](11.md#querying-in-production)
+    * [Analytics](11.md#analytics)
+    * [Error reporting](11.md#error-reporting)
+  * [More data sources](11.md#more-data-sources)
+    * [SQL](11.md#sql)
+      * [SQL setup](11.md#sql-setup)
+      * [SQL data source](11.md#sql-data-source)
+      * [SQL testing](11.md#sql-testing)
+      * [SQL performance](11.md#sql-performance)
+    * [REST](11.md#rest)
+    * [GraphQL](11.md#graphql)
+    * [Custom data source](11.md#custom-data-source)
+    * [Prisma](11.md#prisma)
+  * [Extended topics](11.md#extended-topics)
+    * [Mocking](11.md#mocking)
+    * [Pagination](11.md#pagination)
+      * [Offset-based](11.md#offset-based)
+      * [Cursors](11.md#cursors)
+        * [after an ID](11.md#after-an-id)
+        * [Relay cursor connections](11.md#relay-cursor-connections)
+    * [File uploads](11.md#file-uploads)
+      * [Client-side](11.md#client-side)
+      * [Server-side](11.md#server-side)
+    * [Schema validation](11.md#schema-validation)
+    * [Apollo federation](11.md#apollo-federation)
+      * [Federated service](11.md#federated-service)
+      * [Federated gateway](11.md#federated-gateway)
+      * [Extending entities](11.md#extending-entities)
+      * [Managed federation](11.md#managed-federation)
+      * [Deploying federation](11.md#deploying-federation)
+    * [Hasura](11.md#hasura)
+    * [Schema design](11.md#schema-design)
+      * [One schema](11.md#one-schema)
+      * [User-centric](11.md#user-centric)
+      * [Easy to understand](11.md#easy-to-understand)
+      * [Easy to use](11.md#easy-to-use)
+      * [Mutations](11.md#mutations)
+        * [Arguments](11.md#arguments)
+        * [Payloads](11.md#payloads)
+      * [Versioning](11.md#versioning)
+    * [Custom schema directives](11.md#custom-schema-directives)
+      * [@tshirt](11.md#@tshirt)
+      * [@upper](11.md#@upper)
+      * [@auth](11.md#@auth)
+    * [Subscriptions in depth](11.md#subscriptions-in-depth)
+      * [Server architecture](11.md#server-architecture)
+      * [Subscription design](11.md#subscription-design)
+    * [Security](11.md#security)
+      * [Auth options](11.md#auth-options)
+        * [Authentication](11.md#authentication)
+        * [Authorization](11.md#authorization)
+      * [Denial of service](11.md#denial-of-service)
+    * [Performance](11.md#performance)
+      * [Data fetching](11.md#data-fetching)
+      * [Caching](11.md#caching)
+    * [Future](11.md#future)

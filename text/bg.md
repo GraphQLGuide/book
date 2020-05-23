@@ -6,14 +6,18 @@ Chapter contents:
 * [JavaScript classes](bg.md#javascript-classes)
 * [JSON](bg.md#json)
 * [Git](bg.md#git)
-* [Node & npm & nvm](bg.md#node-&-npm-&-nvm)
+* [Node, npm, and nvm](bg.md#node-npm-and-nvm)
 * [HTTP](bg.md#http)
 * [Server](bg.md#server)
-* [MongoDB](bg.md#mongodb)
+* [Databases](bg.md#databases)
+  * [MongoDB](bg.md#mongodb)
+  * [Redis](bg.md#redis)
+  * [SQL](bg.md#sql)
 * [SPA](bg.md#spa)
 * [SSR](bg.md#ssr)
 * [React](bg.md#react)
 * [Latency](bg.md#latency)
+* [CDN](bg.md#cdn)  
 * [Webhooks](bg.md#webhooks)  
 * [Testing](bg.md#testing)  
 * [Continuous integration](bg.md#continuous-integration)
@@ -203,7 +207,7 @@ In JSON documents, whitespace doesn’t matter, and commas go between attribute�
 > 
 > `[{ "name": "john" }, { "name": "loren" }]`
 
-In Javascript, if we have this document in a string, we can parse it to create a Javascript object with the same data:
+In JavaScript, if we have this document in a string, we can parse it to create a JavaScript object with the same data:
 
 ```js
 const jsObject = JSON.parse(jsonString)
@@ -216,7 +220,7 @@ When working with raw [HTTP](#http) responses that contain a JSON body, we have 
 
 [Git](https://en.wikipedia.org/wiki/Git) is a version control system for saving your code and keeping a history of the changes. Unfamiliar? Try this [interactive tutorial](https://try.github.io/)
 
-# Node & npm & nvm
+# Node, npm, and nvm
 
 [Node](https://nodejs.org/en/) is what runs JavaScript on a server. [npm](https://www.npmjs.com/) is a JavaScript package manager and registry. Their `npm` command-line tool manages the packages (libraries of JavaScript code) that our app depends on, helping us install and upgrade them. Their registry stores the content of the packages and makes them available for download—it has more packages than any other registry in the history of software! We use npm packages both with code that runs on the server in Node and with code that runs on the client—in the browser or in React Native. 
 
@@ -234,7 +238,7 @@ This installs the latest version of Node. Then in a new terminal window, we can 
 $ node -v
 ```
 
-We can keep track of which projects uses which versions of node by adding a `.nvmrc` file to the root of each project. It contains a version number (like `8` or `8.11.3`) or `node` to use the latest stable version. Then when we switch projects, we run `nvm use` to switch to that project’s version of node:
+We can keep track of which projects use which versions of node by adding a `.nvmrc` file to the root of each project. It contains a version number (like `8` or `8.11.3`) or `node` to use the latest stable version. Then when we switch projects, we run `nvm use` to switch to that project’s version of node:
 
 ```sh
 $ nvm use
@@ -273,7 +277,7 @@ We see the current package’s version, which was `0.13.1` at time of writing. n
 
 `[major version].[minor version].[patch version]`
 
-Major version changes mean that the library’s API has been changed in an incompatible way—if we write our code to use version `1.0.0` of a library (for example, using the library’s function `doThis()`), our code will probably break if we switch to version `2.0.0` (for example, if the library renamed `doThis` to `doThat`, and our code were still called `doThis()`, we’d get an error). Minor and patch version changes do not break the API—if we write our code using version `1.0.0` of a library, we can safely upgrade to version `1.0.8` or `1.4.0`.
+Major version changes mean that the library’s API has been changed in an incompatible way—if we write our code to use version `1.0.0` of a library (for example, using the library’s function `doThis()`), our code will probably break if we switch to version `2.0.0`. (For example, if the library renamed `doThis` to `doThat`, and our code were still called `doThis()`, we’d get an error.) Minor and patch version changes do not break the API—if we write our code using version `1.0.0` of a library, we can safely upgrade to version `1.0.8` or `1.4.0`.
 
 Minor version changes mean that functionality has been added—if we write our code using version `1.4.0`, it may break if we switch to version `1.3.0`, because it may use a feature introduced in minor version 4. Patch version changes mean that bugs have been fixed—if we switch from `1.0.8` to `1.0.7`, our code may stop working because of the bug that was fixed in patch version 8.
 
@@ -281,7 +285,7 @@ The one exception to the above is that version numbers with a major version of 0
 
 A caret `^` before a version number means that our code depends on any version compatible with that number—for example, if we had a dependency `"foo": "^1.4.0"`, our code should work with any versions between `1.4.0` and `2.0.0`, such as `1.4.1` or `1.11.2`.
 
-We can also see that we have a new `node_modules/` folder, and inside it is folders with the package code:
+We can also see that we have a new `node_modules/` folder, and it contains folders with the package code:
 
 ```sh
 $  ls node_modules/
@@ -349,12 +353,12 @@ graphql(schema, query).then(result => {
 
 # HTTP
 
-HTTP is a format for sending messages over the Internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#authentication)), and a body (where GraphQL queries and responses go). 
+HTTP is a format for sending messages over the internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#authentication)), and a body (where GraphQL queries and responses go). 
 
 When we enter a URL like `http://graphql.guide/` into our browser, it goes through these steps:
 
-1. Browser asks DNS server what the IP address of `graphql.guide` is.
-2. DNS server responds with `104.27.191.39`.
+- Browser asks DNS server what the IP address of `graphql.guide` is.
+- DNS server responds with `104.27.191.39`.
 
 We can see for ourselves what the DNS server says using the `nslookup` command:
 
@@ -368,7 +372,7 @@ Name:   graphql.guide
 Address: 104.27.191.39
 ```
 
-3. Browser sends out a message to the Internet that looks like this:
+- Browser sends out a message to the internet that looks like this:
 
 ```
 IP to 104.27.191.39
@@ -376,13 +380,13 @@ TCP to port 80
 HTTP GET /
 ```
 
-4. Internet routers look at the IP part, see it is addressed to `104.27.191.39`, and pass it off to a router that is closer to `104.27.191.39`.
+- Internet routers look at the IP part, see it is addressed to `104.27.191.39`, and pass it off to a router that is closer to `104.27.191.39`.
 
-5. The message arrives at `104.27.191.39` (the IP address of the Guide server), which opens the message, sees that it’s trying to connect to port 80, and passes the message to whatever server program (in this case a Node.js process) is listening at the port. 
+- The message arrives at `104.27.191.39` (the IP address of the Guide server), which opens the message, sees that it’s trying to connect to port 80, and passes the message to whatever server program (in this case, a Node.js process) is listening at the port. 
 
-> An *IP address* is the number ID of a computer on the Internet, and we can think of a *port* as the number of a program running on that computer.
+> An *IP address* is the number ID of a computer on the internet, and we can think of a *port* as the number of a program running on that computer.
 
-6. The server process sees that the client wants to GET /, the root path, and sends back an `index.html` to the client.
+- The server process sees that the client wants to GET /, the root path, and sends back an `index.html` to the client.
 
 > This sequence is a little simplified—it actually takes a separate round-trip message to set up the TCP connection, and for `graphql.guide`, the client is actually redirected to HTTPS at the beginning, which uses port 443 and sets up an SSL connection before sending HTTP GET /.
 
@@ -390,15 +394,35 @@ HTTP GET /
 
 The term *server* may refer to:
 
-1. a computer connected to a network (usually the Internet)
+1. a computer connected to a network (usually the internet)
 2. a process running on that computer that listens to one or more ports
 3. the group of computers/processes that share the responsibility of handling requests
 
-In web development, servers are usually either static file servers (which serve files like our images or JS bundle), application (app) servers (the ones that power our API and that the client talks to) or database servers. *Server-side* either means app servers or everything that’s not the client-side (including file, app, and database servers, as well as any other servers they talk to).
+In web development, servers are usually either static file servers (which serve files like our HTML, images, and JS bundle), application (app) servers (the ones that power our API and that the client talks to) or database servers. *Server-side* either means app servers or everything that’s not the client-side (including file, app, and database servers, as well as any other servers they talk to).
 
-# MongoDB
+# Databases
 
-MongoDB is a database. Databases are organized collections of data stored on a computer. Different database systems organize the data differently, store it differently, and communicate differently. While MongoDB can be used as an in-memory database (meaning the data is stored in RAM, and would be lost in the event of a power outage), it’s usually used as a persistent database that stores data on disk (a hard drive or SSD). The data is organized in collections of JSON-like documents. Developers communicate with the database using [MongoDB **schema statements**](https://docs.mongodb.com/manual/crud/):
+Databases are organized collections of data stored on a computer. That computer is called a *database server*, and the computer querying the database (usually an app server) is called the *database client*. Different databases organize their data differently, store it differently, and communicate differently. There are two types of database storage: *in-memory* (the data is stored in RAM, and would be lost in the event of a power outage) and *persistent* (the data is stored on disk—a hard drive or SSD). [Redis](#redis) is primarily used as an in-memory database, whereas [MongoDB](#mongodb) and [SQL](#sql) databases are usually used as persistent databases. 
+
+There are two main categories of databases: 
+
+- **Relational databases**: These usually use SQL (Structured Query Language), and follow the relational model, with *tables* of *columns*, *rows*, and unique keys. The most popular relational databases are SQLite for development and PostgreSQL for production. 
+- **Non-relational (NoSQL) databases**: These usually use their own query language, although some (like the [Dgraph](https://dgraph.io/) graph database and distributed [FaunaDB](https://fauna.com/)) support GraphQL as a way to query the database! 😄 There are a few categories of NoSQL databases:
+  - **Document databases** like MongoDB
+  - **Graph databases** like [Neo4J](https://neo4j.com/)
+  - **Key-value databases** like Redis
+  - **Wide-column databases** like [Cassandra](http://cassandra.apache.org/)
+  - **Multi-model** which support [multiple data models](https://en.wikipedia.org/wiki/Multi-model_database)
+
+In this section we’ll look at three databases:
+
+- [MongoDB](#mongodb)
+- [Redis](#redis)
+- [SQL](#sql)
+
+## MongoDB
+
+While MongoDB can be used as an in-memory database, it’s usually used as a persistent database. The data is organized in *collections* of JSON-like *documents*. Developers communicate with the database using [MongoDB *schema statements*](https://docs.mongodb.com/manual/crud/):
 
 ```js
 import { MongoClient } from 'mongodb'
@@ -406,35 +430,40 @@ import { MongoClient } from 'mongodb'
 const DATABASE_SERVER_URL = 'mongodb://my-database-server-domain.com:27017/guide'
 
 const client = new MongoClient(DATABASE_SERVER_URL)
-await client.connect()
-const db = client.db()
 
-// get the collection with the name 'users'
-const users = db.collection('users')
+const example = async () =>  {
+  await client.connect()
+  const db = client.db()
 
-// insert a new user document into the users collection
-await users.insertOne({
-  firstName: 'Loren',
-  email: 'loren@graphql.guide'
-})
+  // get the collection with the name 'users'
+  const users = db.collection('users')
 
-// update the document where `firstName` is Loren by
-// setting the `lastName` field (a new field)
-await users.updateOne(
-  { firstName: 'Loren' },
-  {
-    $set: { lastName: 'Sands-Ramshaw' }
-  }
-)
+  // insert a new user document into the users collection
+  await users.insertOne({
+    firstName: 'Loren',
+    email: 'loren@graphql.guide'
+  })
 
-// fetch the document where `firstName` is Loren
-const loren = await users.findOne({ firstName: 'Loren' })
-console.log(loren)
+  // update the document where `firstName` is Loren by
+  // setting the `lastName` field (a new field)
+  await users.updateOne(
+    { firstName: 'Loren' },
+    {
+      $set: { lastName: 'Sands-Ramshaw' }
+    }
+  )
 
-users.deleteOne({ _id: loren._id })
+  // fetch the document where `firstName` is Loren
+  const loren = await users.findOne({ firstName: 'Loren' })
+  console.log(loren)
+
+  users.deleteOne({ _id: loren._id })
+}
+
+example()
 ```
 
-> In practice, `await`s would need to be inside `async` functions and we should handle errors—either with a try-catch or .catch (`await users.findOne().catch(e => console.log(e)))`).
+> In practice, we should handle errors—either with a try-catch or .catch (`await users.findOne().catch(e => console.log(e)))`).
 
 This would log something like:
 
@@ -449,9 +478,138 @@ This would log something like:
 
 When a new document is inserted into a collection, if no ID is provided (in the field named `_id`), then a unique [ObjectId](https://docs.mongodb.com/manual/reference/mongodb-extended-json/#ObjectId) is generated. We usually interact with ObjectIds as strings, but they also encode the creation time, which we can get with `loren._id.getTimestamp()`.
 
-The above code uses the [`mongodb` module](https://mongodb.github.io/node-mongodb-native/) and schema statements for querying. Querying can be simplified in some ways with the [`mongoose` module](https://mongoosejs.com), the main JavaScript *ORM* for MongoDB. We’ll use Mongoose in [Chapter 1](1.md) and `mongodb` in [Chapter 11: Server Dev](11.md).
+The above code uses the [`mongodb` module](https://mongodb.github.io/node-mongodb-native/), which is the official Node.js driver provided by MongoDB. It's always up to date with security patches, it supports the latest MongoDB versions, and it includes support for:
 
-> An *ORM*, or object-relational mapping, is a library that models database records as objects. In the case of Mongoose, it models MongoDB documents as JavaScript objects. It also does validation, type casting, query building, and business logic hooks. 
+- [Transactions](https://mongodb.github.io/node-mongodb-native/3.4/api/ClientSession.html#withTransaction)
+- Aggregations ([collection](https://mongodb.github.io/node-mongodb-native/3.4/api/Collection.html#aggregate) and [database](https://mongodb.github.io/node-mongodb-native/3.4/api/Db.html#aggregate) level)
+- Retryable reads and writes
+- [Client-side field-level encryption](https://mongodb.github.io/node-mongodb-native/3.4/reference/client-side-encryption/)
+
+Querying with `mongodb` is through MongoDB schema statements. It can be simplified in some ways with the [`mongoose` module](https://mongoosejs.com), the main JavaScript *ORM* for MongoDB. We’ll use Mongoose in [Chapter 1](1.md) and `mongodb` in [Chapter 11: Server Dev](11.md).
+
+> An *ORM*, or object-relational mapping, is a library that models database records as objects. In the case of Mongoose, it models MongoDB documents as JavaScript objects. It also does schema validation, type casting, query building, and business logic hooks. 
+
+## Redis
+
+[Redis](https://en.wikipedia.org/wiki/Redis) is an in-memory key-value database with optional durability:
+
+- *in-memory*: data is read from and written to memory (RAM) and not durable (data is lost on restart or power loss)
+- *key-value*: data is stored in values and fetched by keys (unique strings)
+- *optional durability*: data can be periodically persisted (written to disk), thus making almost all the data (minus whatever changed in the last couple seconds since the last write to disk) durable (able to be recovered on restart)
+
+Redis is usually used as a cache—for data that we want quick access to but are okay losing. We can install locally with `brew install redis` and start with `brew services start redis`. Then we can query using the [`ioredis`](https://www.npmjs.com/package/ioredis) npm library:
+
+```js
+import Redis from 'ioredis'
+const redis = new Redis()
+ 
+await redis.set('name', 'The Guide')
+const name = await redis.get('name')
+// 'The Guide'
+
+redis.del('name')
+```
+
+This uses the three basic commands: SET, GET, and DEL (delete). Here the value is just a string (`'The Guide'`), but there are other types of data that values can be, including:
+
+- lists (list of strings, ordered by time of insertion)
+- sets (unique, unordered strings)
+- sorted sets
+- hashes (similar to JS objects)
+
+Hash commands include [HMSET](https://redis.io/commands/hmset) (hash multiple set) and [HGET](https://redis.io/commands/hget) (hash get single field):
+
+```js
+await redis.hmset('latest-review', { stars: '5' text: 'A+' })
+const reviewStars = parseInt(await redis.hget('latest-review', 'stars'))
+// 5
+
+redis.del('latest-review')
+```
+
+## SQL
+
+SQL (Structured Query Language) is a language for querying relational databases like SQLite and PostgreSQL. Relational databases have *tables* instead of MongoDB's collections, and *rows* instead of documents. A row is made up of *values* for each *columnn* in the table. Columns have a name and a type—for instance a `reviews` table with a column named `star` of type `INTEGER`, which could have a value of `5` in the first row:
+
+![reviews table with three columns and three rows](img/)
+
+Unlike MongoDB collections, each table has a schema—its name and list of columns. Both the table schema and query statements are written in SQL. Here are the `CREATE TABLE` and `INSERT` statements to create the pictured table and rows, and `SELECT` to view the table's contents:
+
+```
+$ brew install sqlite
+$ sqlite3
+SQLite version 3.31.1 2020-01-27 19:55:54
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> CREATE TABLE reviews(
+   ...>   id INTEGER PRIMARY KEY,
+   ...>   text TEXT NOT NULL,
+   ...>   stars INTEGER
+   ...> );
+sqlite> INSERT INTO reviews VALUES(1, 'Breathtaking', 5);
+sqlite> SELECT * FROM reviews;
+1|Breathtaking|5
+sqlite> INSERT INTO reviews VALUES(2, 'tldr', 1);
+sqlite> INSERT INTO reviews VALUES(3, "Now that's a downtown job!", null);
+sqlite> SELECT * FROM reviews;
+1|Breathtaking|5
+2|tldr|1
+3|Now that's a downtown job!|
+```
+
+The `id` column is marked as the `PRIMARY KEY` (each table must have a unique key), and `text` column is non-null (`NOT NULL`). `SELECT * from reviews` means "fetch all the values from all the rows in the reviews table," and it prints the results to the console. We insert 3 rows of `VALUES` (the values are listed in the order that the columns are declared in the schema). The last row is allowed to have a `null` value because the `stars` column wasn't declared with `NOT NULL`. And we see in the final `SELECT` statement result that there's nothing in the third column. There are many other statements and variations to statements. A couple more common ones are `UPDATE` and `DELETE`, which alter and remove rows:
+
+```
+sqlite> UPDATE reviews SET stars = 4 WHERE id = 3;
+sqlite> SELECT * FROM reviews;
+1|Breathtaking|5
+2|tldr|1
+3|Now that's a downtown job!|4
+sqlite> DELETE FROM reviews WHERE stars = 4;
+sqlite> SELECT * FROM reviews;
+1|Breathtaking|5
+2|tldr|1
+```
+
+Relational databases have relations between tables—for instance in the reviews table we can have an `author_id` column that matches the `id` column in the users table. When a review row has a value of 1 under its `author_id` column, it means the user row with an `id` of 1 authored the review. We can tell SQL about this relation between the tables by adding this to the reviews table:
+
+```
+FOREIGN KEY(author_id) REFERENCES users(id)
+```
+
+Then we can make a query that fetches data from both tables using INNER JOIN:
+
+```
+sqlite> CREATE TABLE users(
+   ...>   id INTEGER PRIMARY KEY,
+   ...>   username TEXT NOT NULL
+   ...> );
+sqlite> DROP TABLE reviews;
+sqlite> CREATE TABLE reviews(
+   ...>   id INTEGER PRIMARY KEY,
+   ...>   text TEXT NOT NULL,
+   ...>   stars INTEGER,
+   ...>   author_id INTEGER NOT NULL,
+   ...>   FOREIGN KEY(author_id) REFERENCES users(id)
+   ...> );
+sqlite> INSERT INTO users VALUES(1, 'lorensr');
+sqlite> INSERT INTO reviews VALUES(1, 'Breathtaking', 5, 1);
+sqlite> INSERT INTO reviews VALUES(2, 'tldr', 1, 1);
+sqlite> SELECT reviews.text, reviews.stars, users.username FROM reviews INNER JOIN users ON reviews.author_id = users.id;
+Breathtaking|5|lorensr
+tldr|1|lorensr
+```
+
+`Breathtaking|5` is from the reviews table while `lorensr` is from the users table.
+
+While we can send SQL statements as strings in our code, we usually use a library for convenience and security (avoiding [SQL injection](https://en.wikipedia.org/wiki/SQL_injection)). In [Chapter 11: SQL](11.md#sql) we use the [Knex](https://knexjs.org/) library, which looks like this:
+
+```js
+this.knex
+  .select('*')
+  .from('reviews')
+```
 
 # SPA
 
@@ -463,7 +621,7 @@ SSR (server-side rendering) is when, instead of sending a small HTML file and a 
 
 # React
 
-React was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular Javascript view library. (And while Vue passed React in star count in 2018, React has 5x the number of npm downloads.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.
+React was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular JavaScript view library. (And while Vue passed React in star count in 2018, React has 5x the number of npm downloads.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.
 
 As a view library, it is responsible for what the user sees on the screen. So its job is putting DOM nodes on the page and updating them. Different view libraries accomplish this in different ways and provide different APIs for us—the developers—to use. The primary features of React are:
 
@@ -474,7 +632,7 @@ As a view library, it is responsible for what the user sees on the screen. So it
 
 # Latency
 
-Latency is the delay between when one machine sends a message over the Internet and when the other machine receives it. It’s usually talked about in terms of round-trip time: the time it takes for the message to get to the destination and for a reply to reach the source. The `ping` command-line tool displays round-trip time between our computer and another machine. Here we see that it takes around 5 milliseconds total for a message to reach the nearest Google server and for the reply to arrive back:
+Latency is the delay between when one machine sends a message over the internet and when the other machine receives it. It’s usually talked about in terms of round-trip time: the time it takes for the message to get to the destination and for a reply to reach the source. The `ping` command-line tool displays round-trip time between our computer and another machine. Here we see that it takes around 5 milliseconds total for a message to reach the nearest Google server and for the reply to arrive back:
 
 ```sh
 $ ping google.com
@@ -495,7 +653,32 @@ It generally takes longer to reach servers that are physically farther away. The
 > These numbers will change once [Elon](https://en.wikipedia.org/wiki/Elon_Musk) builds [Starlink](https://en.wikipedia.org/wiki/Starlink_(satellite_constellation)), a network of near-Earth satellites 🤩. The satellites will be so near that the latency to them from the ground is 7 ms, and then the satellites will communicate with each other by light. Light travels faster in straight lines through space than in cables curved over the Earth’s surface, so latency to far-off locations will be reduced!
 
 Why do developers need to know about latency? Because we never want to keep our users waiting! If our web server is in New York, our database is in Shanghai, and our user is in San Francisco, and the request requires 3 database requests in series, and our server code takes 20ms, then the user won’t receive a response for (75 + 252 * 3 + 20) = 851 ms! (And this is assuming the [TCP](#http) connection is already set up, which would require another round trip from the user to the server, not to mention the longer SSL handshake if it’s HTTPS.) Almost one second is a long time for our user, whose human brain [notices delays](https://developers.google.com/web/fundamentals/performance/rail)
-as short as 100ms. This is why we try to locate our database server in the same datacenter as our web server (for example both in Amazon’s [`us-east-1`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)). It’s why we use a CDN to get our files on servers around the world, closer to our users. It’s also why we try to reduce the number of sequential requests we need to make between the client and the server, and why it’s so important that we can put all of our queries in a single GraphQL request.
+as short as 100ms. This is why we try to locate our database server in the same data center as our web server (for example both in Amazon’s [`us-east-1`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)). It’s why we use a [CDN](#cdn) to get our files on servers around the world, closer to our users. It’s also why we try to reduce the number of sequential requests we need to make between the client and the server, and why it’s so important that we can put all of our queries in a single GraphQL request.
+
+# CDN
+
+A CDN, or *Content Delivery Network*, has servers around the world that deliver our content to users. Because their servers are closer to our users than our servers are, they can respond faster than we can, improving [latency](#latency). Here is the way they typically deliver our content:
+
+- We tell our domain name registrar (where we bought the domain) to set the CDN as our [DNS](#http) server.
+- We have our server set a `Cache-Control` header on our responses to HTTP requests. The header tells the CDN how long to serve that response to users.
+
+Then, when a user makes a request, this is what happens the first time:
+
+- The client asks DNS server: "Where is `ourdomain.com/foo`?"
+- The DNS server, which is run by our CDN, replies: "It's at `1.2.3.4`", which is the IP address of a nearby server run by the CDN.
+- The client connects to `1.2.3.4` and makes the request, saying: `GET ourdomain.com/foo`.
+- The `1.2.3.4` CDN server doesn't know what the `/foo` response should be, so it makes this request to our server: `GET ourapp.herokudns.com/foo`.
+- The `1.2.3.4` CDN server forwards the response from our server to the client.
+- If the response from our server had an HTTP header that says `Cache-Control: max-age=60`, then the CDN caches it for 60 seconds.
+
+After the CDN caches it, during the next minute, here is what happens when other users make the same request:
+
+- The client asks DNS server: "Where is `ourdomain.com/foo`?"
+- The DNS server, which is run by our CDN, replies: "It's at `5.6.7.8`", which is the IP address of a nearby server run by the CDN.
+- The client connects to `5.6.7.8` and makes the request, saying: `GET ourdomain.com/foo`.
+- The `5.6.7.8` CDN server finds the `/foo` response in its cache, and sends it to the client.
+
+These subsequent requests take much less time to complete than requests to our server because: A) the CDN servers are closer, so it takes less time to reach them over the internet, and B) the CDN servers have the whole response ready to quickly return, whereas our server would spend time constructing the response.
 
 # Webhooks
 
@@ -641,6 +824,8 @@ While continuous integration (CI) technically means merging to master frequently
 - Mark a pull request as passing or failing the tests.
 - Mark that commit as passing or failing by adding a red X or green checkmark next to the commit in the repository’s history.
 - If successful, deploy the code to a server—for example the staging or production server.
+
+When the last step is included, the process may also be called continuous delivery or continuous deployment.
 
 # Authentication
 

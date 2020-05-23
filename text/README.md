@@ -31,29 +31,7 @@ We have a [Background](bg.md) chapter that provides concise introductions to var
 
 > Background: [HTTP](bg.md#http), [JSON](bg.md#json)
 
-Here’s a full list of the topics:
-
-* [JavaScript](bg.md#javascript)
-* [JavaScript classes](bg.md#javascript-classes)
-* [JSON](bg.md#json)
-* [Git](bg.md#git)
-* [Node & npm & nvm](bg.md#node-&-npm-&-nvm)
-* [HTTP](bg.md#http)
-* [Server](bg.md#server)
-* [MongoDB](bg.md#mongodb)
-* [SPA](bg.md#spa)
-* [SSR](bg.md#ssr)
-* [React](bg.md#react)
-* [Latency](bg.md#latency)
-* [Webhooks](bg.md#webhooks)  
-* [Testing](bg.md#testing)  
-* [Continuous integration](bg.md#continuous-integration)
-* [Authentication](bg.md#authentication)
-  * [Tokens vs. sessions](bg.md#tokens-vs-sessions)
-  * [localStorage vs. cookies](bg.md#localstorage-vs-cookies)
-* [Browser performance](bg.md#browser-performance)
-
-Some, like *Git* and *Node*, are necessary for following along with the coding. Others, like *Tokens vs. sessions*, are nice to know, but not necessary.
+Some topics like [Git](bg.md#git) and [Node](bg.md#node) are necessary for following along with the coding. Others, like [Tokens vs. sessions](bg.md#tokens-vs-sessions), are nice to know, but not necessary.
 
 # The book
 
@@ -73,7 +51,7 @@ Chapters [2](2.md) and [3](3.md) explain the language itself and its type system
 - [Chapter 9: iOS](9.md)
 - [Chapter 10: Android](10.md)
 
-[Chapter 11](11.md) is our looooong server-coding chapter 🤓. All of the examples are in Node with the `apollo-server-express` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](11.md).
+[Chapter 11: Server Dev](11.md) is our looooong server-coding chapter 🤓. All of the examples are in Node with the `apollo-server-express` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](11.md).
 
 # The code
 
@@ -85,7 +63,7 @@ Code snippets are better formatted and sized in the PDF version of the book. If 
 
 ## Git
 
-In Chapters 6–11, you’ll learn through writing an app, step by step. Each chapter has its own repository. Each step has a branch in that repo, for example branch `0` is the starter template, branch `1` has the code you write in step 1, etc. The branches we link to in the text also have a version number, and have the format: `[step]_[version]`. When this version of the Guide was published, the version of the Chapter 6 code was `0.1.0`, so step 1 linked to branch `1_0.1.0`. The current version of the code is `0.2.0`, so step 1 links to `1_0.2.0`.
+In Chapters 6–11, you’ll learn through writing an app, step by step. Each chapter has its own repository. Each step has a branch in that repo, for example, branch `0` is the starter template, branch `1` has the code you write in step 1, etc. The branches we link to in the text also have a version number, and have the format: `[step]_[version]`. When the first version of the Guide was published, the Chapter 6 code version was `0.1.0`, so step 1 linked to branch `1_0.1.0`. The current version is `0.2.0`, so step 1 links to `1_0.2.0`.
 
 If you skip the beginning of Chapter 6 and go straight to the [Listing reviews](6.md#listing-reviews) section, it says to start with step 9 (`9_0.2.0`). So we can look at the app in that state with these terminal commands:
 
@@ -125,7 +103,7 @@ singleQuote: true
 semi: false
 ```
 
-Which means `'` instead of `"` for string literals and no unnecessary semicolons.
+This means `'` instead of `"` for string literals and no unnecessary semicolons.
 
 # Resources
 
@@ -145,13 +123,13 @@ Another important resource is the docs! Here they are for each library:
 
 # Version
 
-Book version: `r4` ([changelog](https://github.com/GraphQLGuide/book/releases))
+Book version: `r5` ([changelog](https://github.com/GraphQLGuide/book/releases))
 
-Published October 22, 2019
+Published May 23, 2020
 
 As we write more of the book, we’ll send you new versions of it (using the email address on the GitHub account you connected when you purchased the book from [graphql.guide](https://graphql.guide)).
 
-## Chapter 6 
+### Chapter 6 
 
 Code version: `0.2.0` ([changelog](https://github.com/GraphQLGuide/guide/blob/master/CHANGELOG.md))
 
@@ -161,10 +139,10 @@ graphql 0.14
 react 16.8
 ```
 
-## Chapter 11
+### Chapter 11
 
-Code version: `0.1.0` ([changelog](https://github.com/GraphQLGuide/guide-api/blob/master/CHANGELOG.md))
+Code version: `0.2.0` ([changelog](https://github.com/GraphQLGuide/guide-api/blob/master/CHANGELOG.md))
 
 ```
-apollo-server 2.6
+apollo-server 2.12.0
 ```
