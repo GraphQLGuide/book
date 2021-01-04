@@ -123,23 +123,51 @@ Another important resource is the docs! Here they are for each library:
 
 # Version
 
-Book version: `r5` ([changelog](https://github.com/GraphQLGuide/book/releases))
+Book version: `r6` ([changelog](https://github.com/GraphQLGuide/book/releases))
 
-Published May 23, 2020
+Published TODO, 2021
 
 As we write more of the book, we’ll send you new versions of it (using the email address on the GitHub account you connected when you purchased the book from [graphql.guide](https://graphql.guide)).
 
-### Chapter 6 
+### Chapter 6: React
 
-Code version: `0.2.0` ([changelog](https://github.com/GraphQLGuide/guide/blob/master/CHANGELOG.md))
+Code version: `1.0.0` ([changelog](https://github.com/GraphQLGuide/guide/blob/master/CHANGELOG.md))
 
 ```
-react-apollo 2.5
-graphql 0.14
-react 16.8
+@apollo/client 3.3.6
+graphql 15.4.0
+react 17.0.1
 ```
 
-### Chapter 11
+### Chapter 7: Vue
+
+Code version: `1.0.0` ([changelog](https://github.com/GraphQLGuide/guide-vue/blob/master/CHANGELOG.md))
+
+```
+@vue/apollo-composable 4.0.0-alpha.12
+vue 3.0
+```
+
+### Chapter 8: React Native
+
+Code version: `1.0.0` ([changelog](https://github.com/GraphQLGuide/guide-react-native/blob/master/CHANGELOG.md))
+
+```
+@apollo/client 3.2.1
+expo 39.0.2
+react 16.13.1
+```
+
+### Chapter 10: Android
+
+Code version: `1.0.0` ([changelog](https://github.com/GraphQLGuide/guide-android/blob/master/CHANGELOG.md))
+
+```
+com.apollographql.apollo 2.2.2
+android sdk 29
+```
+
+### Chapter 11: Server Dev
 
 Code version: `0.2.0` ([changelog](https://github.com/GraphQLGuide/guide-api/blob/master/CHANGELOG.md))
 

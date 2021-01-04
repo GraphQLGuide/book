@@ -20,4 +20,4 @@ We’ve found that building apps with GraphQL is less difficult and more fun, an
 
 ---
 
-*© 2020 The GraphQL Guide*
+*© 2021 The GraphQL Guide*
