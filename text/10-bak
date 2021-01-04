@@ -11,9 +11,9 @@ Chapter contents:
 
 ---
 
-Background: [mobile apps](bg.md#mobile-apps), [Android and Kotlin](bg.md#android)
+Background: [mobile apps](bg.md#mobile-apps), [Android](bg.md#android), [Kotlin](bg.md#kotlin)
 
-In this chapter, we'll build a small Android app using Kotlin and the [Apollo Android](https://www.apollographql.com/docs/android/) library to make a couple GraphQL queries and get the data for our UI. 
+In this chapter, we'll build a small Android app using the [Apollo Android](https://www.apollographql.com/docs/android/) library to make a couple GraphQL queries and get the data for our UI. 
 
 Apollo Android doesn't use Apollo Client, the JavaScript library behind the [React](6.md), [Vue](7.md), and [React Native](8.md) chapters. It's a separate codebase with its own feature set:
 
@@ -28,6 +28,7 @@ The app we'll build is the table of contents for the Guide. It has two pages: th
 
 ![The first page with a list of chapters](img/android-chapters.png)
 ![The second page with a list of sections](img/android-sections.png)
+todo
 
 # Setting up Apollo Android
 
@@ -39,15 +40,15 @@ cd guide-android/
 git checkout 0_0.1.0
 ```
 
-We can open it in [Android Studio 4.1+](https://developer.android.com/studio) and see the file structure:
+We can open it in [Android Studio](https://developer.android.com/studio) and see the file structure:
 
 ![Android Studio's Project panel with expanded `app/src/`](img/android-studio.png)
 
-We'll be working in the `app/` module. In `app/src/main/java/`, we have the `guide.graphql.toc` (`toc` stands for table of contents) package with code for the Activity, two Fragments, and two RecyclerView Adapters. In this chapter we'll be:
+We'll be working in the `app/` folder. In `app/src/main/java/`, we have the `guide.graphql.toc` (`toc` stands for table of contents) package with code for the Activity, two Fragments, and two RecyclerView Adapters. In this chapter we'll be:
 
 - Editing the gradle file and existing UI code.
-- Adding code to the `data/` package.
-- Adding GraphQL queries and a `schema.json` to the `app/src/main/graphql/[package name]/` folder.
+- Adding code to the `data/` folder.
+- Adding GraphQL queries and a `schema.json` to the `app/src/main/graphql/[package]/` folder.
 
 When we run the app, we see a single chapter with no sections:
 
@@ -125,7 +126,7 @@ query Chapters {
 }
 ```
 
-After saving the file and rebuilding, we get a `ChaptersQuery.kt` file (it's in a `build/generated/source/` folder—we can open it via `⌘O` or Navigate > Class):
+After saving the file and rebuilding, we get a `ChaptersQuery.kt` file (it's in a `build/` folder—we can open it via `⌘O` or Navigate > Class):
 
 ```kt
 // AUTO-GENERATED FILE. DO NOT MODIFY.
@@ -317,7 +318,7 @@ class ChaptersQuery : Query<ChaptersQuery.Data, ChaptersQuery.Data, Operation.Va
 }
 ```
 
-We can now import and use the `ChaptersQuery` and `Chapter` classes. The latter has typed data fields matching our query, with nullability determined from the schema:
+We can now import and use the `ChaptersQuery` and `Chapter` classes. The latter has typed data fields matching our query:
 
 ```
 data class Chapter(
@@ -337,13 +338,9 @@ package guide.graphql.toc.data
 
 import com.apollographql.apollo.ApolloClient
 
-object Apollo {
-  val client: ApolloClient by lazy {
-    ApolloClient.builder()
-      .serverUrl("https://api.graphql.guide/graphql")
-      .build()
-  }
-}
+val apolloClient: ApolloClient = ApolloClient.builder()
+  .serverUrl("https://api.graphql.guide/graphql")
+  .build()
 ```
 
 And in `ChaptersFragment`, let's replace this list of one string:
@@ -359,7 +356,7 @@ import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.coroutines.toDeferred
 import com.apollographql.apollo.exception.ApolloException
 import guide.graphql.toc.ChaptersQuery
-import guide.graphql.toc.data.Apollo
+import guide.graphql.toc.data.apolloClient
 
 class ChaptersFragment : Fragment() {
   ...
@@ -369,7 +366,7 @@ class ChaptersFragment : Fragment() {
 
     lifecycleScope.launchWhenStarted {
       try {
-        val response = Apollo.client.query(
+        val response = apolloClient.query(
             ChaptersQuery()
         ).toDeferred().await()
 
@@ -389,15 +386,15 @@ class ChaptersFragment : Fragment() {
 }
 ```    
 
-Our query statement (`Apollo.client.query(ChaptersQuery()).toDeferred().await()`) uses the client instance we created, the `ChaptersQuery` class, and the `.toDeferred()` method from the [coroutines API](https://www.apollographql.com/docs/android/advanced/coroutines/). Since we are in a CoroutineScope, we can wait for this to complete with `.await()`.
+Our query statement (`apolloClient.query(ChaptersQuery()).toDeferred().await()`) uses the client instance we created, the `ChaptersQuery` class, and the `.toDeferred()` method from the [coroutines API](https://www.apollographql.com/docs/android/advanced/coroutines/).
 
-If the response has errors, we display the first error message. If there's an error during query execution, for instance with the internet connection, `Apollo.client.query()` will throw a subclass of `ApolloException`.
+If the response has errors, we display the first error message. If there's an error during query execution, for instance with the internet connection, `apolloClient.query()` will throw an `ApolloException`.
 
 We're left with a type mismatch error on `adapter.updateChapters(chapters)`:
 
 !["Type mismatch" error notice](img/android-chapters-type-mismatch.png)
 
-Let's update the type that the Adapter takes:
+Let's update the type that the method takes:
 
 `app/src/main/java/guide/graphql/toc/ui/chapters/ChaptersAdapter.kt`
 
@@ -421,7 +418,7 @@ class ChaptersAdapter(
 }
 ```
 
-Since `chapters` no longer holds strings, we also need to update this part of `onBindViewHolder():
+Since `chapters` no longer holds strings, we also need to update this:
 
 ```kt
 holder.binding.chapterHeader.text = chapter
@@ -458,9 +455,9 @@ import guide.graphql.toc.R
   }
 ```
 
-We display the chapter number and title, or just the title when there is no number. At the end, we call `onItemClicked`, which is a function passed by the fragment, and can be updated to:
+We display the chapter number and title, or just the title when there is no number. At the end, we call `onItemClicked`, which is defined in the fragment, and can be updated to:
 
-`app/src/main/java/guide/graphql/toc/ui/chapters/ChaptersFragment.kt`
+`app/src/main/java/guide/graphql/toc/ui/chapters/ChaptersAdapter.kt`
 
 ```kt
   val adapter =
@@ -507,7 +504,7 @@ query Sections($id: Int!) {
 
 After saving the file, we rebuild to get the new `SectionsQuery` class generated and code completion working. 
 
-The query needs the current chapter's `id`, which we have in the fragment's `chapterId` argument. We can execute the query as we did before in `onViewCreated()`, replacing `showErrorMessage("No sections")` with:
+The query needs the current chapter's `id`, which we have in the fragment's `chapterId` argument. We can execute the query as we did before in `onViewCreated()`:
 
 `app/src/main/java/guide/graphql/toc/ui/sections/SectionsFragment.kt`
 
@@ -516,7 +513,7 @@ import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.coroutines.toDeferred
 import com.apollographql.apollo.exception.ApolloException
 import guide.graphql.toc.SectionsQuery
-import guide.graphql.toc.data.Apollo
+import guide.graphql.toc.data.apolloClient
 
 class SectionsFragment : Fragment() {
   ...
@@ -528,7 +525,7 @@ class SectionsFragment : Fragment() {
       binding.spinner.visibility = View.VISIBLE
       binding.error.visibility = View.GONE
       try {
-        val response = Apollo.client.query(
+        val response = apolloClient.query(
           SectionsQuery(id = args.chapterId)
         ).toDeferred().await()
 
@@ -555,9 +552,7 @@ class SectionsFragment : Fragment() {
 }
 ```
 
-We include the variable like this: `SectionsQuery(id = args.chapterId)`, and as before, we either show an error message or update the adapter. When the API returns a single section for a chapter, it’s actually a sectionless chapter, like the Preface.
-
-We need to implement the adapter's `updateSections()` function. For the argument type, we can use the generated `SectionsQuery.Section` data class:
+We include the variable like this: `SectionsQuery(id = args.chapterId)`, and as before, we either show an error message or update the adapter. We need to implement the adapter's `updateSections()` function. For the argument type, we can use the generated `SectionsQuery.Section` data class:
 
 `app/src/main/java/guide/graphql/toc/ui/sections/SectionsAdapter.kt`
 
@@ -567,11 +562,11 @@ import guide.graphql.toc.SectionsQuery
 class SectionsAdapter(
   private val context: Context,
   private val chapterNumber: Int,
-  private var sections: List<SectionsQuery.Section> = listOf()
+  private var sections: List<SectionsQuery.Section?> = listOf()
 ) : RecyclerView.Adapter<SectionsAdapter.ViewHolder>() {
   ...
 
-  fun updateSections(sections: List<SectionsQuery.Section>) {
+  fun updateSections(sections: List<SectionsQuery.Section?>) {
     this.sections = sections
     notifyDataSetChanged()
   }
@@ -582,7 +577,7 @@ class SectionsAdapter(
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     val section = sections[position]
-    section.let {
+    section?.let {
       holder.binding.sectionTitle.text = context.getString(
         R.string.section_title,
         chapterNumber.toString(),
@@ -613,7 +608,7 @@ There are three types of caching we can enable:
 
 We can also [combine Lru and Sql in a chain](https://www.apollographql.com/docs/android/essentials/normalized-cache/#chaining-caches).
 
-When querying, we can specify a fetch policy with [ResponseFetchers](https://github.com/apollographql/apollo-android/blob/master/apollo-runtime/src/main/java/com/apollographql/apollo/fetcher/ApolloResponseFetchers.java):
+When querying, we can specify a fetch policy:
 
 - `CACHE_ONLY`: Try to resolve the query from the cache.
 - `NETWORK_ONLY`: Try to resolve from the network (by sending the query to the server).
@@ -634,24 +629,20 @@ import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.cache.normalized.lru.EvictionPolicy
 import com.apollographql.apollo.cache.normalized.lru.LruNormalizedCacheFactory
 
-object Apollo {
-  val client: ApolloClient by lazy {
-    val cacheFactory =
-      LruNormalizedCacheFactory(EvictionPolicy.builder().maxSizeBytes(10 * 1024 * 1024).build())
+val cacheFactory =
+  LruNormalizedCacheFactory(EvictionPolicy.builder().maxSizeBytes(10 * 1024 * 1024).build())
 
-    ApolloClient.builder()
-      .serverUrl("https://api.graphql.guide/graphql")
-      .normalizedCache(cacheFactory)
-      .build()
-  }
-}
+val apolloClient: ApolloClient = ApolloClient.builder()
+  .serverUrl("https://api.graphql.guide/graphql")
+  .normalizedCache(cacheFactory)
+  .build()
 ```
 
 We create a `cacheFactory` that starts evicting (deleting) the least recently used data from the cache once the cache size grows to 10 MB. Now when we go back and forth between the chapter list and the Chapter 2 section list, there's no delay after the first time the sections are loaded. 
 
 # ViewModel
 
-So far we've been doing our data fetching directly in our fragments, which means that every time a fragment is re-created (for example, on rotation), we call the API again. Android recommends using [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) classes to "store and manage UI-related data in a lifecycle conscious way." In addition to being more efficient, it helps avoid bugs: a common lifecycle bug happens when we access a view after `onDestroyView` is called. A fragment can be in this state after we navigate away from it but before it has been destroyed. In the app we built in the last section, we avoided this by using `.launchWhenStarted`, which suspends execution when the view is destroyed. If we had used `.launch`, execution could continue past `onDestroyView` and cause a crash. 
+So far we've been doing our data fetching in fragments. Android recommends using [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) classes to "store and manage UI-related data in a lifecycle conscious way." In fact, our code has a common lifecycle bug that can occur with fragment data fetching—when the data is received from the server after the view is destroyed, and we try to update the view using the binding, the app crashes.
 
 The [viewmodel](https://github.com/GraphQLGuide/guide-android/tree/viewmodel) branch uses `ViewModel` classes like this:
 
@@ -666,15 +657,15 @@ import androidx.lifecycle.liveData
 import com.apollographql.apollo.coroutines.toDeferred
 import com.apollographql.apollo.exception.ApolloException
 import guide.graphql.toc.ChaptersQuery
-import guide.graphql.toc.data.Apollo
 import guide.graphql.toc.data.Resource
+import guide.graphql.toc.data.apolloClient
 
 class ChaptersViewModel : ViewModel() {
 
   val chapterList: LiveData<Resource<List<ChaptersQuery.Chapter>>> = liveData {
     emit(Resource.loading(null))
     try {
-      val response = Apollo.client.query(
+      val response = apolloClient.query(
         ChaptersQuery()
       ).toDeferred().await()
 
@@ -693,9 +684,7 @@ class ChaptersViewModel : ViewModel() {
 }
 ```
 
-The data is wrapped in a Resource class that can be in one of three states: loading, error, or success.
-
-And our query in the fragment is replaced by observing the state of the LiveData:
+And our query in the fragment is replaced by:
 
 [`app/src/main/java/guide/graphql/toc/ui/chapters/ChaptersFragment.kt`](https://github.com/GraphQLGuide/guide-android/blob/viewmodel/app/src/main/java/guide/graphql/toc/ui/chapters/ChaptersFragment.kt)
 
@@ -756,7 +745,7 @@ import androidx.lifecycle.asLiveData
 import com.apollographql.apollo.coroutines.toFlow
 import com.apollographql.apollo.fetcher.ApolloResponseFetchers
 import guide.graphql.toc.ChaptersQuery
-import guide.graphql.toc.data.Apollo
+import guide.graphql.toc.data.apolloClient
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -767,7 +756,7 @@ class ChaptersViewModel : ViewModel() {
 
   val chapterException: MutableLiveData<Throwable?> = MutableLiveData()
 
-  val chapterList = Apollo.client.query(ChaptersQuery())
+  val chapterList = apolloClient.query(ChaptersQuery())
     .responseFetcher(ApolloResponseFetchers.CACHE_AND_NETWORK).watcher().toFlow()
     .distinctUntilChanged().map { response ->
       if (response.hasErrors()) throw Exception("Response has errors")
@@ -806,5 +795,6 @@ class ChaptersViewModel : ViewModel() {
 An alternative to using Apollo's Flow API is its [RxJava3 API](https://www.apollographql.com/docs/android/advanced/rxjava3/) like this:
 
 ```kt
-val observable = Apollo.client.rxQuery(ChaptersQuery())
+val observable = apolloClient.rxQuery(ChaptersQuery())
 ```
+

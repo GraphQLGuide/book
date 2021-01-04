@@ -35,15 +35,15 @@ Some topics like [Git](bg.md#git) and [Node](bg.md#node) are necessary for follo
 
 # The book
 
-While this book is great when read cover-to-cover, it’s organized as a reference text, so you can also use it to look up a specific topic. For instance, if you’re familiar with most GraphQL types but want to learn about Unions, you can look them up in the Table of Contents under Chapter 3: Type System—[Section 9: Unions](3.md#unions). Or if you’re already doing basic queries in your React app, and you want to implement infinite scrolling, you can look it up under Chapter 6: React—Section 5: Advanced querying—[Paginating](6.md#paginating).
+While this book is great when read cover-to-cover, it’s organized as a reference text, so you can also use it to look up a specific topic. For instance, if you’re familiar with most GraphQL types but want to learn about Unions, you can look them up in the Table of Contents under Chapter 3: Type System > [Section 9: Unions](3.md#unions). Or if you’re already doing basic queries in your React app, and you want to implement infinite scrolling, you can look it up under Chapter 6: React > Section 5: Advanced querying > [Paginating](6.md#paginating).
 
 [Chapter 1](1.md) introduces GraphQL and shows why it’s better than REST.
 
 Chapters [2](2.md) and [3](3.md) explain the language itself and its type system.
 
-[Chapter 4](4.md) goes in depth on how a GraphQL server responds to a query. It’s great for a full understanding of the technology, but you don’t *need* to know it unless you’re contributing to a GraphQL server library. So it’s totally fine to skip this—you’ll still understand everything if you go straight to [Chapter 11](11.md), the practical server-coding chapter.
+[Chapter 4](4.md) goes in depth on how a GraphQL server responds to a query. It’s great for a full understanding of the technology, but you don’t *need* to know it unless you’re contributing to a GraphQL server library. So it’s totally fine to skip this—you’ll still understand everything if you go straight to [Chapter 11](11.md), the practical server coding chapter.
 
-[Chapter 5: Client Dev](5.md) is the first of the coding chapters, and introduces common concepts among client libraries. Then we have a chapter for each library:
+[Chapter 5: Client Dev](5.md) is the first of the coding chapters, and introduces common concepts among client libraries. Then we have a chapter for each of these libraries:
 
 - [Chapter 6: React](6.md)
 - [Chapter 7: Vue](7.md)
@@ -51,11 +51,11 @@ Chapters [2](2.md) and [3](3.md) explain the language itself and its type system
 - [Chapter 9: iOS](9.md)
 - [Chapter 10: Android](10.md)
 
-[Chapter 11: Server Dev](11.md) is our looooong server-coding chapter 🤓. All of the examples are in Node with the `apollo-server-express` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](11.md).
+[Chapter 11: Server Dev](11.md) is our server coding chapter. It and Chapter 6 are by far the longest chapters. All of the examples are in Node with the `apollo-server-express` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](11.md#introduction).
 
 # The code
 
-We intersperse blocks of code throughout the text. When we add code to a file that we’ve shown previously, we often just display the additions and some context, with ellipses (`...`) in place of existing code. These additions will be clearest if you read the book with the code open in another window. Further, we believe humans usually learn better if they write things out themselves, so we encourage you to write out the code for each step, and get it working on your computer before moving on to the next step.
+We intersperse blocks of code throughout the text. When we add code to a file that we’ve shown previously, we often just display the additions and some context, with ellipses (`...`) in place of existing code and sometimes with indentation removed to improve readability on mobile and e-readers. Code changes will be clearer if you read the book with the code open on your computer. Further, we believe humans usually learn better if they write things out themselves, so we encourage you to write out the code for each step, and get it working on your computer before moving on to the next step.
 
 We recommend using Chrome and [VS Code](https://code.visualstudio.com/).
 
@@ -107,7 +107,7 @@ This means `'` instead of `"` for string literals and no unnecessary semicolons.
 
 # Resources
 
-If you run into issues, we recommend posting to Stack Overflow with the relevant tag, for instance [`react-apollo`](https://stackoverflow.com/questions/ask?tags=react-apollo) for Chapter 6. If you have the Full edition, you can also ask the community in the #support Slack channel or email the technical support address we gave you.
+If you run into issues, we recommend posting to Stack Overflow with the relevant tags, for instance [`react-apollo` and `apollo-client`](https://stackoverflow.com/questions/ask?tags=apollo-client|react-apollo) for Chapter 6. If you have the Full edition, you can also ask the community in the #support Slack channel or email the technical support address we gave you.
 
 If the issue is with our code, please search the repository’s issues to see if it’s an existing bug, and if it’s new, submit it! 🙏 🙌
 
@@ -115,7 +115,7 @@ If the issue is with our code, please search the repository’s issues to see if
 
 Another important resource is the docs! Here they are for each library:
 
-- [Chapter 6 and 8: `react-apollo`](https://www.apollographql.com/docs/react/)
+- [Chapter 6 and 8: `@apollo/client`](https://www.apollographql.com/docs/react/)
 - [Chapter 7: `vue-apollo`](https://github.com/akryum/vue-apollo)
 - [Chapter 9: Apollo iOS](https://www.apollographql.com/docs/ios/)
 - [Chapter 10: `Apollo-Android`](https://github.com/apollographql/apollo-android)

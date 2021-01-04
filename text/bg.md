@@ -16,10 +16,17 @@ Chapter contents:
 * [SPA](bg.md#spa)
 * [SSR](bg.md#ssr)
 * [React](bg.md#react)
+* [Vue](bg.md#vue)
+* [Mobile apps](bg.md#mobile-apps)
+  * [Android](bg.md#android)
+  * [iOS](bg.md#ios)
+  * [React Native](bg.md#react-native)
 * [Latency](bg.md#latency)
 * [CDN](bg.md#cdn)  
 * [Webhooks](bg.md#webhooks)  
 * [Testing](bg.md#testing)  
+  * [Mocking](#mocking)
+  * [Types of tests](#types-of-tests)
 * [Continuous integration](bg.md#continuous-integration)
 * [Authentication](bg.md#authentication)
   * [Tokens vs. sessions](bg.md#tokens-vs-sessions)
@@ -268,8 +275,7 @@ If we’re using a recent version of npm (5.0 or higher), the package name and v
   "name": "my-project",
   "private": true,
   "dependencies": {
-    "graphql": "^0.13.1"
-  }
+    "graphql": "^0.13.1“  }
 }
 ```
 
@@ -299,8 +305,7 @@ $ cat node_modules/graphql/package.json
 {
   …
   "dependencies": {
-    "iterall": "^1.2.0"
-  },
+    "iterall": "^1.2.0“  },
   "homepage": "https://github.com/graphql/graphql-js",
   "name": "graphql",
   "version": "0.13.1"
@@ -529,11 +534,11 @@ redis.del('latest-review')
 
 ## SQL
 
-SQL (Structured Query Language) is a language for querying relational databases like SQLite and PostgreSQL. Relational databases have *tables* instead of MongoDB's collections, and *rows* instead of documents. A row is made up of *values* for each *columnn* in the table. Columns have a name and a type—for instance a `reviews` table with a column named `star` of type `INTEGER`, which could have a value of `5` in the first row:
+SQL (Structured Query Language) is a language for querying relational databases like SQLite and PostgreSQL. Relational databases have *tables* instead of MongoDB’s collections, and *rows* instead of documents. A row is made up of *values* for each *columnn* in the table. Columns have a name and a type—for instance a `reviews` table with a column named `star` of type `INTEGER`, which could have a value of `5` in the first row:
 
 ![reviews table with three columns and three rows](img/)
 
-Unlike MongoDB collections, each table has a schema—its name and list of columns. Both the table schema and query statements are written in SQL. Here are the `CREATE TABLE` and `INSERT` statements to create the pictured table and rows, and `SELECT` to view the table's contents:
+Unlike MongoDB collections, each table has a schema—its name and list of columns. Both the table schema and query statements are written in SQL. Here are the `CREATE TABLE` and `INSERT` statements to create the pictured table and rows, and `SELECT` to view the table’s contents:
 
 ```
 $ brew install sqlite
@@ -558,7 +563,7 @@ sqlite> SELECT * FROM reviews;
 3|Now that's a downtown job!|
 ```
 
-The `id` column is marked as the `PRIMARY KEY` (each table must have a unique key), and `text` column is non-null (`NOT NULL`). `SELECT * from reviews` means "fetch all the values from all the rows in the reviews table," and it prints the results to the console. We insert 3 rows of `VALUES` (the values are listed in the order that the columns are declared in the schema). The last row is allowed to have a `null` value because the `stars` column wasn't declared with `NOT NULL`. And we see in the final `SELECT` statement result that there's nothing in the third column. There are many other statements and variations to statements. A couple more common ones are `UPDATE` and `DELETE`, which alter and remove rows:
+The `id` column is marked as the `PRIMARY KEY` (each table must have a unique key), and `text` column is non-null (`NOT NULL`). `SELECT * from reviews` means “fetch all the values from all the rows in the reviews table,” and it prints the results to the console. We insert 3 rows of `VALUES` (the values are listed in the order that the columns are declared in the schema). The last row is allowed to have a `null` value because the `stars` column wasn’t declared with `NOT NULL`. And we see in the final `SELECT` statement result that there’s nothing in the third column. There are many other statements and variations to statements. A couple more common ones are `UPDATE` and `DELETE`, which alter and remove rows:
 
 ```
 sqlite> UPDATE reviews SET stars = 4 WHERE id = 3;
@@ -621,7 +626,7 @@ SSR (server-side rendering) is when, instead of sending a small HTML file and a 
 
 # React
 
-React was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular JavaScript view library. (And while Vue passed React in star count in 2018, React has 5x the number of npm downloads.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.
+[React](https://reactjs.org/) was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular JavaScript view library. (And while Vue passed React in star count in 2018, React has, at time of writing, 5x the number of npm downloads.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.
 
 As a view library, it is responsible for what the user sees on the screen. So its job is putting DOM nodes on the page and updating them. Different view libraries accomplish this in different ways and provide different APIs for us—the developers—to use. The primary features of React are:
 
@@ -629,6 +634,78 @@ As a view library, it is responsible for what the user sees on the screen. So it
 - **Components**: Components are functions or classes that receive arguments (called *props*) and return JSX to be rendered. They can also be used as HTML tags inside JSX: `<div><MyComponent /></div>`.
 - **Declarative**: Components automatically get re-run whenever their props or state changes, and the new JSX they return automatically updates the page. This process is called declarative because we declare what our props and state are as well as what the JSX should look like based on those props and state. This is in contrast to an *imperative* view library like jQuery, in which we would make changes to the page ourselves (for example adding an `<li>` to a `<ul>` with `$('ul').append('<li>New list item</li>')`).
 - **Virtual DOM**: React creates a model of the page, and when we return different JSX from our components, React compares the new JSX to the previous JSX, and uses the difference to make the smallest possible changes to the DOM. This process improves the rendering speed.
+
+# Vue 
+
+[Vue.js](https://v3.vuejs.org/guide/introduction.html) was created in 2014 by Evan You after working with Angular.js at Google. Evan wanted a lightweight view library that had the good parts of Angular. It has since evolved a lot, is now in its third major version, and has a number of accompanying tooling and libraries, including a devtools browser extension, a CLI, a webpack loader, and a router library. 
+
+Similarly to React, Vue has components, declarative templating, and a virtual DOM. Instead of JSX, Vue uses an HTML-based syntax with double curly brace interpolation and special attributes called *directives*. Javascript expressions can be used inside both. Like React, Vue has reactivity, but in a different fashion. React components have functions that re-run whenever a prop or piece of state changes. In Vue, the `setup()` function is run once. The template includes reactive objects, and when any of its reactive objects are changed, it gets re-rendered. 
+
+Vue also has [two-way data binding](https://v3.vuejs.org/guide/forms.html#basic-usage) on form inputs: when a data object is bound to a form input, the object is updated when the user makes a change (for example, typing in an `<textarea>` or checking a checkbox), and when the object is changed by code, the element’s value is updated.
+
+# Mobile apps
+
+* [Android](bg.md#android)
+* [iOS](bg.md#ios)
+* [React Native](bg.md#react-native)
+
+With the demise of BlackBerry OS in 2013 and Windows Phone in 2015, the only two mass market phone operating systems are iOS and Android, with around 15% and 85% of the global market, respectively. And in the U.S., the majority of time spent online is spent on mobile devices. If we want our users to be able to use our software on mobile, we can either make a web app or a native mobile app.
+
+Pros of making a web app:
+
+- We don’t need to have multiple codebases for desktop web and mobile. We can make our desktop web app a responsive PWA that works on mobile, or if we choose to have a separate mobile site (like `m.oursite.com`), we can at least share a lot of the code.
+- Publishing is easier:
+  - We aren’t subject to app store rules and review processes.
+  - Our users don’t have to update the app to get the newest version—the newest version is loaded when they open our website (or if we’re using a service worker, they might get the new version the second time the open the site, depending on our implementation).
+
+Pros of making a native app:
+
+- Better UX: 
+  - Native UI components that feel smoother / perform better.
+  - No browser URL bar or bottom navigation bar.
+  - Easier to open: the user of a web app has to either install the PWA, which most iOS users don’t know how to do, or they have to open a browser and type in our URL.
+- More capabilities, particularly when it comes to iOS. (Android allows PWAs—progressive web apps—to do more, like store large files, speech recognition, bluetooth, background sync, and push notifications. Android also doesn’t delete our cached assets like IndexedDB, service worker cache, and LocalStorage after two weeks of disuse.)
+- If we make a [universal React Native app](#react-native), then we don’t need to have separate codebases for web and mobile.
+
+The three main ways of making a native mobile app are:
+
+- Native code: Java, C++, or Kotlin for Android, and C++, Objective-C, or Swift for iOS.
+- React Native: We write JavaScript code that runs on the device in a background process and communicates with the React Native runtime to interact with native UI components and device APIs.
+- Cordova: A native shell for our web app. We build and submit a native app to the app store, and when the app starts up, it loads our website inside a *web view* (like a full-screen browser tab). So our UI and logic is written in HTML/CSS/JS, and we can add Cordova plugins so that our JavaScript can call native APIs.
+
+Cordova is much less popular than the other options, as it performs poorer, and the plugins are more often out of date or buggy compared to React Native plugins (called [native modules](https://reactnative.dev/docs/native-modules-setup)).
+
+## Android
+
+Android is a mobile operating system created in 2003 and bought by Google in 2005. As it is open source (published under the Apache license), it can be freely used, and it *is* used by ~all phone manufacturers besides Apple. It can also be modified—for instance, Fire OS is a fork of Android used by Amazon for its mobile devices. 
+
+One thing to keep in mind when developing for Android is that Android devices are more likely than iOS devices to be on an older version of the OS. At time of writing, only 33% of Android devices were on the latest major version (Android 10), and 15% were 5+ years old (<= Android 6), versus 85% of iOS devices on the latest version and 1% 4+ years old.
+
+While any editor can be used, the official IDE is Android Studio, and it can build, run, and package apps. It also does linting, layout editing, debugging, and device emulation.
+
+Android apps can be written in Kotlin, Java, and/or C++. As of 2019, Google recommends Kotlin. Kotlin is statically typed and multi-paradigm: it supports object-oriented programming, functional programming, and other styles. We use [Kotlin](https://kotlinlang.org/) in the [Android chapter](10.md), and those who know JavaScript will likely be able to read the code and understand what’s going on. You can also learn Kotlin by example [on their website](https://play.kotlinlang.org/byExample/overview). 
+
+## iOS
+
+The iOS operating system was released in 2007 with the first iPhone. It is closed source and only used on Apple devices. The iOS IDE is Xcode, and it has similar features to Android Studio. iOS apps can be written in Swift, Objective-C, and/or C++. Swift was released by Apple in 2014 as an improved, modern option. It is multi-paradigm and actively developed, with a new major version released each year.
+
+## React Native
+
+React Native (RN) is an open-source front-end JavaScript framework from Facebook. Version `0.1.0` was released in 2015, and since then there have been over 60 minor versions released and > 20,000 commits from > 2,000 people. It originally just supported iOS, with Android support coming soon after. Microsoft released support for [Windows and macOS](https://microsoft.github.io/react-native-windows/), and there are third-party packages for [web](https://github.com/necolas/react-native-web), [tvOS](https://github.com/react-native-community/react-native-tvos), Linux (via Qt: [Proton Native](https://github.com/kusti8/proton-native) or [RN Desktop](https://github.com/status-im/j)), and more. 
+
+Some third-party RN modules have platform-specific code, in which case they only support certain platforms. We can find modules that work with our target platforms by filtering on [reactnative.directory](https://reactnative.directory/). A *universal* react native app is one that works on more than just the official two platforms (iOS and Android). It most often refers to iOS, Android, and web. 
+
+[Expo](https://expo.io/) is a set of tools and modules that makes it easier to code React Native apps, and it supports iOS, Android, and web. Most of its modules are compatible with all three platforms, and there’s a chart on each library’s documentation page so we know the exceptions:
+
+![Expo’s AppleAuthentication library, which doesn’t work on Android or web](/img/expo-library-compatibility.png)
+
+Expo’s major features are:
+
+- A command-line tool that makes it easy to run the app on devices or simulators in development.
+- A large set of well-maintained cross-platform libraries for accessing device APIs.
+- A build service that streamlines preparing apps for the app stores.
+- Over-the-air updates: updating our app in production without resubmitting to the app store.
+- Cross-platform push notification service.
 
 # Latency
 
@@ -664,17 +741,17 @@ A CDN, or *Content Delivery Network*, has servers around the world that deliver 
 
 Then, when a user makes a request, this is what happens the first time:
 
-- The client asks DNS server: "Where is `ourdomain.com/foo`?"
-- The DNS server, which is run by our CDN, replies: "It's at `1.2.3.4`", which is the IP address of a nearby server run by the CDN.
+- The client asks DNS server: “Where is `ourdomain.com/foo`?”
+- The DNS server, which is run by our CDN, replies: “It’s at `1.2.3.4`”, which is the IP address of a nearby server run by the CDN.
 - The client connects to `1.2.3.4` and makes the request, saying: `GET ourdomain.com/foo`.
-- The `1.2.3.4` CDN server doesn't know what the `/foo` response should be, so it makes this request to our server: `GET ourapp.herokudns.com/foo`.
+- The `1.2.3.4` CDN server doesn’t know what the `/foo` response should be, so it makes this request to our server: `GET ourapp.herokudns.com/foo`.
 - The `1.2.3.4` CDN server forwards the response from our server to the client.
 - If the response from our server had an HTTP header that says `Cache-Control: max-age=60`, then the CDN caches it for 60 seconds.
 
 After the CDN caches it, during the next minute, here is what happens when other users make the same request:
 
-- The client asks DNS server: "Where is `ourdomain.com/foo`?"
-- The DNS server, which is run by our CDN, replies: "It's at `5.6.7.8`", which is the IP address of a nearby server run by the CDN.
+- The client asks DNS server: “Where is `ourdomain.com/foo`?”
+- The DNS server, which is run by our CDN, replies: “It’s at `5.6.7.8`”, which is the IP address of a nearby server run by the CDN.
 - The client connects to `5.6.7.8` and makes the request, saying: `GET ourdomain.com/foo`.
 - The `5.6.7.8` CDN server finds the `/foo` response in its cache, and sends it to the client.
 
@@ -816,6 +893,8 @@ Yes, we should write tests. No, we don’t need them to cover 100% of our code. 
 We write tests so that we can have confidence that when write code, we’re not breaking things that used to work. We can cover most of our code (or more importantly, our use cases) with integration tests. Why not cover everything with unit tests? Because it would take forever to write all of them, and some of them would test implementation, so whenever we refactored, we would have to rewrite our tests. We can cover the same amount of code with fewer integration tests, because each test mocks fewer things and covers more code. We don’t cover everything with e2e tests because they would take forever to run—after clicking or submitting a form, the test runner has to wait for the animation to complete or the network request to finish, which in one test might just add up to seconds, but with a whole test suite could take minutes. And it would slow down development if we had to wait minutes to see if the change we just made broke anything.
 
 So the first thing we should do when writing tests is create integration tests to cover our important use cases. Then we can look at the code coverage and fill in the holes with more integration tests or with unit tests. How many e2e tests we write depends on how much of a difference there is between the integration and e2e environments. For full-stack tests, there might be a lot of differences between the integration test runner and an actual browser, so we should at least test the critical path (the most important user actions, for example in `twitter.com`’s case, logging in, posting a tweet, and scrolling the feed). For backend, where the integration tests include apollo server’s request pipeline, there’s not much difference between integration and e2e—in which case we can just do a couple tests that make sure the HTTP server runs and the connection to the database works.
+
+How we write tests depends on our *test runner*—the tool we use to run our testing code and report the results to us. For JavaScript unit and integration tests, we recommend [Jest](https://jestjs.io/), and for JS integration tests, we recommend [Cypress](https://www.cypress.io/).
 
 # Continuous integration
 
