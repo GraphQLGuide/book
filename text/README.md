@@ -51,7 +51,7 @@ Chapters [2](2.md) and [3](3.md) explain the language itself and its type system
 - [Chapter 9: iOS](9.md)
 - [Chapter 10: Android](10.md)
 
-[Chapter 11: Server Dev](11.md) is our server coding chapter. It and Chapter 6 are by far the longest chapters. All of the examples are in Node with the `apollo-server-express` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](11.md#introduction).
+[Chapter 11: Server Dev](11.md) is our server coding chapter. It and Chapter 6 are by far the longest chapters. All of the server examples are in Node with the `apollo-server` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](11.md#introduction).
 
 # The code
 
@@ -107,7 +107,7 @@ This means `'` instead of `"` for string literals and no unnecessary semicolons.
 
 # Resources
 
-If you run into issues, we recommend posting to Stack Overflow with the relevant tags, for instance [`react-apollo` and `apollo-client`](https://stackoverflow.com/questions/ask?tags=apollo-client|react-apollo) for Chapter 6. If you have the Full edition, you can also ask the community in the #support Slack channel or email the technical support address we gave you.
+If you run into issues, we recommend posting to Stack Overflow with the relevant tags, for instance [`apollo-client` and `react-apollo`](https://stackoverflow.com/questions/ask?tags=apollo-client|react-apollo) for Chapter 6. If you have the Full edition, you can also ask the community in the #support Slack channel or email the technical support address we gave you.
 
 If the issue is with our code, please search the repository’s issues to see if it’s an existing bug, and if it’s new, submit it! 🙏 🙌
 
@@ -116,10 +116,10 @@ If the issue is with our code, please search the repository’s issues to see if
 Another important resource is the docs! Here they are for each library:
 
 - [Chapter 6 and 8: `@apollo/client`](https://www.apollographql.com/docs/react/)
-- [Chapter 7: `vue-apollo`](https://github.com/akryum/vue-apollo)
+- [Chapter 7: Vue Apollo](https://v4.apollo.vuejs.org/)
 - [Chapter 9: Apollo iOS](https://www.apollographql.com/docs/ios/)
-- [Chapter 10: `Apollo-Android`](https://github.com/apollographql/apollo-android)
-- [Chapter 11: `apollo-server-express`](https://www.apollographql.com/docs/apollo-server/)
+- [Chapter 10: Apollo Android](https://www.apollographql.com/docs/android/)
+- [Chapter 11: `apollo-server`](https://www.apollographql.com/docs/apollo-server/)
 
 # Version
 
@@ -174,3 +174,7 @@ Code version: `0.2.0` ([changelog](https://github.com/GraphQLGuide/guide-api/blo
 ```
 apollo-server 2.12.0
 ```
+
+### Server-side rendering
+
+Code version: `1.0.0` ([changelog](https://github.com/GraphQLGuide/guide/blob/master/CHANGELOG.md))

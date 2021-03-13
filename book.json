@@ -11,7 +11,8 @@
         "sh": "intentionally-nonexistant",
         "kt": "kotlin",
         "swift": "swift",
-        "vue": "vue"
+        "vue": "vue",
+        "yaml": "yaml"
       }
     }
   }
