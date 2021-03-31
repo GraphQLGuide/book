@@ -3,7 +3,7 @@
 Chapter contents:
 
 * [JavaScript](bg.md#javascript)
-* [JavaScript classes](bg.md#javascript-classes)
+  * [Classes](bg.md#classes)
 * [JSON](bg.md#json)
 * [Git](bg.md#git)
 * [Node, npm, and nvm](bg.md#node-npm-and-nvm)
@@ -25,8 +25,8 @@ Chapter contents:
 * [CDN](bg.md#cdn)  
 * [Webhooks](bg.md#webhooks)  
 * [Testing](bg.md#testing)  
-  * [Mocking](bg.md#mocking)
-  * [Types of tests](bg.md#types-of-tests)
+  * [Mocking](#mocking)
+  * [Types of tests](#types-of-tests)
 * [Continuous integration](bg.md#continuous-integration)
 * [Authentication](bg.md#authentication)
   * [Tokens vs. sessions](bg.md#tokens-vs-sessions)
@@ -37,9 +37,9 @@ Chapter contents:
 
 This chapter provides concise introductions to various background topics. You’re welcome to either read them all up front or individually as you go along—at the beginning of a section, you’ll find a list of topics it assumes knowledge of, like the [Anywhere: HTTP](5.md#anywhere-http) section, which has two listed:
 
-Background: [HTTP](bg.md#http), [JSON](bg.md#json)
+> Background: [HTTP](bg.md#http), [JSON](bg.md#json)
 
-Some topics, like [Git](#git) and [Node](#node), are necessary for following along with the coding. Others, like [Tokens vs. sessions](#tokens-vs-sessions), are nice to know, but not necessary.
+Some topics, like [Git](#git) and [Node](#node), are necessary for following along with the coding. Others, like [Tokens vs. sessions](#tokens-vs-sessions), are nice to know, but not essential.
 
 # JavaScript
 
@@ -47,7 +47,9 @@ Most of the code in the book is in modern JavaScript. If you’re new to JS, you
 
 If you know traditional JS, but some of the new syntax is unfamiliar (for instance [async/await]((https://codeburst.io/javascript-es-2017-learn-async-await-by-example-48acc58bad65)), here’s a [course on ES6](https://es6.io/?ref=guide).
 
-# JavaScript classes
+The one JS topic we’ll cover here is classes:
+
+## Classes
 
 A **class** is a template for an object. With this class:
 
@@ -225,7 +227,7 @@ When working with raw [HTTP](#http) responses that contain a JSON body, we have 
 
 # Git
 
-[Git](https://en.wikipedia.org/wiki/Git) is a version control system for saving your code and keeping a history of the changes. Unfamiliar? Try this [interactive tutorial](https://try.github.io/)
+[Git](https://en.wikipedia.org/wiki/Git) is a version control system for saving your code and keeping a history of the changes. Unfamiliar? Try this [interactive tutorial](https://try.github.io/).
 
 # Node, npm, and nvm
 
@@ -239,13 +241,13 @@ $ nvm install node
 $ nvm alias default node
 ```
 
-This installs the latest version of Node. Then in a new terminal window, we can see the version number with:
+This installs the latest version of Node. Then, in a new terminal window, we can see the version number with:
 
 ```sh
 $ node -v
 ```
 
-We can keep track of which projects use which versions of node by adding a `.nvmrc` file to the root of each project. It contains a version number (like `8` or `8.11.3`) or `node` to use the latest stable version. Then when we switch projects, we run `nvm use` to switch to that project’s version of node:
+We can keep track of which projects use which versions of node by adding a `.nvmrc` file to the root of each project. It contains a version number (like `8` or `8.11.3`) or `node` to use the latest stable version. Then, when we switch projects, we run `nvm use` to switch to that project’s version of node:
 
 ```sh
 $ nvm use
@@ -279,11 +281,11 @@ If we’re using a recent version of npm (5.0 or higher), the package name and v
 }
 ```
 
-We see the current package’s version, which was `0.13.1` at time of writing. npm packages follow **SemVer**, a convention for version numbering:
+We see the current package’s version, which was `0.13.1` at the time of writing. npm packages follow **SemVer**, a convention for version numbering:
 
 `[major version].[minor version].[patch version]`
 
-Major version changes mean that the library’s API has been changed in an incompatible way—if we write our code to use version `1.0.0` of a library (for example, using the library’s function `doThis()`), our code will probably break if we switch to version `2.0.0`. (For example, if the library renamed `doThis` to `doThat`, and our code were still called `doThis()`, we’d get an error.) Minor and patch version changes do not break the API—if we write our code using version `1.0.0` of a library, we can safely upgrade to version `1.0.8` or `1.4.0`.
+Major version changes mean the library’s API has been changed in an incompatible way—if we write our code to use version `1.0.0` of a library (for example, using the library’s function `doThis()`), our code will probably break if we switch to version `2.0.0`. (For example, if the library renamed `doThis` to `doThat`, and our code were still called `doThis()`, we’d get an error.) Minor and patch version changes do not break the API—if we write our code using version `1.0.0` of a library, we can safely upgrade to version `1.0.8` or `1.4.0`.
 
 Minor version changes mean that functionality has been added—if we write our code using version `1.4.0`, it may break if we switch to version `1.3.0`, because it may use a feature introduced in minor version 4. Patch version changes mean that bugs have been fixed—if we switch from `1.0.8` to `1.0.7`, our code may stop working because of the bug that was fixed in patch version 8.
 
@@ -360,7 +362,7 @@ graphql(schema, query).then(result => {
 
 HTTP is a format for sending messages over the internet. It is used on top of two other message formats—IP (which has an *IP address* and routes the message to the right machine) and TCP (which has a port number and resends any messages that are lost in transit). An HTTP message adds a *method* (like `GET` or `POST`), a path (like `/graphql`), headers (like the `Bearer` header we use for [authentication](#authentication)), and a body (where GraphQL queries and responses go). 
 
-When we enter a URL like `http://graphql.guide/` into our browser, it goes through these steps:
+When we enter a URL, like `http://graphql.guide/`, into our browser, it goes through these steps:
 
 - Browser asks DNS server what the IP address of `graphql.guide` is.
 - DNS server responds with `104.27.191.39`.
@@ -399,15 +401,15 @@ HTTP GET /
 
 The term *server* may refer to:
 
-1. a computer connected to a network (usually the internet)
-2. a process running on that computer that listens to one or more ports
-3. the group of computers/processes that share the responsibility of handling requests
+1. A computer connected to a network (usually the internet).
+2. A process running on that computer that listens to one or more ports.
+3. The group of computers/processes that share the responsibility of handling requests.
 
-In web development, servers are usually either static file servers (which serve files like our HTML, images, and JS bundle), application (app) servers (the ones that power our API and that the client talks to) or database servers. *Server-side* either means app servers or everything that’s not the client-side (including file, app, and database servers, as well as any other servers they talk to).
+In web development, servers are usually either static file servers (which serve files like our HTML, images, and JS bundle), application (app) servers (the ones that power our API and that the client talks to), or database servers. *Server-side* either means app servers or everything that’s not the client-side (including file, app, and database servers, as well as any other servers they talk to).
 
 # Databases
 
-Databases are organized collections of data stored on a computer. That computer is called a *database server*, and the computer querying the database (usually an app server) is called the *database client*. Different databases organize their data differently, store it differently, and communicate differently. There are two types of database storage: *in-memory* (the data is stored in RAM, and would be lost in the event of a power outage) and *persistent* (the data is stored on disk—a hard drive or SSD). [Redis](#redis) is primarily used as an in-memory database, whereas [MongoDB](#mongodb) and [SQL](#sql) databases are usually used as persistent databases. 
+Databases are organized collections of data stored on a computer. That computer is called a *database server*, and the computer querying the database (usually an app server) is called the *database client*. Different databases organize their data differently, store it differently, and communicate differently. There are two types of database storage: *in-memory* (the data is stored in RAM, and would be lost in a power outage) and *persistent* (the data is stored on disk—a hard drive or SSD). [Redis](#redis) is primarily used as an in-memory database, whereas [MongoDB](#mongodb) and [SQL](#sql) databases are usually used as persistent databases. 
 
 There are two main categories of databases: 
 
@@ -419,7 +421,7 @@ There are two main categories of databases:
   - **Wide-column databases** like [Cassandra](http://cassandra.apache.org/)
   - **Multi-model** which support [multiple data models](https://en.wikipedia.org/wiki/Multi-model_database)
 
-In this section we’ll look at three databases:
+In this section, we’ll look at three databases:
 
 - [MongoDB](#mongodb)
 - [Redis](#redis)
@@ -468,7 +470,7 @@ const example = async () =>  {
 example()
 ```
 
-> In practice, we should handle errors—either with a try-catch or .catch (`await users.findOne().catch(e => console.log(e)))`).
+> In practice, we should handle errors either with a try-catch or .catch (`await users.findOne().catch(e => console.log(e)))`).
 
 This would log something like:
 
@@ -492,15 +494,15 @@ The above code uses the [`mongodb` module](https://mongodb.github.io/node-mongod
 
 Querying with `mongodb` is through MongoDB schema statements. It can be simplified in some ways with the [`mongoose` module](https://mongoosejs.com), the main JavaScript *ORM* for MongoDB. We’ll use Mongoose in [Chapter 1](1.md) and `mongodb` in [Chapter 11: Server Dev](11.md).
 
-> An *ORM*, or object-relational mapping, is a library that models database records as objects. In the case of Mongoose, it models MongoDB documents as JavaScript objects. It also does schema validation, type casting, query building, and business logic hooks. 
+> An *ORM*, or object-relational mapping, is a library that models database records as objects. In the case of Mongoose, it models MongoDB documents as JavaScript objects. It also does schema validation, typecasting, query building, and business logic hooks. 
 
 ## Redis
 
 [Redis](https://en.wikipedia.org/wiki/Redis) is an in-memory key-value database with optional durability:
 
-- *in-memory*: data is read from and written to memory (RAM) and not durable (data is lost on restart or power loss)
-- *key-value*: data is stored in values and fetched by keys (unique strings)
-- *optional durability*: data can be periodically persisted (written to disk), thus making almost all the data (minus whatever changed in the last couple seconds since the last write to disk) durable (able to be recovered on restart)
+- *In-memory*: Data is read from and written to memory (RAM) and not durable (data is lost on restart or power loss).
+- *Key-value*: Data is stored in values and fetched by keys (unique strings).
+- *Optional durability*: Data can be periodically persisted (written to disk), thus making almost all the data (minus whatever changed in the last couple seconds since the last write to disk) durable (able to be recovered on restart).
 
 Redis is usually used as a cache—for data that we want quick access to but are okay losing. We can install locally with `brew install redis` and start with `brew services start redis`. Then we can query using the [`ioredis`](https://www.npmjs.com/package/ioredis) npm library:
 
@@ -515,7 +517,7 @@ const name = await redis.get('name')
 redis.del('name')
 ```
 
-This uses the three basic commands: SET, GET, and DEL (delete). Here the value is just a string (`'The Guide'`), but there are other types of data that values can be, including:
+This uses the three basic commands: SET, GET, and DEL (delete). Here the value is just a string (`'The Guide'`), but values can be other types of data too, including:
 
 - lists (list of strings, ordered by time of insertion)
 - sets (unique, unordered strings)
@@ -534,11 +536,11 @@ redis.del('latest-review')
 
 ## SQL
 
-SQL (Structured Query Language) is a language for querying relational databases like SQLite and PostgreSQL. Relational databases have *tables* instead of MongoDB’s collections, and *rows* instead of documents. A row is made up of *values* for each *columnn* in the table. Columns have a name and a type—for instance a `reviews` table with a column named `star` of type `INTEGER`, which could have a value of `5` in the first row:
+SQL (Structured Query Language) is a language for querying relational databases like SQLite and PostgreSQL. Relational databases have *tables* instead of MongoDB’s collections, and *rows* instead of documents. A row is made up of *values* for each *column* in the table. Columns have a name and a type—for instance a `reviews` table with a column named `star` of type `INTEGER`, which could have a value of `5` in the first row:
 
 ![reviews table with three columns and three rows](img/)
 
-Unlike MongoDB collections, each table has a schema—its name and list of columns. Both the table schema and query statements are written in SQL. Here are the `CREATE TABLE` and `INSERT` statements to create the pictured table and rows, and `SELECT` to view the table’s contents:
+Unlike MongoDB collections, each table has a schema—its name and list of columns. Both the table schema and query statements are written in SQL. Here are the `CREATE TABLE` and `INSERT` statements to create the pictured table and rows. Then, the `SELECT` statement returns the table’s contents:
 
 ```
 $ brew install sqlite
@@ -563,7 +565,7 @@ sqlite> SELECT * FROM reviews;
 3|Now that's a downtown job!|
 ```
 
-The `id` column is marked as the `PRIMARY KEY` (each table must have a unique key), and `text` column is non-null (`NOT NULL`). `SELECT * from reviews` means “fetch all the values from all the rows in the reviews table,” and it prints the results to the console. We insert 3 rows of `VALUES` (the values are listed in the order that the columns are declared in the schema). The last row is allowed to have a `null` value because the `stars` column wasn’t declared with `NOT NULL`. And we see in the final `SELECT` statement result that there’s nothing in the third column. There are many other statements and variations to statements. A couple more common ones are `UPDATE` and `DELETE`, which alter and remove rows:
+The `id` column is marked as the `PRIMARY KEY` (each table must have a unique key), and the `text` column is non-null (`NOT NULL`). `SELECT * from reviews` means “fetch all the values from all the rows in the reviews table,” and it prints the results to the console. We insert 3 rows of `VALUES` (the values are listed in the order that the columns are declared in the schema). The last row is allowed to have a `null` value because the `stars` column wasn’t declared with `NOT NULL`. And we see in the final `SELECT` statement result that there’s nothing in the third column. There are many other statements and variations to statements. A couple more common ones are `UPDATE` and `DELETE`, which alter and remove rows:
 
 ```
 sqlite> UPDATE reviews SET stars = 4 WHERE id = 3;
@@ -577,13 +579,13 @@ sqlite> SELECT * FROM reviews;
 2|tldr|1
 ```
 
-Relational databases have relations between tables—for instance in the reviews table we can have an `author_id` column that matches the `id` column in the users table. When a review row has a value of 1 under its `author_id` column, it means the user row with an `id` of 1 authored the review. We can tell SQL about this relation between the tables by adding this to the reviews table:
+Relational databases have relations between tables—for instance, in the reviews table, we can have an `author_id` column that matches the `id` column in the users table. When a review row has a value of 1 under its `author_id` column, it means the user row with an `id` of 1 authored the review. We can tell SQL about this relation between the tables by adding this to the reviews table:
 
 ```
 FOREIGN KEY(author_id) REFERENCES users(id)
 ```
 
-Then we can make a query that fetches data from both tables using INNER JOIN:
+Then, we can make a query that fetches data from both tables using INNER JOIN:
 
 ```
 sqlite> CREATE TABLE users(
@@ -608,7 +610,7 @@ tldr|1|lorensr
 
 `Breathtaking|5` is from the reviews table while `lorensr` is from the users table.
 
-While we can send SQL statements as strings in our code, we usually use a library for convenience and security (avoiding [SQL injection](https://en.wikipedia.org/wiki/SQL_injection)). In [Chapter 11: SQL](11.md#sql) we use the [Knex](https://knexjs.org/) library, which looks like this:
+While we can send SQL statements as strings in our code, we usually use a library for convenience and security (avoiding [SQL injection](https://en.wikipedia.org/wiki/SQL_injection)). In [Chapter 11: SQL](11.md#sql), we use the [Knex](https://knexjs.org/) library, which looks like this:
 
 ```js
 this.knex
@@ -622,17 +624,17 @@ An [SPA](https://en.wikipedia.org/wiki/Single-page_application) (single-page app
 
 # SSR
 
-SSR (server-side rendering) is when, instead of sending a small HTML file and a JS bundle that we ask the client to parse and render into HTML, our server sends fully rendered HTML (that it created by running the JS view code on the server). When that rendered HTML is able to be cached, the client browser can display the page faster than a normal SPA (a normal SPA displays a blank or skeleton HTML page, and then JavaScript constructs the view and puts it on the page). We also have code from our view library that, once the browser loads the static HTML, attaches our app’s events handlers (like `onClick`, `onSubmit`, etc.) to the page (through a process called *hydration*).
+SSR (server-side rendering) is when, instead of sending a small HTML file and a JS bundle that we ask the client to parse and render into HTML, our server sends fully rendered HTML (that it created by running the JS view code on the server). When that rendered HTML is cached, the client browser will display the page faster than a normal SPA (a normal SPA displays a blank or skeleton HTML page, and then JavaScript constructs the view and puts it on the page). We also have code from our view library that, once the browser loads the static HTML, attaches our app’s event handlers (like `onClick`, `onSubmit`, etc.) to the page (through a process called *hydration*).
 
 # React
 
-[React](https://reactjs.org/) was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular JavaScript view library. (And while Vue passed React in star count in 2018, React has, at time of writing, 5x the number of npm downloads.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.
+[React](https://reactjs.org/) was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular JavaScript view library. (And while Vue passed React in star count in 2018, React had 5x the number of npm downloads at the time of writing.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.
 
-As a view library, it is responsible for what the user sees on the screen. So its job is putting DOM nodes on the page and updating them. Different view libraries accomplish this in different ways and provide different APIs for us—the developers—to use. The primary features of React are:
+As a view library, React is responsible for what the user sees on the screen. So its job is putting DOM nodes on the page and updating them. Different view libraries accomplish this in different ways and provide different APIs for us—the developers—to use. The primary features of React are:
 
 - **JSX**: JSX (JavaScript XML) is an extension to JavaScript that allows us to write HTML-like code, with JavaScript expressions inside curly brackets `{}`.
 - **Components**: Components are functions or classes that receive arguments (called *props*) and return JSX to be rendered. They can also be used as HTML tags inside JSX: `<div><MyComponent /></div>`.
-- **Declarative**: Components automatically get re-run whenever their props or state changes, and the new JSX they return automatically updates the page. This process is called declarative because we declare what our props and state are as well as what the JSX should look like based on those props and state. This is in contrast to an *imperative* view library like jQuery, in which we would make changes to the page ourselves (for example adding an `<li>` to a `<ul>` with `$('ul').append('<li>New list item</li>')`).
+- **Declarative**: Components automatically get re-run whenever their props or state changes, and the new JSX they return automatically updates the page. This process is called declarative because we declare what our props and state are, which determines how the JSX looks. This is in contrast to an *imperative* view library, like jQuery, in which we would make changes to the page ourselves (for example, by adding an `<li>` to a `<ul>` with `$('ul').append('<li>New list item</li>')`).
 - **Virtual DOM**: React creates a model of the page, and when we return different JSX from our components, React compares the new JSX to the previous JSX, and uses the difference to make the smallest possible changes to the DOM. This process improves the rendering speed.
 
 # Vue 
@@ -653,10 +655,10 @@ With the demise of BlackBerry OS in 2013 and Windows Phone in 2015, the only two
 
 Pros of making a web app:
 
-- We don’t need to have multiple codebases for desktop web and mobile. We can make our desktop web app a responsive PWA that works on mobile, or if we choose to have a separate mobile site (like `m.oursite.com`), we can at least share a lot of the code.
+- We don’t need to have multiple codebases for desktop web and mobile. We can make our desktop web app a responsive PWA that works on mobile, or, if we choose to have a separate mobile site (like `m.oursite.com`), we can at least share a lot of the code.
 - Publishing is easier:
   - We aren’t subject to app store rules and review processes.
-  - Our users don’t have to update the app to get the newest version—the newest version is loaded when they open our website (or if we’re using a service worker, they might get the new version the second time the open the site, depending on our implementation).
+  - Our users don’t have to update the app to get the newest version—the newest version is loaded when they open our website (or if we’re using a service worker, they might get the new version the second time they open the site, depending on our implementation).
 
 Pros of making a native app:
 
@@ -679,7 +681,7 @@ Cordova is much less popular than the other options, as it performs poorer, and 
 
 Android is a mobile operating system created in 2003 and bought by Google in 2005. As it is open source (published under the Apache license), it can be freely used, and it *is* used by ~all phone manufacturers besides Apple. It can also be modified—for instance, Fire OS is a fork of Android used by Amazon for its mobile devices. 
 
-One thing to keep in mind when developing for Android is that Android devices are more likely than iOS devices to be on an older version of the OS. At time of writing, only 33% of Android devices were on the latest major version (Android 10), and 15% were 5+ years old (<= Android 6), versus 85% of iOS devices on the latest version and 1% 4+ years old.
+One thing to keep in mind when developing for Android is that Android devices are more likely than iOS devices to be on an older version of the OS. At the time of writing, only 33% of Android devices were on the latest major version, and 15% were 5+ years old, versus 85% of iOS devices on the latest version and 1% 4+ years old.
 
 While any editor can be used, the official IDE is Android Studio, and it can build, run, and package apps. It also does linting, layout editing, debugging, and device emulation.
 
@@ -709,7 +711,7 @@ Expo’s major features are:
 
 # Latency
 
-Latency is the delay between when one machine sends a message over the internet and when the other machine receives it. It’s usually talked about in terms of round-trip time: the time it takes for the message to get to the destination and for a reply to reach the source. The `ping` command-line tool displays round-trip time between our computer and another machine. Here we see that it takes around 5 milliseconds total for a message to reach the nearest Google server and for the reply to arrive back:
+Latency is the period between one machine sending a message over the internet and the other machine receiving it. It’s usually talked about in terms of round-trip time: the time it takes for the message to get to the destination and for a reply to reach the source. The `ping` command-line tool displays round-trip time between our computer and another machine. Here, we see that it takes around 5 milliseconds total for a message to reach the nearest Google server and for the reply to arrive back:
 
 ```sh
 $ ping google.com
@@ -725,12 +727,12 @@ PING google.com (172.217.10.142): 56 data bytes
 round-trip min/avg/max/stddev = 3.919/4.912/5.375/0.517 ms
 ```
 
-It generally takes longer to reach servers that are physically farther away. The internet backbone is made of fiber optic cables, and the light messages travelling through them has a maximum speed. It takes 75 ms for a message to go from New York across the Atlantic Ocean to Paris and back. And the same to cross the U.S. to San Francisco and back. 164 ms from New York to Tokyo, and 252 ms from New York to Shanghai.
+It generally takes longer to reach servers that are physically farther away. The internet backbone is made of fiber optic cables, and the light messages travelling through them have a maximum speed. It takes 75 ms for a message to go from New York across the Atlantic Ocean to Paris and back. And the same to cross the U.S. to San Francisco and back. 164 ms from New York to Tokyo, and 252 ms from New York to Shanghai.
 
-> These numbers will change once [Elon](https://en.wikipedia.org/wiki/Elon_Musk) builds [Starlink](https://en.wikipedia.org/wiki/Starlink_(satellite_constellation)), a network of near-Earth satellites 🤩. The satellites will be so near that the latency to them from the ground is 7 ms, and then the satellites will communicate with each other by light. Light travels faster in straight lines through space than in cables curved over the Earth’s surface, so latency to far-off locations will be reduced!
+> These numbers have one exception, which is near-Earth satellite networks like [Starlink](https://en.wikipedia.org/wiki/Starlink_(satellite_constellation)). The satellites are so close, the latency between them and the ground can be as low as 7 ms. The satellites communicate with each other by light, and light travels faster in straight lines through space than in cables curved over the Earth’s surface, so latency to far-off locations is reduced!
 
 Why do developers need to know about latency? Because we never want to keep our users waiting! If our web server is in New York, our database is in Shanghai, and our user is in San Francisco, and the request requires 3 database requests in series, and our server code takes 20ms, then the user won’t receive a response for (75 + 252 * 3 + 20) = 851 ms! (And this is assuming the [TCP](#http) connection is already set up, which would require another round trip from the user to the server, not to mention the longer SSL handshake if it’s HTTPS.) Almost one second is a long time for our user, whose human brain [notices delays](https://developers.google.com/web/fundamentals/performance/rail)
-as short as 100ms. This is why we try to locate our database server in the same data center as our web server (for example both in Amazon’s [`us-east-1`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)). It’s why we use a [CDN](#cdn) to get our files on servers around the world, closer to our users. It’s also why we try to reduce the number of sequential requests we need to make between the client and the server, and why it’s so important that we can put all of our queries in a single GraphQL request.
+as short as 100ms. This is why we try to locate our database server in the same data center as our web server (for example both in Amazon’s [`us-east-1`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)). It’s why we use a [CDN](#cdn) to get our files on servers around the world, closer to our users. It’s also why we try to reduce the number of sequential requests we need to make between the client and the server, and why it’s so important we can put all of our queries in a single GraphQL request.
 
 # CDN
 
@@ -741,7 +743,7 @@ A CDN, or *Content Delivery Network*, has servers around the world that deliver 
 
 Then, when a user makes a request, this is what happens the first time:
 
-- The client asks DNS server: “Where is `ourdomain.com/foo`?”
+- The client asks the DNS server: “Where is `ourdomain.com/foo`?”
 - The DNS server, which is run by our CDN, replies: “It’s at `1.2.3.4`”, which is the IP address of a nearby server run by the CDN.
 - The client connects to `1.2.3.4` and makes the request, saying: `GET ourdomain.com/foo`.
 - The `1.2.3.4` CDN server doesn’t know what the `/foo` response should be, so it makes this request to our server: `GET ourapp.herokudns.com/foo`.
@@ -759,7 +761,7 @@ These subsequent requests take much less time to complete than requests to our s
 
 # Webhooks
 
-Webhooks are a system for how one server can notify another server when something happens: some sites, including GitHub, allow us to provide them with a URL, for instance `https://api.graphql.guide/github-hook`, to which they make an [HTTP](#http) request when a certain event occurs. If we tell GitHub we want to know about the [`watch` event](https://developer.github.com/v3/activity/events/types/#watchevent) on the Guide repo, then they will send a POST to our server (using the given URL) whenever the repo is starred. The POST will contain a JSON body with information about the event, for example:
+Webhooks are a system for how one server can notify another server when something happens. Some sites, including GitHub, allow us to provide them with a URL, for instance,  `https://api.graphql.guide/github-hook`, to which they make an [HTTP](#http) request when a certain event occurs. If we tell GitHub we want to know about the [`watch` event](https://developer.github.com/v3/activity/events/types/#watchevent) on the Guide repo, then they will send a POST to our server (using the given URL) whenever the repo is starred. The POST will contain a JSON body with information about the event, for example:
 
 ```json
 {
@@ -890,9 +892,9 @@ Should we write tests? What kind, and how many?
 
 Yes, we should write tests. No, we don’t need them to cover 100% of our code. Most of our tests should be integration tests. 
 
-We write tests so that we can have confidence that when write code, we’re not breaking things that used to work. We can cover most of our code (or more importantly, our use cases) with integration tests. Why not cover everything with unit tests? Because it would take forever to write all of them, and some of them would test implementation, so whenever we refactored, we would have to rewrite our tests. We can cover the same amount of code with fewer integration tests, because each test mocks fewer things and covers more code. We don’t cover everything with e2e tests because they would take forever to run—after clicking or submitting a form, the test runner has to wait for the animation to complete or the network request to finish, which in one test might just add up to seconds, but with a whole test suite could take minutes. And it would slow down development if we had to wait minutes to see if the change we just made broke anything.
+We write tests so that when we write new code, we can have confidence that the new code won’t break things that used to work. We can cover most of our code (or more importantly, our use cases) with integration tests. Why not cover everything with unit tests? Because it would take forever to write all of them, and some of them would test implementation, so whenever we refactored, we would have to rewrite our tests. We can cover the same amount of code with fewer integration tests, because each test mocks fewer things and covers more code. We don’t cover everything with e2e tests because they would take forever to run—after clicking or submitting a form, the test runner has to wait for the animation to complete or the network request to finish, which in one test might just add up to seconds, but with a whole test suite could take minutes. And it would slow down development if we had to wait minutes to see if the change we just made broke anything.
 
-So the first thing we should do when writing tests is create integration tests to cover our important use cases. Then we can look at the code coverage and fill in the holes with more integration tests or with unit tests. How many e2e tests we write depends on how much of a difference there is between the integration and e2e environments. For full-stack tests, there might be a lot of differences between the integration test runner and an actual browser, so we should at least test the critical path (the most important user actions, for example in `twitter.com`’s case, logging in, posting a tweet, and scrolling the feed). For backend, where the integration tests include apollo server’s request pipeline, there’s not much difference between integration and e2e—in which case we can just do a couple tests that make sure the HTTP server runs and the connection to the database works.
+So the first thing we should do when writing tests is create integration tests to cover our important use cases. Then we can look at the code coverage and fill in the holes with more integration tests or with unit tests. How many e2e tests we write depends on how much of a difference there is between the integration and the e2e environments. For full-stack tests, there might be a lot of differences between the integration test runner and an actual browser, so we should at least test the critical path (the most important user actions, for example, in `twitter.com`’s case, logging in, posting a tweet, and scrolling the feed). For backend, where the integration tests include apollo server’s request pipeline, there’s not much difference between integration and e2e—in which case we can just do a couple tests that make sure the HTTP server runs and the connection to the database works.
 
 How we write tests depends on our *test runner*—the tool we use to run our testing code and report the results to us. For JavaScript unit and integration tests, we recommend [Jest](https://jestjs.io/), and for JS integration tests, we recommend [Cypress](https://www.cypress.io/).
 
@@ -939,9 +941,9 @@ The differences are small enough that for most applications, we recommend using 
 
 We can store session secrets and signed tokens in either localStorage or cookies, which have different pros and cons:
 
-- **Size**: Cookies can’t be larger than 4KB, and in some cases we might want to store more data than that in our token, in which case we’d need to use localStorage.
+- **Size**: Cookies can’t be larger than 4KB, and, in some cases, we might want to store more than 4 KB of data in our token, in which case we’d need to use localStorage.
 - **Flexibility**: Data you put in localStorage can be managed by client-side JavaScript and sent to any domain, whereas cookies can only be set by the server and can only be shared among subdomains.
-- **XSS**: Cookies are set by the server and can be configured to not be accessible from client-side JS, so they can’t be accessed by [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Data stored in localStorage is vulnerable to XSS because it can be read by any JS running on your page (from any source allowed by your [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy)).
+- **XSS**: Cookies are set by the server and can be configured to be inaccessible from client-side JS, so they can’t be read by [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Data stored in localStorage is vulnerable to XSS because it can be read by any JS running on your page (from any source allowed by your [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy)).
 - **CSRF**: Cookies are vulnerable to [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery), whereas localStorage is not.
 
 While the XSS issue is a serious concern, a common mitigation is setting short expirations, and for applications without strict security requirements, we again recommend using whichever method is easier to set up.
@@ -950,7 +952,7 @@ While the XSS issue is a serious concern, a common mitigation is setting short e
 
 Users notice when sites are slow, and they don’t like it 😄. So if we want our users to feel good using our site, we want different things in the browser to happen at certain speeds. 
 
-First let’s go over how the browser works. Because JavaScript is single-threaded, it can only run on a single CPU core. We can have particular pieces of JS run in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), which can run on different cores, but most of our JS runs on one core, in the browser’s **main thread**. The browser also needs to do most of its page **rendering** (parsing HTML and CSS, laying out elements, painting pixels into images, etc) in the main thread. 
+First, let’s go over how the browser works. Because JavaScript is single-threaded, it can only run on a single CPU core. We can have particular pieces of JS run in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), which can run on different cores, but most of our JS runs on one core, in the browser’s **main thread**. The browser also needs to do most of its page **rendering** (parsing HTML and CSS, laying out elements, painting pixels into images, etc.) in the main thread. 
 
 > **Composition**, in which the pixel images are positioned, happens on the GPU.
 
@@ -981,4 +983,6 @@ class Foo extends Component {
 
 [requestIdleCallback()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback) runs the given function when the browser is idle, after it has finished rendering the changes triggered by `updateUI()`/`this.setState()`.
 
-- **Animation**: Humans perceive a motion as smooth at 60 fps—when 60 frames are rendered per second. If we take 1000 milliseconds and divide by 60, we get 16. So while something is moving on the page, we want the browser to be able to render every 16ms. The browser needs 6ms to paint, which gives us 10ms left to run JS in. “Something moving” includes visual animations like entrances/exits and loading indicators, scrolling, and dragging.
+- **Animation**: Humans perceive a motion as smooth at 60 fps—when 60 frames are rendered per second. If we take 1,000 milliseconds and divide by 60, we get 16. So while something is moving on the page, we want the browser to be able to render every 16ms. The browser needs 6ms to paint, which gives us 10ms left to run JS. “Something moving” includes visual animations like entrances/exits and loading indicators, scrolling, and dragging.
+
+
