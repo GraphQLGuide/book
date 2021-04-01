@@ -74,6 +74,7 @@
     * [@deprecated](query-language/directives.md#@deprecated)
   * [Mutations](query-language/mutations.md)
   * [Subscriptions](query-language/subscriptions.md)
+  * [Summary](query-language/summary.md)
 
 
 * [Chapter 3: Type System](type-system/index.md)
@@ -92,6 +93,7 @@
   * [Directives](type-system/directives.md)
   * [Extending](type-system/extending.md)
   * [Introspection](type-system/introspection.md)
+  * [Summary](type-system/summary.md)
 
 
 * [Chapter 4: Validation & Execution](validation-and-execution/index.md)

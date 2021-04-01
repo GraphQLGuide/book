@@ -17,3 +17,4 @@ Chapter contents:
 * [Directives](directives.md)
 * [Extending](extending.md)
 * [Introspection](introspection.md)
+* [Summary](summary.md)

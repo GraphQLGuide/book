@@ -29,4 +29,5 @@ Chapter contents:
   * [@deprecated](directives.md#@deprecated)
 * [Mutations](mutations.md)
 * [Subscriptions](subscriptions.md)
+* [Summary](summary.md)
 
