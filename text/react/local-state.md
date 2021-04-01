@@ -71,7 +71,7 @@ Our read function combines 3 strings: a Reactive variable, a LocalStorage value,
 
 ### Reactive variables
 
-> If you’re jumping in here, `git checkout 18_0.2.0` (tag [`18_0.2.0`](https://github.com/GraphQLGuide/guide/tree/18_0.2.0)). Tag [`19_0.2.0`](https://github.com/GraphQLGuide/guide/tree/19_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 18_1.0.0` (tag [`18_1.0.0`](https://github.com/GraphQLGuide/guide/tree/18_1.0.0)). Tag [`19_1.0.0`](https://github.com/GraphQLGuide/guide/tree/19_1.0.0) contains all the code written in this section.
 
 A [reactive variable](https://www.apollographql.com/docs/react/local-state/reactive-variables/) can store any type of data, and when we change its value, any code that depends on it *reacts* to the change: 
 
@@ -99,7 +99,7 @@ console.log(lastRouteVar())
 
 A place in our app where a simple piece of local state would be useful is during login. Right now, our `useUser()` hook provides a `loggingIn` boolean that’s true when the `currentUser` query is `loading`. But it would be more accurate if `loggingIn` were true as soon as the user clicks the “Sign in” button. If we had a piece of state that was true while the user went through the Auth0 login process, then we could update `loggingIn` to be `loading || loginInProgress`. Let’s create a reactive variable for it:
 
-[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/19_0.2.0/src/lib/auth.js)
+[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/19_1.0.0/src/lib/auth.js)
 
 ```js
 import { makeVar } from '@apollo/client'
@@ -129,7 +129,7 @@ export const login = () => {
 
 Now we can use it in our `useUser()` hook:
 
-[`src/lib/useUser.js`](https://github.com/GraphQLGuide/guide/blob/19_0.2.0/src/lib/useUser.js)
+[`src/lib/useUser.js`](https://github.com/GraphQLGuide/guide/blob/19_1.0.0/src/lib/useUser.js)
 
 ```js
 import { useReactiveVar } from '@apollo/client'
@@ -154,7 +154,7 @@ Now it’s working—when we click the “Sign in” button, we can see the spin
 
 ### In cache
 
-> If you’re jumping in here, `git checkout 19_0.2.0` (tag [`19_0.2.0`](https://github.com/GraphQLGuide/guide/tree/19_0.2.0)). Tag [`20_0.2.0`](https://github.com/GraphQLGuide/guide/tree/20_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 19_1.0.0` (tag [`19_1.0.0`](https://github.com/GraphQLGuide/guide/tree/19_1.0.0)). Tag [`20_1.0.0`](https://github.com/GraphQLGuide/guide/tree/20_1.0.0) contains all the code written in this section.
 
 We can also store local state in the cache: we can add client-side root query fields, new objects, or new fields to existing objects. In this section, we’ll add a field to existing objects (`Section` objects) that were fetched from the server.
 
@@ -181,7 +181,7 @@ cache.writeFragment({
 
 And we read it by adding the `scrollY` field to our queries:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/20_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/20_1.0.0/src/components/Section.js)
 
 ```js
 const SECTION_BY_ID_QUERY = gql`
@@ -245,7 +245,7 @@ useLayoutEffect(() => {
 
 Lastly, we need to decide when to call `cache.writeFragment()` and save the scroll position. Let’s do it a second after the user stops scrolling (using [debounce()](https://lodash.com/docs/4.17.15#debounce)), provided they haven’t switched sections:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/20_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/20_1.0.0/src/components/Section.js)
 
 ```js
 import debounce from 'lodash/debounce'
@@ -291,7 +291,7 @@ footerContent = `Viewed ${section.views.toLocaleString()} times`
 
 `section` is undefined because the `data` returned from `useQuery()` is undefined. Apollo returns undefined `data` when it can’t read an `@client` field. So we need to provide a default value:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/20_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/20_1.0.0/src/lib/apollo.js)
 
 ```js
 export const cache = new InMemoryCache({
@@ -316,7 +316,7 @@ It now works! When we scroll, wait a second, go to another section, and go back,
 
 If we want to document our new ability to query `Section.scrollY` (for our teammates or forgetful future selves 🤗), we can add a client-side schema:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/20_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/20_1.0.0/src/lib/apollo.js)
 
 ```js
 import { gql } from '@apollo/client'

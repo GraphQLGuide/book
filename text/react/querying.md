@@ -17,7 +17,7 @@ Guide’s [github repo](https://github.com/GraphQLGuide/guide) has. Let’s look
 how we can make that query and display the results. We’ll start out by adding a
 component to display the star count:
 
-[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/1_0.2.0/src/components/StarCount.js)
+[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/1_1.0.0/src/components/StarCount.js)
 
 ```js
 import React from 'react'
@@ -82,7 +82,7 @@ export default () => {
 
 Now we can add the component to our app:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/1_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/1_1.0.0/src/components/App.js)
 
 ```js
 import StarCount from './StarCount'
@@ -102,7 +102,7 @@ And we have a working GraphQL-backed app!
 
 ## Loading
 
-> If you’re jumping in here, `git checkout 1_0.2.0` (tag [`1_0.2.0`](https://github.com/GraphQLGuide/guide/tree/1_0.2.0)). Tag [2_0.2.0](https://github.com/GraphQLGuide/guide/tree/2_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 1_1.0.0` (tag [`1_1.0.0`](https://github.com/GraphQLGuide/guide/tree/1_1.0.0)). Tag [2_1.0.0](https://github.com/GraphQLGuide/guide/tree/2_1.0.0) contains all the code written in this section.
 
 `loading` is another property returned by `useQuery()`. It’s `true` when a network request is in flight. 
 
@@ -110,7 +110,7 @@ When we reload the app, we see a flash of “⭐️ stars” before the number a
 pushing `stars` to the right. When `<StarCount>` is rendered the first time, it
 doesn’t have the number of stars yet. Let’s log `data` and `loading` to see it happening:
 
-[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/1_0.2.0/src/components/StarCount.js)
+[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/1_1.0.0/src/components/StarCount.js)
 
 ```js
 export default () => {
@@ -161,7 +161,7 @@ number (and any other GraphQL data) up to date, we can do so in two different
 ways: polling and [subscriptions](../query-language/#subscriptions). Polling is much easier to
 implement, so let’s do that first. We can add a [`pollInterval`](https://www.apollographql.com/docs/react/api/react/hooks/#params) option to our query in `StarCount.js`:
 
-[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/2_0.2.0/src/components/StarCount.js)
+[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/2_1.0.0/src/components/StarCount.js)
 
 ```js
 export default () => {
@@ -207,7 +207,7 @@ to read the book!). So we might not add this animation to a serious app, but
 let’s add it to our app for fun 😊. It’s easy with the
 [`react-odometerjs`](https://www.npmjs.com/package/react-odometerjs) component:
 
-[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/2_0.2.0/src/components/StarCount.js)
+[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/2_1.0.0/src/components/StarCount.js)
 
 ```js
 import Odometer from 'react-odometerjs'
@@ -235,7 +235,7 @@ in our app update.
 
 Background: [webhooks](../background/webhooks.md)
 
-> If you’re jumping in here, `git checkout 2_0.2.0` (tag [`2_0.2.0`](https://github.com/GraphQLGuide/guide/tree/2_0.2.0)). Tag [3_0.2.0](https://github.com/GraphQLGuide/guide/tree/3_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 2_1.0.0` (tag [`2_1.0.0`](https://github.com/GraphQLGuide/guide/tree/2_1.0.0)). Tag [3_1.0.0](https://github.com/GraphQLGuide/guide/tree/3_1.0.0) contains all the code written in this section.
 
 When we poll for new data every 5 seconds, it takes 2.5 seconds on average (as
 little as 0, and as much as 5) for a change to show up, plus a little time for
@@ -286,7 +286,7 @@ const link = new WebSocketLink({
 This would establish a WebSocket connection that remains open for the duration of the client session, and all GraphQL communication
 (queries, mutations, and subscriptions) would be sent over the connection. However, authentication over the WebSocket is a little involved, so we’ll go with a hybrid transport solution: we’ll send queries and mutations over an HTTP link (which we’ll add auth to later), and we’ll send subscriptions over the unauthenticated WebSocket link. We can do this because all of the data used in the Guide’s real-time features (for example `StarCount`, and later on, reviews) is public. 
 
-[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/3_0.2.0/src/index.js)
+[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/3_1.0.0/src/index.js)
 
 ```js
 import { split } from '@apollo/client'
@@ -318,7 +318,7 @@ The `ApolloClient` constructor options object takes a single link, so we need to
 
 Now we can subscribe to updates to the star count with this simple subscription:
 
-[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/3_0.2.0/src/components/StarCount.js)
+[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/3_1.0.0/src/components/StarCount.js)
 
 ```js
 const STARS_SUBSCRIPTION = gql`
@@ -332,7 +332,7 @@ To start the subscription, we use a function
 [`subscribeToMore`](https://www.apollographql.com/docs/react/features/subscriptions.html#subscribe-to-more)
 that `useQuery()` returns:
 
-[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/3_0.2.0/src/components/StarCount.js)
+[`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/3_1.0.0/src/components/StarCount.js)
 
 ```js
 import { useEffect } from 'react'
@@ -411,7 +411,7 @@ update over the WebSocket to the client.
 
 ## Lists
 
-> If you’re jumping in here, `git checkout 3_0.2.0` (tag [`3_0.2.0`](https://github.com/GraphQLGuide/guide/tree/3_0.2.0)). Tag [`4_0.2.0`](https://github.com/GraphQLGuide/guide/tree/4_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 3_1.0.0` (tag [`3_1.0.0`](https://github.com/GraphQLGuide/guide/tree/3_1.0.0)). Tag [`4_1.0.0`](https://github.com/GraphQLGuide/guide/tree/4_1.0.0) contains all the code written in this section.
 
 > See the [Listing reviews](mutating.md#listing-reviews) section for another example of querying a list of data.
 
@@ -422,7 +422,7 @@ for the table of contents so that readers can easily navigate between sections.
 
 To begin, we replace the `<p>` in `<App>` with the two new sections of the page:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/components/App.js)
 
 ```js
 import TableOfContents from './TableOfContents'
@@ -448,7 +448,7 @@ a loading spinner, but a nicer alternative when we’re waiting for text to load
 is a loading skeleton—an animated gray bar placed where the text will appear.
 Let’s put a few bars in both components:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/components/Section.js)
 
 ```js
 import React from 'react'
@@ -474,7 +474,7 @@ export default () => {
 `count={7}` will give us 7 gray bars, representing 7 lines of text. Now for the
 sidebar:
 
-[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/components/TableOfContents.js)
+[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/components/TableOfContents.js)
 
 ```js
 import React from 'react'
@@ -567,7 +567,7 @@ We can see what the data looks like by hitting the play button or
 To use our query in our component, we give it a name,
 `ChapterQuery`, put it inside a `gql` template string, and use `useQuery()`:
 
-[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/components/TableOfContents.js)
+[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/components/TableOfContents.js)
 
 ```js
 import { gql, useQuery } from '@apollo/client'
@@ -596,7 +596,7 @@ export default () => {
 Now we can use `chapters` in our JSX. For each chapter we display a
 list of links to each section:
 
-[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/components/TableOfContents.js)
+[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/components/TableOfContents.js)
 
 ```js
 import { NavLink } from 'react-router-dom'
@@ -678,7 +678,7 @@ export default () => {
 
 Okay, so that was a lot of code 😁. We’ve got an outer list of chapters, and for each chapter we have an inner list of sections. We’ve got React Router `<NavLink>`s that add an `"active"` class when the URL matches the link path. And we use the `slugify()` helper to generate paths.
 
-[`src/lib/helpers.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/lib/helpers.js)
+[`src/lib/helpers.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/lib/helpers.js)
 
 ```js
 export const withHyphens = (string) => string.replace(/ /g, '-')
@@ -705,7 +705,7 @@ export const slugify = (chapter, section) => {
 
 Also, to get React Router working, we need to wrap our app in `<BrowserRouter>`:
 
-[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/4_0.2.0/src/index.js)
+[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/4_1.0.0/src/index.js)
 
 ```js
 import { BrowserRouter } from 'react-router-dom'
@@ -728,7 +728,7 @@ Now we should see the table of contents on the left side of the page, and we can
 
 ## Query variables
 
-> If you’re jumping in here, `git checkout 4_0.2.0` (tag [`4_0.2.0`](https://github.com/GraphQLGuide/guide/tree/4_0.2.0)). Tag [`5_0.2.0`](https://github.com/GraphQLGuide/guide/tree/5_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 4_1.0.0` (tag [`4_1.0.0`](https://github.com/GraphQLGuide/guide/tree/4_1.0.0)). Tag [`5_1.0.0`](https://github.com/GraphQLGuide/guide/tree/5_1.0.0) contains all the code written in this section.
 
 Let’s fill in the book content next! Say we have a section ID, like `'intro'`—how do we get the content? Let’s look in [Playground](https://api.graphql.guide/play) to find the right query to make:
 
@@ -741,7 +741,7 @@ There’s a `section(id: String!)` query that returns a `Section` object, which 
 
 Next we add the query to our component:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
 
 ```js
 import { gql, useQuery } from '@apollo/client'
@@ -762,7 +762,7 @@ export default () => {
 
 Now `data.section` will have the same `content` string that we saw returned in Playground, and we can display it:
 
-[src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_0.2.0/src/components/Section.js)
+[src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
 
 ```js
 import get from 'lodash/get'
@@ -788,7 +788,7 @@ export default () => {
 
 We can read the book! 📖 But we’ve got a hard-coded section ID—let’s turn our `section(id: "intro")` argument into a variable:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
 
 ```js
 const SECTION_QUERY = gql`
@@ -823,7 +823,7 @@ Now passing the variable to the query is working, but we still have `'intro'` ha
 
 The `pathname` is the equivalent of an anchor tag’s `href` attribute, but `state` is part of the HTML5 [session history management](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method). We can access it at `window.location.state`, but we also want our components to react to changes, so we want it as a prop. The best way to use browser history state with `react-router` is with the [`useLocation` hook](https://reactrouter.com/web/api/Hooks/uselocation), which returns the `location` object, which has a `.state` property:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
 
 ```js
 import { useLocation } from 'react-router'
@@ -844,7 +844,7 @@ export default () => {
 
 Let’s fill in our component with our newly available data:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
 
 ```js
 export default () => {
@@ -888,7 +888,7 @@ We can see this working by clicking a different section in the table of contents
 
 ## Variable query
 
-> If you’re jumping in here, `git checkout 5_0.2.0` (tag [`5_0.2.0`](https://github.com/GraphQLGuide/guide/tree/5_0.2.0)). Tag [`6_0.2.0`](https://github.com/GraphQLGuide/guide/tree/6_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 5_1.0.0` (tag [`5_1.0.0`](https://github.com/GraphQLGuide/guide/tree/5_1.0.0)). Tag [`6_1.0.0`](https://github.com/GraphQLGuide/guide/tree/6_1.0.0) contains all the code written in this section.
 
 If you’ve kept your development browser tab open during this section, then everything has worked smoothly for you. But when we open a [new tab](http://localhost:3000/introduction), we find a bug:
 
@@ -902,7 +902,7 @@ export default () => {
 
 It looks like `location.state` is undefined! 🐞 Which makes sense, because in a new tab, we haven’t yet clicked a `<NavLink>`, so the state hasn’t been set. If we don’t have the state, how do we get the section ID so that we can query for the right content? The only information we have on first page load is the path, so we have to parse it. [`location.pathname`](https://reacttraining.com/react-router/web/api/location) will always be defined, so we can `deslugify()` it:
 
-[`src/lib/helpers.js`](https://github.com/GraphQLGuide/guide/blob/6_0.2.0/src/lib/helpers.js)
+[`src/lib/helpers.js`](https://github.com/GraphQLGuide/guide/blob/6_1.0.0/src/lib/helpers.js)
 
 ```js
 // parse a path:
@@ -930,7 +930,7 @@ Now let’s look at Playground to figure out which two queries we can use, given
 
 We can use the `chapterByTitle` and `chapterByNumber` root query fields along with a `Chapter`’s `section` field with a `number: Int!` argument. (Any field, not just root fields, can have arguments.)
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/6_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/6_1.0.0/src/components/Section.js)
 
 ```js
 const SECTION_BY_ID_QUERY = gql`
@@ -1104,7 +1104,7 @@ Now we can use `section` and `chapter` in our JSX:
 
 All together, that’s:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/6_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/6_1.0.0/src/components/Section.js)
 
 ```js
 import React from 'react'
@@ -1257,7 +1257,7 @@ Lastly, let’s redirect from the root, which currently shows 404 and prints a G
 
 So far, we haven’t defined any routes—`Section` just changes what data it shows based on the path. We can create a root route that redirects to `/Preface`:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/6_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/6_1.0.0/src/components/App.js)
 
 ```js
 import { Switch, Route, Redirect } from 'react-router'

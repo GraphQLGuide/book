@@ -1,12 +1,12 @@
 # Adding a screen
 
-> If you’re jumping in here, `git checkout 1_0.1.0` (tag [1_0.1.0](https://github.com/GraphQLGuide/guide/tree/1_0.1.0), or compare [1...2](https://github.com/GraphQLGuide/guide/compare/1_0.1.0...2_0.1.0))
+> If you’re jumping in here, `git checkout 1_1.0.0` (tag [1_1.0.0](https://github.com/GraphQLGuide/guide/tree/1_1.0.0), or compare [1...2](https://github.com/GraphQLGuide/guide/compare/1_1.0.0...2_1.0.0))
 
 When the user taps a chapter, let’s take them to a new screen that shows a list of sections. While we could edit `CHAPTERS_QUERY` to select `chapters.sections` and pass the list of sections to the next screen, let’s instead pass just the chapter info and have the next screen make a separate query for the sections.
 
 To start, we add another screen—`ChapterScreen`—to the navigation:
 
-[`App.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_0.1.0/App.js)
+[`App.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_1.0.0/App.js)
 
 ```js
 import ChapterScreen from './src/ChapterScreen'
@@ -44,7 +44,7 @@ export default function App() {
 
 If the chapter has a number, we include “Chapter N: ” in the title. The `options` function assumes that when we navigate to the `"Chapter"` screen, we pass a `chapter` param. Let’s do that:
 
-[`src/HomeScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_0.1.0/src/HomeScreen.js)
+[`src/HomeScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_1.0.0/src/HomeScreen.js)
 
 ```js
 const ChapterItem = ({ chapter, onPress }) => {
@@ -80,7 +80,7 @@ Each screen gets a `navigation` prop provided by `react-navigation`. When a chap
 
 Now for the `ChapterScreen`:
 
-[`src/ChapterScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_0.1.0/src/ChapterScreen.js)
+[`src/ChapterScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_1.0.0/src/ChapterScreen.js)
 
 ```js
 import React from 'react'
@@ -149,7 +149,7 @@ Each screen gets a `route` prop that contains the params. Now we can go back and
 
 One further change we can make that is often a UX improvement is keeping the splash screen up until the home screen’s data is ready, so the user doesn’t see a flash of empty-page-with-spinner. We can do this by replacing our `<Loading>` component with Expo’s `<AppLoading>`:
 
-[`src/HomeScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_0.1.0/src/HomeScreen.js)
+[`src/HomeScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/2_1.0.0/src/HomeScreen.js)
 
 ```js
 import { AppLoading } from 'expo'

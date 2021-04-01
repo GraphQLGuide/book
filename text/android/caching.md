@@ -1,6 +1,6 @@
 # Caching
 
-> If you’re jumping in here, `git checkout 3_0.1.0` (tag [3_0.1.0](https://github.com/GraphQLGuide/guide-android/tree/3_0.1.0), or compare [3...4](https://github.com/GraphQLGuide/guide-android/compare/3_0.1.0...4_0.1.0))
+> If you’re jumping in here, `git checkout 3_1.0.0` (tag [3_1.0.0](https://github.com/GraphQLGuide/guide-android/tree/3_1.0.0), or compare [3...4](https://github.com/GraphQLGuide/guide-android/compare/3_1.0.0...4_1.0.0))
 
 In the JavaScript Apollo Client, caching is enabled by default. In Apollo Android, it isn’t—we might notice that when we go back and forth between the first and second page, the second page sometimes shows a loading spinner as it waits on the response from the server. 
 

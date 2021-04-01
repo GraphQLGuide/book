@@ -5,7 +5,7 @@ We start with a basic Expo app:
 ```sh
 git clone https://github.com/GraphQLGuide/guide-react-native.git
 cd guide-react-native/
-git checkout 0_0.1.0
+git checkout 0_1.0.0
 npm install
 npm start
 ```
@@ -46,7 +46,7 @@ Here’s our code structure:
     └── styles.js
 ```
 
-[`app.json`](https://github.com/GraphQLGuide/guide-react-native/blob/0_0.1.0/app.json) has Expo configuration:
+[`app.json`](https://github.com/GraphQLGuide/guide-react-native/blob/0_1.0.0/app.json) has Expo configuration:
 
 ```json
 {
@@ -77,7 +77,7 @@ Here’s our code structure:
 
 It points to images in the `assets/` folder for the app icon, the splash screen (full-screen image shown while the app is loading), and the website favicon.
 
-[`babel.config.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_0.1.0/babel.config.js) allows us to configure Babel. It’s currently using the default preset:
+[`babel.config.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_1.0.0/babel.config.js) allows us to configure Babel. It’s currently using the default preset:
 
 ```js
 module.exports = function (api) {
@@ -98,7 +98,7 @@ Our JavaScript code is in these files:
     └── styles.js
 ```
 
-[`App.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_0.1.0/App.js) is the app’s entry point. It sets up navigation with the [React Navigation](https://reactnavigation.org/) library and sets the mobile status bar icons to light/white (against the pink header):
+[`App.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_1.0.0/App.js) is the app’s entry point. It sets up navigation with the [React Navigation](https://reactnavigation.org/) library and sets the mobile status bar icons to light/white (against the pink header):
 
 ```js
 import React from 'react'
@@ -139,7 +139,7 @@ export default () => {
 }
 ```
 
-[`src/Loading.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_0.1.0/src/Loading.js) uses the native `ActivityIndicator` spinner:
+[`src/Loading.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_1.0.0/src/Loading.js) uses the native `ActivityIndicator` spinner:
 
 ```js
 import React from 'react'
@@ -154,7 +154,7 @@ export default () => (
 )
 ```
 
-And [`src/styles.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_0.1.0/src/styles.js) contains our styling:
+And [`src/styles.js`](https://github.com/GraphQLGuide/guide-react-native/blob/0_1.0.0/src/styles.js) contains our styling:
 
 ```js
 import { StyleSheet } from 'react-native'

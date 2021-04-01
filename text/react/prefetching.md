@@ -54,7 +54,7 @@ For the query selection set, we check the queries in `Section.js` and see that i
 
 ### On mouseover
 
-> If you’re jumping in here, `git checkout 22_0.2.0` (tag [`22_0.2.0`](https://github.com/GraphQLGuide/guide/tree/22_0.2.0)). Tag [`23_0.2.0`](https://github.com/GraphQLGuide/guide/tree/23_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 22_1.0.0` (tag [`22_1.0.0`](https://github.com/GraphQLGuide/guide/tree/22_1.0.0)). Tag [`23_1.0.0`](https://github.com/GraphQLGuide/guide/tree/23_1.0.0) contains all the code written in this section.
 
 The potential issue with the above approach is how much data we’re prefetching—the entire content of the book. The more data we fetch, the more work the server has to do, and the more work the client has to do—first to receive and cache it, and then later to interact with the larger cache. The client’s workload is more likely to become an issue because Apollo runs in the main thread (it interacts with React, which interacts with the DOM, which is in the main thread), and things it does might delay user interaction or freeze animations (see [Background > Browser performance](../background/browser-performance.md) for more info). It takes longer for Apollo to query and update the cache when there’s more data in the cache.
 
@@ -62,7 +62,7 @@ So usually instead of prefetching all of the data we could possibly need, we sel
 
 For the Guide, when a user hovers over a link in the table of contents, we know what data we’ll need—that section’s contents. We can export the query for section contents from `Section.js` and use it in `TableOfContents.js` to make the query  inside the `onMouseOver` function:
 
-[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/23_0.2.0/src/components/TableOfContents.js)
+[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/23_1.0.0/src/components/TableOfContents.js)
 
 ```js
 import { useApolloClient } from '@apollo/client'
@@ -123,7 +123,7 @@ We have two `onMouseOver`s: When mousing over a chapter link, we query for the f
 
 We also need to add the export:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/23_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/23_1.0.0/src/components/Section.js)
 
 ```js
 export const SECTION_BY_ID_QUERY = gql`
@@ -179,11 +179,11 @@ onMouseOver={() =>
 
 ### Cache redirects
 
-> If you’re jumping in here, `git checkout 23_0.2.0` (tag [`23_0.2.0`](https://github.com/GraphQLGuide/guide/tree/23_0.2.0)). Tag [`24_0.2.0`](https://github.com/GraphQLGuide/guide/tree/24_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 23_1.0.0` (tag [`23_1.0.0`](https://github.com/GraphQLGuide/guide/tree/23_1.0.0)). Tag [`24_1.0.0`](https://github.com/GraphQLGuide/guide/tree/24_1.0.0) contains all the code written in this section.
 
 There are often more ways than just mouseovers to intelligently prefetch certain data. What the ways are depends on the type of app. We have to think about how the user uses the app, and what they might do next. In our app, one common action will probably be to read the next section. So a simple thing we can do is whenever we show a section, we prefetch the next section:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/24_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/24_1.0.0/src/components/Section.js)
 
 ```js
 import { useApolloClient } from '@apollo/client'
@@ -238,7 +238,7 @@ useEffect(() => {
 
 However, there’s a way to get the next section in a single query—the `Section` type has a field `next` of type `Section`! Let’s write a query for that:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/24_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/24_1.0.0/src/components/Section.js)
 
 ```js
 const NEXT_SECTION_QUERY = gql`
@@ -284,7 +284,7 @@ query SectionContent($id: String!) {
 
 The problem is that Apollo doesn’t have a way of knowing that the server will respond to a `section` query that has an `id` argument with the `Section` object matching that ID. We can inform Apollo of this using a field policy `read` function that checks the cache:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/24_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/24_1.0.0/src/lib/apollo.js)
 
 ```js
 export const cache = new InMemoryCache({

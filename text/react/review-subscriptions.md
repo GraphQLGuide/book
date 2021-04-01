@@ -1,6 +1,6 @@
 ## Review subscriptions
 
-> If you’re jumping in here, `git checkout 21_0.2.0` (tag [`21_0.2.0`](https://github.com/GraphQLGuide/guide/tree/21_0.2.0)). Tag [`22_0.2.0`](https://github.com/GraphQLGuide/guide/tree/22_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 21_1.0.0` (tag [`21_1.0.0`](https://github.com/GraphQLGuide/guide/tree/21_1.0.0)). Tag [`22_1.0.0`](https://github.com/GraphQLGuide/guide/tree/22_1.0.0) contains all the code written in this section.
 
 Section contents:
 
@@ -49,7 +49,7 @@ We recommend using subscriptions when polling becomes a performance bottleneck: 
 
 The first feature we’ll build is a notification when the user is on the reviews page and a new review is created:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/22_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/components/Reviews.js)
 
 ```js
 import ReviewCreatedNotification from './ReviewCreatedNotification'
@@ -64,7 +64,7 @@ import ReviewCreatedNotification from './ReviewCreatedNotification'
 
 Now that we’ve got a `<ReviewCreatedNotification>` on the reviews page, what do we put in it? Apollo has a [`useSubscription()`](https://www.apollographql.com/docs/react/api/react/hooks/#usesubscription) hook that provides new data whenever an event is received from the server:
 
-[`src/components/ReviewCreatedNotification.js`](https://github.com/GraphQLGuide/guide/blob/22_0.2.0/src/components/ReviewCreatedNotification.js)
+[`src/components/ReviewCreatedNotification.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/components/ReviewCreatedNotification.js)
 
 ```js
 import React from 'react'
@@ -82,7 +82,7 @@ export default () => {
 
 We’ll see what the event looks like in a moment, but first we need the subscription itself:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/22_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/graphql/Review.js)
 
 ```js
 export const ON_REVIEW_CREATED_SUBSCRIPTION = gql`
@@ -149,7 +149,7 @@ We receive another message from the server—this one with `type: "data"`, meani
 
 But our users usually won’t see messages logged to the console, so let’s think about how we want to display the new review notification to the user. We could `window.alert()`, but that requires dismissal and is annoying 😆. We could put it on the page—for example in the header—but then the notification would be stuck there until either a new subscription event arrived or the page got re-rendered. It doesn’t need to be shown for long, taking up the user’s brainspace and annoying them (at least Loren is annoyed when he can’t dismiss a notification 😄). So let’s show a temporary message somewhere off to the side. We can search the Material UI [component library](https://material-ui.com/demos/app-bar/) and find the component meant for this purpose—the [Snackbar](https://material-ui.com/demos/snackbars/). We control whether it’s visible with an `open` prop, so we need state for that, and the `onClose` prop gets called when the user dismisses the Snackbar.
 
-[`src/components/ReviewCreatedNotification.js`](https://github.com/GraphQLGuide/guide/blob/22_0.2.0/src/components/ReviewCreatedNotification.js)
+[`src/components/ReviewCreatedNotification.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/components/ReviewCreatedNotification.js)
 
 ```js
 import React, { useState } from 'react'
@@ -284,7 +284,7 @@ Now when we’re viewing the most recent reviews (`createdAt_DESC`) and receive 
 
 It would also be nice to see updates to reviews when someone else edits or deletes them. If we look at the Playground schema, we can see that the server has more subscription options related to reviews: `reviewUpdated: Review` and `reviewDeleted: ObjID`. So let’s use ’em! Step 1 is writing the subscription documents and step 2 is adding more calls to `subscribeToMore`. (`subscribeToMore` doesn’t mean that we’re necessarily subscribing to new documents—just that we’re subscribing to more related data, and, in this case, the data is either the review that was updated or the ID of the review that was deleted.) First, the documents:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/22_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/graphql/Review.js)
 
 ```js
 export const ON_REVIEW_UPDATED_SUBSCRIPTION = gql`
@@ -308,7 +308,7 @@ Because the return type of `reviewDeleted` is a scalar (a custom one called `Obj
 TODO cc @benjamn https://github.com/apollographql/apollo-feature-requests/issues/270
 convert below to hooks
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/22_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/components/ReviewList.js)
 
 ```js
 import reject from 'lodash/reject'

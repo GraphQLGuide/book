@@ -1,6 +1,6 @@
 # First query
 
-> If you’re jumping in here, `git checkout 1_0.1.0` (tag [1_0.1.0](https://github.com/GraphQLGuide/guide-android/tree/1_0.1.0), or compare [1...2](https://github.com/GraphQLGuide/guide-android/compare/1_0.1.0...2_0.1.0))
+> If you’re jumping in here, `git checkout 1_1.0.0` (tag [1_1.0.0](https://github.com/GraphQLGuide/guide-android/tree/1_1.0.0), or compare [1...2](https://github.com/GraphQLGuide/guide-android/compare/1_1.0.0...2_1.0.0))
 
 With the schema file, Apollo Android will be able to generate typed models from our queries. Let’s add our first query, for the list of chapters:
 

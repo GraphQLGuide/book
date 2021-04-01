@@ -14,13 +14,13 @@ Section contents:
 
 ## First mutation
 
-> If you’re jumping in here, `git checkout 8_0.2.0` (tag [`8_0.2.0`](https://github.com/GraphQLGuide/guide/tree/8_0.2.0)). Tag [`9_0.2.0`](https://github.com/GraphQLGuide/guide/tree/9_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 8_1.0.0` (tag [`8_1.0.0`](https://github.com/GraphQLGuide/guide/tree/8_1.0.0)). Tag [`9_1.0.0`](https://github.com/GraphQLGuide/guide/tree/9_1.0.0) contains all the code written in this section.
 
 We haven’t yet changed any of the data in the Guide’s database (just the star count in GitHub’s database). When we want to change data (or more broadly, trigger side effects), we need to send a mutation to the server. Let’s start with something simple—at the bottom of `<Section>`, let’s add the count of how many times the current section has been viewed. Then we can increment the count whenever it’s viewed.
 
 First we add the `views` field to each of our three section queries:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_1.0.0/src/components/Section.js)
 
 ```js
 const SECTION_BY_ID_QUERY = gql`
@@ -80,7 +80,7 @@ For the first query, we also need to add `views: get(data, 'section.views')` to 
 
 Next we display the new data:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_1.0.0/src/components/Section.js)
 
 ```js
   let headerContent = null,
@@ -114,7 +114,7 @@ Now look for the mutation we need in Playground—we need the name, arguments, a
 
 And we write out the mutation string just like we write queries:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_1.0.0/src/components/Section.js)
 
 ```js
 const VIEWED_SECTION_MUTATION = gql`
@@ -131,7 +131,7 @@ Like in the queries, we need the `id` field so that Apollo knows which `Section`
 
 The mutation hook is simple:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_1.0.0/src/components/Section.js)
 
 ```js
 import { useMutation } from '@apollo/client'
@@ -143,7 +143,7 @@ import { useMutation } from '@apollo/client'
 
 `useMutation()` returns a function, which we’re naming `viewedSection`. We want to call it whenever a section is viewed, so inside a `useEffect()` hook:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/9_1.0.0/src/components/Section.js)
 
 ```js
 export default () => {
@@ -175,13 +175,13 @@ We should now be able to see the count change at the bottom of the page when we 
 
 ## Listing reviews
 
-> If you’re jumping in here, `git checkout 9_0.2.0` (tag [`9_0.2.0`](https://github.com/GraphQLGuide/guide/tree/9_0.2.0)). Tag [`10_0.2.0`](https://github.com/GraphQLGuide/guide/tree/10_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 9_1.0.0` (tag [`9_1.0.0`](https://github.com/GraphQLGuide/guide/tree/9_1.0.0)). Tag [`10_1.0.0`](https://github.com/GraphQLGuide/guide/tree/10_1.0.0) contains all the code written in this section.
 
 Before we get to more advanced mutations, we need more material to work with! Let’s make a new page that lists book reviews, and then in the [next section](#optimistic-updates), we can implement features that require mutations: favoriting reviews, creating new reviews, and editing and deleting our own reviews.
 
 Let’s start out by adding a link to the bottom of the table of contents:
 
-[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/10_0.2.0/src/components/TableOfContents.js)
+[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/10_1.0.0/src/components/TableOfContents.js)
 
 ```js
 export default () => {
@@ -204,7 +204,7 @@ export default () => {
 
 And we can add the new route with another `<Switch>`:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/10_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/10_1.0.0/src/components/App.js)
 
 ```js
 import Reviews from './Reviews'
@@ -226,7 +226,7 @@ Our `<Reviews>` component is going to need some data! We know how to do that now
 
 We find the `reviews` root query field, and since fetching them all might be a lot of data, let’s use the `limit` argument. And for each review, we want to display the author’s name, photo, and a link to their GitHub, so we need:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/10_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/10_1.0.0/src/components/Reviews.js)
 
 ```js
 const REVIEWS_QUERY = gql`
@@ -250,7 +250,7 @@ const REVIEWS_QUERY = gql`
 
 As before, we will use `useQuery()` to get `reviews` and `loading`, and it should have a similar structure to `<Section>`:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/10_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/10_1.0.0/src/components/Reviews.js)
 
 ```js
 import React from 'react'
@@ -288,7 +288,7 @@ Next up is the `<Review>` component. So far we’ve mostly been using plain HTML
 
 We can explore their component demos to find components we want to use to make up a `<Review>`, and we can browse the [material icons listing](https://material.io/icons/). Let’s put each review on a [Card](https://material-ui.com/demos/cards/), with an [Avatar](https://material-ui.com/demos/avatars/) for the author’s photo, a [MoreVert](https://material.io/tools/icons/?icon=more_vert&style=baseline) and [Menu](https://material-ui.com/demos/menus/) for editing and deleting, and a more prominent [FavoriteBorder](https://material.io/tools/icons/?icon=favorite_border&style=baseline) as a bottom action:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/10_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/10_1.0.0/src/components/Reviews.js)
 
 ```js
 import React, { useState } from 'react'
@@ -410,13 +410,13 @@ We should now see a list of the 20 most recent reviews! 💃
 
 ## Optimistic updates
 
-> If you’re jumping in here, `git checkout 10_0.2.0` (tag [`10_0.2.0`](https://github.com/GraphQLGuide/guide/tree/10_0.2.0)). Tag [`11_0.2.0`](https://github.com/GraphQLGuide/guide/tree/11_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 10_1.0.0` (tag [`10_1.0.0`](https://github.com/GraphQLGuide/guide/tree/10_1.0.0)). Tag [`11_1.0.0`](https://github.com/GraphQLGuide/guide/tree/11_1.0.0) contains all the code written in this section.
 
 Optimistic UI is when the client acts as if a user action has immediate effect instead of waiting for a response from the server. For example, normally if the user adds a comment to a blog post, the client sends the mutation to the server, and when the server responds with the new comment, the client adds it to the cache, which updates the comment query results, which re-renders the page. Optimistic UI is when the client sends the mutation to the server and updates the cache at the same time, not waiting for a response—*optimistically* assuming that the comment will be successfully saved to the database.
 
 Let’s write a simple example of an optimistic update for favoriting or unfavoriting a review. We can find in the [Playground](https://api.graphql.guide/play) a mutation called `favoriteReview` which takes the review ID and whether the user is favoriting or unfavoriting. First we write the mutation and add it to our component with `useMutation()`:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/11_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/11_1.0.0/src/components/Review.js)
 
 ```js
 import { gql, useMutation } from '@apollo/client'
@@ -476,7 +476,7 @@ While it works now, we can probably notice a delay between when we click the hea
 
 We can provide an [`optimisticResponse`](https://www.apollographql.com/docs/react/api/react/hooks/#options-2) to our `favorite()` mutation:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/11_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/11_1.0.0/src/components/Review.js)
 
 ```js
   function toggleFavorite() {
@@ -506,7 +506,7 @@ In the next section, we’ll implement a more flexible and complex form of optim
 
 ## Arbitrary updates
 
-> If you’re jumping in here, `git checkout 11_0.2.0` (tag [`11_0.2.0`](https://github.com/GraphQLGuide/guide/tree/11_0.2.0)). Tag [`12_0.2.0`](https://github.com/GraphQLGuide/guide/tree/12_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 11_1.0.0` (tag [`11_1.0.0`](https://github.com/GraphQLGuide/guide/tree/11_1.0.0)). Tag [`12_1.0.0`](https://github.com/GraphQLGuide/guide/tree/12_1.0.0) contains all the code written in this section.
 
 In the previous section ([Optimistic updating](#optimistic-updating)), we changed the Apollo cache using the mutation’s `optimisticResponse` option. But that method only let us set the mutation response—an object of type `Review`. Sometimes we need to update different parts of the cache. For our next piece of UI, we’ll need to update the `User` object, and we’ll do so with some new functions—[cache.readQuery()](https://www.apollographql.com/docs/react/caching/cache-interaction/#readquery) and [cache.writeQuery()](https://www.apollographql.com/docs/react/caching/cache-interaction/#writequery-and-writefragment).
 
@@ -516,7 +516,7 @@ In the header of the Reviews page, let’s add the total count of favorited revi
 
 First we need to think about how to get the count. We can’t just count how many reviews in the cache have `favorited: true`, because we only have the most recent 20. And fetching all the reviews from the server would be a lot of data on the wire, a lot of memory taken up on the client, and a long list to count through. Instead let’s fetch the current user’s `favoriteReviews` field. When we want to know more about the current user, we need to go back to our `useUser()` hook and add the field to our `USER_QUERY`:
 
-[`src/lib/useUser.js`](https://github.com/GraphQLGuide/guide/blob/12_0.2.0/src/lib/useUser.js)
+[`src/lib/useUser.js`](https://github.com/GraphQLGuide/guide/blob/12_1.0.0/src/lib/useUser.js)
 
 ```js
 const USER_QUERY = gql`
@@ -532,7 +532,7 @@ const USER_QUERY = gql`
 
 Since we’re just counting the length, we don’t need many `favoriteReviews` sub-fields—just the `id`. We add the hook to `<Reviews>` to the get the `user`, and then we get the length of the `user.favoriteReviews` array to display as the count:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/12_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/12_1.0.0/src/components/Reviews.js)
 
 ```js
 import { gql, useQuery } from '@apollo/client'
@@ -741,13 +741,13 @@ And then we replace `client` with `__APOLLO_CLIENT__`, which is a global variabl
 
 ## Creating reviews
 
-> If you’re jumping in here, `git checkout 12_0.2.0` (tag [`12_0.2.0`](https://github.com/GraphQLGuide/guide/tree/12_0.2.0)). Tag [`13_0.2.0`](https://github.com/GraphQLGuide/guide/tree/13_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 12_1.0.0` (tag [`12_1.0.0`](https://github.com/GraphQLGuide/guide/tree/12_1.0.0)). Tag [`13_1.0.0`](https://github.com/GraphQLGuide/guide/tree/13_1.0.0) contains all the code written in this section.
 
 Adding the ability to create reviews will give us the opportunity to look at a more complex mutation and a different kind of `update()` function—we’ll be updating our list of reviews with a new review so that it shows up at the top of the Reviews page.
 
 Let’s start out by adding a FAB ([floating action button](https://material-ui.com/demos/buttons/#floating-action-buttons)) that appears on the Reviews page when the user is logged in. The FAB will open a modal that has the form for a new review. Whether the modal is open is a state variable, so we need to convert `<Reviews>` from a function to a stateful component:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/components/Review.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/components/Review.js)
 
 ```js
 import React, { useState } from 'react'
@@ -790,7 +790,7 @@ export default () => {
 
 `<AddReview>` will need a way to let us know it’s done (so we can close the modal), so we add a `done` prop. To set a primary color for the FAB that matches the rest of the site, we need a Material UI [theme](https://material-ui.com/customization/themes/). We can see from the [default theme](https://material-ui.com/customization/default-theme/) that `palette.primary.main` is the name of the value to change:
 
-[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/index.js)
+[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/index.js)
 
 ```js
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -816,7 +816,7 @@ render(
 
 Next up is the `<AddReview>` form:
 
-[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/components/AddReview.js)
+[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/components/AddReview.js)
 
 ```js
 import React, { useState } from 'react'
@@ -893,7 +893,7 @@ export default ({ done }) => {
 
 Before we mutate, we need to validate the form input and show the error message, if any. We’ll use the [revalidate](http://revalidate.jeremyfairbank.com/) library:
 
-[`src/lib/validators.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/lib/validators.js)
+[`src/lib/validators.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/lib/validators.js)
 
 ```js
 import {
@@ -952,7 +952,7 @@ We don’t need to check for a `stars` error because our `<StarInput>` doesn’t
 
 Next we add the mutation! In the [Playground](https://api.graphql.guide/play), we find the `createReview` mutation. (The convention is that if the data type is `Foo`, the basic [CUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) mutations are called `createFoo`, `updateFoo`, and `deleteFoo`.) We’re used to `gql` and `useMutation()`, but, this time, we’ll have a larger `optimisticResponse` and a different kind of `update()`:
 
-[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/components/AddReview.js)
+[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/components/AddReview.js)
 
 ```js
 import { gql, useMutation } from '@apollo/client'
@@ -1027,7 +1027,7 @@ So far our mutations have updated an existing object in the cache (the one with 
  
 But first we need access to `REVIEWS_QUERY`, a variable inside `Reviews.js`. We’d run into trouble exporting it from `Reviews.js` because we’d have an import cycle—`Reviews.js` imports `AddReview`. So let’s create a new folder for GraphQL documents, `src/graphql/`, and make a new file:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/graphql/Review.js)
 
 ```js
 import gql from 'graphql-tag'
@@ -1053,13 +1053,13 @@ export const REVIEWS_QUERY = gql`
 
 And in `Reviews.js` and `AddReview.js`, we import it:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/components/Reviews.js)
 
 ```js
 import { REVIEWS_QUERY } from '../graphql/Review'
 ```
 
-[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/components/AddReview.js)
+[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/components/AddReview.js)
 
 ```js
 import { REVIEWS_QUERY } from '../graphql/Review'
@@ -1088,7 +1088,7 @@ The second parameter to [`update`](https://www.apollographql.com/docs/react/basi
 
 [Fragments](../query-language/#fragments) are good for more than just [reading from and writing to the cache](#arbitrary-updates): they also can [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) up our queries and mutations. The selection set on `reviews` in the query we just relocated was the same as the selection set on `createReview` we used in our mutation. Let’s put that selection set in a fragment:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/graphql/Review.js)
 
 ```js
 import gql from 'graphql-tag'
@@ -1137,7 +1137,7 @@ Review.propTypes = {
 
 Lastly, we use the fragment in `AddReview.js`:
 
-[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_0.2.0/src/components/AddReview.js)
+[`src/components/AddReview.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/components/AddReview.js)
 
 ```js
 import { REVIEW_ENTRY } from '../graphql/Review'
@@ -1154,11 +1154,11 @@ const ADD_REVIEW_MUTATION = gql`
 
 ## Deleting
 
-> If you’re jumping in here, `git checkout 13_0.2.0` (tag [`13_0.2.0`](https://github.com/GraphQLGuide/guide/tree/13_0.2.0)). Tag [`14_0.2.0`](https://github.com/GraphQLGuide/guide/tree/14_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 13_1.0.0` (tag [`13_1.0.0`](https://github.com/GraphQLGuide/guide/tree/13_1.0.0)). Tag [`14_1.0.0`](https://github.com/GraphQLGuide/guide/tree/14_1.0.0) contains all the code written in this section.
 
 Next let’s see how deleting an item works. We can add a dialog box confirming deletion, and when it’s confirmed, we’ll send the `removeReview` mutation:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/14_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/14_1.0.0/src/components/Review.js)
 
 ```js
 import  {  
@@ -1296,7 +1296,7 @@ function deleteReview() {
 
 Background: [GraphQL errors](../understanding-graphql/security-&-error-handling.md)
 
-> If you’re jumping in here, `git checkout 14_0.2.0` (tag [`14_0.2.0`](https://github.com/GraphQLGuide/guide/tree/14_0.2.0)). Tag [`15_0.2.0`](https://github.com/GraphQLGuide/guide/tree/15_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 14_1.0.0` (tag [`14_1.0.0`](https://github.com/GraphQLGuide/guide/tree/14_1.0.0)). Tag [`15_1.0.0`](https://github.com/GraphQLGuide/guide/tree/15_1.0.0) contains all the code written in this section.
 
 When we try to delete a review that isn’t ours, nothing happens. In the console, we see:
 
@@ -1338,7 +1338,7 @@ removeReview({ ... }).catch(e => console.log(e.graphQLErrors))
 
 We can now alert the user of the error, depending on whether we find an "unauthorized" message:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/components/Review.js)
 
 ```js
 import find from 'lodash/find'
@@ -1365,7 +1365,7 @@ But what about other errors? We could get errors about anything bad happening on
 
 But that wouldn’t cover unexpected errors occurring in all of our other queries and mutations. We can avoid peppering these unexpected-error alerts all over our code by checking errors globally as they arrive from the network. Whenever we want to do some logic that all requests or responses go through, we use a link. At the end of the [Logging in](authentication.md#logging-in) section, we used a `setContext` link to set an authentication header on all outgoing HTTP requests. Here we can use an [`apollo-link-error`](https://github.com/apollographql/apollo-link/tree/master/packages/apollo-link-error). In `lib/apollo.js`, we rename our `link` to be `networkLink`, and then:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/lib/apollo.js)
 
 ```js
 import { errorLink } from './lib/errorLink'
@@ -1381,7 +1381,7 @@ export const apollo = new ApolloClient({ link, cache })
 
 In a chain of links from left to right (where `leftLink.concat(rightLink)`), off the left side of the chain are our React components sending the operations, and off the right side is the network. We put `errorLink` to the left of `networkLink` because we need the GraphQL response coming from the network (off right side) to first go through the `networkLink` (the right end), and then to the `errorLink` (left end), before reaching our code (off left side). We create a new file for `errorLink`:
 
-[`src/lib/errorLink.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/lib/errorLink.js)
+[`src/lib/errorLink.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/lib/errorLink.js)
 
 ```js
 import { onError } from '@apollo/client/link/error'
@@ -1428,7 +1428,7 @@ Changing the error policy is more often useful when querying. Let’s see how th
 
 > We can also see the effect of error policy in the [Apollo Error Handling Visualizer](https://apollo-visualizer.vercel.app/).
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/graphql/Review.js)
 
 ```js
 export const REVIEWS_QUERY = gql`
@@ -1522,7 +1522,7 @@ reviews.map(review => <Review key={review.id} review={review} />)
 
 So it looks like `reviews` is undefined. Let’s also look at `data.error`:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/components/Review.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/components/Review.js)
 
 ```js
   const { data: { reviews } = {}, loading, error } = useQuery(REVIEWS_QUERY)
@@ -1558,7 +1558,7 @@ and `error.graphQLErrors` looks like this:
 
 If we want `reviews` to be defined, we can set `errorPolicy` to [`'all'`](https://www.apollographql.com/docs/react/features/error-handling.html#policies):
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/components/Review.js)
 
 ```js
 const { data: { reviews } = {}, loading } = useQuery(REVIEWS_QUERY, {
@@ -1568,7 +1568,7 @@ const { data: { reviews } = {}, loading } = useQuery(REVIEWS_QUERY, {
 
 We can handle `text` sometimes being `null` in `<Review>`:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/components/Review.js)
 
 ```js
 <CardContent>
@@ -1598,7 +1598,7 @@ Having a user see this alert isn’t good UX. One way to avoid it is by adding `
 
 To remove the UI elements, we check if `user` is defined with `user && <Component />`:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/15_1.0.0/src/components/Review.js)
 
 ```js
 import { useUser } from '../lib/useUser'
@@ -1628,11 +1628,11 @@ export default ({ review }) => {
 
 ## Editing reviews
 
-> If you’re jumping in here, `git checkout 15_0.2.0` (tag [`15_0.2.0`](https://github.com/GraphQLGuide/guide/tree/15_0.2.0)). Tag [`16_0.2.0`](https://github.com/GraphQLGuide/guide/tree/16_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 15_1.0.0` (tag [`15_1.0.0`](https://github.com/GraphQLGuide/guide/tree/15_1.0.0)). Tag [`16_1.0.0`](https://github.com/GraphQLGuide/guide/tree/16_1.0.0) contains all the code written in this section.
 
 The last piece of the reviews page we haven’t implemented yet is editing reviews! Let’s see how much of our `<AddReview>` component we can reuse by renaming it to `<ReviewForm>` and deciding which mutation to call (the update or create mutation) based on the props. We’ll need to add a `<Modal>` with the form to `<Review>` and pass in the review object as a prop:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/16_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/16_1.0.0/src/components/Review.js)
 
 ```js
 import { Modal } from '@material-ui/core'
@@ -1677,7 +1677,7 @@ type Mutation {
 
 We know whether we’re editing based on the presence of the `review` prop, and we also use it to set initial values for the `text` and `stars` inputs:
 
-[`src/components/ReviewForm.js`](https://github.com/GraphQLGuide/guide/blob/16_0.2.0/src/components/ReviewForm.js)
+[`src/components/ReviewForm.js`](https://github.com/GraphQLGuide/guide/blob/16_1.0.0/src/components/ReviewForm.js)
 
 ```js
 import classNames from 'classnames'

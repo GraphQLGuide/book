@@ -1,6 +1,6 @@
 ## Client-side ordering & filtering
 
-> If you’re jumping in here, `git checkout 18_0.2.0` (tag [`18_0.2.0`](https://github.com/GraphQLGuide/guide/tree/18_0.2.0)). Tag [`18-filtering_0.2.0`](https://github.com/GraphQLGuide/guide/tree/18-filtering_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 18_1.0.0` (tag [`18_1.0.0`](https://github.com/GraphQLGuide/guide/tree/18_1.0.0)). Tag [`18-filtering_1.0.0`](https://github.com/GraphQLGuide/guide/tree/18-filtering_1.0.0) contains all the code written in this section.
 
 We learned in the [pagination section](paginating.md#skip-&-limit) that by default, Apollo creates a new cache entry when arguments change. To get pagination working, we configured the cache to only use a single entry with `keyArgs: false`. In the last section, we changed it to `keyArgs: ['orderBy']` so that we'd have two cache entries: one for each possible value of the `orderBy` argument.
 
@@ -8,7 +8,7 @@ In this section, we’ll add arguments to our `reviews` query that filter out so
 
 The last two available arguments for `Query.reviews` are `minStars: Int` and `minSentences: Int`. They filter on the number of stars and the number of sentences in the review text. Let’s add them to our query, along with select inputs to change the values. First, the query:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_1.0.0/src/graphql/Review.js)
 
 ```js
 export const REVIEWS_QUERY = gql`
@@ -35,7 +35,7 @@ export const REVIEWS_QUERY = gql`
 
 Next, the UI:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_1.0.0/src/components/Reviews.js)
 
 ```js
 export default () => {
@@ -104,7 +104,7 @@ export default () => {
 
 We pass all three arguments to `ReviewList`, which makes the query:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_1.0.0/src/components/ReviewList.js)
 
 ```js
 export default ({ orderBy, minStars, minSentences }) => {
@@ -138,7 +138,7 @@ Now we know why the list of reviews isn’t changing. How can we get it to chang
 
 The last is the solution that’s recommended for most lists that have sorting and filtering arguments, and it’s the one we’ll implement. Let’s start with the `read` function, which we add to the field policy:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_1.0.0/src/lib/apollo.js)
 
 ```js
 import { countSentences } from './helpers'
@@ -188,7 +188,7 @@ When Apollo Client reads data from the cache to provide to our `useQuery()` hook
 
 We use a `countSentences` helper function:
 
-[`src/lib/helpers.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_0.2.0/src/lib/helpers.js)
+[`src/lib/helpers.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_1.0.0/src/lib/helpers.js)
 
 ```js
 export const countSentences = (text) => {
@@ -199,7 +199,7 @@ export const countSentences = (text) => {
 
 And finally, we need to update the fetch policy:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18-filtering_1.0.0/src/components/ReviewList.js)
 
 ```js
 const { data, fetchMore, networkStatus } = useQuery(REVIEWS_QUERY, {

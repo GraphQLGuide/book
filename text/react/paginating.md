@@ -39,7 +39,7 @@ Let’s see this in action. Normally an API will support a single pagination met
 
 #### page
 
-> If you’re jumping in here, `git checkout 16_0.2.0` (tag [`16_0.2.0`](https://github.com/GraphQLGuide/guide/tree/16_0.2.0)). Tag [`17_0.2.0`](https://github.com/GraphQLGuide/guide/tree/17_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 16_1.0.0` (tag [`16_1.0.0`](https://github.com/GraphQLGuide/guide/tree/16_1.0.0)). Tag [`17_1.0.0`](https://github.com/GraphQLGuide/guide/tree/17_1.0.0) contains all the code written in this section.
 
 Let’s try `page` first. We switch our `ReviewQuery` from using the `limit` parameter to using the `page` parameter, and we use a variable so that `<Reviews>` can say which page it wants.
 
@@ -71,7 +71,7 @@ Now the page displays the first 10 reviews. If we change it to `{ page: 2 }`, we
 
 To use the `skip` and `limit` parameters, we replace `page` with them in the query:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/graphql/Review.js)
 
 ```js
 export const REVIEWS_QUERY = gql`
@@ -86,7 +86,7 @@ export const REVIEWS_QUERY = gql`
 
 and update our component:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/Reviews.js)
 
 ```js
 const { data: { reviews } = {}, loading } = useQuery(REVIEWS_QUERY, {
@@ -99,7 +99,7 @@ We still see the first 10 reviews, as expected. To make sure it works, we can vi
 
 Let’s implement infinite scroll, during which the component will provide new values for `skip` when the user scrolls to the bottom of the page. First, let’s simplify what we’re working with by extracting out the list of reviews to `<ReviewList>`. `<Reviews>` will be left with the header and the add button:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/Reviews.js)
 
 ```js
 import ReviewList from './ReviewList'
@@ -139,7 +139,7 @@ export default () => {
 
 Here’s our new `<ReviewList>`:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/ReviewList.js)
 
 ```js
 import React from 'react'
@@ -246,7 +246,7 @@ reviews({"limit":10,"skip":10}): (10) [{…}, {…}, {…}, {…}, {…}, {…},
 
 The second entry, with `"skip":10` was added after we scrolled to the bottom of the page. But our `<ReviewsList />` component still just displays the first list. The solution is to *merge* the second list into the first list when it arrives from the server. We do this with a cache merge function. There’s a built-in merge function called `concatPagination` that just concats the incoming list onto the end of the existing list, so let’s try that:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/lib/apollo.js)
 
 ```js
 import { concatPagination } from '@apollo/client/utilities'
@@ -278,7 +278,7 @@ Now when we re-test, it works! One issue is that scroll events fire often, so on
 
 They’re also exported in the `NetworkStatus` enum. Let’s skip `fetchMore()` if the current status is `NetworkStatus.fetchMore`:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/ReviewList.js)
 
 ```js
 import { NetworkStatus } from '@apollo/client'
@@ -329,7 +329,7 @@ Warning: Encountered two children with the same key
 
 We can prevent duplicate objects from being saved in the cache by writing a custom merge function:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/lib/apollo.js)
 
 ```js
 import find from 'lodash/find'
@@ -379,7 +379,7 @@ Now when we scroll down, we should have 15 total reviews on the page instead of 
 
 It seems strange at first, but subtracting some number from the length is a good idea to leave in the code! It makes sure—in the case in which some of the first 10 items are deleted—that we don’t miss any items. If we still want 10 new items to (usually) show up when we scroll down, then we can also change `limit` to 15:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/ReviewList.js)
 
 ```js
   variables: { skip: reviews.length - 5, limit: 15 },
@@ -461,7 +461,7 @@ const [removeReview] = useMutation(REMOVE_REVIEW_MUTATION, {
 
 However, the problem with this approach is that doing `writeQuery()` runs the data through our `InMemoryCache` `typePolicies`—in particular, our reviews `merge` function. In the case of adding a review, our `merge` puts the new review at the end of the list, not the beginning, and in the case of removing a review, does nothing: the `merge` function gets the list of all-but-one reviews, filters them through `notAlreadyInCache` (resulting in `newReviews = []`), and returns `[...existing, ...newReviews]`:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/lib/apollo.js)
 
 ```js
 import find from 'lodash/find'
@@ -493,7 +493,7 @@ const cache = new InMemoryCache({
 
 The solution is to use [`cache.modify()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#cachemodify) instead of `cache.writeQuery()`. `cache.modify()` directly modifies the data in the cache, bypassing all `typePolicies`. Let’s fix `addReview`’s `update` function:
 
-[`src/components/ReviewForm.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/ReviewForm.js)
+[`src/components/ReviewForm.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/ReviewForm.js)
 
 ```js
 export default ({ done, review }) => {
@@ -532,7 +532,7 @@ export default ({ done, review }) => {
 
 Next we’ll fix `removeReview`’s `update` function:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/Review.js)
 
 ```js
 const [removeReview] = useMutation(REMOVE_REVIEW_MUTATION, {
@@ -594,7 +594,7 @@ Our `cache.evict()` appears to work just as well as our `cache.modify()` code. W
 
 We may recall this `favoriteReviews` filtering from our `FAVORITE_REVIEW_MUTATION` update function, where we used `readQuery()` and `writeQuery()`. We can shorten that code by using a nested `cache.modify()`:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/17_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/17_1.0.0/src/components/Review.js)
 
 ```js
 const [favorite] = useMutation(FAVORITE_REVIEW_MUTATION, {
@@ -631,7 +631,7 @@ Or by entering `__APOLLO_CLIENT__.cache.data.data.ROOT_QUERY` in the console.
 
 ### Cursors
 
-> If you’re jumping in here, `git checkout 17_0.2.0` (tag [`17_0.2.0`](https://github.com/GraphQLGuide/guide/tree/17_0.2.0)). Tag [`18_0.2.0`](https://github.com/GraphQLGuide/guide/tree/18_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 17_1.0.0` (tag [`17_1.0.0`](https://github.com/GraphQLGuide/guide/tree/17_1.0.0)). Tag [`18_1.0.0`](https://github.com/GraphQLGuide/guide/tree/18_1.0.0) contains all the code written in this section.
 
 Subsections:
 
@@ -705,7 +705,7 @@ reviews(limit: Int, page: Int, skip: Int, after: ObjID, orderBy: ReviewOrderBy):
 
 First, let’s use the last review’s ID for `after`, and remove `skip`:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18_1.0.0/src/components/ReviewList.js)
 
 ```js
 export default () => {
@@ -724,7 +724,7 @@ export default () => {
 
 We also have to update the query:
 
-[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/18_0.2.0/src/graphql/Review.js)
+[`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/18_1.0.0/src/graphql/Review.js)
 
 ```js
 query ReviewsQuery($after: ObjID, $limit: Int) {
@@ -737,7 +737,7 @@ It works! And it’s so precise that we don’t have to worry about things getti
 
 Next let’s figure out how to get sort order working as well. The two possible values are `createdAt_DESC` (newest reviews first, the default) and `createdAt_ASC`. If we put a “Newest/Oldest” select box in `<Reviews>`, then we can pass the value down to `<ReviewList>` to use in the query’s `variables`:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/18_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/18_1.0.0/src/components/Reviews.js)
 
 ```js
 import { MenuItem, FormControl, Select } from '@material-ui/core'
@@ -771,7 +771,7 @@ export default () => {
 
 In `<ReviewList>`, we need to use the new prop in the query:
 
-[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18_0.2.0/src/components/ReviewList.js)
+[`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/18_1.0.0/src/components/ReviewList.js)
 
 ```js
 export default ({ orderBy }) => {
@@ -787,7 +787,7 @@ Testing it out, we find that nothing happens when we change the select input to 
 
 To fix this, we want separate entries in the cache for `orderBy: createdAt_DESC` and `orderBy: createdAt_ASC`. We tell Apollo to do this by changing `keyArgs: false`:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/18_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/18_1.0.0/src/lib/apollo.js)
 
 ```js
 const cache = new InMemoryCache({
@@ -808,7 +808,7 @@ However, we have another bug! Can you find it? 🔍🐞
 
 When we switch to “Oldest” and create a new review, it appears at the top of the list as if it were the oldest review. But it’s the newest. Our `ADD_REVIEW_MUTATION` `cache.modify()` puts the new review at the beginning of the list. And when we have multiple `reviews` entries in our cache (since we changed `keyArgs`), our `cache.modify()` field functions are called once for each cache entry. So the new review is added to the top of both the `createdAt_DESC` entry and the `createdAt_ASC` entry. Let’s only add it to `createdAt_DESC` by checking the `storeFieldName`, which has the argument in it (for example, `reviews:{"orderBy":"createdAt_DESC"}` is the field name for the “Oldest” entry):
 
-[`src/components/ReviewForm.js`](https://github.com/GraphQLGuide/guide/blob/18_0.2.0/src/components/ReviewForm.js)
+[`src/components/ReviewForm.js`](https://github.com/GraphQLGuide/guide/blob/18_1.0.0/src/components/ReviewForm.js)
 
 ```js
 const [addReview] = useMutation(ADD_REVIEW_MUTATION, {

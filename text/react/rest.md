@@ -1,6 +1,6 @@
 ## REST
 
-> If you’re jumping in here, `git checkout 20_0.2.0` (tag [`20_0.2.0`](https://github.com/GraphQLGuide/guide/tree/20_0.2.0)). Tag [`21_0.2.0`](https://github.com/GraphQLGuide/guide/tree/21_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 20_1.0.0` (tag [`20_1.0.0`](https://github.com/GraphQLGuide/guide/tree/20_1.0.0)). Tag [`21_1.0.0`](https://github.com/GraphQLGuide/guide/tree/21_1.0.0) contains all the code written in this section.
 
 You might be thinking, “What is a section on REST doing in a chapter on GraphQL client dev??” The thing is, not all of our colleagues have seen the light of GraphQL yet, so they’re still making REST APIs! 😉 And we might want to use them in our app. The common solution is for your backend GraphQL server to proxy the REST API. For example, the server will add a query to the schema:
 
@@ -132,7 +132,7 @@ However, with [`apollo-link-rest`](https://www.apollographql.com/docs/link/links
 
 Before we set up the link, `apollo.js` is getting long. Let’s move all the existing link code to a new file `link.js` so that we can simplify `apollo.js`:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/21_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/21_1.0.0/src/lib/apollo.js)
 
 ```js
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
@@ -149,7 +149,7 @@ export const apollo = new ApolloClient({ link, cache, typeDefs })
 
 Now we set up the new link:
 
-[`src/lib/link.js`](https://github.com/GraphQLGuide/guide/blob/21_0.2.0/src/lib/link.js)
+[`src/lib/link.js`](https://github.com/GraphQLGuide/guide/blob/21_1.0.0/src/lib/link.js)
 
 ```js
 import { ApolloLink } from '@apollo/client'
@@ -168,7 +168,7 @@ Since requests flow from left to right in the link chain, we want our `restLink`
 
 Let’s add a temperature component in the header:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/21_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/21_1.0.0/src/components/App.js)
 
 ```js
 import CurrentTemperature from './CurrentTemperature'
@@ -225,7 +225,7 @@ Now let’s think about the UX. At some point, we need to call `window.navigator
 
 Here’s the shell of our component with that logic and our lat/lon state:
 
-[`src/components/CurrentTemperature.js`](https://github.com/GraphQLGuide/guide/blob/21_0.2.0/src/components/CurrentTemperature.js)
+[`src/components/CurrentTemperature.js`](https://github.com/GraphQLGuide/guide/blob/21_1.0.0/src/components/CurrentTemperature.js)
 
 ```js
 import React, { useState } from 'react'

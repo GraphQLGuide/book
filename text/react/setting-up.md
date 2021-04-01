@@ -84,7 +84,7 @@ basic, straightforward option. Here’s our starter app:
 ```sh
 git clone https://github.com/GraphQLGuide/guide.git
 cd guide/
-git checkout 0_0.2.0
+git checkout 0_1.0.0
 npm install
 ```
 
@@ -203,7 +203,7 @@ script to the bottom of the body. Our React JavaScript code gets added to the
 body, and when it runs, it puts the app inside the root tag `<div
 id="root"></div>`:
 
-[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/0_0.2.0/src/index.js)
+[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/0_1.0.0/src/index.js)
 
 ```js
 import React from 'react'
@@ -229,7 +229,7 @@ many ways to do CSS with React, and we’ll be sticking with this single plain
 
 Here’s our App component:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/0_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/0_1.0.0/src/components/App.js)
 
 ```js
 import React from 'react'
@@ -259,7 +259,7 @@ URL that we can use—for example, in a `src` attribute:
 
 We also have a test file:
 
-[`src/components/App.test.js`](https://github.com/GraphQLGuide/guide/blob/0_0.2.0/src/components/App.test.js)
+[`src/components/App.test.js`](https://github.com/GraphQLGuide/guide/blob/0_1.0.0/src/components/App.test.js)
 
 ```js
 import React from 'react'
@@ -289,7 +289,7 @@ component called `<ApolloProvider>`, which provides our client instance to all
 descendants. So we go to `src/index.js`, where our `<App />` component is
 rendered, and replace the `render()` line with:
 
-[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/1_0.2.0/src/index.js)
+[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/1_1.0.0/src/index.js)
 
 ```js
 import {

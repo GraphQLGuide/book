@@ -2,11 +2,11 @@
 
 Background: [Testing](../background/testing.md)
 
-> If you’re jumping in here, `git checkout 27_0.2.0` (tag [`27_0.2.0`](https://github.com/GraphQLGuide/guide/tree/27_0.2.0)). Tag [`28_0.2.0`](https://github.com/GraphQLGuide/guide/tree/28_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 27_1.0.0` (tag [`27_1.0.0`](https://github.com/GraphQLGuide/guide/tree/27_1.0.0)). Tag [`28_1.0.0`](https://github.com/GraphQLGuide/guide/tree/28_1.0.0) contains all the code written in this section.
 
 As we learned in [Background > Testing > Types of tests](../background/testing.md#types-of-tests), we should be writing *some* unit and e2e tests but mostly integration tests. When we test a component, for instance `<TableOfContents />`, that contains Apollo operations, we need to wrap it with a *provider* like we do in the app:
 
-[`index.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/src/index.js)
+[`index.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/index.js)
 
 ```js
 render(
@@ -39,7 +39,7 @@ For React integration and unit tests, we recommend [`react-testing-library`](htt
 
 We run our tests with `npm test`, which runs `react-scripts test`, which runs Jest. It looks for JS files in any `__tests__` directory, for instance `src/components/__tests__/Foo.js`, or with the `.test.js` suffix. The only file it finds is:
 
-[`src/components/App.test.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/src/components/App.test.js)
+[`src/components/App.test.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/components/App.test.js)
 
 ```js
 import React from 'react'
@@ -60,7 +60,7 @@ The test fails with this error message:
 
 We’re rendering `<App />`, which contains a `<Switch>`, without wrapping it in a router like `<BrowserRouter>` as we do in `src/index.js`. Instead of including a router component in each test, we can make [our own render function](https://testing-library.com/docs/react-testing-library/setup#custom-render) to use in lieu of `ReactDOM.render()`:
 
-[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/setupTests.js)
+[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/setupTests.js)
 
 ```js
 import React from 'react'
@@ -151,7 +151,7 @@ To check that the loading skeleton renders at first, we need something to search
 
 We’re using `getByRole`. Some HTML elements have inherent roles: for instance, a `<button>` has the `button` role. We just have divs and a header in our `LoadingSkeleton` component, so we need to set the role attribute. While we’re at it, let’s also add loading text that a screen reader would read (hidden with CSS):
 
-[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/TableOfContents.js)
+[`src/components/TableOfContents.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/TableOfContents.js)
 
 ```js
 const LoadingSkeleton = () => (
@@ -185,7 +185,7 @@ Our `<li>`s have duplicate `key` attributes:
 
 So `section.number` must be the same for multiple sections. To see what the mocked provider is returning, let’s add a link that logs all responses:
 
-[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/setupTests.js)
+[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/setupTests.js)
 
 ```js
 import { ApolloLink } from '@apollo/client'
@@ -258,7 +258,7 @@ The sections have different numbers in the response, so how do they wind up with
 
 Since the section `id`s are the same, only a single `Section` object is saved to the cache, and the JSX maps over two references to that object. We can fix this issue by adding a custom resolver for `id` to the `ApolloMockedProvider` we set up here:
 
-[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/setupTests.js)
+[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/setupTests.js)
 
 ```js
 global.mockedRender = (ui, customResolvers, options) => {
@@ -437,7 +437,7 @@ describe('TableOfContents', () => {
 
 Now that we’ve tested a component that calls `useQuery()`, let’s test a component that calls `useMutation()`. `<Review>` calls the `removeReview` mutation when the Delete menu item is selected (and the subsequent dialog’s "Sudo delete" button is pressed). In our test, we can wait until the `reviews` query data is rendered and then trigger the necessary clicks on the page. And we can mock an error response, which should result in `alert('👮‍♀️✋ You can only delete your own reviews!')` being called:
 
-[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/Reviews.js)
+[`src/components/Reviews.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/Reviews.js)
 
 ```js
   function deleteReview() {
@@ -457,7 +457,7 @@ Now that we’ve tested a component that calls `useQuery()`, let’s test a comp
 
 Here’s the test:
 
-[`src/components/Reviews.test.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/Reviews.test.js)
+[`src/components/Reviews.test.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/Reviews.test.js)
 
 ```js
 import React from 'react'
@@ -510,7 +510,7 @@ fireEvent.click(screen.getAllByRole('button', { name: 'Open menu' })[0])
 
 We can give it a name by setting the button’s `aria-label`:
 
-[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/Review.js)
+[`src/components/Review.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/Review.js)
 
 ```js
 <IconButton aria-label="Open menu" onClick={openMenu}>
@@ -578,7 +578,7 @@ We get this error:
 
 The `React.createFactory()` warning we can ignore, but the `"No mock defined for type \"ObjID\""` error is a problem. That’s coming from `ApolloMockedProvider`, and it means we need to add a resolver for `ObjID`:
 
-[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/setupTests.js)
+[`src/setupTests.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/setupTests.js)
 
 ```js
 const MockedWrapper = ({ children }) => (
@@ -759,7 +759,7 @@ render(
 
 Another provider we have from the library is `ApolloLoadingProvider`, which keeps Apollo in the loading state. We can use it like this:
 
-[`src/components/Section.test.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/Section.test.js)
+[`src/components/Section.test.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/Section.test.js)
 
 ```js
 import React from 'react'
@@ -782,7 +782,7 @@ describe('Section', () => {
 
 As before, we need to add a role to the skeleton that `<Section>` is using:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/Section.js)
 
 ```js
 sectionContent = (
@@ -812,7 +812,7 @@ Also, note that our test would continue to pass if we waited, as `ApolloLoadingP
 
 For our last test, let’s use [`<MockedProvider>`](https://www.apollographql.com/docs/react/development-testing/testing/#mockedprovider), the mocking provider included with Apollo Client. Instead of defining resolvers, we pass in a `mocks` parameter that lists `(request, result)` pairings. Then, during the test, whenever an operation is sent that matches a mock `request`, the corresponding `result` is returned. For `TableOfContents`, the `request` is `{ query: CHAPTER_QUERY }`, and we write out the result data to match the fields selected in the query:
 
-[`src/components/TableOfContents.test.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/src/components/TableOfContents.test.js)
+[`src/components/TableOfContents.test.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/src/components/TableOfContents.test.js)
 
 ```js
 import { MockedProvider } from '@apollo/client/testing'
@@ -922,7 +922,7 @@ The global variables are not defined in the files in which we’re using them! T
 
 To do the latter solution, we add a `globals` field to our config file:
 
-[`.eslintrc.js`](https://github.com/GraphQLGuide/guide/blob/28_0.2.0/.eslintrc.js)
+[`.eslintrc.js`](https://github.com/GraphQLGuide/guide/blob/28_1.0.0/.eslintrc.js)
 
 ```js
 module.exports = {

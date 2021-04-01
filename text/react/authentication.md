@@ -9,7 +9,7 @@ Section contents:
 
 Background: [Authentication](../background/authentication.md)
 
-> If you’re jumping in here, `git checkout 6_0.2.0` (tag [`6_0.2.0`](https://github.com/GraphQLGuide/guide/tree/6_0.2.0)). Tag [`7_0.2.0`](https://github.com/GraphQLGuide/guide/tree/7_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 6_1.0.0` (tag [`6_1.0.0`](https://github.com/GraphQLGuide/guide/tree/6_1.0.0)). Tag [`7_1.0.0`](https://github.com/GraphQLGuide/guide/tree/7_1.0.0) contains all the code written in this section.
 
 We’ll have noticed by now that we’re not getting the entire section content from the Guide API, and that’s because we’re not logged in. When we bought the book, we created a user account that was associated with our purchase. In order to see the full content, we need to log in with that account.
 
@@ -51,7 +51,7 @@ Then `<App>` in turn passes the props down the component tree to children and gr
 
 Let’s add the current user’s name and photo to our header, and let’s add a route for a profile page:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/components/App.js)
 
 ```js
 import { Link } from 'react-router-dom'
@@ -80,7 +80,7 @@ export default () => (
 
 We call the header component `<CurrentUser>` because that’s what it will usually be displaying (it will sometimes instead have a "Sign in" button or a spinner). We need a way for the user to navigate from `/me` to the rest of the app, so we wrap the header image and title in a `<Link>` to the root `/`. Later we’ll get to the hook (`lib/useUser.js`) and the login/logout functions (`lib/auth.js`), but, for now, let’s assume they work and write `<CurrentUser>`:
 
-[`src/components/CurrentUser.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/components/CurrentUser.js)
+[`src/components/CurrentUser.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/components/CurrentUser.js)
 
 ```js
 import React from 'react'
@@ -115,7 +115,7 @@ This one is straightforward to read. If there’s no user and the user isn’t b
 
 Similarly, in `<Profile>`, we might show a loading spinner or a login button. Otherwise, we show the user’s details and a “Sign out” button:
 
-[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/components/Profile.js)
+[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/components/Profile.js)
 
 ```js
 import React from 'react'
@@ -184,7 +184,7 @@ export default () => {
 
 And now to write our authentication logic! First, we need to set up the Auth0 client:
 
-[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/lib/auth.js)
+[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/lib/auth.js)
 
 ```js
 import auth0 from 'auth0-js'
@@ -219,7 +219,7 @@ initAuthHelpers({
 
 Here we’re just following the docs for [`auth0-js`](https://www.npmjs.com/package/auth0-js) and [`auth0-helpers`](https://www.npmjs.com/package/auth0-helpers). Now `auth0Login()` and `auth0Logout()` should be configured to work with the Guide’s Auth0 account system, and we can use them:
 
-[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/lib/auth.js)
+[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/lib/auth.js)
 
 ```js
 export const login = () => {
@@ -240,7 +240,7 @@ export const logout = () => {
 
 You might be wondering, "But what do the login and logout functions actually do?" `auth0Login()` opens the GitHub auth popup, and saves the resulting token in localStorage. `auth0Logout()` removes the token from localStorage and ends our session with the Auth0 server. The next step is actually using the token—whenever we communicate with the server, we need to provide it. There’s an Apollo Link called [`setContext`](https://www.apollographql.com/docs/link/links/context/) that lets us set headers on HTTP requests, and we’ll use it to add an `authorization` header with the token. While we’re at it, let’s move our Apollo client creation out to another file:
 
-[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/index.js)
+[`src/index.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/index.js)
 
 ```js
 import { apollo } from './lib/apollo'
@@ -255,7 +255,7 @@ render(
 )
 ```
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/lib/apollo.js)
 
 ```js
 import { ApolloClient, InMemoryCache, HttpLink, split } from '@apollo/client'
@@ -312,7 +312,7 @@ We get the token from `auth0-helpers` using `getAuthToken()`, which either looks
 
 The last piece is to make an HOC that provides the current user’s data:
 
-[`src/lib/useUser.js`](https://github.com/GraphQLGuide/guide/blob/7_0.2.0/src/lib/useUser.js)
+[`src/lib/useUser.js`](https://github.com/GraphQLGuide/guide/blob/7_1.0.0/src/lib/useUser.js)
 
 ```js
 import { gql, useQuery } from '@apollo/client'
@@ -345,13 +345,13 @@ We can now try logging in with our Github account. Clicking “Sign in” opens 
 
 ## Resetting
 
-> If you’re jumping in here, `git checkout 7_0.2.0` (tag [`7_0.2.0`](https://github.com/GraphQLGuide/guide/tree/7_0.2.0)). Tag [`8_0.2.0`](https://github.com/GraphQLGuide/guide/tree/8_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 7_1.0.0` (tag [`7_1.0.0`](https://github.com/GraphQLGuide/guide/tree/7_1.0.0)). Tag [`8_1.0.0`](https://github.com/GraphQLGuide/guide/tree/8_1.0.0) contains all the code written in this section.
 
 Because the auth token is included in every request, the server will know who we are for any other queries and mutations we send, like the ones for the section content. So our server should recognize that we have purchased a Guide package and return the full content to the sections that are included in our package. But after we log in, the section content is still cut off like it was before. Why is that? Because the section content queries haven’t been refetched! We’re still showing the old data fetched when we were logged out. Now what do we do?
 
 Apollo does have a [refetch()](https://www.apollographql.com/docs/react/api/react/hooks/#result) function that we get along with a query’s results. It would be a pain to use on our section queries because: A) there are 3 of them, and B) we’d have to figure out how to call the `refetch()` functions (which would be inside `Section.js`) from `auth.js`. So let’s take a different path—telling Apollo to refetch all the queries in the app. Apollo has a `reFetchObservableQueries()` function, which takes all the *observable queries* (queries used in a `useQuery()` hook) and re-sends them to the server. Let’s call that:
 
-[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/8_0.2.0/src/lib/auth.js)
+[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/8_1.0.0/src/lib/auth.js)
 
 ```js
 import { apollo } from './apollo'
@@ -380,7 +380,7 @@ const { data, loading } = useQuery(USER_QUERY, {
 
 Our queries update on login, but what about logout? There may be private data in the cache, so the method we want is [`resetStore()`](https://www.apollographql.com/docs/react/api/apollo-client.html#ApolloClient.resetStore), which first clears the cache (a.k.a. store) and then refetches observable queries:
 
-[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/8_0.2.0/src/lib/auth.js)
+[`src/lib/auth.js`](https://github.com/GraphQLGuide/guide/blob/8_1.0.0/src/lib/auth.js)
 
 ```js
 export const logout = () => {

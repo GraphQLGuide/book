@@ -1,6 +1,6 @@
 # Querying with variables
 
-> If you’re jumping in here, `git checkout 2_0.1.0` (tag [2_0.1.0](https://github.com/GraphQLGuide/guide-android/tree/2_0.1.0), or compare [2...3](https://github.com/GraphQLGuide/guide-android/compare21_0.1.0...3_0.1.0))
+> If you’re jumping in here, `git checkout 2_1.0.0` (tag [2_1.0.0](https://github.com/GraphQLGuide/guide-android/tree/2_1.0.0), or compare [2...3](https://github.com/GraphQLGuide/guide-android/compare21_1.0.0...3_1.0.0))
 
 Once we click a chapter, we see “No sections,” which is true for the Preface but not for the other chapters. We need to query for the list of sections in the selected chapter. So let’s add a query document:
 

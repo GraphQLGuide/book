@@ -5,7 +5,7 @@ First we clone the starter app, which has everything but the data:
 ```sh
 git clone https://github.com/GraphQLGuide/guide-android.git
 cd guide-android/
-git checkout 0_0.1.0
+git checkout 0_1.0.0
 ```
 
 We can open it in [Android Studio 4.1+](https://developer.android.com/studio) and see the file structure:

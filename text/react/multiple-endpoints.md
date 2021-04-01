@@ -1,6 +1,6 @@
 ## Multiple endpoints
 
-> If you’re jumping in here, `git checkout 25_0.2.0` (tag [`25_0.2.0`](https://github.com/GraphQLGuide/guide/tree/25_0.2.0)). Tag [`26_0.2.0`](https://github.com/GraphQLGuide/guide/tree/26_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 25_1.0.0` (tag [`25_1.0.0`](https://github.com/GraphQLGuide/guide/tree/25_1.0.0)). Tag [`26_1.0.0`](https://github.com/GraphQLGuide/guide/tree/26_1.0.0) contains all the code written in this section.
 
 So far, we’ve been working with a single GraphQL endpoint, `api.graphql.guide/graphql` (and its websocket counterpart, `/subscriptions`). Would we ever want our app to talk to another endpoint? Maybe. Similarly to the APIs in the [REST section](rest.md), we usually would want to proxy the other GraphQL endpoint through our GraphQL server (we’ll go over how to do this in the server chapter). There are two main reasons: 
 
@@ -46,7 +46,7 @@ export const apollo = new ApolloClient({ link, cache, typeDefs })
 
 We’re going to need a second `ApolloClient` instance to use for our launch query:
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/26_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/26_1.0.0/src/lib/apollo.js)
 
 ```js
 import link, { spaceXLink } from './link'
@@ -59,7 +59,7 @@ export const apolloSpace = new ApolloClient({
 })
 ```
 
-[`src/lib/link.js`](https://github.com/GraphQLGuide/guide/blob/26_0.2.0/src/lib/link.js)
+[`src/lib/link.js`](https://github.com/GraphQLGuide/guide/blob/26_1.0.0/src/lib/link.js)
 
 ```js
 export const spaceXLink = ApolloLink.from([
@@ -80,7 +80,7 @@ For building the `LAUNCH_QUERY`, let’s see what data is available from the API
 
 ![SpaceX GraphiQL with launchNext query](../img/launch-next-query.png)
 
-[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/26_0.2.0/src/components/Profile.js)
+[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/26_1.0.0/src/components/Profile.js)
 
 ```js
 import { gql } from '@apollo/client'
@@ -104,7 +104,7 @@ const LAUNCH_QUERY = gql`
 
 Now we can use it—let’s put the 🚀 button on the bottom of `Profile`. Then we put the data from the response into a `<dl>`:
 
-[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/26_0.2.0/src/components/Profile.js)
+[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/26_1.0.0/src/components/Profile.js)
 
 ```js
 import React, { useState } from 'react'

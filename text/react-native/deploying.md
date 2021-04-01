@@ -1,6 +1,6 @@
 # Deploying
 
-> If you’re jumping in here, `git checkout 3_0.1.0` (tag [3_0.1.0](https://github.com/GraphQLGuide/guide/tree/3_0.1.0)
+> If you’re jumping in here, `git checkout 3_1.0.0` (tag [3_1.0.0](https://github.com/GraphQLGuide/guide/tree/3_1.0.0)
 
 Deploying an [SPA](../background/spa.md) is straightforward: 
 

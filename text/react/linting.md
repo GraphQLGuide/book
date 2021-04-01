@@ -1,6 +1,6 @@
 ## Linting
 
-> If you’re jumping in here, `git checkout 26_0.2.0` (tag [`26_0.2.0`](https://github.com/GraphQLGuide/guide/tree/26_0.2.0)). Tag [`27_0.2.0`](https://github.com/GraphQLGuide/guide/tree/27_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 26_1.0.0` (tag [`26_1.0.0`](https://github.com/GraphQLGuide/guide/tree/26_1.0.0)). Tag [`27_1.0.0`](https://github.com/GraphQLGuide/guide/tree/27_1.0.0) contains all the code written in this section.
 
 Linters analyze code for errors without running the code—they just look at the code. [ESLint](https://eslint.org/docs/about/) is the main linter for JavaScript. It’s already being used in our app by Create React App. However, their ESLint settings just cover JavaScript—they don’t check our GraphQL queries to see if they’re valid. Let’s set that up!
 
@@ -27,7 +27,7 @@ In Mac and Linux, each program has an **exit code**. In Bash, we can print out t
 
 To extend CRA’s linting, we need to set the `EXTEND_ESLINT` env var, which we can either do in `.env` or here:
 
-[`package.json`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/package.json)
+[`package.json`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/package.json)
 
 ```js
 {
@@ -39,7 +39,7 @@ To extend CRA’s linting, we need to set the `EXTEND_ESLINT` env var, which we 
 
 The npm package `eslint-plugin-graphql` (already in our `package.json` dependencies) is an ESLint plugin that checks our GraphQL queries against a schema. We can tell ESLint to use it by modifying our config file:
 
-[`.eslintrc.js`](https://github.com/GraphQLGuide/guide/src/components/27_0.2.0/.eslintrc.js)
+[`.eslintrc.js`](https://github.com/GraphQLGuide/guide/src/components/27_1.0.0/.eslintrc.js)
 
 ```js
 module.exports = {
@@ -177,7 +177,7 @@ Let’s go through the errors. First up:
 
 which is referring to:
 
-[`src/components/CurrentTemperature.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/src/components/CurrentTemperature.js)
+[`src/components/CurrentTemperature.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/components/CurrentTemperature.js)
 
 ```js
 const TEMPERATURE_QUERY = gql`
@@ -204,7 +204,7 @@ Seven errors left to go! The next is:
 
 `launchNext` is from our query to the SpaceX API, which of course has a different schema from the rest of our queries. So far we’ve only told ESLint about `schema.json`, the Guide API schema. But `eslint-plugin-graphql` does support multiple schemas. It determines what strings to parse as GraphQL by the template literal tag name (`gql`). We can use a different tag name for the SpaceX query and have that tag be checked against a different schema. Let’s use `spaceql` instead of our current `gql`:
 
-[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/src/components/Profile.js)
+[`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/components/Profile.js)
 
 ```js
 import { gql as spaceql } from '@apollo/client'
@@ -228,7 +228,7 @@ const LAUNCH_QUERY = spaceql`
 
 And we update the config file:
 
-[`.eslintrc.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/.eslintrc.js)
+[`.eslintrc.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/.eslintrc.js)
 
 ```js
 module.exports = {
@@ -278,7 +278,7 @@ And now when we lint, we get one fewer error ✅. The next set of errors is:
 
 `scrollY` is the piece of [local state](local-state.md) in our Section queries:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/components/Section.js)
 
 ```js
 const NEXT_SECTION_QUERY = gql`
@@ -322,7 +322,7 @@ const typeDefs = gql`
 
 Instead of `eslint-disable`-ing the whole file, let’s just disable part of it. That way, if we later add a document to a different part of the file, it will be linted.
 
-[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/27_0.2.0/src/lib/apollo.js)
+[`src/lib/apollo.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/lib/apollo.js)
 
 ```js
 /* eslint-disable graphql/template-strings */

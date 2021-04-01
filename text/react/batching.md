@@ -1,6 +1,6 @@
 ## Batching
 
-> If you’re jumping in here, `git checkout 24_0.2.0` (tag [`24_0.2.0`](https://github.com/GraphQLGuide/guide/tree/24_0.2.0)). We won’t be leaving the code from this section in our app, so the next section will also start at tag `24`. 
+> If you’re jumping in here, `git checkout 24_1.0.0` (tag [`24_1.0.0`](https://github.com/GraphQLGuide/guide/tree/24_1.0.0)). We won’t be leaving the code from this section in our app, so the next section will also start at tag `24`. 
 
 If we load the site with the Network tab of devtools open, we see a lot of requests that say “graphql” on the left—that’s the path, so the full endpoint is `api.graphql.guide/graphql`, our GraphQL API. By default, each of the GraphQL queries in our app is sent in its own HTTP request. We can look at the request payload to see which query it is, for example our simple `StarsQuery`: 
 

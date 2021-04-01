@@ -1,10 +1,10 @@
 ## Persisting
 
-> If you’re jumping in here, `git checkout 24_0.2.0` (tag [`24_0.2.0`](https://github.com/GraphQLGuide/guide/tree/24_0.2.0)). Tag [`25_0.2.0`](https://github.com/GraphQLGuide/guide/tree/25_0.2.0) contains all the code written in this section.
+> If you’re jumping in here, `git checkout 24_1.0.0` (tag [`24_1.0.0`](https://github.com/GraphQLGuide/guide/tree/24_1.0.0)). Tag [`25_1.0.0`](https://github.com/GraphQLGuide/guide/tree/25_1.0.0) contains all the code written in this section.
 
 The Apollo cache is cached in page-specific memory. When the webpage is closed or reloaded, the memory is cleared, which means the next time our app loads, the cache is empty—it has to fetch all the data it needs from the server again. **Persisting** is saving the data in the Apollo cache so that on future pageloads, we can restore the data to the cache, and we don’t have to fetch it. The main benefit is we can show the data to the user much faster than we could if we had to fetch it from the server. We can easily set this up with the [`apollo3-cache-persist`](https://github.com/apollographql/apollo-cache-persist) package:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/25_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/25_1.0.0/src/components/App.js)
 
 ```js
 import { persistCache } from 'apollo3-cache-persist'
@@ -47,7 +47,7 @@ Alright—we’ve covered all the arguments we used with `persistCache()` ([ther
 
 The reason for this is that `persistCache()` takes time to complete (at least 150 ms on Loren’s computer), and, by that time, `@apollo/client` has already sent off our components’ queries. And when it does complete, our components don’t know that there’s new data in the cache. So when there’s a saved cache to restore, we want to wait for `persistCache()` to complete before rendering our components and triggering their queries. Then all of our `cache-first` queries will see that the data is in the cache and use it instead of requesting it from the server. We can tell if there’s a saved cache by checking in `localStorage` for the key that `persistCache()` uses, `apollo-cache-persist`:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/25_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/25_1.0.0/src/components/App.js)
 
 ```js
 const cacheHasBeenSaved = !!localStorage.getItem('apollo-cache-persist')
@@ -130,7 +130,7 @@ const persistor = new CachePersistor(options)
 
 And then we call methods on the `persistor` object when we want things to happen: for instance, `persistor.restore()` when we want to restore the cache (which `persistCache()` did automatically, but now we need to do ourselves). So let’s update `App.js`:
 
-[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/25_0.2.0/src/components/App.js)
+[`src/components/App.js`](https://github.com/GraphQLGuide/guide/blob/25_1.0.0/src/components/App.js)
 
 ```js
 import { CachePersistor } from 'apollo3-cache-persist'
@@ -176,7 +176,7 @@ But there’s another bug! 😅 When we’re signed out, we get truncated sectio
 
 The second would be simpler, but let’s do the first, because it also fixes another issue: when data is cached, it’s saved until it reaches `maxSize`, which could take a long time. The book content will periodically be updated, and we want our users to see the updated content. With `cache-and-network`, the latest version will always be fetched from the server. We make the change by adding the `fetchPolicy` option to our `useQuery()` hook:
 
-[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/25_0.2.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/25_1.0.0/src/components/Section.js)
 
 ```js
 const { data, loading } = useQuery(query, {

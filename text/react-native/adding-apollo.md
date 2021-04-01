@@ -1,10 +1,10 @@
 # Adding Apollo
 
-> If you’re jumping in here, `git checkout 0_0.1.0` (tag [0_0.1.0](https://github.com/GraphQLGuide/guide/tree/0_0.1.0), or compare [0...1](https://github.com/GraphQLGuide/guide/compare/0_0.1.0...1_0.1.0))
+> If you’re jumping in here, `git checkout 0_1.0.0` (tag [0_1.0.0](https://github.com/GraphQLGuide/guide/tree/0_1.0.0), or compare [0...1](https://github.com/GraphQLGuide/guide/compare/0_1.0.0...1_1.0.0))
 
 Just like we did the React chapter, we create a client instance and wrap our app in an `<ApolloProvider>`:
 
-[`App.js`](https://github.com/GraphQLGuide/guide-react-native/blob/1_0.1.0/App.js)
+[`App.js`](https://github.com/GraphQLGuide/guide-react-native/blob/1_1.0.0/App.js)
 
 ```js
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
@@ -27,7 +27,7 @@ export default function App() {
 
 Now in our `HomeScreen` component, we can make a query for the chapter list and display it:
 
-[`src/HomeScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/1_0.1.0/src/HomeScreen.js)
+[`src/HomeScreen.js`](https://github.com/GraphQLGuide/guide-react-native/blob/1_1.0.0/src/HomeScreen.js)
 
 ```js
 import { Text, FlatList, Pressable } from 'react-native'
