@@ -109,7 +109,7 @@ This means `'` instead of `"` for string literals and no unnecessary semicolons 
 
 ## Resources
 
-If you run into issues, we recommend posting to Stack Overflow with the relevant tags, for instance [`apollo-client` and `react-apollo`](https://stackoverflow.com/questions/ask?tags=apollo-client|react-apollo) for Chapter 6. If you have the Full edition, you can also ask the community in the #support Slack channel or email the technical support address we gave you.
+If you run into issues, we recommend posting to Stack Overflow with the relevant tags, for instance [`apollo-client`](https://stackoverflow.com/questions/ask?tags=apollo-client) for Chapter 6. If you have the Full edition, you can also ask the community in the #support Slack channel or email the technical support address we gave you.
 
 If the issue is with our code, please search the repository’s issues to see if it’s an existing bug, and if it’s new, submit it! 🙏 🙌 Repositories are listed [below](#version).
 

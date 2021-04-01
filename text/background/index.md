@@ -1,7 +1,5 @@
 # Chapter: Background
 
-[link](../understanding-graphql/introduction.md)
-
 Chapter contents:
 
 * [JavaScript](javascript.md)
