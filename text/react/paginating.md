@@ -547,8 +547,6 @@ const [removeReview] = useMutation(REMOVE_REVIEW_MUTATION, {
 })
 ```
 
-TODO https://github.com/apollographql/apollo-client/issues/7321
-
 As we did with our `merge` function, we use `readField` to read review object properties from the cache. And to help ourselves remember that we’re dealing with references to normalized objects in the cache instead of the review objects themselves, we name the variables `reviewRefs` and `reviewRef`.
 
 Now our new reviews are successfully written to the cache. However, we might notice that when we delete a favorited review, the favorite count in the header doesn’t update. We need to update the `currentUser.favoriteReviews` field in our cache. To update a nested field, we can make another call to `cache.modify()` inside the `fields.currentUser` function:
@@ -588,7 +586,9 @@ const [removeReview] = useMutation(REMOVE_REVIEW_MUTATION, {
 })
 ```
 
-We use the [`cache.identify()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#obtaining-an-objects-custom-id) method to get the cache ID of `review`. It works on any object that has both a `__typename` and an `id`. 
+We use the [`cache.identify()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#obtaining-an-objects-custom-id) method to get the cache ID of `review`. It works on any object that has both a `__typename` and an `id`.
+
+> An issue with `cache.evict()` is that when the mutation response has an error, the optimistic eviction isn’t rolled back. In the future, we’ll [be able to fix this](https://github.com/apollographql/apollo-client/issues/7321#issuecomment-732419787) with `cache.evict({ id: ..., optimistic: true })`.
 
 Our `cache.evict()` appears to work just as well as our `cache.modify()` code. What happened to the references, we might wonder? They’re still there. They’re called *dangling references*, because the object they refer to no longer exists. They’re not a problem for us because by default, Apollo [filters them out of array fields](https://www.apollographql.com/docs/react/caching/garbage-collection/#dangling-references).
 

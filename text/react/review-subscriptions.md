@@ -232,9 +232,7 @@ export default ({ orderBy }) => {
   }, [orderBy, subscribeToMore])
 ```
 
-Here we add the new review to the beginning of the list. This code actually doesn’t work! It *would* work if we didn’t have a `merge` function on `Query.reviews`. Since we do, the `merge` function removes all the duplicate reviews (`...prev`) and adds the new review to the *end* of the list. 
-
-TODO cc @benjamn https://github.com/apollographql/apollo-feature-requests/issues/270
+Here we add the new review to the beginning of the list. This code actually doesn’t work! It *would* work if we didn’t have a `merge` function on `Query.reviews`. Since we do, the `merge` function removes all the duplicate reviews (`...prev`) and adds the new review to the *end* of the list. So instead of returning a new query result, let’s call `cache.modify()`:
 
 ```js
 useEffect(() => {
@@ -276,7 +274,9 @@ useEffect(() => {
 }, [orderBy, subscribeToMore])
 ```
 
+Since `cache.modify()` deals with refs instead of plain objects, we need to create a new ref with `cache.writeFragment()` to add to the beginning of the list.
 
+> This works, but it’s a lot longer than our original `updateQuery`. If you’d like a simpler solution, thumbs-up [this feature request](https://github.com/apollographql/apollo-feature-requests/issues/270)!
 
 Now when we’re viewing the most recent reviews (`createdAt_DESC`) and receive a subscription event, we add the new review to the front of the list of reviews, and it appears first on the page. We can test this out by opening a second browser tab, creating a new review in that tab, and seeing it immediately appear in the first tab.
 
