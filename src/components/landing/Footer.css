@@ -1,0 +1,30 @@
+.Footer {
+  padding-bottom: 30px;
+  color: var(--gray500);
+}
+
+.Footer a:hover,
+.Footer a:active {
+  color: var(--pink);
+}
+
+.Footer > hr {
+  margin-bottom: 64px;
+}
+
+.Footer-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Footer-row > * {
+  margin: 0 15px;
+}
+
+.Footer-divider {
+  margin: 15px 0;
+  text-align: center;
+  letter-spacing: 15px;
+  line-height: 20px;
+}

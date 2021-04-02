@@ -1,0 +1,39 @@
+.Testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 0;
+  color: white;
+  background-image: linear-gradient(345deg, var(--pink-light), var(--pink));
+}
+
+.Testimonials-list {
+  display: flex;
+  width: 100%;
+  /* max-width: 1100px; */
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Testimonials-list > div {
+  align-self: center;
+  margin: 0 10px 60px;
+}
+
+.Testimonials-list .Review {
+  margin: 0;
+}
+
+.Testimonials-more {
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.Testimonials-more:hover,
+.Testimonials-more:active,
+.Testimonials-more:focus {
+  color: var(--link);
+}

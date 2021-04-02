@@ -1,0 +1,38 @@
+.Welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10vw;
+  text-align: center;
+}
+
+.Welcome h2 {
+  padding: 40px 0;
+}
+
+.Welcome > .CurrentUser > button {
+  color: var(--pink);
+}
+
+.Welcome-user {
+  margin-top: 24px;
+}
+
+.Welcome-user .Spinner {
+  margin: -20px 0 50px calc(50% - 12.5px);
+  color: var(--pink);
+}
+
+.Welcome-tshirt > a {
+  padding: 0 15px;
+}
+
+.Welcome-tshirt > button {
+  color: #9e9e9e;
+}
+
+.Welcome-tshirt > button:active,
+.Welcome-tshirt > button:focus,
+.Welcome-tshirt > button:hover {
+  color: var(--pink);
+}

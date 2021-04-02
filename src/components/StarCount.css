@@ -1,0 +1,42 @@
+.StarCount {
+  position: relative;
+  left: -3px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 200ms;
+  color: var(--link);
+  font-weight: bold;
+}
+
+.StarCount:hover,
+.StarCount:focus {
+  color: var(--link-active);
+}
+
+.StarCount::after {
+  content: 'stars';
+  padding-left: 5px;
+}
+
+.StarCount.loading {
+  opacity: 0;
+}
+
+.StarCount > svg {
+  width: 27px;
+  height: 27px;
+  margin: -4px 2px 0 0;
+}
+
+.StarCount > svg * {
+  stroke: var(--link);
+  fill: var(--link);
+}
+
+.StarCount:hover > svg *,
+.StarCount:active > svg *,
+.StarCount:focus > svg * {
+  stroke: var(--link-active);
+  fill: var(--link-active);
+}

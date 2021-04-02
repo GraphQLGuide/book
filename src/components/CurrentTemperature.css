@@ -1,0 +1,16 @@
+.CurrentTemperature {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  color: var(--link);
+}
+
+.CurrentTemperature > button {
+  font-size: 1em;
+}
+
+.CurrentTemperature > button:active,
+.CurrentTemperature > button:hover,
+.CurrentTemperature > button:focus {
+  color: var(--link-active);
+}

@@ -1,0 +1,57 @@
+.Profile a {
+  color: var(--pink);
+}
+
+.Profile-header {
+  margin-bottom: 60px;
+}
+
+.Profile-login,
+.Profile-logout {
+  height: 20px;
+  color: var(--pink);
+}
+
+.Profile-login:hover,
+.Profile-login:active,
+.Profile-logout:hover,
+.Profile-logout:active {
+  text-decoration: underline;
+}
+
+.Profile-logout {
+  display: block;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.Profile-login {
+  margin-top: var(--vert-spacer);
+}
+
+.Profile dt {
+  float: left;
+  clear: left;
+  width: 250px; /* half .Profile-contents width */
+  margin-right: 1em;
+  text-align: right;
+}
+
+.Profile dt::after {
+  content: ':';
+}
+
+.Profile dd {
+  padding: 0 0 1em 0;
+  text-align: left;
+}
+
+.Profile-footer {
+  width: 1200px;
+  max-width: 100%;
+  margin: 40px auto 0;
+}
+
+.Profile-purchase {
+  margin-left: 24px;
+}
