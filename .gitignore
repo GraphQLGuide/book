@@ -1,2 +1,6 @@
-out/
 .DS_Store
+out/
+book-assets/
+emoji-words/
+img/
+scripts/

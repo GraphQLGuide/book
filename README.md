@@ -26,6 +26,7 @@ If you're working on gitbook-related issues or want to see how your PR will be f
 npm i -g gitbook-cli
 gitbook install
 mkdir out/
+cd scripts
 ./build.sh
 ```
 
