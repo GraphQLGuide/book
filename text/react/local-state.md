@@ -1,3 +1,8 @@
+---
+title: Local state
+description: The two ways we recommend using to store local state
+---
+
 ## Local state
 
 Section contents:

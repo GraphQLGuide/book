@@ -105,7 +105,7 @@ $ curl -X POST -H "Content-Type:application/json" \
 >     http://localhost:3000/graphql
 {"data":{"user":null}}
 ```
-No, in fact! Every time we query a GraphQL endpoint, we get a valid JSON response. In this case `"user"` is `null`, as its value wasn’t able to be determined. This becomes very useful when we handle permissions and errors, which we’ll get into [later](security-&-error-handling.md).
+No, in fact! Every time we query a GraphQL endpoint, we get a valid JSON response. In this case `"user"` is `null`, as its value wasn’t able to be determined. This becomes very useful when we handle permissions and errors, which we’ll get into [later](security--error-handling.md).
 
 When we run our server (`node graphql-server.js`) and visit [localhost:3000/graphql](http://localhost:3000/graphql) in the browser, we see GraphiQL::
 

@@ -1,3 +1,8 @@
+---
+title: Multiple endpoints
+description: Querying multiple GraphQL APIs from our React app
+---
+
 ## Multiple endpoints
 
 > If you’re jumping in here, `git checkout 25_1.0.0` (tag [`25_1.0.0`](https://github.com/GraphQLGuide/guide/tree/25_1.0.0)). Tag [`26_1.0.0`](https://github.com/GraphQLGuide/guide/tree/26_1.0.0) contains all the code written in this section.

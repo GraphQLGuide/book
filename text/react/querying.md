@@ -1,3 +1,7 @@
+---
+title: Querying
+---
+
 # Querying
 
 Section contents:

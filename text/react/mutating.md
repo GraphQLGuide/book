@@ -1,3 +1,7 @@
+---
+title: Mutating
+---
+
 # Mutating
 
 Section contents:
@@ -1294,7 +1298,7 @@ function deleteReview() {
 
 ## Error handling
 
-Background: [GraphQL errors](../understanding-graphql/security-&-error-handling.md)
+Background: [GraphQL errors](../understanding-graphql/security--error-handling.md)
 
 > If you’re jumping in here, `git checkout 14_1.0.0` (tag [`14_1.0.0`](https://github.com/GraphQLGuide/guide/tree/14_1.0.0)). Tag [`15_1.0.0`](https://github.com/GraphQLGuide/guide/tree/15_1.0.0) contains all the code written in this section.
 

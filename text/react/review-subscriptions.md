@@ -1,3 +1,8 @@
+---
+title: Review subscriptions
+description: Subscribing to events for when a review is created, updated, or deleted
+---
+
 ## Review subscriptions
 
 > If you’re jumping in here, `git checkout 21_1.0.0` (tag [`21_1.0.0`](https://github.com/GraphQLGuide/guide/tree/21_1.0.0)). Tag [`22_1.0.0`](https://github.com/GraphQLGuide/guide/tree/22_1.0.0) contains all the code written in this section.

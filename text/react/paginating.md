@@ -1,8 +1,13 @@
+---
+title: Paginating
+description: How to implement pagination in GraphQL, 4 different ways
+---
+
 ## Paginating
 
 * [Offset-based](#offset-based)
   * [page](#page)
-  * [skip & limit](#skip-&-limit)
+  * [skip & limit](#skip--limit)
 * [Cursors](#cursors)
   * [after](#after)
   * [orderBy](#orderby)
@@ -365,7 +370,7 @@ The merge function gets three arguments:
 - `incoming`: The result being written to the cache (usually it just arrived from the server).
 - An object with helper functions.
 
-First, we filter out all of the reviews that are already in the cache (see note at the end of the [Client-side ordering & filtering](client-side-ordering-&-filtering.md) section for how to make this more efficient). Then we concatenate the existing reviews with the new reviews. Since `Review` objects are normalized in the cache, `existing` and `incoming` are arrays of references to `Review`s. This means we can’t do `review.id`—instead, we use the `readField` helper function: `readField('id', review)`.
+First, we filter out all of the reviews that are already in the cache (see note at the end of the [Client-side ordering & filtering](client-side-ordering--filtering.md) section for how to make this more efficient). Then we concatenate the existing reviews with the new reviews. Since `Review` objects are normalized in the cache, `existing` and `incoming` are arrays of references to `Review`s. This means we can’t do `review.id`—instead, we use the `readField` helper function: `readField('id', review)`.
 
 `keyArgs` defines which arguments result in a different entry in the cache. It defaults to all the arguments, which in this case would be `keyArgs: ['skip', 'limit']`. We do not want a different entry in the cache created when we change our pagination arguments, so we do `keyArgs: false`.
 

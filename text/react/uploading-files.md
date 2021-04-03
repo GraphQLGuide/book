@@ -1,3 +1,7 @@
+---
+title: Uploading files
+---
+
 ## Uploading files
 
 Background: [CDN](../background/cdn.md)

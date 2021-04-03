@@ -1,3 +1,8 @@
+---
+title: REST
+description: How to use GraphQL query code to make requests to REST APIs
+---
+
 ## REST
 
 > If you’re jumping in here, `git checkout 20_1.0.0` (tag [`20_1.0.0`](https://github.com/GraphQLGuide/guide/tree/20_1.0.0)). Tag [`21_1.0.0`](https://github.com/GraphQLGuide/guide/tree/21_1.0.0) contains all the code written in this section.

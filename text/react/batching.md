@@ -1,3 +1,8 @@
+---
+title: Batching
+description: How to batch multiple operations into a single HTTP request
+---
+
 ## Batching
 
 > If you’re jumping in here, `git checkout 24_1.0.0` (tag [`24_1.0.0`](https://github.com/GraphQLGuide/guide/tree/24_1.0.0)). We won’t be leaving the code from this section in our app, so the next section will also start at tag `24`. 

@@ -1,3 +1,8 @@
+---
+title: Extended topics
+description: Table of contents for the Extended topics section
+---
+
 # Extended topics
 
 Section contents:

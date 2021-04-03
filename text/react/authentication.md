@@ -1,3 +1,7 @@
+---
+title: Authentication
+---
+
 # Authentication
 
 Section contents:

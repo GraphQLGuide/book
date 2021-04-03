@@ -1,3 +1,7 @@
+---
+title: Prefetching
+---
+
 ## Prefetching
 
 Background: [browser performance](../background/browser-performance.md)

@@ -1,3 +1,7 @@
+---
+title: Server-side rendering
+---
+
 # Server-side rendering
 
 As we mentioned in [Background > SSR](../background/ssr.md), server-side rendering often results in faster load times. But if we render our app on the server the same way we render on the client, then all our Apollo Client queries will be in the loading state, and the HTML the server sends to the client will have loading spinners and skeletons everywhere. In most cases, we want the HTML to contain all the GraphQL data from the completed queries, so that the client sees the data immediately. We can do this in six steps:

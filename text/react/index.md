@@ -1,3 +1,7 @@
+---
+title: Overview
+---
+
 # Chapter 6: React
 
 Chapter contents:
@@ -31,11 +35,11 @@ Chapter contents:
   * [Paginating](paginating.md)
     * [Offset-based](paginating.md#offset-based)
       * [page](paginating.md#page)
-      * [skip & limit](paginating.md#skip-&-limit)
+      * [skip & limit](paginating.md#skip--limit)
     * [Cursors](paginating.md#cursors)
       * [after](paginating.md#after)
       * [orderBy](paginating.md#orderby)
-  * [Client-side ordering & filtering](client-side-ordering-&-filtering.md)
+  * [Client-side ordering & filtering](client-side-ordering--filtering.md)
   * [Local state](local-state.md)
     * [Reactive variables](local-state.md#reactive-variables)
     * [In cache](local-state.md#in-cache)

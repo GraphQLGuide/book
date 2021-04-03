@@ -25,7 +25,7 @@ These are the main types of pagination:
 
 The downsides to offset-based are:
 
-- When the result set changes (items added or removed), we might miss or get duplicate results. (We discuss this scenario in [Chapter 6: skip & limit](../../react/#skip-&-limit).)
+- When the result set changes (items added or removed), we might miss or get duplicate results. (We discuss this scenario in [Chapter 6: skip & limit](../../react/#skip--limit).)
 - The performance of a `LIMIT x OFFSET y` query does not scale well for large data sets in many databases, including PostgreSQL, MySQL, and MongoDB. (Note that depending on the flexibility of our collection structure, we might be able to use [the bucket pattern](https://www.mongodb.com/blog/post/paging-with-the-bucket-pattern--part-1) in MongoDB to scale this query well.)
 
 The downsides to cursor-based are:
@@ -288,7 +288,7 @@ extend type Query {
 }
 ```
 
-The only change from [skip & limit](#skip-&-limit) is instead of *skip*ing a number of results, we return those *after* an ID. In our resolver, we change `skip -> after` and remove `skip`’s error checking:
+The only change from [skip & limit](#skip--limit) is instead of *skip*ing a number of results, we return those *after* an ID. In our resolver, we change `skip -> after` and remove `skip`’s error checking:
 
 [`src/resolvers/Review.js`](https://github.com/GraphQLGuide/guide-api/compare/pagination_0.2.0...pagination2_0.2.0)
 

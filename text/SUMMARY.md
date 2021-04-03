@@ -51,7 +51,7 @@
   * [Filtering the data](understanding-graphql/filtering-the-data.md)
   * [Async data loading](understanding-graphql/async-data-loading.md)
   * [Multiple types of data](understanding-graphql/multiple-types-of-data.md)
-  * [Security & error handling](understanding-graphql/security-&-error-handling.md)
+  * [Security & error handling](understanding-graphql/security--error-handling.md)
   * [Tying this all together](understanding-graphql/tying-this-all-together.md)
 
 ### Part I: The Spec
@@ -147,11 +147,11 @@
     * [Paginating](react/paginating.md)
       * [Offset-based](react/paginating.md#offset-based)
         * [page](react/paginating.md#page)
-        * [skip & limit](react/paginating.md#skip-&-limit)
+        * [skip & limit](react/paginating.md#skip--limit)
       * [Cursors](react/paginating.md#cursors)
         * [after](react/paginating.md#after)
         * [orderBy](react/paginating.md#orderby)
-    * [Client-side ordering & filtering](react/client-side-ordering-&-filtering.md)
+    * [Client-side ordering & filtering](react/client-side-ordering--filtering.md)
     * [Local state](react/local-state.md)
       * [Reactive variables](react/local-state.md#reactive-variables)
       * [In cache](react/local-state.md#in-cache)

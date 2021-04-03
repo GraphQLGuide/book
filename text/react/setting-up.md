@@ -1,3 +1,8 @@
+---
+title: Setting up
+description: Setting up our React app with Apollo Client
+---
+
 # Setting up
 
 Section contents:
