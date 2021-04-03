@@ -1,3 +1,7 @@
+---
+title: Overview
+---
+
 # Stripe and Service Integrations
 
 Chapter contents:

@@ -1,3 +1,7 @@
+---
+title: First query
+---
+
 # First query
 
 > If you’re jumping in here, `git checkout 1_1.0.0` (tag [1_1.0.0](https://github.com/GraphQLGuide/guide-android/tree/1_1.0.0), or compare [1...2](https://github.com/GraphQLGuide/guide-android/compare/1_1.0.0...2_1.0.0))

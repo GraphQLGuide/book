@@ -131,9 +131,9 @@ Another important resource is the docs! Here they are for each library:
 
 Book version: `r6` ([changelog](https://github.com/GraphQLGuide/book/releases))
 
-Published TODO, 2021
+Published April 6, 2021
 
-As we write more of the book, we’ll send you new versions of it (using the email address on the GitHub account you connected when you purchased the book from [graphql.guide](https://graphql.guide)).
+If you purchased a package with free updates, we’ll be sending you new versions of the book whenever the content is updated (to the email address on the GitHub account you connected when you purchased the book from [graphql.guide](https://graphql.guide)).
 
 ### Chapter 6: React
 

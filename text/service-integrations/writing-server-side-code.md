@@ -1,3 +1,7 @@
+---
+title: Writing server-side code
+---
+
 # Writing server-side code
 
 While the above frontend example works when the user of our app has their own Stripe account, we may want our users to be able to see data from our Stripe account. In that case, we need to create a server-side token that’s connected to our Stripe OAuth, and then use that token to either create a persisted query or make queries from our server. We’ll do the latter in this section and create a persisted query in [the next](service-integrations.md#creating-persisted-queries).

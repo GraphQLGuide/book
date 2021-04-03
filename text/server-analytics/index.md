@@ -42,7 +42,7 @@ We now start our server with `npm run dev`. Once it has finished starting up, we
 $ npx apollo service:push --endpoint="http://localhost:4000"
 ```
 
-This command sends Apollo our schema, which is used for GraphQL analytics and other Apollo Studio features like [schema change validation](../server/schema-validation.md). When we change our schema, we need to re-run the command. Usually this is done automatically as part of [continuous integration](../background/continuous-integration.md) ([CircleCI example](https://www.apollographql.com/docs/graph-manager/schema-registry/#registering-a-schema-via-continuous-delivery)).
+This command sends Apollo our schema, which is used for GraphQL analytics and other Apollo Studio features like [schema change validation](../server/extended-topics/schema-validation.md). When we change our schema, we need to re-run the command. Usually this is done automatically as part of [continuous integration](../background/continuous-integration.md) ([CircleCI example](https://www.apollographql.com/docs/graph-manager/schema-registry/#registering-a-schema-via-continuous-delivery)).
 
 Now we can make queries in Playground, reload [Studio](https://studio.apollographql.com/), select “Metrics” from the menu, and see server analytics!
 

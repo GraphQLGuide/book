@@ -1,3 +1,8 @@
+---
+title: ViewModel
+description: Using ViewModel classes with Apollo Android
+---
+
 # ViewModel
 
 So far we’ve been doing our data fetching directly in our fragments, which means that every time a fragment is re-created (for example, on rotation), we call the API again. Android recommends using [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) classes to “store and manage UI-related data in a lifecycle conscious way.” In addition to being more efficient, it helps avoid bugs: a common lifecycle bug happens when we access a view after `onDestroyView` is called. A fragment can be in this state after we navigate away from it but before it has been destroyed. In the app we built in the last section, we avoided this by using `.launchWhenStarted`, which suspends execution when the view is destroyed. If we had used `.launch`, execution could continue past `onDestroyView` and cause a crash. 

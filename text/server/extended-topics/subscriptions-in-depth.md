@@ -7,7 +7,7 @@ description: Server architecture and schema design
 
 ### Server architecture
 
-Back in the [Deployment options](production/deployment.md#options) section, we decided to deploy to a PaaS because our app has subscriptions, which don’t work on FaaS. However, we can split our code into two servers: One that handles subscriptions and WebSockets and runs on a PaaS long-running process, and one that handles queries and mutations over HTTP and runs on a FaaS. This way, our two tasks, which have very different hosting requirements, can be maintained and scaled independently according to their needs.
+Back in the [Deployment options](../production/deployment.md#options) section, we decided to deploy to a PaaS because our app has subscriptions, which don’t work on FaaS. However, we can split our code into two servers: One that handles subscriptions and WebSockets and runs on a PaaS long-running process, and one that handles queries and mutations over HTTP and runs on a FaaS. This way, our two tasks, which have very different hosting requirements, can be maintained and scaled independently according to their needs.
 
 Let’s recall what our subscription code looks like. When the client sends this operation:
 
@@ -73,7 +73,7 @@ export default {
 
 When the number of stars changes, the new count is published to the `githubStars` iterator, and the server sends it out to all the clients who have subscribed. 
 
-All the above code can be separated into a new Node server. In fact, since we switched from the default in-memory pubsub to [Redis PubSub](production/database-hosting.md#redis-pubsub), the code that publishes updates doesn’t need to be in the same process that receives subscriptions and handles WebSockets! So if we wanted, we could have three servers:
+All the above code can be separated into a new Node server. In fact, since we switched from the default in-memory pubsub to [Redis PubSub](../production/database-hosting.md#redis-pubsub), the code that publishes updates doesn’t need to be in the same process that receives subscriptions and handles WebSockets! So if we wanted, we could have three servers:
 
 - Subscription server: A PaaS that supports WebSockets
 - Query and mutation server: FaaS

@@ -1,3 +1,8 @@
+---
+title: Contents
+description: Table of contents for the Android chapter
+---
+
 # Chapter 10: Android
 
 Chapter contents:

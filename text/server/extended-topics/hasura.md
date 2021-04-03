@@ -6,7 +6,7 @@ title: Hasura
 
 Background: [Databases](../../background/databases.md), [SQL](../../background/databases.md#sql)
 
-[Hasura](https://hasura.io/?ref=guide) is a GraphQL-as-a-service company. In [Deployment > Options](production/deployment.md#options), we covered IaaS, PaaS, and FaaS, which are different ways we can host our code. In GraphQL as a service, we don't have to write code—the server is automatically set up based on our configuration.
+[Hasura](https://hasura.io/?ref=guide) is a GraphQL-as-a-service company. In [Deployment > Options](../production/deployment.md#options), we covered IaaS, PaaS, and FaaS, which are different ways we can host our code. In GraphQL as a service, we don't have to write code—the server is automatically set up based on our configuration.
 
 > While it's true we don't *have* to write code, many apps need at least a little custom logic, so there are various ways to write our own code or SQL statements and integrate them into our Hasura server's functioning. These ways—which we'll get to later in this section—include actions, triggers, functions, and remote schemas.
 
@@ -23,7 +23,7 @@ Here are the pros and cons of using Hasura instead of coding a server ourselves:
 - Less flexibility: While Hasura has many different features and ways to customize its behavior (which for the majority of applications are sufficient), there are some things we just wouldn't be able to do unless we broke into the code of Hasura itself (like adding a new Postgres type).
 - Future uncertainty: While Hasura Inc. has a lot of funding and customers, it is a startup with an uncertain future. If it goes out of business, updates will fall to the open-source community, which would inevitably be less productive and proactive. And when we have problems, we'll no longer be able to go to the company's support channel of experts in the platform—we'll have to file an issue or post to Stack Overflow and hope the community responds, or dig into the platform code ourselves.
 - Non-monolithic: If we want to use a monolithic server architecture and Hasura, we’re out of luck—Hasura forces an architecture based on microservices and serverless functions.
-In this section, we'll use Hasura to create a GraphQL API similar to the Guide API we coded earlier. We'll start out with our users and reviews data in the format we used in the [SQL section](more-data-sources/sql.md), generate CRUD queries and mutations, and then go through modifications to match the Guide API. Through this process, we'll see how much less work it takes to build with Hasura than with code.
+In this section, we'll use Hasura to create a GraphQL API similar to the Guide API we coded earlier. We'll start out with our users and reviews data in the format we used in the [SQL section](../more-data-sources/sql.md), generate CRUD queries and mutations, and then go through modifications to match the Guide API. Through this process, we'll see how much less work it takes to build with Hasura than with code.
 
 The first step is to deploy a Hasura server. 
 
@@ -53,7 +53,7 @@ We can create tables in any of these ways:
 - Connecting to an existing PostgreSQL database and [selecting which tables](https://hasura.io/docs/latest/graphql/core/schema/using-existing-database.html) we want Hasura to use.
 - Generating tables and importing data from a JSON file.
 
-Let's do the third, taking the data from our SQLite database in the [SQL section](more-data-sources/sql.md):
+Let's do the third, taking the data from our SQLite database in the [SQL section](../more-data-sources/sql.md):
 
 `db.json`
 
@@ -254,7 +254,7 @@ Here are some more Hasura features:
 
 These are some of the reasons why Hasura performs so well: 
 
-- Converts each operation into a single SQL statement with precise SELECTing and JOINs (similar to [Join Monster](more-data-sources/sql.md#sql-performance))
+- Converts each operation into a single SQL statement with precise SELECTing and JOINs (similar to [Join Monster](../more-data-sources/sql.md#sql-performance))
 - Transforms SQL statement results into GraphQL response data inside Postgres using JSON aggregation functions
 - Uses Postgres [prepared statements](https://hasura.io/blog/fast-graphql-execution-with-query-caching-prepared-statements/), which decrease response times by 10-20%.
 - Uses Haskell and its [warp](https://www.stackage.org/package/warp) HTTP stack, which both have great performance

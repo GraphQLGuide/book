@@ -1,3 +1,7 @@
+---
+title: Querying with variables
+---
+
 # Querying with variables
 
 > If you’re jumping in here, `git checkout 2_1.0.0` (tag [2_1.0.0](https://github.com/GraphQLGuide/guide-android/tree/2_1.0.0), or compare [2...3](https://github.com/GraphQLGuide/guide-android/compare21_1.0.0...3_1.0.0))

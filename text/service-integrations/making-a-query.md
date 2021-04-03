@@ -1,3 +1,7 @@
+---
+title: Making a query
+---
+
 # Making a query
 
 After [signing up](https://www.onegraph.com/) and creating an app in their [dashboard](https://www.onegraph.com/dashboard/), we can select “Data Explorer” on the left to see get a GraphiQL for our app’s API. Under the first Explorer column, we can see a root query field for each service that we can get data from. We can expand “stripe” to see what Stripe data we can fetch. Let’s select the most recent 10 charges and their `amount` and `receiptEmail`. The query is automatically written in the middle pane, and once we hit the “Authentication” button and go through Stripe OAuth, we can get the results on the right:

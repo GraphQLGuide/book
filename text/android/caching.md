@@ -1,3 +1,7 @@
+---
+title: Caching
+---
+
 # Caching
 
 > If you’re jumping in here, `git checkout 3_1.0.0` (tag [3_1.0.0](https://github.com/GraphQLGuide/guide-android/tree/3_1.0.0), or compare [3...4](https://github.com/GraphQLGuide/guide-android/compare/3_1.0.0...4_1.0.0))

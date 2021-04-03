@@ -1,3 +1,7 @@
+---
+title: Setting up Apollo Android
+---
+
 # Setting up Apollo Android
 
 First we clone the starter app, which has everything but the data:

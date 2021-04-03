@@ -1,3 +1,8 @@
+---
+title: Flow
+description: Using Apollo Android’s Flow API
+---
+
 # Flow
 
 So far the only coroutine function we’ve been using is `toDeferred()`, which gives us a single response. Here is the full coroutines API:

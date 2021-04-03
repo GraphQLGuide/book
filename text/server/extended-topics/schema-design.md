@@ -224,7 +224,7 @@ type Query {
 
 Using specific naming is part of a broader category of being explicit—we want to know what fields and types mean, how to use them, and how they behave, without guessing or trial and error. Here are a few further areas in which we can be explicit:
 
-- Using custom scalars instead of default scalars. Instead of `createdAt: Int`, `createdAt: DateTime`. Instead of `phone: String`, `phone: PhoneNumber`. It explicitly shows what type of value it is, and we can trust that the [custom scalar code](building/custom-scalars.md) will validate `DateTime`s and `PhoneNumber`s wherever they’re used in the schema.
+- Using custom scalars instead of default scalars. Instead of `createdAt: Int`, `createdAt: DateTime`. Instead of `phone: String`, `phone: PhoneNumber`. It explicitly shows what type of value it is, and we can trust that the [custom scalar code](../building/custom-scalars.md) will validate `DateTime`s and `PhoneNumber`s wherever they’re used in the schema.
 - Include default arguments:
 
 ```js
@@ -243,7 +243,7 @@ enum ReviewOrderBy {
 ```
 
 - Use non-null (`!`) to explicitly denote which values will always be returned, or which arguments are required. However, in some cases it’s better to not use it:
-  - If clients use multiple root query fields in a single document, then leave them all nullable, because if one is non-null and null is returned (e.g., due to an error), it will [null cascade](building/errors.md#nullability) all the way up to a `{ "data": null }` response, which will prevent the client from receiving the other root query fields.
+  - If clients use multiple root query fields in a single document, then leave them all nullable, because if one is non-null and null is returned (e.g., due to an error), it will [null cascade](../building/errors.md#nullability) all the way up to a `{ "data": null }` response, which will prevent the client from receiving the other root query fields.
   - If there’s any chance a field will occasionally not be available, for instance a `User.githubRepositories` field whose resolver relies on the GitHub API being accessible, make it null. We do this so that when we can’t reach the GitHub API (their servers are down, or there’s a network issue, or we hit our API quota, for example), queries for user data can receive the other fields.
 - Build expected errors into the schema. Then devs will know what error responses look like and will be able to handle them more easily than if they were in the `"errors"` JSON response property.
   - In the below [Mutations](#mutations) section, we’ll include expected errors in the response type.
@@ -563,7 +563,7 @@ input UpdateReviewInput! {
 So far our mutations have been returning the object they alter or throwing errors. For instance, `createReview` might return a `Review` object or throw an `InputError` that’s serialized in the response JSON’s `"errors"` attribute. However, there are a couple issues with this:
 
 - Returning a single type is inflexible—what if multiple types are altered during the mutation, or we want to provide the client with more information about how the mutation went?
-- As we discussed in [Union errors](building/errors.md#union-errors), it’s better to return expected errors than to throw them: It’s easier for client code to handle, and it documents the possible errors and their associated data (whereas thrown errors like the [`InputError` we created](building/errors.md#custom-errors) are undocumented / do not appear in the schema).
+- As we discussed in [Union errors](../building/errors.md#union-errors), it’s better to return expected errors than to throw them: It’s easier for client code to handle, and it documents the possible errors and their associated data (whereas thrown errors like the [`InputError` we created](../building/errors.md#custom-errors) are undocumented / do not appear in the schema).
 
 We solve both of these issues by returning a payload type:
 
