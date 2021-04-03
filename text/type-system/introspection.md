@@ -1,3 +1,8 @@
+---
+title: Introspection
+description: Introspection is a standard way to query the capabilities of a GraphQL API
+---
+
 # Introspection
 
 GraphQL servers support [introspection](http://spec.graphql.org/draft/#sec-Introspection)—the ability to query for information about the server’s schema. There are three introspection entry fields:

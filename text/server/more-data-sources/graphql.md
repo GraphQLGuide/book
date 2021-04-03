@@ -1,3 +1,8 @@
+---
+title: GraphQL
+description: Using a GraphQL data source inside our GraphQL server
+---
+
 ## GraphQL
 
 If there’s a GraphQL API that we want to use data from, we have a few options:

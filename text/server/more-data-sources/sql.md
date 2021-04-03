@@ -1,3 +1,7 @@
+---
+title: SQL
+---
+
 ## SQL
 
 Background: [SQL](../../background/databases.md#sql)

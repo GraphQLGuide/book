@@ -1,3 +1,8 @@
+---
+title: Schema design
+description: A few important principles of GraphQL schema design
+---
+
 ## Schema design
 
 * [One schema](#one-schema)

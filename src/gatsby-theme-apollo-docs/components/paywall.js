@@ -21,8 +21,9 @@ const Overlay = styled.div`
 `
 
 export const Paywall = ({ pathname, children, header }) => {
-  console.log('pathname:', pathname)
   const user = useUser()
+  console.log('pathname:', pathname, user)
+  return children
 
   let message = null
   let hide = true

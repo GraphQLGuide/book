@@ -1,3 +1,7 @@
+---
+title: Authorization
+---
+
 ## Authorization
 
 > If you’re jumping in here, `git checkout 10_0.2.0` (tag [10_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/10_0.2.0), or compare [10...11](https://github.com/GraphQLGuide/guide-api/compare/10_0.2.0...11_0.2.0))

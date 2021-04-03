@@ -1,3 +1,7 @@
+---
+title: Field aliases
+---
+
 # Field aliases
 
 We can give a field an [*alias*](http://spec.graphql.org/draft/#sec-Field-Alias) to change its name in the response object. In this query, we want to select `profilePic` twice, so we give the second instance an alias:

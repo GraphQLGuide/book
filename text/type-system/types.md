@@ -1,3 +1,8 @@
+---
+title: Types
+description: A list of the eight built-in types in GraphQL
+---
+
 # Types
 
 There are six *named types* and two *wrapping types*. The named types are:

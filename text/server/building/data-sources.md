@@ -1,3 +1,8 @@
+---
+title: Data sources
+description: How to set up and use a MongoDB data source
+---
+
 ## Data sources
 
 * [Setting up](#setting-up)

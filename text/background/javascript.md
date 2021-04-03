@@ -1,3 +1,7 @@
+---
+title: JavaScript
+---
+
 # JavaScript
 
 Most of the code in the book is in modern JavaScript. If you’re new to JS, you can learn through interactive [courses](https://www.codecademy.com/learn/introduction-to-javascript), video ([intro](https://www.leveluptutorials.com/tutorials/javascript-tutorials?ref=guide) and [intermediate](https://javascript30.com/?ref=guide)), or [a combination](https://www.khanacademy.org/computing/computer-programming/programming).

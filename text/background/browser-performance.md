@@ -1,3 +1,8 @@
+---
+title: Browser performance
+description: A few different measures of browser performance and targets to stay under
+---
+
 # Browser performance
 
 Users notice when sites are slow, and they don’t like it 😄. So if we want our users to feel good using our site, we want different things in the browser to happen at certain speeds. 

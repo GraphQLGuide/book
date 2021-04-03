@@ -1,3 +1,8 @@
+---
+title: Subscriptions in depth
+description: Server architecture and schema design
+---
+
 ## Subscriptions in depth
 
 ### Server architecture

@@ -1,3 +1,8 @@
+---
+title: Contents
+description: This chapter provides concise introductions to various background topics.
+---
+
 # Chapter: Background
 
 Chapter contents:

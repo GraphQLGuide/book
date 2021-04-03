@@ -1,3 +1,7 @@
+---
+title: Fragments
+---
+
 # Fragments
 
 - [Named fragments](#named-fragments)

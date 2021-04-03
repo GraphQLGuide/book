@@ -1,3 +1,7 @@
+---
+title: Apollo federation
+---
+
 ## Apollo federation
 
 In the [Introduction](introduction.md) to this chapter, we talk about microservices versus monoliths. If we go down the microservice route, then we recommend doing so with Apollo federation. 

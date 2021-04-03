@@ -1,3 +1,8 @@
+---
+title: User integration tests
+description: Implementing integration tests for the User data type
+---
+
 ## User integration tests
 
 > If you’re jumping in here, `git checkout 22_0.2.0` (tag [22_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/22_0.2.0), or compare [22...23](https://github.com/GraphQLGuide/guide-api/compare/22_0.2.0...23_0.2.0))

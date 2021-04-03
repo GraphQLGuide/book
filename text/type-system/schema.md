@@ -1,6 +1,10 @@
+---
+title: Schema
+---
+
 # Schema
 
-The [schema](http://spec.graphql.org/draft/#sec-Schema) describes the capabilities of a GraphQL server. It defines the possible queries, mutations, subscriptions, and additional types and directives. While the schema can be written in a programming language, it is often written in SDL (the GraphQL Schema Definition Language). Here is the most basic schema, written in SDL:
+The [schema](http://spec.graphql.org/draft/#sec-Schema) defines the capabilities of a GraphQL server. It defines the possible queries, mutations, subscriptions, and additional types and directives. While the schema can be written in a programming language, it is often written in SDL (the GraphQL Schema Definition Language). Here is the most basic schema, written in SDL:
 
 ```gql
 schema {

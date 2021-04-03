@@ -1,3 +1,7 @@
+---
+title: Vue
+---
+
 # Vue 
 
 [Vue.js](https://v3.vuejs.org/guide/introduction.html) was created in 2014 by Evan You after working with Angular.js at Google. Evan wanted a lightweight view library that had the good parts of Angular. It has since evolved a lot, is now in its third major version, and has a number of accompanying tooling and libraries, including a devtools browser extension, a CLI, a webpack loader, and a router library. 

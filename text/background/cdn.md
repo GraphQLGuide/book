@@ -1,3 +1,7 @@
+---
+title: CDN
+---
+
 # CDN
 
 A CDN, or *Content Delivery Network*, has servers around the world that deliver our content to users. Because their servers are closer to our users than our servers are, they can respond faster than we can, improving [latency](latency.md). Here is the way they typically deliver our content:

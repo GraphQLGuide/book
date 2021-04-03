@@ -1,3 +1,8 @@
+---
+title: Extended topics
+description: Table of contents for the Extended topics part of the server chapter
+---
+
 # Extended topics
 
 * [Mocking](mocking.md)

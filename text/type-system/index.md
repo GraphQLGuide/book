@@ -1,3 +1,8 @@
+---
+title: Contents
+description: Table of contents for the Type System chapter
+---
+
 # Chapter 3: Type System
 
 Chapter contents:

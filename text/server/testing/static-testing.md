@@ -1,3 +1,7 @@
+---
+title: Static testing
+---
+
 ## Static testing
 
 > If you’re jumping in here, `git checkout 19_0.2.0` (tag [19_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/19_0.2.0), or compare [19...20](https://github.com/GraphQLGuide/guide-api/compare/19_0.2.0...20_0.2.0))

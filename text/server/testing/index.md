@@ -1,3 +1,9 @@
+---
+title: Testing
+description: Table of contents for the Testing section
+hasSubsections: true
+---
+
 # Testing
 
 Background: [Testing](../../background/testing.md)

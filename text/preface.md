@@ -1,3 +1,9 @@
+---
+title: Preface
+slug: '/preface'
+description: Letter from the authors.
+---
+
 # Preface
 
 👋 Hello there, dear reader 😃. Welcome to the Guide! We are John and Loren, your authors. John created jQuery, and Loren is slightly less famous but writes good 👌. We’re here to tell you about GraphQL, the system we believe will eclipse REST as the best way to fetch data from servers. We’ll get into why in Chapter 1, but for now, here’s the story of this book:

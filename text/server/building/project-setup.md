@@ -1,3 +1,7 @@
+---
+title: Project setup
+---
+
 ## Project setup
 
 There are a few different things to set up when starting a new Node project. We’ve set them up in branch `0` of our server repo, [github.com/GraphQLGuide/guide-api](https://github.com/GraphQLGuide/guide-api): 

@@ -1,3 +1,7 @@
+---
+title: Schema validation
+---
+
 ## Schema validation
 
 In this section we’ll go over schema validation and how to set it up using [Apollo Studio](https://www.apollographql.com/docs/graph-manager/). 

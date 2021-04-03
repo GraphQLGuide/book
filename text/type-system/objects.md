@@ -1,3 +1,7 @@
+---
+title: Objects
+---
+
 # Objects
 
 An [object](http://graphql.org/learn/schema/#object-types-and-fields) is a list of fields, each of which have a name and a type. The below schema defines two object types, `Post` and `User`:

@@ -1,3 +1,8 @@
+---
+title: Subscriptions
+description: How to implement two different GraphQL Subscriptions
+---
+
 ## Subscriptions
 
 * [githubStars](#githubstars)

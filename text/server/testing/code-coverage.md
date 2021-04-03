@@ -1,3 +1,7 @@
+---
+title: Code coverage
+---
+
 ## Code coverage
 
 > If you’re jumping in here, `git checkout 21_0.2.0` (tag [21_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/21_0.2.0), or compare [21...22](https://github.com/GraphQLGuide/guide-api/compare/20_0.2.0...22_0.2.0))

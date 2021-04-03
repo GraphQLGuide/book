@@ -1,3 +1,8 @@
+---
+title: Querying in production
+description: Going through the different ways we can query our deployed GraphQL API
+---
+
 ### Querying in production
 
 > If you’re jumping in here, `git checkout 28_0.1.0` (tag [28_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/28_0.1.0)).

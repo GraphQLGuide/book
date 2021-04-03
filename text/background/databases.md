@@ -1,3 +1,7 @@
+---
+title: Databases
+---
+
 # Databases
 
 Databases are organized collections of data stored on a computer. That computer is called a *database server*, and the computer querying the database (usually an app server) is called the *database client*. Different databases organize their data differently, store it differently, and communicate differently. There are two types of database storage: *in-memory* (the data is stored in RAM, and would be lost in a power outage) and *persistent* (the data is stored on disk—a hard drive or SSD). [Redis](#redis) is primarily used as an in-memory database, whereas [MongoDB](#mongodb) and [SQL](#sql) databases are usually used as persistent databases. 

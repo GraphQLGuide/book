@@ -1,10 +1,14 @@
+---
+title: Future
+---
+
 ## Future
 
 The largest change to GraphQL-land in the coming years will be its size! The [S curve](https://en.wikipedia.org/wiki/Sigmoid_function) of GraphQL adoption is currently in the exponential phase (*seemingly* exponential—technically, it’s logistic). Here’s a graph of the [`graphql`](https://www.npmjs.com/package/graphql) package’s weekly npm downloads over the first 5 years:
 
 ![Downloads increasing exponentially over 5 years, ending in 3.5M](../img/npm-graphql-downloads.png)
 
-And it doesn’t even include client packages like `apollo-client`, which are also growing. At the time of writing, [`apollo-client`](https://www.npmjs.com/package/apollo-client) has 1.7M weekly downloads. There’s also a lot of room left to grow—according to Google Trends, REST still has 3x the interest that GraphQL has:
+And it doesn’t even include client packages like `apollo-client`, which are also growing. At the time of writing, [`apollo-client`](https://www.npmjs.com/package/apollo-client) has over 1M weekly downloads. There’s also a lot of room left to grow—according to Google Trends, REST still has 3x the interest that GraphQL has:
 
 ![Line chart with GraphQL increasing and ending at 21:61 GraphQL:REST](../img/google-trends.png)
 

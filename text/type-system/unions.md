@@ -1,3 +1,7 @@
+---
+title: Unions
+---
+
 # Unions
 
 A [union](http://spec.graphql.org/draft/#sec-Unions) type is defined as a list of object types:

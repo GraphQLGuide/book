@@ -1,3 +1,7 @@
+---
+title: React
+---
+
 # React
 
 [React](https://reactjs.org/) was released by Facebook in 2013, and it has since steadily increased in popularity, surpassing Angular in GitHub stars in 2016 to become the most popular JavaScript view library. (And while Vue passed React in star count in 2018, React had 5x the number of npm downloads at the time of writing.) React continues to be developed by a team at Facebook, who have merged in contributions from over one thousand developers.

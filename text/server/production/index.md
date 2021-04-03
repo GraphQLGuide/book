@@ -1,3 +1,9 @@
+---
+title: Production
+description: Table of contents for the Production section
+hasSubsections: true
+---
+
 # Production
 
 Once our GraphQL server code works and we want others (or our client code) to use it, we need to put it into production. This section contains the basic steps:

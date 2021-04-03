@@ -1,3 +1,8 @@
+---
+title: Testing
+description: How to mock during tests, and the different types of texts
+---
+
 # Testing
 
 - [Mocking](#mocking)

@@ -1,3 +1,7 @@
+---
+title: Latency
+---
+
 # Latency
 
 Latency is the period between one machine sending a message over the internet and the other machine receiving it. It’s usually talked about in terms of round-trip time: the time it takes for the message to get to the destination and for a reply to reach the source. The `ping` command-line tool displays round-trip time between our computer and another machine. Here, we see that it takes around 5 milliseconds total for a message to reach the nearest Google server and for the reply to arrive back:

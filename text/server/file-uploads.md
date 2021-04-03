@@ -1,3 +1,8 @@
+---
+title: File uploads
+description: Implementing file uploads with GraphQL
+---
+
 ## File uploads
 
 Originally, web servers saved files to their hard drives or to colocated file servers. Most modern web servers use a third-party file-storage service like Amazon S3 or Cloudinary. When a user wants to upload a file, there are a few different ways the client can get it to a storage service:

@@ -1,3 +1,8 @@
+---
+title: Field arguments
+description: Arguments can be added to any field in the schema
+---
+
 # Field arguments
 
 Any field can accept a named, unordered list of [arguments]. Arguments can be scalars, enums, or *input objects*. An argument can be non-null to indicate it is required. Optional arguments can have a default value, like `name` below.
@@ -22,7 +27,7 @@ type Mutation {
 
 ## Input objects
 
-[Input objects](http://spec.graphql.org/draft/#sec-Input-Objects) are objects that are only used as arguments. An input object is often the sole argument to mutations (see [Chapter 11: Schema design > Mutations > Arguments](../server/#arguments)). 
+[Input objects](http://spec.graphql.org/draft/#sec-Input-Objects) are objects that are only used as arguments. An input object is often the sole argument to mutations (see [Chapter 11: Schema design > Mutations > Arguments](../server/schema-design.md#arguments)). 
 
 An input object is a list of input fields—scalars, enums, and other input objects.
 

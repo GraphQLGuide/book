@@ -1,3 +1,7 @@
+---
+title: Enums
+---
+
 # Enums
  
 When a scalar field has a small set of possible values, it’s best to use an [enum](http://graphql.org/learn/schema/#enumeration-types) instead. The enum type declaration lists all the options:

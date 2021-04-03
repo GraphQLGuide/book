@@ -1,3 +1,7 @@
+---
+title: Mutations
+---
+
 # Mutations
 
 [Mutations](http://spec.graphql.org/draft/#sec-Mutation), unlike queries, have side effects—i.e., alter data. The REST equivalent of a query is a GET request, whereas the equivalent of a mutation is a POST, PUT, DELETE, or PATCH. Often, when the client sends a mutation, it selects the data that will be altered so that it can update the client-side state.

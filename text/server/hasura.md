@@ -1,3 +1,7 @@
+---
+title: Hasura
+---
+
 ## Hasura
 
 Background: [Databases](../background/databases.md), [SQL](../background/databases.md#sql)

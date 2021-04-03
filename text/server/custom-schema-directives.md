@@ -1,3 +1,8 @@
+---
+title: Custom schema directives
+description: How to create your own GraphQL directives
+---
+
 ## Custom schema directives
 
 Background: [Directives](../query-language/#directives)

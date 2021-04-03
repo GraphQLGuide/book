@@ -1,3 +1,8 @@
+---
+title: Authentication
+description: Tokens vs. sessions and localStorage vs. cookies
+---
+
 # Authentication
 
 ## Tokens vs. sessions

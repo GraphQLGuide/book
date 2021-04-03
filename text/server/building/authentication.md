@@ -1,3 +1,8 @@
+---
+title: Authentication
+description: Authenticating the client by decoding their JWT and adding the user data to context
+---
+
 ## Authentication
 
 Background: [Authentication](../../background/authentication.md)

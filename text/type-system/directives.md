@@ -1,3 +1,8 @@
+---
+title: Directives
+description: Schema directives define the directives that can be used in query documents
+---
+
 # Directives
 
 We talked about the query side of [directives](http://spec.graphql.org/draft/#sec-Type-System.Directives) in [Chapter 2: Directives](../query-language/#directives). Directives are declared in the schema. A directive definition includes its name, any arguments, on what types of locations it can be used, and whether it’s repeatable (used multiple times on the same location):

@@ -1,3 +1,7 @@
+---
+title: Summary
+---
+
 # Summary
 
 To recap the GraphQL query language, we can send one or more [operations](operations.md) in a GraphQL [document](document.md). Each operation has a (possibly nested) [selection set](selection-sets.md), which is a set of [fields](fields.md), each of which may have [arguments](arguments.md). We can also:

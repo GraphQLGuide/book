@@ -1,3 +1,7 @@
+---
+title: Scalars
+---
+
 # Scalars
 
 [Scalars](http://graphql.org/learn/schema/#scalar-types) are primitive values. There are five included scalar types:

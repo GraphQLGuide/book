@@ -1,3 +1,7 @@
+---
+title: Descriptions
+---
+
 # Descriptions
 
 We can add a [description](http://spec.graphql.org/draft/#sec-Descriptions) before any definition in our schema using `#`, `"`, or `"""`. Descriptions are included in [introspection](introspection.md) and displayed by tools like GraphiQL.

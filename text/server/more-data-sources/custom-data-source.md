@@ -1,3 +1,8 @@
+---
+title: Custom data source
+description: How to create our own Apollo Server data source
+---
+
 ## Custom data source
 
 When we’ve been talking about data sources, sometimes we’re referring to the classes we create (`PPP` in the below snippet), and sometimes we’re referring to the parent classes that we get from an npm library and extend (`RESTDataSource`).

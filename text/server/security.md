@@ -1,3 +1,8 @@
+---
+title: Security
+description: General security and auth in GraphQL
+---
+
 ## Security
 
 Background: [HTTP](../background/http.md), [Databases](../background/databases.md), [Authentication](../background/authentication.md)

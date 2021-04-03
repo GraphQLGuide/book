@@ -1,3 +1,8 @@
+---
+title: Contents
+description: Table of contents for the Server Dev chapter
+---
+
 # Chapter 11: Server Dev
 
 Chapter contents:
@@ -97,6 +102,3 @@ Chapter contents:
     * [Data fetching](performance.md#data-fetching)
     * [Caching](performance.md#caching)
   * [Future](future.md)
-
----
-

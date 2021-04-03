@@ -1,3 +1,7 @@
+---
+title: Variables
+---
+
 # Variables
 
 We often don’t know argument values until our code is being run—for instance, we won’t always want to query for user #1. The user ID we want will depend on which profile page we’re displaying. While we could edit the document at runtime (like `{ user(id: ' + currentPageUserId + ') { name }}'`), we recommend instead using static strings and [*variables*](http://spec.graphql.org/draft/#sec-Language.Variables). Variables are declared in the document, and their values are provided separately, like this:

@@ -1,3 +1,8 @@
+---
+title: Deployment
+description: How to deploy our GraphQL server
+---
+
 ## Deployment
 
 * [Options](#options)

@@ -1,3 +1,7 @@
+---
+title: Unit tests
+---
+
 ## Unit tests
 
 > If you’re jumping in here, `git checkout 23_0.2.0` (tag [23_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/23_0.2.0), or compare [23...24](https://github.com/GraphQLGuide/guide-api/compare/23_0.2.0...24_0.2.0))

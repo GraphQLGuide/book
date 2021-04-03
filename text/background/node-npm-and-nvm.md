@@ -1,3 +1,7 @@
+---
+title: Node, npm, and nvm
+---
+
 # Node, npm, and nvm
 
 [Node](https://nodejs.org/en/) is what runs JavaScript on a server. [npm](https://www.npmjs.com/) is a JavaScript package manager and registry. Their `npm` command-line tool manages the packages (libraries of JavaScript code) that our app depends on, helping us install and upgrade them. Their registry stores the content of the packages and makes them available for download—it has more packages than any other registry in the history of software! We use npm packages both with code that runs on the server in Node and with code that runs on the client—in the browser or in React Native. 

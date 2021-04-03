@@ -1,3 +1,7 @@
+---
+title: Server
+---
+
 # Server
 
 The term *server* may refer to:

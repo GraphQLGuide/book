@@ -1,3 +1,8 @@
+---
+title: Database hosting
+description: How to set up hosted instances of MongoDB and Redis and connect to them
+---
+
 ## Database hosting
 
 * [MongoDB hosting](#mongodb-hosting)

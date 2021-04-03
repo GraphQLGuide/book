@@ -1,3 +1,8 @@
+---
+title: Pagination
+description: Implementing 3 different forms of GraphQL pagination
+---
+
 ## Pagination
 
 * [Offset-based](#offset-based)

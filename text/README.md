@@ -1,7 +1,7 @@
 ---
-sidebar_title: Introduction
+title: Introduction
 slug: '/introduction'
-description: test desc
+description: Introduction to the book, its contents, and formatting.
 ---
 
 # Introduction

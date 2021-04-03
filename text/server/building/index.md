@@ -1,3 +1,9 @@
+---
+title: Building
+description: Table of contents for the Building section of the Server Dev chapter
+hasSubsections: true
+---
+
 # Building
 
 Background: [Node & npm & nvm](../../background/node-npm-and-nvm.md), [git](../../background/git.md), [JavaScript](../../background/javascript.md)
@@ -26,7 +32,6 @@ Background: [Node & npm & nvm](../../background/node-npm-and-nvm.md), [git](../.
 * [Subscriptions](subscriptions.md)
   * [githubStars](subscriptions.md#githubstars)
   * [reviewCreated](subscriptions.md#reviewcreated)
-
 
 We’re using Node because it’s the most popular platform for GraphQL Servers and has the best ecosystem. JavaScript is also the most used programming language in the world! ⒿⓈ⬆️
 

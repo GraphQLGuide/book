@@ -1,3 +1,7 @@
+---
+title: End-to-end tests
+---
+
 ## End-to-end tests
 
 > If you’re jumping in here, `git checkout 24_0.2.0` (tag [24_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/24_0.2.0), or compare [24...25](https://github.com/GraphQLGuide/guide-api/compare/24_0.2.0...25_0.2.0))

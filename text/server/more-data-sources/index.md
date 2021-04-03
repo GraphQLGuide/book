@@ -1,3 +1,9 @@
+---
+title: More data sources
+description: Table of contents for the More data sources section
+hasSubsections: true
+---
+
 # More data sources
 
 * [SQL](sql.md)

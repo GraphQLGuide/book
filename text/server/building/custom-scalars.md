@@ -1,3 +1,8 @@
+---
+title: Custom scalars
+description: How to implement custom scalars for your GraphQL API
+---
+
 ## Custom scalars
 
 > If you’re jumping in here, `git checkout 6_0.2.0` (tag [6_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/6_0.2.0), or compare [6...7](https://github.com/GraphQLGuide/guide-api/compare/6_0.2.0...7_0.2.0))

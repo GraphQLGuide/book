@@ -1,3 +1,7 @@
+---
+title: JSON
+---
+
 # JSON
 
 JSON is a file format for data objects. The objects are structured in attribute–value pairs, where the attribute is a string and the value can be one of the following types:

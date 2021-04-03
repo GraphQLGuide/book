@@ -1,3 +1,7 @@
+---
+title: Non-null
+---
+
 # Non-null
 
 [Non-null](http://graphql.org/learn/schema/#lists-and-non-null) is a *wrapper type*. It wraps any other type and signifies that type can’t be null.

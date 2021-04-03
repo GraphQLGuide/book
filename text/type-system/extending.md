@@ -1,3 +1,8 @@
+---
+title: Extending
+description: A type that has been previously defined can be extended
+---
+
 # Extending
 
 All named types can be [extended](http://spec.graphql.org/draft/#sec-Type-System-Extensions) in some way. We might extend types when we’re defining our schema across multiple files, or if we’re modifying a schema defined by someone else. Here are a couple examples: 

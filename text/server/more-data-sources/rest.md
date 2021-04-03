@@ -1,3 +1,8 @@
+---
+title: REST
+description: Fetching REST data from our GraphQL server
+---
+
 ## REST
 
 > If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...rest](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...rest_0.1.0))

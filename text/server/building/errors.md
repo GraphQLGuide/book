@@ -1,3 +1,7 @@
+---
+title: Errors
+---
+
 ## Errors
 
 * [Nullability](#nullability)

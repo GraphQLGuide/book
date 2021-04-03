@@ -1,3 +1,7 @@
+---
+title: Mocking
+---
+
 ## Mocking
 
 > If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...mocking](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...mocking_0.1.0))

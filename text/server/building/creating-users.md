@@ -1,3 +1,7 @@
+---
+title: Creating users
+---
+
 ## Creating users
 
 * [Protecting with secret key](#protecting-with-secret-key)

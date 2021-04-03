@@ -1,3 +1,7 @@
+---
+title: Types and resolvers
+---
+
 ## Types and resolvers
 
 > If you’re jumping in here, `git checkout 1_0.2.0` (tag [1_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/1_0.2.0), or compare [1...2](https://github.com/GraphQLGuide/guide-api/compare/1_0.2.0...2_0.2.0))
