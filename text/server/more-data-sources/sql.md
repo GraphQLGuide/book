@@ -17,7 +17,7 @@ In this section we replace our use of MongoDB with SQL. In the first part we’l
 
 ### SQL setup
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...sql](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...sql_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...sql](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...sql_0.2.0))
 
 A [SQL database](../../background/databases.md#sql) takes more setup than the MongoDB database we’ve been using: We need to write *migrations*—code that creates or alters tables and their schemas. The most popular Node library for SQL is [Knex](https://knexjs.org/), and it includes the ability to write and run migrations. To start using it, we run `knex init`. Since we already have it in our `node_modules/`, we can run `npx knex init` in a new directory within our repository:
 
@@ -297,7 +297,7 @@ We don’t want our database in our code repository—it’s meant to be generat
 
 ### SQL data source
 
-> If you’re jumping in here, `git checkout sql_0.1.0` (tag [sql_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/sql_0.1.0), or compare [sql...sql2](https://github.com/GraphQLGuide/guide-api/compare/sql_0.1.0...sql2_0.1.0))
+> If you’re jumping in here, `git checkout sql_0.2.0` (tag [sql_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/sql_0.2.0), or compare [sql...sql2](https://github.com/GraphQLGuide/guide-api/compare/sql_0.2.0...sql2_0.2.0))
 
 Now that we’ve set up our SQL database and inserted records, we need to query them. So we look for a SQL data source class to use, either on the [community data sources list](https://www.apollographql.com/docs/apollo-server/data/data-sources/#community-data-sources) in the Apollo docs or by searching “apollo data source sql” on Google or npm. We find [`datasource-sql`](https://github.com/cvburgess/SQLDataSource/), which provides the class `SQLDataSource`. 
 
@@ -762,7 +762,7 @@ Now all our dates are working:
 
 ### SQL testing
 
-> If you’re jumping in here, `git checkout sql2_0.1.0` (tag [sql2_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/sql2_0.1.0), or compare [sql2...sql3](https://github.com/GraphQLGuide/guide-api/compare/sql2_0.1.0...sql3_0.1.0))
+> If you’re jumping in here, `git checkout sql2_0.2.0` (tag [sql2_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/sql2_0.2.0), or compare [sql2...sql3](https://github.com/GraphQLGuide/guide-api/compare/sql2_0.2.0...sql3_0.2.0))
 
 In the last section we implemented and used (okay, more like used then implemented 😄) our SQL data source. We also made a couple of queries to see if it worked, and the queries did work (eventually), but it wasn’t a comprehensive test. Let’s update our automated tests (which are currently broken) so we can have a higher level of confidence in our code’s correctness. 
 
@@ -1232,7 +1232,7 @@ If we wanted to cover `SQL.js`, we would need to run the actual methods, which m
 
 ### SQL performance
 
-> If you’re jumping in here, `git checkout sql3_0.1.0` (tag [sql3_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/sql3_0.1.0), or compare [sql3...sql4](https://github.com/GraphQLGuide/guide-api/compare/sql3_0.1.0...sql4_0.1.0))
+> If you’re jumping in here, `git checkout sql3_0.2.0` (tag [sql3_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/sql3_0.2.0), or compare [sql3...sql4](https://github.com/GraphQLGuide/guide-api/compare/sql3_0.2.0...sql4_0.2.0))
 
 The two main performance factors when it comes to database querying are latency and load. Latency is how quickly we get all the data we need, and load is how much work the database is doing. Latency usually won’t be an issue unless we have complex queries or a lot of data. Load won’t be an issue unless we have a lot of clients simultaneously using our API. 
 

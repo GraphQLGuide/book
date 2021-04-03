@@ -22,7 +22,7 @@ In the first section we’ll go over client-side uploads, and in [the second](#s
 
 ### Client-side
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...files](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...files_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...files](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...files_0.2.0))
 
 In this section we’ll add the server code to support an unsigned client-side upload—and at the end, we’ll show the additional code needed for a signed upload. All we need is a mutation for the client to tell the server the filename, ID, or path, depending on which file-storage service we’re using. If we wanted to make it general-purpose, we could use the file’s full URL instead. For the Guide, we’ll use Cloudinary, which gives the client the file’s path after the upload is complete (the client-side upload process is [described in Chapter 6](../react/#client-side)). The server then combines the path—for example `v1551850855/jeresig.jpg`—with our account URL (`https://res.cloudinary.com/graphql/`) to form the full URL: 
 
@@ -139,7 +139,7 @@ If we were using Amazon S3, then we’d use the [`s3.createPresignedPost()`](htt
 
 ### Server-side
 
-> If you’re jumping in here, `git checkout files_0.1.0` (tag [files_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/files_0.1.0), or compare [files...files2](https://github.com/GraphQLGuide/guide-api/compare/files_0.1.0...files2_0.1.0))
+> If you’re jumping in here, `git checkout files_0.2.0` (tag [files_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/files_0.2.0), or compare [files...files2](https://github.com/GraphQLGuide/guide-api/compare/files_0.2.0...files2_0.2.0))
 
 We go over the differences between client-side and server-side [above](file-uploads.md#file-uploads). In this section, we’ll do server-side file uploads, where the client sends the file to the GraphQL server, which sends it to the storage service (we could send to Cloudinary again, but we’ll use Amazon S3 this time for diversity). There are different methods for the client to send the file, and the most common is a multipart HTTP request, which works through:
 

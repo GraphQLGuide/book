@@ -5,7 +5,7 @@ description: Fetching REST data from our GraphQL server
 
 ## REST
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...rest](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...rest_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...rest](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...rest_0.2.0))
 
 Instead of fetching our data directly from the database, we may want to make use of our company’s legacy REST services (yes, any service that doesn’t speak GraphQL and support [Apollo Federation](../apollo-federation.md) is now a *legacy* service 😉😄). Or we may want to use data from third-party REST APIs. In either case, we use `RESTDataSource` to create a data source that makes REST requests.
 

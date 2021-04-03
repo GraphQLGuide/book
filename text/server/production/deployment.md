@@ -61,7 +61,7 @@ The former could publish subscription events to Redis, which the latter could su
 
 ### Deploying
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...26](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...26_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...26](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...26_0.2.0))
 
 In this section we’ll deploy our server to the Heroku PaaS, see how it breaks, and then fix it 🤓. 
 
@@ -158,7 +158,7 @@ app[web.1]: Error: GraphQL Error (Code: 401): {"response":{"message":"Bad creden
 
 ### Environment variables
 
-> If you’re jumping in here, `git checkout 26_0.1.0` (tag [26_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/26_0.1.0)).
+> If you’re jumping in here, `git checkout 26_0.2.0` (tag [26_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/26_0.2.0)).
 
 There are a couple outstanding errors with our deployment. Let’s look at this one:
 

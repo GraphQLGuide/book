@@ -7,7 +7,7 @@ description: How to create your own GraphQL directives
 
 Background: [Directives](../query-language/#directives)
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...directives](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...directives_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...directives](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...directives_0.2.0))
 
 Apollo Server includes the [default directives](../query-language/#directives) `@deprecated`, `@skip`, and  `@include`. `@skip` and `@include` are *query directives*, so they don’t appear in our schema; instead, they’re included in query documents and can be used on any field. `@deprecated` is a *schema directive*, and when we add it after a field or enum value in our schema, the directive will be included in responses to introspection queries. 
 

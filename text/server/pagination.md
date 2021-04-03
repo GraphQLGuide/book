@@ -37,7 +37,7 @@ In [Offset-based](#offset-based), we’ll implement skip & limit. Then in [Curso
 
 ### Offset-based
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...pagination](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...pagination_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...pagination](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...pagination_0.2.0))
 
 In skip & limit, we have three arguments: `skip`, `limit`, and `orderBy`. Let’s update the schema first, then the resolver, and lastly the data sources.
 
@@ -276,7 +276,7 @@ type FriendEdge {
 
 #### after an ID
 
-> If you’re jumping in here, `git checkout pagination_0.1.0` (tag [pagination_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/pagination_0.1.0), or compare [pagination...pagination2](https://github.com/GraphQLGuide/guide-api/compare/pagination_0.1.0...pagination2_0.1.0))
+> If you’re jumping in here, `git checkout pagination_0.2.0` (tag [pagination_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/pagination_0.2.0), or compare [pagination...pagination2](https://github.com/GraphQLGuide/guide-api/compare/pagination_0.2.0...pagination2_0.2.0))
 
 In this section we’ll do a limited cursor-like pagination with these three arguments:
 
@@ -364,7 +364,7 @@ It works! If we wanted to paginate the other way from review #7, we would switch
 
 #### Relay cursor connections
 
-> If you’re jumping in here, `git checkout pagination2_0.1.0` (tag [pagination2_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/pagination2_0.1.0), or compare [pagination2...pagination3](https://github.com/GraphQLGuide/guide-api/compare/pagination2_0.1.0...pagination3_0.1.0))
+> If you’re jumping in here, `git checkout pagination2_0.2.0` (tag [pagination2_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/pagination2_0.2.0), or compare [pagination2...pagination3](https://github.com/GraphQLGuide/guide-api/compare/pagination2_0.2.0...pagination3_0.2.0))
 
 Relay cursor connections are defined by the [Relay Cursor Connections spec](https://facebook.github.io/relay/graphql/connections.htm). It specifies a standard way of implementing cursor pagination so that different clients and tools (like the Relay client library) can depend on that specific schema structure. Its benefits over other cursor structures are listed at the end of the [Cursors](#cursors) section above. Its cost is a more complex schema, like this one:
 

@@ -4,7 +4,7 @@ title: Error reporting
 
 ## Error reporting
 
-> If you’re jumping in here, `git checkout 28_0.1.0` (tag [28_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/28_0.1.0), or compare [28...29](https://github.com/GraphQLGuide/guide-api/compare/28_0.1.0...29_0.1.0))
+> If you’re jumping in here, `git checkout 28_0.2.0` (tag [28_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/28_0.2.0), or compare [28...29](https://github.com/GraphQLGuide/guide-api/compare/28_0.2.0...29_0.2.0))
 
 In this section we’ll look at what kind of error reporting Apollo Studio covers, and then we’ll look at a dedicated error reporting service.
 

@@ -12,7 +12,7 @@ description: How to set up hosted instances of MongoDB and Redis and connect to 
 
 ### MongoDB hosting
 
-> If you’re jumping in here, `git checkout 26_0.1.0` (tag [26_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/26_0.1.0), or compare [26...27](https://github.com/GraphQLGuide/guide-api/compare/26_0.1.0...27_0.1.0))
+> If you’re jumping in here, `git checkout 26_0.2.0` (tag [26_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/26_0.2.0), or compare [26...27](https://github.com/GraphQLGuide/guide-api/compare/26_0.2.0...27_0.2.0))
 
 Our last error is:
 
@@ -136,7 +136,7 @@ heroku[web.1]: State changed from starting to up
 
 Background: [Redis](../../background/databases.md#redis)
 
-> If you’re jumping in here, `git checkout 27_0.1.0` (tag [27_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/27_0.1.0), or compare [27...28](https://github.com/GraphQLGuide/guide-api/compare/27_0.1.0...28_0.1.0))
+> If you’re jumping in here, `git checkout 27_0.2.0` (tag [27_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/27_0.2.0), or compare [27...28](https://github.com/GraphQLGuide/guide-api/compare/27_0.2.0...28_0.2.0))
 
 There are two parts of our app that are only meant to run in development, and we need to change for production:
 

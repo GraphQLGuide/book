@@ -4,7 +4,7 @@ title: Mocking
 
 ## Mocking
 
-> If you’re jumping in here, `git checkout 25_0.1.0` (tag [25_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.1.0), or compare [25...mocking](https://github.com/GraphQLGuide/guide-api/compare/25_0.1.0...mocking_0.1.0))
+> If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...mocking](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...mocking_0.2.0))
 
 Mocking API responses—providing the client with fake (mock) data—is easy in GraphQL because we have a schema that tells us the structure of the data and the type of each field. And it’s super easy with Apollo Server—we just add `mock: true`:
 
