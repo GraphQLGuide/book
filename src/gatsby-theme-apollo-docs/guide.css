@@ -118,13 +118,13 @@ button:focus {
   outline: 0;
 }
 
-code {
+/* code {
   font-family: monospace;
   border-radius: 3px;
   background-color: #f0f0f0;
   border: 1px solid #e5e5e5;
   padding: 0 5px;
-}
+} */
 
 .App-logo {
   height: 80px;

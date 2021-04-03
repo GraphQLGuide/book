@@ -4,7 +4,7 @@ title: Hasura
 
 ## Hasura
 
-Background: [Databases](../background/databases.md), [SQL](../background/databases.md#sql)
+Background: [Databases](../../background/databases.md), [SQL](../../background/databases.md#sql)
 
 [Hasura](https://hasura.io/?ref=guide) is a GraphQL-as-a-service company. In [Deployment > Options](production/deployment.md#options), we covered IaaS, PaaS, and FaaS, which are different ways we can host our code. In GraphQL as a service, we don't have to write code—the server is automatically set up based on our configuration.
 

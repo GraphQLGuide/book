@@ -10,5 +10,5 @@ In the [Introduction](introduction.md) to this chapter, we talk about microservi
 
 This chapter is included in the Pro edition of the book: 
 
-[Apollo federation](../federation/index.md)
+[Apollo federation](../../federation/index.md)
 

@@ -5,7 +5,7 @@ description: General security and auth in GraphQL
 
 ## Security
 
-Background: [HTTP](../background/http.md), [Databases](../background/databases.md), [Authentication](../background/authentication.md)
+Background: [HTTP](../../background/http.md), [Databases](../../background/databases.md), [Authentication](../../background/authentication.md)
 
 * [Auth options](#auth-options)
   * [Authentication](#authentication)
@@ -75,13 +75,13 @@ Here are a few application-layer security risks that apply to API servers in gen
 
 #### Authentication
 
-Background: [Authentication](../background/authentication.md)
+Background: [Authentication](../../background/authentication.md)
 
 The server receives a JWT or session ID in an HTTP header, which it uses to decode or look up the user. If we’re putting our GraphQL server in front of existing REST APIs, then we may want to just pass the header along to the REST APIs—they can continue doing the authentication (and authorization), returning null or returning errors that we can format as GraphQL errors. 
 
-However, usually we’ll handle user decoding in the GraphQL server. In the case of federation, we decoded the user [in the gateway](../federation/federated-gateway.md) and passed the object in a `user` header to the services. In the case of our monolith, we decoded [in the `context` function](building/authentication.md) and provided `context.user` to the resolvers.
+However, usually we’ll handle user decoding in the GraphQL server. In the case of federation, we decoded the user [in the gateway](../../federation/federated-gateway.md) and passed the object in a `user` header to the services. In the case of our monolith, we decoded [in the `context` function](building/authentication.md) and provided `context.user` to the resolvers.
 
-But how does the client get the JWT or session ID in the first place? In our case, we used an external service: We [opened a popup](../react/#authentication) to an Auth0 site that did both signup and login and provided the client with a JWT. Other options include:
+But how does the client get the JWT or session ID in the first place? In our case, we used an external service: We [opened a popup](../../react/#authentication) to an Auth0 site that did both signup and login and provided the client with a JWT. Other options include:
 
 - Hosting our own identity server (for example the free, open-source [Ory server](https://www.ory.sh/kratos/)). 
 - Adding HTTP endpoints to our GraphQL server (for example with the [Passport library](http://www.passportjs.org/)).
@@ -162,5 +162,5 @@ In each of the last three authorization locations—**directives, resolvers, and
 
 This content is included in the Full edition of the book:
 
-[Preventing DoS Attacks](../preventing-dos-attacks/index.md)
+[Preventing DoS Attacks](../../preventing-dos-attacks/index.md)
 

@@ -85,5 +85,5 @@ jobs:
       - run: npx apollo service:check --endpoint="http://localhost/graphql" --serviceName=users --tag=prod
 ```
 
-Validating Apollo federation services is similar, and we’ll see how in the [Managed federation](../federation/managed-federation.md) section.
+Validating Apollo federation services is similar, and we’ll see how in the [Managed federation](../../federation/managed-federation.md) section.
 

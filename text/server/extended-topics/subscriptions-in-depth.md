@@ -79,7 +79,7 @@ All the above code can be separated into a new Node server. In fact, since we sw
 - Query and mutation server: FaaS
 - `githubStars` publishing server: FaaS with scheduled periodic executions
 
-Usually, most of an app’s publishing comes from the mutation server: When a mutation changes data, it publishes the change with the new data. When we’re publishing data from an external source, then we need a function triggered on a schedule to check for changes or the source has to notify us when things change (a [webhook](../background/webhooks.md)). When data is changed from places outside our mutation server, we can publish to our subscriptions in three different ways:
+Usually, most of an app’s publishing comes from the mutation server: When a mutation changes data, it publishes the change with the new data. When we’re publishing data from an external source, then we need a function triggered on a schedule to check for changes or the source has to notify us when things change (a [webhook](../../background/webhooks.md)). When data is changed from places outside our mutation server, we can publish to our subscriptions in three different ways:
 
 - Have those other places (for instance, a legacy application that works with the same business data) publish the changes they make to Redis.
 - Have a long-running server poll the database for changes. This can take a significant amount of memory, since the process needs to keep the current state of the data in order to see what has changed. On the other hand, it scales well with high write loads (since changing data doesn’t trigger anything). This is the strategy [Hasura](hasura.md) uses.
