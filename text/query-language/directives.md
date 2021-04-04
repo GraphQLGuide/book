@@ -6,10 +6,6 @@ title: Directives
 
 [Directives](http://spec.graphql.org/draft/#sec-Language.Directives) can be added after various parts of a document to change how that part is [validated or executed](../validation-and-execution/index.md) by the server. They begin with an `@` symbol and can have arguments. There are three included directives, `@skip`, `@include`, and `@deprecated`, and servers can define custom directives (as we do in [Chapter 11: Custom schema directives](../server/#custom-schema-directives)).
 
-* [@skip](#@skip)
-* [@include](#@include)
-* [@deprecated](#@deprecated)
-
 ## @skip
 
 [`@skip(if: Boolean!)`](http://spec.graphql.org/draft/#sec--skip) is applied to a field or fragment spread. The server will omit the field/spread from the response when the `if` argument is true.
