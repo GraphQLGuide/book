@@ -4,7 +4,7 @@ title: Prefetching
 
 ## Prefetching
 
-Background: [browser performance](../background/browser-performance.md)
+Background: [browser performance](../../background/browser-performance.md)
 
 Section contents:
 
@@ -60,7 +60,7 @@ For the query selection set, we check the queries in `Section.js` and see that i
 
 > If you’re jumping in here, `git checkout 22_1.0.0` (tag [`22_1.0.0`](https://github.com/GraphQLGuide/guide/tree/22_1.0.0)). Tag [`23_1.0.0`](https://github.com/GraphQLGuide/guide/tree/23_1.0.0) contains all the code written in this section.
 
-The potential issue with the above approach is how much data we’re prefetching—the entire content of the book. The more data we fetch, the more work the server has to do, and the more work the client has to do—first to receive and cache it, and then later to interact with the larger cache. The client’s workload is more likely to become an issue because Apollo runs in the main thread (it interacts with React, which interacts with the DOM, which is in the main thread), and things it does might delay user interaction or freeze animations (see [Background > Browser performance](../background/browser-performance.md) for more info). It takes longer for Apollo to query and update the cache when there’s more data in the cache.
+The potential issue with the above approach is how much data we’re prefetching—the entire content of the book. The more data we fetch, the more work the server has to do, and the more work the client has to do—first to receive and cache it, and then later to interact with the larger cache. The client’s workload is more likely to become an issue because Apollo runs in the main thread (it interacts with React, which interacts with the DOM, which is in the main thread), and things it does might delay user interaction or freeze animations (see [Background > Browser performance](../../background/browser-performance.md) for more info). It takes longer for Apollo to query and update the cache when there’s more data in the cache.
 
 So usually instead of prefetching all of the data we could possibly need, we selectively prefetch some of it. One common way to do this is prefetching when the user mouses over something clickable. We might know that we’ll need certain data if they click that particular link or button, in which case we can fetch the data when the mouseover happens instead of waiting for the click. It’s possible that they won’t click, in which case we’ll have extra data that we don’t need, but this usually isn’t a problem.
 

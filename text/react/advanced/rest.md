@@ -31,7 +31,7 @@ https://api.nasa.gov/planetary/earth/imagery/?lon=-73.94&lat=40.7&dim=0.3&api_ke
 
 The server would get back a URL of an image, which it would return to us, which we would put in the `src` of an `<img>` tag:
 
-![Satellite image of Brooklyn and Manhattan](../img/satellite-image.png)
+![Satellite image of Brooklyn and Manhattan](../../img/satellite-image.png)
 
 So that’s how proxying through our GraphQL backend works (and we’ll go into more detail in the server chapter). But what if our backend can’t proxy the REST API? Maybe we don’t have control over the backend, or maybe some less common reason applies, like needing to reduce load on the server or needing better latency (proxying through the server is slightly slower). In that case, we can use [`apollo-link-rest`](https://www.apollographql.com/docs/link/links/rest.html) to send some of our GraphQL queries as REST requests to a REST API instead of to our GraphQL server!
 
@@ -202,7 +202,7 @@ And now for its implementation. Let’s start with the query:
 }
 ```
 
-Anything with the `@rest` [directive](../query-language/#directives) `apollo-link-rest` will resolve itself. We’ve already configured the link with the base of the URI, so here we give the rest of it. Since we’re getting back an object, we also need to make up a name for what the object’s type will be in the Apollo cache. And we want the `"main"` attribute from the JSON response, so `{ main }` is our selection set.
+Anything with the `@rest` [directive](../../query-language/#directives) `apollo-link-rest` will resolve itself. We’ve already configured the link with the base of the URI, so here we give the rest of it. Since we’re getting back an object, we also need to make up a name for what the object’s type will be in the Apollo cache. And we want the `"main"` attribute from the JSON response, so `{ main }` is our selection set.
 
 If we want to be even more explicit about which data we’re using, we could select just `main.temp` instead of the whole `main` object. But when we want to select fields in objects, we need the object to have a type, so we add an `@type` directive:
 
@@ -286,7 +286,7 @@ export default () => (
 
 When we don’t yet have the user’s location, we skip running the query and show the location button. Once we do have the location, we pass it to our query and display `data.weather.main.temp`. 
 
-![A location button displayed in the header](../img/location-button.png)
+![A location button displayed in the header](../../img/location-button.png)
 
 It would be nice to display a spinner while we’re waiting for the location and the weather API, so let’s fill in `requestLocation()` and add `gettingPosition` to the state:
 
@@ -315,7 +315,7 @@ function Content() {
   }
 ```
 
-![Loading spinner in place of the location button](../img/loading-temperature.png)
+![Loading spinner in place of the location button](../../img/loading-temperature.png)
 
 And now it works, and we’re reminded that the API returns Kelvin, so let’s show it in Celsius and Fahrenheit (and default to the former, because it’s just silly that the latter is still in use 😆):
 
@@ -342,7 +342,7 @@ function Content() {
 }
 ```
 
-![Temperature in Celsius](../img/temperature.png)
+![Temperature in Celsius](../../img/temperature.png)
 
 To recap, we added `@rest` to our root query field, which made our REST link intercept the query before it was sent to our GraphQL server. The REST link returns data from the weather REST API, which gets saved to our cache and provided to our component. We get all the nice things we’re used to in Apollo, like declarative data fetching and loading state. And because the data is in the cache, we can reuse the data in other components, and we can update the data (through re-querying or direct writes), and our components will automatically update.
 

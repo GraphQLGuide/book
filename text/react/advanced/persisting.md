@@ -96,7 +96,7 @@ Now let’s test it out. When we load the app for the first time, we see somethi
 
 The first message prints out on load, and the second appears a second after the page content appears, saying that the Apollo cache was saved to `localStorage` and what its size was. The third appears shortly after that, meaning the cache was re-saved, and the size only goes up by about a hundred bytes. What caused the re-save? We must have made another request to the server after the initial set of requests. We can check the Network tab to see what the last GraphQL request was, and we see that it’s the `ViewedSection` mutation. But why would that mutation change the Apollo cache? It’s not a query fetching data. Let’s look at the cache to see. In the Cache tab of Apollo devtools, there’s a `ROOT_MUTATION`:
 
-![ROOT_MUTATION key in Apollo cache](../img/root-mutation.png)
+![ROOT_MUTATION key in Apollo cache](../../img/root-mutation.png)
 
 We see that our mutation is indeed in the cache, and it resolved to a `Section` object. Is the entire cache, including mutation results, persisted? We can look at what’s saved by entering this in the browser console:
 
@@ -104,7 +104,7 @@ We see that our mutation is indeed in the cache, and it resolved to a `Section` 
 JSON.parse(localStorage.getItem('apollo-cache-persist'))
 ```
 
-![ROOT_MUTATION property in localStorage](../img/root-mutation-console.png)
+![ROOT_MUTATION property in localStorage](../../img/root-mutation-console.png)
 
 And we see that it is present, and the `viewedSection` mutation has `type: "id"`, meaning that it has been normalized, linking to the top-level object with `id: "Section:5-1"`.
 

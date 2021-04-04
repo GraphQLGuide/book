@@ -5,11 +5,11 @@ description: Testing with mock GraphQL data
 
 ## Testing
 
-Background: [Testing](../background/testing.md)
+Background: [Testing](../../background/testing.md)
 
 > If you’re jumping in here, `git checkout 27_1.0.0` (tag [`27_1.0.0`](https://github.com/GraphQLGuide/guide/tree/27_1.0.0)). Tag [`28_1.0.0`](https://github.com/GraphQLGuide/guide/tree/28_1.0.0) contains all the code written in this section.
 
-As we learned in [Background > Testing > Types of tests](../background/testing.md#types-of-tests), we should be writing *some* unit and e2e tests but mostly integration tests. When we test a component, for instance `<TableOfContents />`, that contains Apollo operations, we need to wrap it with a *provider* like we do in the app:
+As we learned in [Background > Testing > Types of tests](../../background/testing.md#types-of-tests), we should be writing *some* unit and e2e tests but mostly integration tests. When we test a component, for instance `<TableOfContents />`, that contains Apollo operations, we need to wrap it with a *provider* like we do in the app:
 
 [`index.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/index.js)
 
@@ -26,7 +26,7 @@ render(
 )
 ```
 
-We could use the same `<ApolloProvider client={apollo}>` in our tests, but that would cause queries to be sent to the GraphQL server. In integration tests (and in our component library, if we’re using something like [Storybook](https://storybook.js.org/)), we usually [mock](../background/testing.md#mocking) network requests in order to reduce test runtime and avoid test failures due to internet connection issues or the backend data changing. If we mock our GraphQL operations, then:
+We could use the same `<ApolloProvider client={apollo}>` in our tests, but that would cause queries to be sent to the GraphQL server. In integration tests (and in our component library, if we’re using something like [Storybook](https://storybook.js.org/)), we usually [mock](../../background/testing.md#mocking) network requests in order to reduce test runtime and avoid test failures due to internet connection issues or the backend data changing. If we mock our GraphQL operations, then:
 
 - We decide what data is returned, so we can:
   - Test for the presence of the same data.
@@ -61,7 +61,7 @@ The test fails with this error message:
 
 `Invariant failed: You should not use <Switch> outside a <Router>`
 
-![npm test output with red FAIL message](../img/npm-test-App-fail.png)
+![npm test output with red FAIL message](../../img/npm-test-App-fail.png)
 
 We’re rendering `<App />`, which contains a `<Switch>`, without wrapping it in a router like `<BrowserRouter>` as we do in `src/index.js`. Instead of including a router component in each test, we can make [our own render function](https://testing-library.com/docs/react-testing-library/setup#custom-render) to use in lieu of `ReactDOM.render()`:
 
@@ -178,7 +178,7 @@ Now we can run the test and see that it passes, albeit with an error:
 $ npm test
 ```
 
-![Warning: Encountered two children with the same key, `9`](../img/table-of-contents-test-error.png)
+![Warning: Encountered two children with the same key, `9`](../../img/table-of-contents-test-error.png)
 
 Our `<li>`s have duplicate `key` attributes:
 

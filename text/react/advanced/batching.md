@@ -9,11 +9,11 @@ description: How to batch multiple operations into a single HTTP request
 
 If we load the site with the Network tab of devtools open, we see a lot of requests that say “graphql” on the left—that’s the path, so the full endpoint is `api.graphql.guide/graphql`, our GraphQL API. By default, each of the GraphQL queries in our app is sent in its own HTTP request. We can look at the request payload to see which query it is, for example our simple `StarsQuery`: 
 
-![Network tab request payload](../img/request-payload.png)
+![Network tab request payload](../../img/request-payload.png)
 
 We can **batch** our initial queries into one request, which will look like this:
 
-![Array request payload](../img/array-request-payload.png)
+![Array request payload](../../img/array-request-payload.png)
 
 > We also see that the third request is to `/graphql`, but the Request Method is `OPTIONS` instead of the normal `POST`, and the status code is `204` instead of the normal `200`. This is called a **preflight** request that Chrome makes to the server to check its security policy ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)), since it’s going to a different domain from the client (`localhost:3000`). To avoid `OPTIONS` requests in production, we can host our frontend and API at the same domain, like `example.com` for the frontend and `example.com/graphql` for the API.
 
@@ -29,7 +29,7 @@ const httpLink = new BatchHttpLink({ uri: 'https://api.graphql.guide/graphql' })
 
 We replace our previous `HttpLink` with Apollo’s [`BatchHttpLink`](https://www.apollographql.com/docs/link/links/batch-http.html). One thing you may notice in the Network tab is that soon after our initial batched request, we see another—this one only contains a single operation, named `ViewedSection`:
 
-![Array request payload](../img/viewed-section-request.png)
+![Array request payload](../../img/viewed-section-request.png)
 
 The reason this wasn’t included in the initial batch request is because it happens a second later: only queries that are made within a certain window are batched together. The default `batchInterval` is 10 milliseconds, and can be changed [as an option](https://www.apollographql.com/docs/link/links/batch-http.html#options) to `BatchHttpLink()`.
 

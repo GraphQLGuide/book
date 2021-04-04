@@ -197,7 +197,7 @@ const TEMPERATURE_QUERY = gql`
 `
 ```
 
-ESLint is looking at our `schema.json` and not finding `weather` as a top-level Query field. Of course it’s not! `weather` isn’t part of the Guide API—it’s from our [weather REST API](rest.md). So we don’t want this query linted against the schema. We can tell ESLint to ignore this file by adding `/* eslint-disable graphql/template-strings */` to the top of the file. Now if we re-run `npm run lint`, we no longer see that error. 
+ESLint is looking at our `schema.json` and not finding `weather` as a top-level Query field. Of course it’s not! `weather` isn’t part of the Guide API—it’s from our [weather REST API](../advanced/rest.md). So we don’t want this query linted against the schema. We can tell ESLint to ignore this file by adding `/* eslint-disable graphql/template-strings */` to the top of the file. Now if we re-run `npm run lint`, we no longer see that error. 
 
 Seven errors left to go! The next is:
 
@@ -280,7 +280,7 @@ And now when we lint, we get one fewer error ✅. The next set of errors is:
   169:11 error  Cannot query field "scrollY" on type "Section"            graphql/template-strings
 ```
 
-`scrollY` is the piece of [local state](local-state.md) in our Section queries:
+`scrollY` is the piece of [local state](../advanced/local-state.md) in our Section queries:
 
 [`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/27_1.0.0/src/components/Section.js)
 
@@ -362,11 +362,11 @@ Usually people don’t manually run `npm run lint` on the command line. Instead,
 
 Most editors have a linting plugin. VSCode has this [ESLint plugin](https://github.com/Microsoft/vscode-eslint). It looks for a configuration file in the current workspace (for us it would find `.eslintrc.js`) and runs ESLint in the background whenever we type something new into the editor. For instance, if we type in `first` as a field of `currentUser`, it is underlined:
 
-![ESLint underlining error in VSCode](../img/eslint-vscode.png)
+![ESLint underlining error in VSCode](../../img/eslint-vscode.png)
 
 And if we hover over the word, we see the linting error:
 
-![ESLint error message tooltip](../img/eslint-vscode-tooltip.png)
+![ESLint error message tooltip](../../img/eslint-vscode-tooltip.png)
 
 > Cannot query field "first" on type "User". Did you mean "firstName"?
 
@@ -402,7 +402,7 @@ Then if we tried to commit but `npm run lint` failed, the commit would be cancel
 
 #### Continuous integration
 
-Background: [Continuous integration (CI)](../background/continuous-integration.md)
+Background: [Continuous integration (CI)](../../background/continuous-integration.md)
 
 Our CI server can do `npm run lint` as one of its tests, prevent deployment if linting fails, display a build failure symbol next to the commit or PR, and link to its site where we can view the error output.
 

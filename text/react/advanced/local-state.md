@@ -30,7 +30,7 @@ There are three ways to store local state with Apollo, and different ways to rea
 * [The Apollo cache](#in-cache)
 * Anywhere else (for example `window` or `LocalStorage`)
 
-Reactive variables can be read just by importing the variable into our code. The cache can be read with the cache methods [`cache.readQuery()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readquery) and [`cache.readFragment()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readfragment) or `useQuery()` by adding the `@client` [*directive*](../query-language/#directives) to our query:
+Reactive variables can be read just by importing the variable into our code. The cache can be read with the cache methods [`cache.readQuery()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readquery) and [`cache.readFragment()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readfragment) or `useQuery()` by adding the `@client` [*directive*](../../query-language/#directives) to our query:
 
 ```gql
 query LocationQuery {
@@ -317,7 +317,7 @@ export const cache = new InMemoryCache({
 
 It now works! When we scroll, wait a second, go to another section, and go back, our scroll position is restored. And we can see the new `scrollY` property in the devtools cache:
 
-![Section:preface in the cache with a scrollY field](../img/scrollY-in-cache.png)
+![Section:preface in the cache with a scrollY field](../../img/scrollY-in-cache.png)
 
 If we want to document our new ability to query `Section.scrollY` (for our teammates or forgetful future selves 🤗), we can add a client-side schema:
 
@@ -337,5 +337,5 @@ export const apollo = new ApolloClient({ link, cache, typeDefs })
 
 Now `scrollY` is included in devtools GraphiQL schema Docs:
 
-![scrollY added to the devtools GraphiQL Docs](../img/apollo-devtools-docs-scrollY.png)
+![scrollY added to the devtools GraphiQL Docs](../../img/apollo-devtools-docs-scrollY.png)
 

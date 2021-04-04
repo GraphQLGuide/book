@@ -40,7 +40,7 @@ Depending on our application, these issues might never happen, or if they do, it
 
 Let’s see this in action. Normally an API will support a single pagination method, but, as we can see from this schema comment, the `reviews` query supports three different methods:
 
-![reviews Query in the schema](../img/reviews-schema.png)
+![reviews Query in the schema](../../img/reviews-schema.png)
 
 #### page
 
@@ -630,7 +630,7 @@ If the review was just favorited, we add a reference to it to the `favoriteRevie
 
 Back in our reviews query, what happens when `fetchMore()` changes `skip` to 10 or 20? Do we need to also update our calls to `cache.modify()` or `readQuery()`? It turns out that we don’t need to: since we set `keyArgs: false` in the `reviews` field policy, when we call `fetchMore()`, the additional results get added to the cache under the original root query field. We can see this is the case by scrolling down, opening Apollo devtools -> Cache, and looking at `ROOT_QUERY`:
 
-![fetchMore reviews in Cache](../img/fetchMore-reviews-cache.png)
+![fetchMore reviews in Cache](../../img/fetchMore-reviews-cache.png)
 
 Or by entering `__APOLLO_CLIENT__.cache.data.data.ROOT_QUERY` in the console.
 
@@ -807,7 +807,7 @@ const cache = new InMemoryCache({
 
 The select input now works—when we change it to “Oldest”, the query variable updates, and a different list of reviews loads. When we go back to “Newest”, the original list immediately appears, because Apollo has that list cached under the original `orderBy`. We can see in devtools that both lists are indeed cached:
 
-![Cache with orderBy](../img/cache-with-orderBy.png)
+![Cache with orderBy](../../img/cache-with-orderBy.png)
 
 However, we have another bug! Can you find it? 🔍🐞
 

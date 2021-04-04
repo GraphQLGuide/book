@@ -5,7 +5,7 @@
 		"version": "4.7.0",
 		"watch": "**/*",
 		"snapshot": {
-			"version": "file:.connect-deps-cache/gatsby-theme-apollo-docs-4.7.0-1617407437752.tgz",
+			"version": "file:.connect-deps-cache/gatsby-theme-apollo-docs-4.7.0-1617512698640.tgz",
 			"type": "normal"
 		}
 	},
@@ -15,7 +15,7 @@
 		"version": "3.0.26",
 		"watch": "**/*",
 		"snapshot": {
-			"version": "file:.connect-deps-cache/gatsby-theme-apollo-core-3.0.26-1617404626345.tgz",
+			"version": "file:.connect-deps-cache/gatsby-theme-apollo-core-3.0.26-1617511662525.tgz",
 			"type": "normal"
 		}
 	}

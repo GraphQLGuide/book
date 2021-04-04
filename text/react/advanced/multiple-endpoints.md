@@ -83,7 +83,7 @@ useQuery(LAUNCH_QUERY, { client: apolloSpace })
 
 For building the `LAUNCH_QUERY`, let’s see what data is available from the API by browsing its GraphiQL: [api.spacex.land/graphql/](https://api.spacex.land/graphql/). From the available queries, it looks like the relevant one for us is `launchNext`, and we can pick a few fields to display:
 
-![SpaceX GraphiQL with launchNext query](../img/launch-next-query.png)
+![SpaceX GraphiQL with launchNext query](../../img/launch-next-query.png)
 
 [`src/components/Profile.js`](https://github.com/GraphQLGuide/guide/blob/26_1.0.0/src/components/Profile.js)
 

@@ -128,7 +128,7 @@ And now we can see what happens when we create a review:
 
 The data is in the same format we would expect if we made a Query named `reviewCreated`. We can also see the data arriving from the server. First let’s see what it looks like initially by opening the Network tab of devtools, refreshing the page, scrolling down to “subscriptions” on the left, and selecting the “Frames” tab:
 
-![Four websocket messages](../img/subscription-start.png)
+![Four websocket messages](../../img/subscription-start.png)
 
 We see that the first message the client always sends once the websocket is established has `type: "connection_init"`. Then it sends two messages, each with an operation and sequential `id` numbers. They are `type: "start"` because they are starting subscriptions. The message with `"id": "1"` has our GitHub stars subscription and the message with `id: "2"` has our `onReviewCreated` subscription, which we see in `payload.query`. There’s also a `payload.variables` field that we’re not using. If we were subscribing to a review’s comments, we might use a `commentCreated(review: ObjID!): Comment` subscription, in which case we would see:
 
@@ -148,7 +148,7 @@ The last websocket message is from the server and has `type: "connection_ack"`, 
 
 Now let’s create a review and see what happens:
 
-![Message containing the new review appears](../img/websocket-data.png)
+![Message containing the new review appears](../../img/websocket-data.png)
 
 We receive another message from the server—this one with `type: "data"`, meaning it contains data! 😜 The ID is 2, telling us that it’s an event from the `onReviewCreated` subscription (which we sent to the server earlier with the matching `id: "2"`). And this time the `payload` is the same `data` object that the `<Subscription>` component gave us and we logged to the console. 
 
@@ -188,7 +188,7 @@ export default () => {
 
 We use `isOpen` for the state. We want to set `isOpen` to true whenever we receive a new event, so we use the `onSubscriptionData` option. And we want to automatically dismiss the Snackbar after a few seconds, so we use a `setTimeout()`. Now when we create a review, a message slides up from the bottom of the window, stays for a few seconds, and then slides back down!
 
-![Review created notification](../img/review-created.gif)
+![Review created notification](../../img/review-created.gif)
 [*gif: Review created notification*](http://res.cloudinary.com/graphql/guide/review-created.gif)
 
 ### Add new reviews
