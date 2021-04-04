@@ -1,3 +1,7 @@
+---
+title: Querying with variables
+---
+
 ## Querying with variables
 
 > If you’re jumping in here, `git checkout 2_1.0.0` (tag [2_1.0.0](https://github.com/GraphQLGuide/guide/tree/2_1.0.0)). Tag [`3_1.0.0`](https://github.com/GraphQLGuide/guide/tree/3_1.0.0) contains all the code written in this section.

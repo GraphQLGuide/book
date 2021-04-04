@@ -1,3 +1,7 @@
+---
+title: Filtering the data
+---
+
 # Filtering the data
 
 In most REST APIs we are implicitly asking the endpoint to return all data, completely unfiltered. This could result in a potentially large request being sent back to the user along with a number of time- or resource-intensive sub-queries being executed to load particular fields or child data. All together that means a slow response time, especially on mobile. Many large REST APIs will end up adding a process for filtering the fields returned. For example, if we pass in a query string to our REST API that was something like `?fields=username` then we’d expect that the returned object(s) would only include the `username` field. We can achieve this by writing a function to filter the fields:

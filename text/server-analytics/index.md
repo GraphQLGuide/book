@@ -1,4 +1,8 @@
-## Analytics
+---
+title: Server Analytics
+---
+
+## Server Analytics
 
 > If you’re jumping in here, `git checkout 28_0.1.0` (tag [28_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/28_0.1.0)).
 

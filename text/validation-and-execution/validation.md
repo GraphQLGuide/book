@@ -1,3 +1,7 @@
+---
+title: Validation
+---
+
 # Validation
 
 GraphQL servers [validate](http://spec.graphql.org/draft/#sec-Validation) requests against the schema. They usually validate all requests before the [execution step](execution.md); however, the server can skip it if:

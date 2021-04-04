@@ -1,3 +1,8 @@
+---
+title: Adding Apollo
+description: Adding GraphQL data to our server-rendered components
+---
+
 # Adding Apollo
 
 > If you’re jumping in here, `git checkout ssr3_1.0.0` (tag [ssr3_1.0.0](https://github.com/GraphQLGuide/guide/tree/ssr3_1.0.0)). Tag [`ssr4_1.0.0`](https://github.com/GraphQLGuide/guide/tree/ssr4_1.0.0) contains all the code written in this section.

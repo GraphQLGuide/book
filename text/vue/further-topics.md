@@ -1,3 +1,7 @@
+---
+title: Further topics
+---
+
 ## Further topics
 
 > The code in this section isn’t included in the repository, but if you’d like to get it working inside our app, start with `git checkout 3_1.0.0` (tag [3_1.0.0](https://github.com/GraphQLGuide/guide/tree/1_1.0.0) contains all the code from previous sections).

@@ -1,3 +1,7 @@
+---
+title: Federated service
+---
+
 ### Federated service
 
 > If you’re jumping in here, `git checkout federation_0.1.0` (tag [federation_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/federation_0.1.0), or compare [federation...federation2](https://github.com/GraphQLGuide/guide-api/compare/federation_0.1.0...federation2_0.1.0))

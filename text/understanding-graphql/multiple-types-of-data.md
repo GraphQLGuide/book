@@ -1,3 +1,7 @@
+---
+title: Multiple types of data
+---
+
 # Multiple types of data
 
 Thus far we’ve been retrieving data in a way that is stylistically similar to the REST API endpoint: we request a single user, or a list of users, and that’s it. Retrieving data in this way aligns well with the expectations of a normal, well-designed REST API. However, fundamentally, a REST API is not designed for the data requirements of a modern application. Modern applications need to access many different types of data simultaneously in order to successfully render a result. An app might need to show not just a User but also their Posts and the Comments.

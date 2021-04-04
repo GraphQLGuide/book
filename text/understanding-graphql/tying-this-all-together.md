@@ -1,3 +1,7 @@
+---
+title: Tying this all together
+---
+
 # Tying this all together
 
 REST APIs have served us well for many years. They’ve made data access for many applications easy to understand and implement. However, as we’ve seen in this chapter, this simplistic approach belies the true complexity of implementing a full API that supports a modern web or mobile application.

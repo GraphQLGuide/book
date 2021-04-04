@@ -1,3 +1,7 @@
+---
+title: Apollo federation
+---
+
 ## Apollo federation
 
 * [Federated service](federated-service.md)

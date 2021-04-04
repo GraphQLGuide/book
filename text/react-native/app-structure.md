@@ -1,3 +1,8 @@
+---
+title: App structure
+description: The different parts of a basic React Native app
+---
+
 # App structure
 
 We start with a basic Expo app:

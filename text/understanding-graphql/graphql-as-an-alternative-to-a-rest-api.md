@@ -1,3 +1,7 @@
+---
+title: GraphQL as an alternative to a REST API
+---
+
 # GraphQL as an alternative to a REST API
 
 This chapter examines how to build a fully-functional API using REST techniques and how that compares to building an equivalent API using GraphQL.

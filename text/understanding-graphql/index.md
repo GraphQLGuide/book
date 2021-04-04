@@ -1,3 +1,8 @@
+---
+title: Contents
+description: Table of contents for Chapter 1
+---
+
 # Chapter 1: Understanding GraphQL Through REST
 
 > Chapter 1 is a basic introduction to GraphQL through the eyes of the technology it’s replacing, REST. If you’re already sold on GraphQL and familiar with the basics, feel free to skip ahead to [Chapter 2: Query Language](../query-language/index.md) for theory or [Chapter 5: Client Dev](../client/index.md) and [Chapter 11: Server Dev](../server/index.md) for coding.

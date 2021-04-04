@@ -1,3 +1,7 @@
+---
+title: Setting up the server
+---
+
 # Setting up the server
 
 As we discussed in [Chapter 11: Server dev > Deployment](../server/#deployment), we can have a node process running our code on the server, or we can do serverless. The simplest is [serverless with Vercel](https://vercel.com/docs/serverless-functions/introduction). Vercel hosts serverless functions and static sites, and its command-line tool does deployment and is a development server. We install it with:

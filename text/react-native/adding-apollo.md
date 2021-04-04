@@ -1,3 +1,7 @@
+---
+title: Adding Apollo
+---
+
 # Adding Apollo
 
 > If you’re jumping in here, `git checkout 0_1.0.0` (tag [0_1.0.0](https://github.com/GraphQLGuide/guide/tree/0_1.0.0), or compare [0...1](https://github.com/GraphQLGuide/guide/compare/0_1.0.0...1_1.0.0))

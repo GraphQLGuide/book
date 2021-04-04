@@ -1,3 +1,8 @@
+---
+title: Contents
+description: Table of contents for the Validation & Execution chapter
+---
+
 # Chapter 4: Validation & Execution
 
 Chapter contents:

@@ -1,3 +1,7 @@
+---
+title: Execution
+---
+
 # Execution
 
 Execution is the process by which a GraphQL server generates a response to a request. As with validation, [the spec](http://spec.graphql.org/draft/#sec-Execution) provides an algorithm for each part, and these algorithms are coded into GraphQL server libraries.

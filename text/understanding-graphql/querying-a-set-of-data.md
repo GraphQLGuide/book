@@ -1,3 +1,7 @@
+---
+title: Querying a set of data
+---
+
 # Querying a set of data
 
 If we want to expand our REST API to allow for querying all of the users in our database, we need to add a new endpoint:

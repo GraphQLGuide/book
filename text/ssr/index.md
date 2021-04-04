@@ -1,3 +1,7 @@
+---
+title: Server-Side Rendering
+---
+
 # Server-Side Rendering
 
 Chapter contents:

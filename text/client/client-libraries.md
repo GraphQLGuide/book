@@ -1,3 +1,7 @@
+---
+title: Client libraries
+---
+
 # Client libraries
 
 There are many different GraphQL client libraries for different platforms and

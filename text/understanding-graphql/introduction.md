@@ -1,3 +1,7 @@
+---
+title: Introduction
+---
+
 # Introduction
 
 GraphQL is a modern, flexible specification for querying and modifying data that is on track to eclipse REST as a best practice for API design. You can write a single elegant query for all the data you need—no more cobbling together responses from a handful of REST endpoints. 

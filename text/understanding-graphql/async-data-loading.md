@@ -1,3 +1,7 @@
+---
+title: Async data loading
+---
+
 # Async data loading
 
 The data-loading code we’ve written so far has a simplistic structure: all of the data is held directly by the model. That’s easy to manage in a REST API, but it gets harder when we want to return subobjects. For example, if each user were in a group, and we wanted that group’s object to be returned along with the user, the code would become much more complex. Let’s see what that would look like.

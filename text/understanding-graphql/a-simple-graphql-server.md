@@ -1,3 +1,7 @@
+---
+title: A simple GraphQL server
+---
+
 # A simple GraphQL server
 
 What does our REST server look like in the world of GraphQL? GraphQL has the concept of a schema—it’s similar to those in Mongoose and other data model libraries, but a GraphQL schema is used differently. In Mongoose the schema is a representation of the data that’s stored in the MongoDB database, but that’s not necessarily the case for a GraphQL schema. A GraphQL schema doesn’t need to match the storage format and can represent data from more than one source. To represent our basic User:

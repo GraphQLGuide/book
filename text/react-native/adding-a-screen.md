@@ -1,3 +1,7 @@
+---
+title: Adding a screen
+---
+
 # Adding a screen
 
 > If you’re jumping in here, `git checkout 1_1.0.0` (tag [1_1.0.0](https://github.com/GraphQLGuide/guide/tree/1_1.0.0), or compare [1...2](https://github.com/GraphQLGuide/guide/compare/1_1.0.0...2_1.0.0))

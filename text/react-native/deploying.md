@@ -1,3 +1,7 @@
+---
+title: Deploying
+---
+
 # Deploying
 
 > If you’re jumping in here, `git checkout 3_1.0.0` (tag [3_1.0.0](https://github.com/GraphQLGuide/guide/tree/3_1.0.0)

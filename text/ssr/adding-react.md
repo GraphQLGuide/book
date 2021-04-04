@@ -1,3 +1,7 @@
+---
+title: Adding React
+---
+
 # Adding React
 
 > If you’re jumping in here, `git checkout ssr2_1.0.0` (tag [ssr2_1.0.0](https://github.com/GraphQLGuide/guide/tree/ssr2_1.0.0)). Tag [`ssr3_1.0.0`](https://github.com/GraphQLGuide/guide/tree/ssr3_1.0.0) contains all the code written in this section.

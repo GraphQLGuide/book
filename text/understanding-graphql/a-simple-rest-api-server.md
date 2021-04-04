@@ -1,3 +1,7 @@
+---
+title: A simple REST API server
+---
+
 # A simple REST API server
 
 Background: [Node](background/node-npm-and-nvm.md), [HTTP](background/http.md), [JSON](background/json.md), [MongoDB](background/databases#mongodb)

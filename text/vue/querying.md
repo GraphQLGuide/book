@@ -1,3 +1,7 @@
+---
+title: Querying
+---
+
 ## Querying
 
 > If you’re jumping in here, `git checkout 1_1.0.0` (tag [1_1.0.0](https://github.com/GraphQLGuide/guide/tree/1_1.0.0)). Tag [`2_1.0.0`](https://github.com/GraphQLGuide/guide/tree/2_1.0.0) contains all the code written in this section.

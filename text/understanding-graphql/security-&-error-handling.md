@@ -1,3 +1,7 @@
+---
+title: Security & error handling
+---
+
 # Security & error handling
 
 When it comes to the security of our data (validating the permissions of those that are attempting to access it) and the handling of errors, REST APIs have an idiomatic solution: returning a specific error code. For example, if we attempt to access data which we don’t have permission to access, we might get an HTTP 403 Forbidden code in response. If our request results in an error, then we might get an HTTP 500 Internal Server Error code. Some REST APIs might include detailed information on the failure inside the response body (such as the error message or the specific data that we don’t have permission to access), but the error codes are generally used to designate the class of error, not the specific error itself.

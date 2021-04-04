@@ -1,3 +1,7 @@
+---
+title: Setting up Apollo
+---
+
 ## Setting up Apollo
 
 We start with a basic Vue app:

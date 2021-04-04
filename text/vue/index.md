@@ -1,3 +1,7 @@
+---
+title: Overview
+---
+
 # Chapter 7: Vue
 
 Chapter contents:

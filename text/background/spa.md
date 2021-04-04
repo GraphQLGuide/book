@@ -1,6 +1,5 @@
 ---
 title: SPA
-description: 
 ---
 
 # SPA
