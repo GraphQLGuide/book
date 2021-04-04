@@ -6,14 +6,14 @@ description: Introduction to the book, its contents, and formatting.
 
 # Introduction
 
-* [Who is this book for?](README.md#who-is-this-book-for)
-* [Background](README.md#background)
-* [The book](README.md#the-book)
-* [The code](README.md#the-code)
-  * [Git](README.md#git)
-  * [Formatting](README.md#formatting)
-* [Resources](README.md#resources)
-* [Version](README.md#version)
+* [Who is this book for?](#who-is-this-book-for)
+* [Background](#background)
+* [The book](#the-book)
+* [The code](#the-code)
+  * [Git](#git)
+  * [Formatting](#formatting)
+* [Resources](#resources)
+* [Version](#version)
 
 ---
 
