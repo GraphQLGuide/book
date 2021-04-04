@@ -1,5 +1,5 @@
 ---
-title: Apollo federation
+title: Overview
 ---
 
 ## Apollo federation

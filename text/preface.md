@@ -14,7 +14,7 @@ We’re writing the complete reference: what GraphQL is, why to use it, and most
 
 We’d like to thank everyone who helped out with this book, including our technical reviewers Tom Coleman, Brad Crispin, Abhi Aiyer, Oleksandr Bordun, Heather Armstrong, Justin Krup, Melek Hakim, Kamal Radharamanan, Lewi Gilamichael, and Enno Thoma, our designer Genki Hagata, and our copy editors Rachel Lake, Lauren Itzla, and Paul Ramshaw. We’d also like to thank our sponsors—MongoDB, Auth0, and Hasura—and our beta readers for their support prior to the book’s release. Finally, thank you to those who wrote the libraries on which this book is based, especially the GraphQL and Apollo communities.
 
-If you’d like to improve this resource for those who read after you (or your future selves! 😄), we welcome your suggestions in the form of GitHub issues or PRs on the [book text repo](https://github.com/GraphQLGuide/book) and the [code repo](https://github.com/GraphQLGuide/guide).
+If you’d like to improve this resource for those who read after you (or your future selves! 😄), we welcome your suggestions via the “Send feedback” link on the right side of the desktop web version of the book or via issues/PRs to [the repo](https://github.com/GraphQLGuide/book).
 
 We’ve found that building software with GraphQL is less difficult and more fun, and we think you’ll be similarly impressed. We hope you enjoy 🤗.
 

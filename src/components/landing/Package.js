@@ -52,7 +52,7 @@ const Package = ({
             <hr />
             <li>
               <div className={classNames('Package-feature-list', { full })}>
-                {pro ? 'Extra chapters:' : 'More extra chapters:'}
+                {pro ? 'Extra sections:' : 'More extra sections:'}
               </div>
               {extraChapters.map((chapter) => (
                 <div className="Package-extra-item" key={chapter}>
