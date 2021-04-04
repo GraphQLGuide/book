@@ -22,7 +22,7 @@ const Stats = () => (
       </div>
       <div className="Stat">
         <FontAwesomeIcon icon={faCode} />
-        <h3 className="Stat-number -with-plus">10,000</h3>
+        <h3 className="Stat-number -with-plus">5,000</h3>
         <div className="Stat-caption">Lines of code</div>
       </div>
       <div className="Stat">

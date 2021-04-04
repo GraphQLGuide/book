@@ -8,11 +8,11 @@ import Review from '../Review'
 const REVIEWS = [
   {
     text:
-      'This is the most comprehensive coverage of modern GraphQL, going from the basics of the Query Language, to excruciating detail on Validation and Execution internals that you’ll be thankful for when things go wrong, to the latest and greatest in the ecosystem, like Apollo Federation and Hasura. It normally takes a developer months to get up to speed on putting together all these pieces. The GraphQL Guide teaches it in just a few hours!',
+      'I’d already had the opportunity to work with and learn GraphQL, but The GraphQL Guide really cemented the core concepts (and enlightened me on some details I’d overlooked before). I always struggled with the concept of Subscriptions in GraphQL—after reading this guide, my understanding improved tenfold. Highly recommend reading if you want to be successful with GraphQL!',
     stars: 5,
     author: {
-      name: 'Shawn Wang',
-      photo: 'https://avatars.githubusercontent.com/u/6764957?v=4',
+      name: 'Ryan Glover',
+      photo: 'https://avatars.githubusercontent.com/u/874210?v=4',
     },
   },
   {
@@ -26,11 +26,11 @@ const REVIEWS = [
   },
   {
     text:
-      'I’d already had the opportunity to work with and learn GraphQL, but The GraphQL Guide really cemented the core concepts (and enlightened me on some details I’d overlooked before). I always struggled with the concept of Subscriptions in GraphQL—after reading this guide, my understanding improved tenfold. Highly recommend reading if you want to be successful with GraphQL!',
+      'This is the most comprehensive coverage of modern GraphQL, going from the basics of the Query Language, to excruciating detail on Validation and Execution internals that you’ll be thankful for when things go wrong, to the latest and greatest in the ecosystem, like Apollo Federation and Hasura. It normally takes a developer months to get up to speed on putting together all these pieces. The GraphQL Guide teaches it in just a few hours!',
     stars: 5,
     author: {
-      name: 'Ryan Glover',
-      photo: 'https://avatars.githubusercontent.com/u/874210?v=4',
+      name: 'Shawn Wang',
+      photo: 'https://avatars.githubusercontent.com/u/6764957?v=4',
     },
   },
 ]

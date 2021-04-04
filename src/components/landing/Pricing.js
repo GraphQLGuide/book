@@ -2,17 +2,9 @@ import React from 'react'
 
 import './Pricing.css'
 import Package from './Package'
+import Sup from './Sup'
 
 const REST_LIFESPAN = new Date().getFullYear() - 2000
-
-const scrollDown = () =>
-  document.getElementById('pricing-notes').scrollIntoView(false)
-
-const Sup = ({ children }) => (
-  <button onClick={scrollDown} className="Sup">
-    <sup>{children}</sup>
-  </button>
-)
 
 const Pricing = () => (
   <section className="Pricing" id="pricing">
@@ -103,6 +95,8 @@ const Pricing = () => (
         to date for at least 4 years, but we hope to continue for as long as
         GraphQL is the best data-fetching system out there. (Which is probably a
         long time—REST has been around for {REST_LIFESPAN} years!)
+        <br />
+        <sup>2</sup> Videos forthcoming.
       </div>
     </div>
 

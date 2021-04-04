@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import { Typography, Paper } from '@material-ui/core'
 import { Link } from 'gatsby'
@@ -8,6 +8,7 @@ import './Package.css'
 import { getPackage } from '../../lib/packages'
 import Emoji from './Emoji'
 import Payment from './Payment'
+import Sup from './Sup'
 
 const Package = ({
   color,
@@ -67,7 +68,15 @@ const Package = ({
             <hr />
             <li>
               <div className={classNames('Package-feature-list', { full })}>
-                {pro ? 'Videos:' : 'More videos:'}
+                {pro ? (
+                  <Fragment>
+                    Videos:<Sup>2</Sup>
+                  </Fragment>
+                ) : (
+                  <Fragment>
+                    More videos:<Sup>2</Sup>
+                  </Fragment>
+                )}
               </div>
               {videos.map((video, i) => (
                 <div className="Package-extra-item" key={i}>
