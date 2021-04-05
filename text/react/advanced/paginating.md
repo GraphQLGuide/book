@@ -1,6 +1,6 @@
 ---
 title: Paginating
-description: How to implement pagination in GraphQL, 4 different ways
+description: Four different ways of implementing pagination in GraphQL
 ---
 
 ## Paginating

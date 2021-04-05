@@ -308,64 +308,65 @@ export const ON_REVIEW_DELETED_SUBSCRIPTION = gql`
 `
 ```
 
-Because the return type of `reviewDeleted` is a scalar (a custom one called `ObjID`), we don’t write a selection set. `subscriptionData.data.reviewDeleted` will be an `ObjID` string, not an object. Next, `subscribeToMore`:
-
-TODO cc @benjamn https://github.com/apollographql/apollo-feature-requests/issues/270
-convert below to hooks
+Because the return type of `reviewDeleted` is a scalar (a custom one called `ObjID`), we don’t write a selection set. `subscriptionData.data.reviewDeleted` will be an `ObjID` string, not an object. Next, we call `subscribeToMore` for each subscription:
 
 [`src/components/ReviewList.js`](https://github.com/GraphQLGuide/guide/blob/22_1.0.0/src/components/ReviewList.js)
 
 ```js
-import reject from 'lodash/reject'
-
 import {
   REVIEWS_QUERY,
-  REVIEW_ENTRY,
   ON_REVIEW_CREATED_SUBSCRIPTION,
   ON_REVIEW_UPDATED_SUBSCRIPTION,
-  ON_REVIEW_DELETED_SUBSCRIPTION
+  ON_REVIEW_DELETED_SUBSCRIPTION,
 } from '../graphql/Review'
 
 ...
 
-const withReviews = graphql(REVIEWS_QUERY, {
-  options: ...,
-  props: ({
-    data: { reviews, fetchMore, networkStatus, subscribeToMore },
-    ownProps: { orderBy }
-  }) => ({
-    reviews,
-    networkStatus,
-    loadMoreReviews: ...,
-    subscribeToReviewUpdates: () => {
-      subscribeToMore({
-        document: ON_REVIEW_CREATED_SUBSCRIPTION,
-        updateQuery: ...
-      })
-      subscribeToMore({
-        document: ON_REVIEW_UPDATED_SUBSCRIPTION,
-        updateQuery: (prev, { subscriptionData }) => {
-          const updatedReview = subscriptionData.data.reviewUpdated
-          return {
-            reviews: prev.reviews.map(review =>
-              review.id === updatedReview.id ? updatedReview : review
-            )
-          }
-        }
-      })
-      subscribeToMore({
-        document: ON_REVIEW_DELETED_SUBSCRIPTION,
-        updateQuery: (prev, { subscriptionData }) => {
-          const deletedId = subscriptionData.data.reviewDeleted
-          return {
-            reviews: reject(prev.reviews, { id: deletedId })
-          }
-        }
-      })
-    }
-  })
-})
+  useEffect(() => {
+    subscribeToMore({
+      document: ON_REVIEW_DELETED_SUBSCRIPTION,
+      updateQuery: (prev, { subscriptionData }) => {
+        cache.modify({
+          fields: {
+            reviews(existingReviewRefs = [], { readField }) {
+              const deletedId = subscriptionData.data.reviewDeleted
+              return existingReviewRefs.filter(
+                (reviewRef) => deletedId !== readField('id', reviewRef)
+              )
+            },
+          },
+        })
+        return prev
+      },
+    })
+  }, [orderBy, subscribeToMore])
+
+  useEffect(() => {
+    subscribeToMore({
+      document: ON_REVIEW_UPDATED_SUBSCRIPTION,
+      updateQuery: (prev, { subscriptionData }) => {
+        const updatedReview = subscriptionData.data.reviewUpdated
+        cache.writeFragment({
+          id: cache.identify(updatedReview),
+          data: updatedReview,
+          fragment: gql`
+            fragment UpdatedReview on Review {
+              id
+              text
+              stars
+              createdAt
+              favorited
+              author {
+                id
+              }
+            }
+          `,
+        })
+        return prev
+      },
+    })
+  }, [orderBy, subscribeToMore])
 ```
 
-For review updates, we replace the review in the list from the cache (`prev`) with the updated one we get from the subscription. For deletions, we remove it from the list.
+For deletions, we modify the `reviews` field, filtering out the review ref with the matching ID. For updates, we don’t need to modify `reviews`—we can simply update the specific review object in the cache with new data using `cache.writeFragment()`.
 
