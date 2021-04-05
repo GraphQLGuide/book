@@ -8,8 +8,9 @@ const Container = styled.div({
   display: 'none',
   [breakpoints.sm]: {
     display: 'flex',
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+    marginBottom: 24,
+  },
 })
 
 export const AboveNav = () => (

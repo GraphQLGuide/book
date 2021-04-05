@@ -103,7 +103,6 @@ class Payment extends Component {
           </div>
         )}
 
-        {/* <p>TODO or payment request api</p> */}
         {isGroup ? (
           <div className="Payment-team">
             <p>

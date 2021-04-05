@@ -73,6 +73,8 @@ export const Paywall = ({
         case 'FULLTEAM':
         case 'TRAINING':
           return true
+        default:
+          return isBasic
       }
     } else {
       return false
