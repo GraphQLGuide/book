@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { Helmet } from 'react-helmet'
 
 import { useUser } from '../../lib/useUser'
 import { login } from '../../lib/auth'
@@ -40,9 +41,15 @@ function dirMatches(dirs, pathname) {
   return dirs.some((dir) => pathname.startsWith(dir))
 }
 
-export const Paywall = ({ pathname, children, header }) => {
+export const Paywall = ({
+  pathname,
+  children,
+  header,
+  title,
+  image,
+  description,
+}) => {
   const { user } = useUser()
-  console.log('pathname:', pathname, user)
 
   let message = null
   let hide = true
@@ -104,7 +111,36 @@ export const Paywall = ({ pathname, children, header }) => {
   // display the header when hiding the page
   if (header) {
     if (hide) {
-      return children
+      // https://developers.google.com/search/docs/data-types/paywalled-content
+      // https://schema.org/CreativeWork
+      const json = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        headline: title,
+        image,
+        // datePublished: '2025-02-05T08:00:00+08:00',
+        // dateModified: '2025-02-05T09:20:00+08:00',
+        author: {
+          '@type': 'Person',
+          name: 'John Resig',
+        },
+        description,
+        isAccessibleForFree: 'False',
+        hasPart: {
+          '@type': 'WebPageElement',
+          isAccessibleForFree: 'False',
+          cssSelector: '.paid-content',
+        },
+      })
+
+      return (
+        <Fragment>
+          {children}
+          <Helmet>
+            <script type="application/ld+json">{json}</script>
+          </Helmet>
+        </Fragment>
+      )
     } else {
       return null
     }
