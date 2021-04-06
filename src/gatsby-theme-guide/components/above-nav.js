@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { breakpoints } from 'gatsby-theme-apollo-core'
+import { breakpoints } from 'gatsby-theme-guide-core'
 
 import CurrentUser from '../../components/CurrentUser'
 

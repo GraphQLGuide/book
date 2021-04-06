@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { breakpoints } from 'gatsby-theme-apollo-core'
+import { breakpoints } from 'gatsby-theme-guide-core'
 
 import CurrentUser from '../../components/CurrentUser'
 import CurrentTemperature from '../../components/CurrentTemperature'
@@ -11,14 +11,14 @@ const Container = styled.div({
   width: 240,
   [breakpoints.lg]: {
     width: 'auto',
-    marginRight: 0
+    marginRight: 0,
   },
   [breakpoints.md]: {
-    marginLeft: 40
+    marginLeft: 40,
   },
   [breakpoints.sm]: {
-    display: 'none'
-  }
+    display: 'none',
+  },
 })
 
 export default function HeaderButton() {

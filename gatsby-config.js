@@ -1,4 +1,4 @@
-const themeOptions = require('gatsby-theme-apollo-docs/theme-options')
+const themeOptions = require('gatsby-theme-guide/theme-options')
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -38,7 +38,7 @@ const tableOfContents = {
     'understanding-graphql/filtering-the-data',
     'understanding-graphql/async-data-loading',
     'understanding-graphql/multiple-types-of-data',
-    'understanding-graphql/security-&-error-handling',
+    'understanding-graphql/security-and-error-handling',
     'understanding-graphql/tying-this-all-together',
   ],
   'Part I · The Spec': [],
@@ -97,7 +97,7 @@ const tableOfContents = {
     'react/mutating',
     'react/advanced/index',
     'react/advanced/paginating',
-    'react/advanced/client-side-ordering-&-filtering',
+    'react/advanced/client-side-ordering-and-filtering',
     'react/advanced/local-state',
     'react/advanced/rest',
     'react/advanced/review-subscriptions',
@@ -180,7 +180,7 @@ const tableOfContents = {
     'server/extended-topics/subscriptions-in-depth',
     'server/extended-topics/security',
     'server/extended-topics/performance',
-    'server/extended-topics/future',
+    'server/future',
   ],
   'Part IV · Extras': [],
   'Server-Side Rendering': [
@@ -230,7 +230,7 @@ const shareImageConfig = {
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-theme-apollo-docs',
+      resolve: 'gatsby-theme-guide',
       options: {
         ...themeOptions,
         root: __dirname,
