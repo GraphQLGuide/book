@@ -1,8 +1,7 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useEffect, Fragment, useState } from 'react'
 import ScrollToTopOnMount from './ScrollToTopOnMount'
 import { Typography } from '@material-ui/core'
 import { Link } from 'gatsby'
-import { useLocalStorage, writeStorage } from '@rehooks/local-storage'
 
 import './Welcome.css'
 import { getPackage } from '../../lib/packages'
@@ -11,10 +10,28 @@ import CurrentUser from '../CurrentUser'
 import { useUser } from '../../lib/useUser'
 import { fireworks } from '../../lib/confetti'
 import { pollAssociateSession } from '../../lib/payment'
+import { inBrowser } from '../../lib/helpers'
+
+function getItem(key) {
+  if (inBrowser) {
+    return JSON.parse(window.localStorage.getItem(key))
+  } else {
+    return false
+  }
+}
+
+function setItem(key, value) {
+  if (inBrowser) {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  }
+}
 
 export default function Welcome() {
   const { user, loggedIn } = useUser()
-  const [declinedTshirt] = useLocalStorage('declinedTshirt', false)
+
+  const [declinedTshirt, setDeclinedTshirt] = useState(
+    getItem('declinedTshirt')
+  )
 
   useEffect(fireworks, [])
   useEffect(() => {
@@ -32,26 +49,27 @@ export default function Welcome() {
     offerTshirt = hasTshirtPackage && !declinedTshirt
   }
 
-  let unpurchasedContent = localStorage.getItem('stripe.sessionId') ? (
-    <Fragment>
+  let unpurchasedContent =
+    inBrowser && localStorage.getItem('stripe.sessionId') ? (
+      <Fragment>
+        <p>
+          Waiting to receive <code>checkout.session.completed</code> webhook
+          from Stripe.
+        </p>
+        <div className="Spinner" />
+        <p>
+          If this takes more than a minute, please reply to the receipt email
+          with your GitHub username so that we can manually associate your
+          payment. Sorry for the trouble!
+        </p>
+      </Fragment>
+    ) : (
       <p>
-        Waiting to receive <code>checkout.session.completed</code> webhook from
-        Stripe.
+        Sorry, we’re unable to associate your user account with your Stripe
+        checkout session. Please either open this page in the browser you
+        checked out in or reply to the receipt email with your GitHub username.
       </p>
-      <div className="Spinner" />
-      <p>
-        If this takes more than a minute, please reply to the receipt email with
-        your GitHub username so that we can manually associate your payment.
-        Sorry for the trouble!
-      </p>
-    </Fragment>
-  ) : (
-    <p>
-      Sorry, we’re unable to associate your user account with your Stripe
-      checkout session. Please either open this page in the browser you checked
-      out in or reply to the receipt email with your GitHub username.
-    </p>
-  )
+    )
 
   return (
     <section className="Welcome">
@@ -89,7 +107,12 @@ export default function Welcome() {
                 <div className="Welcome-tshirt">
                   Would you like a tshirt?
                   <Link to="/tshirt">Yes</Link>
-                  <button onClick={() => writeStorage('declinedTshirt', true)}>
+                  <button
+                    onClick={() => {
+                      setItem('declinedTshirt', true)
+                      setDeclinedTshirt(true)
+                    }}
+                  >
                     No thanks
                   </button>
                 </div>
