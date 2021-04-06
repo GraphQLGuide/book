@@ -4,9 +4,9 @@ title: Creating persisted queries
 
 # Creating persisted queries
 
-As we discussed in [Chapter 11: Server Dev > Extended topics > Performance](../server/extended-topics/performance), a persisted query is one that the server remembers the hash of. When the client sends an HTTP request with that hash, the server looks up the persisted query and executes it. In contrast to Apollo Server’s *automatic* persisting of arbitrary client queries, OneGraph allows for specific persisted queries that the graph owner (that’s us 😄) manually creates in their dashboard. In addition to the reduction in request size, their system has three benefits:
+As we discussed in [Chapter 11: Server Dev > Extended topics > Performance](../server/extended-topics/performance.md), a persisted query is one that the server remembers the hash of. When the client sends an HTTP request with that hash, the server looks up the persisted query and executes it. In contrast to Apollo Server’s *automatic* persisting of arbitrary client queries, OneGraph allows for specific persisted queries that the graph owner (that’s us 😄) manually creates in their dashboard. In addition to the reduction in request size, their system has three benefits:
 
-- **Auth**: We can attach an auth token, like the one we made in the [last section](service-integrations.md#writing-server-side-code), to a query, so that when a client sends the query hash, the server knows to use that private token during execution.
+- **Auth**: We can attach an auth token, like the one we made in the [last section](writing-server-side-code.md), to a query, so that when a client sends the query hash, the server knows to use that private token during execution.
 - **Caching**: We can set a custom TTL (number of seconds that the query result will be cached).
 - **Variable safelisting**: We can list the specific variables that can be provided by the client, and provide the others ourselves.
 

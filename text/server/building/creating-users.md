@@ -305,7 +305,7 @@ const user = await context.userPromise
 
 That would clutter the code a little, so let’s stick with our `context.user` code. ✨😊
 
-Now if we do the `me` query (and set our authorization header as we did in the [React > Authentication](../authentication.md) section), we should be able to get the name from our user document:
+Now if we do the `me` query (and set our authorization header as we did in the [React > Authentication](../../react/authentication.md) section), we should be able to get the name from our user document:
 
 ![me query with authorization header and returned name](../../img/me-with-name.png)
 

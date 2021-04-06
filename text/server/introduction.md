@@ -44,7 +44,7 @@ For coders, #1 and #2 are often the most compelling, because it improves our qua
 
 ## What kind of GraphQL server should I build?
 
-Actually, the first choice we have is whether to build it or generate it 😄. There are services that can save us a lot of time by generating a production-ready GraphQL backend for us. We'll go over the pros/cons and how to set one up in the [Hasura section](hasura.md), and another option is [AWS AppSync](https://aws.amazon.com/appsync/).
+Actually, the first choice we have is whether to build it or generate it 😄. There are services that can save us a lot of time by generating a production-ready GraphQL backend for us. We’ll go over the pros/cons and how to set one up in the [Hasura section](extended-topics/hasura.md), and another option is [AWS AppSync](https://aws.amazon.com/appsync/).
 
 If we do decide to build our own server, there are two situations we might be in:
 
@@ -64,7 +64,7 @@ While there are a lot of huge tech companies that use microservices and are bett
 
 If we have an existing monolith, it often makes sense to add a GraphQL endpoint to that server instead of putting a GraphQL server in front of the monolith. For example, if we have an Express monolith that has a lot of thin REST routes that call model functions that contain the business logic and data fetching, then it would be easy to add a `/graphql` route with [`apollo-server-express`](https://www.apollographql.com/docs/apollo-server/essentials/server#middleware) and implement resolvers that call the same model functions as the REST routes. Or if all of our logic was in the routes themselves, and we didn't need to continue supporting the REST API, we could move the code we needed over to resolvers and [Apollo data sources](building/data-sources.md).
 
-When we’re adding a GraphQL layer in front of an existing backend, whether it’s a microservices or monolith backend, we can make the choice between continuing to develop the existing backend or gradually moving logic to the GraphQL layer. If we’re doing microservices and want to keep that architecture, then it’s easy to keep implementing services (in whatever language(s) we implement services) and either extend the GraphQL schema and resolvers or use [schema federation](apollo-federation.md).
+When we’re adding a GraphQL layer in front of an existing backend, whether it’s a microservices or monolith backend, we can make the choice between continuing to develop the existing backend or gradually moving logic to the GraphQL layer. If we’re doing microservices and want to keep that architecture, then it’s easy to keep implementing services (in whatever language(s) we implement services) and either extend the GraphQL schema and resolvers or use [schema federation](extended-topics/apollo-federation.md).
 
 Another question is what language to write our GraphQL server in. In the case of adding to an existing monolith, we’ll use the GraphQL server library for the same language. In all other cases (new projects or a GraphQL layer in front of existing microservices or monoliths), we generally recommend JavaScript. It’s by far the most popular type of GraphQL server, and has thus developed the best ecosystem of libraries and services.
 

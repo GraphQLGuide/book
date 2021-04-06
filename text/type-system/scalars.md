@@ -35,4 +35,4 @@ mutation {
 
 The benefits to using custom scalars are clarity (`when: DateTime` is clearer than `when: Int`) and consistent validation (whatever value we pass is checked to make sure it’s a valid DateTime).
 
-We define our [own custom scalar](../server/#custom-scalars) in Chapter 11.
+We define our [own custom scalar](../server/building/custom-scalars.md) in Chapter 11.

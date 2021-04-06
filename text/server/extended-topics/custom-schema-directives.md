@@ -5,17 +5,13 @@ description: How to create your own GraphQL directives
 
 ## Custom schema directives
 
-Background: [Directives](../../query-language/#directives)
+Background: [Directives](../../query-language/directives.md)
 
 > If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...directives](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...directives_0.2.0))
 
-Apollo Server includes the [default directives](../../query-language/#directives) `@deprecated`, `@skip`, and  `@include`. `@skip` and `@include` are *query directives*, so they don’t appear in our schema; instead, they’re included in query documents and can be used on any field. `@deprecated` is a *schema directive*, and when we add it after a field or enum value in our schema, the directive will be included in responses to introspection queries. 
+Apollo Server includes the [default directives](../../query-language/directives.md) `@deprecated`, `@skip`, and  `@include`. `@skip` and `@include` are *query directives*, so they don’t appear in our schema; instead, they’re included in query documents and can be used on any field. `@deprecated` is a *schema directive*, and when we add it after a field or enum value in our schema, the directive will be included in responses to introspection queries. 
 
 We can make our own schema directives in Apollo Server. When we add them to specific places in our schema, those parts of the schema are modified or evaluated differently when resolving requests. Three examples we’ll code are `@tshirt`, which modifies an enum value’s description; `@upper`, which takes the result of a field resolver and returns the uppercase version instead; and `@auth`, which throws an error if the user isn’t authorized to view that object or field.
-
-- [@tshirt](#@tshirt)
-- [@upper](#@upper)
-- [@auth](#@auth)
 
 ### @tshirt
 

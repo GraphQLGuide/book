@@ -5,7 +5,7 @@ description: Schema directives define the directives that can be used in query d
 
 # Directives
 
-We talked about the query side of [directives](http://spec.graphql.org/draft/#sec-Type-System.Directives) in [Chapter 2: Directives](../query-language/#directives). Directives are declared in the schema. A directive definition includes its name, any arguments, on what types of locations it can be used, and whether it’s repeatable (used multiple times on the same location):
+We talked about the query side of [directives](http://spec.graphql.org/draft/#sec-Type-System.Directives) in [Chapter 2: Directives](../query-language/directives.md). Directives are declared in the schema. A directive definition includes its name, any arguments, on what types of locations it can be used, and whether it’s repeatable (used multiple times on the same location):
 
 ```gql
 directive @authoredBy(name: String!) repeatable on OBJECT
@@ -15,7 +15,7 @@ type Book @authoredBy(name: "pageCount") @authoredBy(name: "author") {
 }
 ```
 
-The locations can either be in [executable documents](../query-language/#document) or [schema documents](../query-language/#document).
+The locations can either be in [*executable documents* or *schema documents*](../query-language/document.md).
 
 ```gql
 # Executable locations

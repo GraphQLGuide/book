@@ -8,7 +8,7 @@ hasSubsections: true
 
 Background: [Testing](../../background/testing.md)
 
-* [Static testing](static-tests.md)
+* [Static testing](static-testing.md)
 * [Review integration tests](review-integration-tests.md)
 * [Code coverage](code-coverage.md)
 * [User integration tests](user-integration-tests.md)

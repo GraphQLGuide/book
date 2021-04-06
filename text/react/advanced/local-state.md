@@ -30,7 +30,7 @@ There are three ways to store local state with Apollo, and different ways to rea
 * [The Apollo cache](#in-cache)
 * Anywhere else (for example `window` or `LocalStorage`)
 
-Reactive variables can be read just by importing the variable into our code. The cache can be read with the cache methods [`cache.readQuery()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readquery) and [`cache.readFragment()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readfragment) or `useQuery()` by adding the `@client` [*directive*](../../query-language/#directives) to our query:
+Reactive variables can be read just by importing the variable into our code. The cache can be read with the cache methods [`cache.readQuery()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readquery) and [`cache.readFragment()`](https://www.apollographql.com/docs/react/caching/cache-interaction/#readfragment) or `useQuery()` by adding the `@client` [*directive*](../../query-language/directives.md) to our query:
 
 ```gql
 query LocationQuery {

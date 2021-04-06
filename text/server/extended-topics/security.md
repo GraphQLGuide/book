@@ -81,7 +81,7 @@ The server receives a JWT or session ID in an HTTP header, which it uses to deco
 
 However, usually we’ll handle user decoding in the GraphQL server. In the case of federation, we decoded the user [in the gateway](../../federation/federated-gateway.md) and passed the object in a `user` header to the services. In the case of our monolith, we decoded [in the `context` function](../building/authentication.md) and provided `context.user` to the resolvers.
 
-But how does the client get the JWT or session ID in the first place? In our case, we used an external service: We [opened a popup](../../react/#authentication) to an Auth0 site that did both signup and login and provided the client with a JWT. Other options include:
+But how does the client get the JWT or session ID in the first place? In our case, we used an external service: We [opened a popup](../../react/authentication.md) to an Auth0 site that did both signup and login and provided the client with a JWT. Other options include:
 
 - Hosting our own identity server (for example the free, open-source [Ory server](https://www.ory.sh/kratos/)). 
 - Adding HTTP endpoints to our GraphQL server (for example with the [Passport library](http://www.passportjs.org/)).

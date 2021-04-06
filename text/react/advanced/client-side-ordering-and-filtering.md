@@ -6,7 +6,7 @@ title: Client-side ordering & filtering
 
 > If you’re jumping in here, `git checkout 18_1.0.0` (tag [`18_1.0.0`](https://github.com/GraphQLGuide/guide/tree/18_1.0.0)). Tag [`18-filtering_1.0.0`](https://github.com/GraphQLGuide/guide/tree/18-filtering_1.0.0) contains all the code written in this section.
 
-We learned in the [pagination section](paginating.md#skip--limit) that by default, Apollo creates a new cache entry when arguments change. To get pagination working, we configured the cache to only use a single entry with `keyArgs: false`. In the last section, we changed it to `keyArgs: ['orderBy']` so that we'd have two cache entries: one for each possible value of the `orderBy` argument.
+We learned in the [pagination section](paginating.md#skip-and-limit) that by default, Apollo creates a new cache entry when arguments change. To get pagination working, we configured the cache to only use a single entry with `keyArgs: false`. In the last section, we changed it to `keyArgs: ['orderBy']` so that we'd have two cache entries: one for each possible value of the `orderBy` argument.
 
 In this section, we’ll add arguments to our `reviews` query that filter out some reviews. We’ll look at different options for `keyArgs` and add a [`read`](https://www.apollographql.com/docs/react/caching/cache-field-behavior/#handling-pagination) function to our field policy.
 

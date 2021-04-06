@@ -6,9 +6,9 @@ title: Persisting
 
 > If you’re jumping in here, `git checkout 2_1.0.0` (tag [2_1.0.0](https://github.com/GraphQLGuide/guide/tree/2_1.0.0), or compare [2...3](https://github.com/GraphQLGuide/guide/compare/2_1.0.0...3_1.0.0))
 
-While most aspects of using Apollo Client are the same between React and React Native, one thing that’s different is that React Native doesn’t have a global `window` variable. For example, in [Chapter 6 > REST](../react/#rest) we used `window.navigator.geolocation.getCurrentPosition()`. Running that code in React Native would throw an error. Instead, we would use `Location.getCurrentPositionAsync()` from the [`expo-location`](https://docs.expo.io/versions/v39.0.0/sdk/location/#locationgetcurrentpositionasyncoptions) package.
+While most aspects of using Apollo Client are the same between React and React Native, one thing that’s different is that React Native doesn’t have a global `window` variable. For example, in [Chapter 6 > REST](../react/advanced/rest.md) we used `window.navigator.geolocation.getCurrentPosition()`. Running that code in React Native would throw an error. Instead, we would use `Location.getCurrentPositionAsync()` from the [`expo-location`](https://docs.expo.io/versions/v39.0.0/sdk/location/#locationgetcurrentpositionasyncoptions) package.
 
-We also used `window` in [Chapter 6 > Persisting](../react/#persisting):
+We also used `window` in [Chapter 6 > Persisting](../react/advanced/persisting.md):
 
 ```js
 persistCache({

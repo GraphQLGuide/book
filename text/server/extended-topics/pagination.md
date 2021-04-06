@@ -10,7 +10,7 @@ description: Implementing 3 different forms of GraphQL pagination
   * [after an ID](#after-an-id)
   * [Relay cursor connections](#relay-cursor-connections)
 
-Pagination is the general term for requesting chunks of a list of data instead of the whole list, because requesting the whole list would take too much time or resources. In [Chapter 6: Paginating](../../react/#paginating), we covered different types of pagination from the client’s perspective. In this section, we’ll cover them from the server’s perspective: Defining the schema and writing code that fetches the requested chunk of data from the database.
+Pagination is the general term for requesting chunks of a list of data instead of the whole list, because requesting the whole list would take too much time or resources. In [Chapter 6: Paginating](../../react/advanced/paginating.md), we covered different types of pagination from the client’s perspective. In this section, we’ll cover them from the server’s perspective: Defining the schema and writing code that fetches the requested chunk of data from the database.
 
 These are the main types of pagination:
 
@@ -18,14 +18,14 @@ These are the main types of pagination:
   - *Pages*: Request Nth page of a certain size. For instance, `page: 3, size: 10` would be items 21-30.
   - *Skip & limit*: Request *limit* items after skipping *skip* items. For instance `skip: 40, limit: 20` would be items 41-60.
 - *Cursor-based*: Request a chunk before or after a *cursor*. Conceptually, a cursor is a pointer to a location in a query’s result set. There’s a range of ways to implement it, both in terms of what arguments are used and how the schema looks. Here are a couple options:
-  - *after an ID*: Request *limit* items *after* some sortable field, like `id`—in MongoDB, ObjectIds sort by the time they were created, like a `createdAt` timestamp. This is the simplified, cursor-like system used in [Chapter 6: Cursors](../../react/#cursors). For instance `after: '5d3202c4a044280cac1e2f60', limit: 10` would be the 10 items after that `id`.
+  - *after an ID*: Request *limit* items *after* some sortable field, like `id`—in MongoDB, ObjectIds sort by the time they were created, like a `createdAt` timestamp. This is the simplified, cursor-like system used in [Chapter 6: Cursors](../../react/advanced/paginating.md#cursors). For instance `after: '5d3202c4a044280cac1e2f60', limit: 10` would be the 10 items after that `id`.
   - *Relay cursor connections*: Request the *first* N items *after* an opaque cursor (or *last* N items *before* a cursor). For instance, `first: 10, after: 'abcabcabc'`, where `'abcabcabc'` contains an encoded result set location.
 
 > In Chapter 6, we used `[id]:[sort order]` as the cursor format (like `'100:createdAt_DESC'`). However, it’s best practice for the client to treat cursors as opaque strings, and that’s usually facilitated by the server Base64-encoding the string. So the server would return `'MTAwOmNyZWF0ZWRBdF9ERVND'` as the cursor instead of `'100:createdAt_DESC'`.
 
 The downsides to offset-based are:
 
-- When the result set changes (items added or removed), we might miss or get duplicate results. (We discuss this scenario in [Chapter 6: skip & limit](../../react/#skip--limit).)
+- When the result set changes (items added or removed), we might miss or get duplicate results. (We discuss this scenario in [Chapter 6: skip & limit](../../react/advanced/paginating.md#skip-and-limit).)
 - The performance of a `LIMIT x OFFSET y` query does not scale well for large data sets in many databases, including PostgreSQL, MySQL, and MongoDB. (Note that depending on the flexibility of our collection structure, we might be able to use [the bucket pattern](https://www.mongodb.com/blog/post/paging-with-the-bucket-pattern--part-1) in MongoDB to scale this query well.)
 
 The downsides to cursor-based are:
@@ -288,7 +288,7 @@ extend type Query {
 }
 ```
 
-The only change from [skip & limit](#skip--limit) is instead of *skip*ing a number of results, we return those *after* an ID. In our resolver, we change `skip -> after` and remove `skip`’s error checking:
+The only change from [skip & limit](#skip-and-limit) is instead of *skip*ing a number of results, we return those *after* an ID. In our resolver, we change `skip -> after` and remove `skip`’s error checking:
 
 [`src/resolvers/Review.js`](https://github.com/GraphQLGuide/guide-api/compare/pagination_0.2.0...pagination2_0.2.0)
 

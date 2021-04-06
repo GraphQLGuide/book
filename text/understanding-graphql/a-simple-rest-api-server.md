@@ -4,11 +4,11 @@ title: A simple REST API server
 
 # A simple REST API server
 
-Background: [Node](../background/node-npm-and-nvm.md), [HTTP](../background/http.md), [JSON](../background/json.md), [MongoDB](../background/databases#mongodb)
+Background: [Node](../background/node-npm-and-nvm.md), [HTTP](../background/http.md), [JSON](../background/json.md), [MongoDB](../background/databases.md#mongodb)
 
 We’ll start our process of understanding GraphQL by building a simple REST API using Node.js and the popular Express web framework. We’ll be retrieving data from a MongoDB database and using Mongoose as our object-relational mapping (ORM) to simplify querying the data we have stored.
 
-> Learn about MongoDB, the Node driver, and Mongoose in [Background > MongoDB](../background/databases#mongodb).
+> Learn about MongoDB, the Node driver, and Mongoose in [Background > MongoDB](../background/databases.md#mongodb).
 
 In this application, our server will listen for requests to the `/users/:id` URL. We use the ID passed as a parameter in the URL (as specified by the `:id`) to query a user record from the database and return it as a JSON string. If we encounter any errors, we return a 500 error, and if we can’t find the user, we return a 404—all standard REST practices.
 

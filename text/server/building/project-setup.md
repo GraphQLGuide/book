@@ -215,8 +215,8 @@ server
 ```
 
 The main export of `apollo-server` is [`ApolloServer`](https://www.apollographql.com/docs/apollo-server/api/apollo-server#apolloserver), and its two required parameters are:
-- `typeDefs`: our schema, written in SDL (the GraphQL [Schema Definition Language](../../type-system/#schema)), created with the [`gql`](https://www.apollographql.com/docs/apollo-server/api/apollo-server#gql) template literal tag.
-- `resolvers`: an object of [resolver](../../validation-and-execution/#resolvers) functions that match our schema in structure. Each type—`Query`, `Mutation`, `User`, `Chapter`, etc.—is a top-level attribute, and the next level is that type’s field names.
+- `typeDefs`: our schema, written in SDL (the GraphQL [Schema Definition Language](../../type-system/schema.md)), created with the [`gql`](https://www.apollographql.com/docs/apollo-server/api/apollo-server#gql) template literal tag.
+- `resolvers`: an object of [resolver](../../validation-and-execution/execution.md#resolvers) functions that match our schema in structure. Each type—`Query`, `Mutation`, `User`, `Chapter`, etc.—is a top-level attribute, and the next level is that type’s field names.
 
 > The three main alternatives to Apollo Server are the official [`express-graphql`](https://github.com/graphql/express-graphql) with GraphQL.js, [Nexus](https://nexusjs.org/), and [TypeGraphQL](https://typegraphql.com/), which all define the schema [in different ways in code](https://medium.com/swlh/graphql-js-vs-typegraphql-vs-graphql-nexus-2a8036deb851?sk=405c076bd0f9d6ea82373673db0991da) instead of in SDL.
 

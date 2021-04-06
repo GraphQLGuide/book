@@ -17,5 +17,5 @@ Chapter contents:
 * [Filtering the data](filtering-the-data.md)
 * [Async data loading](async-data-loading.md)
 * [Multiple types of data](multiple-types-of-data.md)
-* [Security & error handling](security--error-handling.md)
+* [Security and error handling](security-and-error-handling.md)
 * [Tying this all together](tying-this-all-together.md)

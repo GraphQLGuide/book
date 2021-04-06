@@ -35,11 +35,11 @@ Chapter contents:
   * [Paginating](advanced/paginating.md)
     * [Offset-based](advanced/paginating.md#offset-based)
       * [page](advanced/paginating.md#page)
-      * [skip & limit](advanced/paginating.md#skip--limit)
+      * [skip & limit](advanced/paginating.md#skip-and-limit)
     * [Cursors](advanced/paginating.md#cursors)
       * [after](advanced/paginating.md#after)
       * [orderBy](advanced/paginating.md#orderby)
-  * [Client-side ordering & filtering](advanced/client-side-ordering--filtering.md)
+  * [Client-side ordering & filtering](advanced/client-side-ordering-and-filtering.md)
   * [Local state](advanced/local-state.md)
     * [Reactive variables](advanced/local-state.md#reactive-variables)
     * [In cache](advanced/local-state.md#in-cache)
@@ -75,5 +75,5 @@ We’ll be using Apollo’s hooks API. For an older version of this chapter that
 - [r5.mobi](https://s3.graphql.guide/the-graphql-guide-r5.mobi)
 - [r5.epub](https://s3.graphql.guide/the-graphql-guide-r5.epub)
 
-> We recommend Apollo for its flexibility, ease of use, documentation, and ecosystem. The main alternative is [Relay](https://relay.dev/), which is more opinionated—it requires fragments colocated with components, specific ways of working with errors, and a certain format for the server schema, including `Node`s, universally unique `id`s, [connections](../server/#relay-cursor-connections) for pagination, and mutation structure. It also requires use of the Relay compiler. For more info on these differences, check out [this post](https://hasura.io/blog/deep-dive-into-relay-graphql-client/).
+> We recommend Apollo for its flexibility, ease of use, documentation, and ecosystem. The main alternative is [Relay](https://relay.dev/), which is more opinionated—it requires fragments colocated with components, specific ways of working with errors, and a certain format for the server schema, including `Node`s, universally unique `id`s, [connections](../server/extended-topics/pagination.md#relay-cursor-connections) for pagination, and mutation structure. It also requires use of the Relay compiler. For more info on these differences, check out [this post](https://hasura.io/blog/deep-dive-into-relay-graphql-client/).
 

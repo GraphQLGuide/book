@@ -54,5 +54,5 @@ These two responses are valid:
 }
 ```
 
-When there are multiple levels of non-null, the null propagates upward. We’ll see an example of this in [Chapter 4: Errors](../validation-and-execution/#errors).
+When there are multiple levels of non-null, the null propagates upward. We’ll see an example of this in [Chapter 4: Errors](../validation-and-execution/execution.md#errors).
 

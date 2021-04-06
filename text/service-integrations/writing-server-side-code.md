@@ -4,7 +4,7 @@ title: Writing server-side code
 
 # Writing server-side code
 
-While the above frontend example works when the user of our app has their own Stripe account, we may want our users to be able to see data from our Stripe account. In that case, we need to create a server-side token that’s connected to our Stripe OAuth, and then use that token to either create a persisted query or make queries from our server. We’ll do the latter in this section and create a persisted query in [the next](service-integrations.md#creating-persisted-queries).
+While the above frontend example works when the user of our app has their own Stripe account, we may want our users to be able to see data from our Stripe account. In that case, we need to create a server-side token that’s connected to our Stripe OAuth, and then use that token to either create a persisted query or make queries from our server. We’ll do the latter in this section and create a persisted query in [the next](creating-persisted-queries.md).
 
 We can create server “Personal tokens” in the “Authentication” tab of the [dashboard](https://www.onegraph.com/dashboard/) and add one or more services to it. We’ll add Stripe to it, and then copy the token. To test our token, we can use curl. Back in our dashboard’s “Data Explorer” tab, we select “Code Exporter” and “curl” to get:
 
@@ -89,7 +89,7 @@ After adding the line `-H "Authorization: Bearer xxx" \`, we get a response:
 }
 ```
 
-We can put this query in code using the [graphql-request](https://github.com/prisma-labs/graphql-request) library we used in [Chapter 11 > Subscriptions > githubStars]([githubStars](../server/#githubstars)).
+We can put this query in code using the [graphql-request](https://github.com/prisma-labs/graphql-request) library we used in [Chapter 11 > Subscriptions > githubStars](../server/building/subscriptions.md#githubstars).
 
 `server.js`
 

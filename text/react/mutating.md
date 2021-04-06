@@ -66,7 +66,7 @@ const SECTION_BY_NUMBER_QUERY = gql`
 `
 ```
 
-In addition to `views`, we have to add `id` to the query’s selection set so that the `Section` gets [normalized](../client/#caching) correctly. 
+In addition to `views`, we have to add `id` to the query’s selection set so that the `Section` gets [normalized](../client/client-libraries.md#caching) correctly. 
 
 For the first query, we also need to add `views: get(data, 'section.views')` to `section`:
 
@@ -450,7 +450,7 @@ const FavoriteButton = ({ id, favorited }) => {
 }
 ```
 
-Now when we click a review’s heart outline icon, it should change to the filled-in icon... right? 😁 But nothing’s happening. Let’s investigate with [Apollo devtools](../client/#devtools). We can open it on our page to the Mutations section. Then when we click a favorite button, `FavoriteReview` shows up in the Mutation log. So we know the mutation is getting called. And when we click on the log entry, we can see that the argument variables are given correctly:
+Now when we click a review’s heart outline icon, it should change to the filled-in icon... right? 😁 But nothing’s happening. Let’s investigate with [Apollo devtools](../client/client-libraries.md#devtools). We can open it on our page to the Mutations section. Then when we click a favorite button, `FavoriteReview` shows up in the Mutation log. So we know the mutation is getting called. And when we click on the log entry, we can see that the argument variables are given correctly:
 
 ![Favorite mutation in the log](../img/favorite-mutation.png)
 
@@ -677,7 +677,7 @@ In the [next section](#creating-reviews), we’ll write an `update()` function t
 
 There are two more functions we can use—[`readFragment()`](https://www.apollographql.com/docs/react/api/core/ApolloClient/#ApolloClient.readFragment) and [`writeFragment()`](https://www.apollographql.com/docs/react/api/core/ApolloClient/#ApolloClient.writeFragment). `readQuery` can only read data from a root query type like `currentUser{ ... }` or `reviews(limit: 20){ ... }`. `readFragment` can read from any normalized object in our cache by its cache ID. 
 
-A *cache ID* is the identifier Apollo uses to [normalize](../client/#caching) objects. [By default](https://www.apollographql.com/docs/react/caching/cache-configuration/#default-identifier-generation), it is `[__typename]:[id]`, for instance: `Review:5a6676ec094bf236e215f488`. We can see these IDs on the left of the Cache section in Apollo devtools:
+A *cache ID* is the identifier Apollo uses to [normalize](../client/client-libraries.md#caching) objects. [By default](https://www.apollographql.com/docs/react/caching/cache-configuration/#default-identifier-generation), it is `[__typename]:[id]`, for instance: `Review:5a6676ec094bf236e215f488`. We can see these IDs on the left of the Cache section in Apollo devtools:
 
 ![View of the cache in devtools](../img/devtools-cache.png)
 
@@ -702,7 +702,7 @@ function MyComponent() {
 }
 ```
 
-The `readFragment()` arguments are the cache ID and a [fragment](../query-language/#fragments). It returns just that section:
+The `readFragment()` arguments are the cache ID and a [fragment](../query-language/fragments.md). It returns just that section:
 
 ```js
 {
@@ -1090,7 +1090,7 @@ The second parameter to [`update`](https://www.apollographql.com/docs/react/basi
 
 ## Using fragments
 
-[Fragments](../query-language/#fragments) are good for more than just [reading from and writing to the cache](#arbitrary-updates): they also can [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) up our queries and mutations. The selection set on `reviews` in the query we just relocated was the same as the selection set on `createReview` we used in our mutation. Let’s put that selection set in a fragment:
+[Fragments](../query-language/fragments.md) are good for more than just [reading from and writing to the cache](#arbitrary-updates): they also can [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) up our queries and mutations. The selection set on `reviews` in the query we just relocated was the same as the selection set on `createReview` we used in our mutation. Let’s put that selection set in a fragment:
 
 [`src/graphql/Review.js`](https://github.com/GraphQLGuide/guide/blob/13_1.0.0/src/graphql/Review.js)
 
@@ -1298,7 +1298,7 @@ function deleteReview() {
 
 ## Error handling
 
-Background: [GraphQL errors](../understanding-graphql/security--error-handling.md)
+Background: [GraphQL errors](../understanding-graphql/security-and-error-handling.md)
 
 > If you’re jumping in here, `git checkout 14_1.0.0` (tag [`14_1.0.0`](https://github.com/GraphQLGuide/guide/tree/14_1.0.0)). Tag [`15_1.0.0`](https://github.com/GraphQLGuide/guide/tree/15_1.0.0) contains all the code written in this section.
 

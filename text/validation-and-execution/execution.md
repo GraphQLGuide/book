@@ -70,7 +70,7 @@ Our `User.id` resolver is simple—it just returns `object.id`. This type of res
 
 `User.id` and `User.hasLongName` are called at the same time, in parallel. After both have returned a value, the server can put together the response. 
 
-Resolvers are normally called in parallel, but as we saw in [Chapter 2](../query-language/#mutations), they’re called in series when there are multiple root fields in a mutation. Not only are the root resolvers called in series, but each root field’s selected subfields [are resolved](http://spec.graphql.org/draft/#sec-Normal-and-Serial-Execution) before the next root field is resolved.
+Resolvers are normally called in parallel, but as we saw in [Chapter 2](../query-language/mutations.md), they’re called in series when there are multiple root fields in a mutation. Not only are the root resolvers called in series, but each root field’s selected subfields [are resolved](http://spec.graphql.org/draft/#sec-Normal-and-Serial-Execution) before the next root field is resolved.
 
 ## Response format
 

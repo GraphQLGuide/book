@@ -202,7 +202,7 @@ And now for its implementation. Let’s start with the query:
 }
 ```
 
-Anything with the `@rest` [directive](../../query-language/#directives) `apollo-link-rest` will resolve itself. We’ve already configured the link with the base of the URI, so here we give the rest of it. Since we’re getting back an object, we also need to make up a name for what the object’s type will be in the Apollo cache. And we want the `"main"` attribute from the JSON response, so `{ main }` is our selection set.
+Anything with the `@rest` [directive](../../query-language/directives.md) `apollo-link-rest` will resolve itself. We’ve already configured the link with the base of the URI, so here we give the rest of it. Since we’re getting back an object, we also need to make up a name for what the object’s type will be in the Apollo cache. And we want the `"main"` attribute from the JSON response, so `{ main }` is our selection set.
 
 If we want to be even more explicit about which data we’re using, we could select just `main.temp` instead of the whole `main` object. But when we want to select fields in objects, we need the object to have a type, so we add an `@type` directive:
 

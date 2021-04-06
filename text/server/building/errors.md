@@ -423,7 +423,7 @@ export default {
 
 ![searchUsers query with 3 results](../../img/searchUsers.png)
 
-> Even though `username` is common to all possible types, with unions, the only field we can select outside of an [inline fragment](../../query-language/#fragments) is the meta field `__typename`.
+> Even though `username` is common to all possible types, with unions, the only field we can select outside of an [inline fragment](../../query-language/fragments.md) is the meta field `__typename`.
 
 Now the client can iterate over `data.searchUsers` and check the `__typename`, and if it’s a `DeletedUser` or `SuspendedUser`, display that user differently.
 

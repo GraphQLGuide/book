@@ -161,4 +161,3 @@ export default {
 ```
 
 We’d have a naming conflict if we destructured `user` from context, so we assign to a new variable name `currentUser`. First we test whether there’s any user at all, and then we test whether it’s the same user. In the next section we’ll see what the error looks like to the client! 👀
-

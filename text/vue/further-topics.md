@@ -49,7 +49,7 @@ onError(error => {
 
 The hooks are called whenever a result is available or an error is received.
 
-And `useQuery()` returns `fetchMore`, which we can use for pagination exactly as we did in [Chapter 6 > Paginating](../react/#paginating).
+And `useQuery()` returns `fetchMore`, which we can use for pagination exactly as we did in [Chapter 6 > Paginating](../react/advanced/paginating.md).
 
 ### Mutating
 
@@ -117,13 +117,13 @@ const { mutate: createReview } = useMutation(gql`
 }))
 ```
 
-Just as with React’s mutations, if we include an `id` in the fields we select, and an object with that ID is in the cache, it will automatically be updated (for instance with the `editReview` mutation). And in other cases, we can update the cache with an `update()` function (see [Chapter 6 > Arbitrary updates](../react/#arbitrary-updates)).
+Just as with React’s mutations, if we include an `id` in the fields we select, and an object with that ID is in the cache, it will automatically be updated (for instance with the `editReview` mutation). And in other cases, we can update the cache with an `update()` function (see [Chapter 6 > Arbitrary updates](../react/mutating.md#arbitrary-updates)).
 
 `useMutation()` returns `loading` and `error`, as well as `onDone` and `onError` hooks, similar to `useQuery()`’s `onResult` and `onError`.
 
 ### Subscriptions
 
-As we did in [Chapter 6 > Subscriptions](../react/#subscriptions), we first need to create a WebSocket link. Then we either call `useSubscription()` or `subscribeToMore()`. Here’s an example [`useSubscription()`](https://v4.apollo.vuejs.org/guide-composable/subscription.html#usesubscription):
+As we did in [Chapter 6 > Subscriptions](../react/querying.md#subscriptions), we first need to create a WebSocket link. Then we either call `useSubscription()` or `subscribeToMore()`. Here’s an example [`useSubscription()`](https://v4.apollo.vuejs.org/guide-composable/subscription.html#usesubscription):
 
 ```js
 import { useSubscription } from '@vue/apollo-composable'

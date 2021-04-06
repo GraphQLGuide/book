@@ -77,4 +77,3 @@ In summary, the ways we can interactively query our production GraphQL server ar
 - Playground website, if the server has it enabled
 
 And we can, of course, continue to query it with POST requests on the command line or in code.
-

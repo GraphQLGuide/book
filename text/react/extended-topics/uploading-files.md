@@ -87,5 +87,5 @@ export default function () {
 export default FileUpload
 ```
 
-Our server needs to support the [GraphQL multipart request spec](https://github.com/jaydenseric/graphql-multipart-request-spec#server). Apollo server supports it, or, if we’re using a different JS server, we can add support with the [`graphql-upload`](https://github.com/jaydenseric/graphql-upload) package. We’ll see the Apollo server implementation in [Chapter 11: Server Dev > File uploads > Server-side](../../server/#server-side).
+Our server needs to support the [GraphQL multipart request spec](https://github.com/jaydenseric/graphql-multipart-request-spec#server). Apollo server supports it, or, if we’re using a different JS server, we can add support with the [`graphql-upload`](https://github.com/jaydenseric/graphql-upload) package. We’ll see the Apollo server implementation in [Chapter 11: Server Dev > File uploads > Server-side](../../server/extended-topics/file-uploads.md).
 

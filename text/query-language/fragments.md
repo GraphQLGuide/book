@@ -52,7 +52,7 @@ fragment userFields on User {
 
 ### Type conditions
 
-Fragments are defined on a type. The type can be an [object](../type-system/#objects), [interface](../type-system/#interfaces), or [union](../type-system/#unions). When we’re selecting fields from an interface or union, we can conditionally select certain fields based on which object type the result winds up being. We do this with fragments. For instance, if the `user` field had type `User`, and `User` was an interface implemented by `ActiveUser` and `SuspendedUser`, then our query could be:
+Fragments are defined on a type. The type can be an [object](../type-system/objects.md), [interface](../type-system/interfaces.md), or [union](../type-system/unions.md). When we’re selecting fields from an interface or union, we can conditionally select certain fields based on which object type the result winds up being. We do this with fragments. For instance, if the `user` field had type `User`, and `User` was an interface implemented by `ActiveUser` and `SuspendedUser`, then our query could be:
 
 ```gql
 query {

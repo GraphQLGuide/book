@@ -13,7 +13,7 @@ Section contents:
 * [Add new reviews](#add-new-reviews)
 * [Update on edit and delete](#update-on-edit-and-delete)
 
-Early on in this chapter we set up our [first subscription](querying.md#subscriptions) for an updated GitHub star count. That was a very simple example—each event we received from the server contained a single integer:
+Early on in this chapter we set up our [first subscription](../querying.md#subscriptions) for an updated GitHub star count. That was a very simple example—each event we received from the server contained a single integer:
 
 ```gql
 type Subscription {
@@ -33,7 +33,7 @@ type Subscription {
 
 The first subscription sends a response event when someone creates a new review. `reviewUpdated` fires whenever a review’s text or stars are edited, and `reviewDeleted` fires when one is deleted. For the first two, the events contain the review created/updated. For the last, it contains just the review’s id.
 
-In general, we recommend re-querying in lieu of subscriptions—either by [polling](querying.md#polling) or manually re-running the query with [`client.query()`](https://www.apollographql.com/docs/react/api/core/ApolloClient/#ApolloClient.query). In our app, it would be sufficient and easier to add polling to our reviews query:
+In general, we recommend re-querying in lieu of subscriptions—either by [polling](../querying.md#polling) or manually re-running the query with [`client.query()`](https://www.apollographql.com/docs/react/api/core/ApolloClient/#ApolloClient.query). In our app, it would be sufficient and easier to add polling to our reviews query:
 
 `src/components/ReviewList.js`
 

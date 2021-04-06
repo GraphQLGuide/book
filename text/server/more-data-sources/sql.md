@@ -1236,7 +1236,7 @@ If we wanted to cover `SQL.js`, we would need to run the actual methods, which m
 
 The two main performance factors when it comes to database querying are latency and load. Latency is how quickly we get all the data we need, and load is how much work the database is doing. Latency usually won’t be an issue unless we have complex queries or a lot of data. Load won’t be an issue unless we have a lot of clients simultaneously using our API. 
 
-When neither latency nor load is an issue for our app, we don’t need to concern ourselves with performance, and our current implementation is fine. If either becomes an issue (or if we’re certain that it will be when our API is completed and released), then we have different ways we can improve performance. This section is mainly about using SQL JOIN statements, which we’re currently not using. We discuss more performance topics in the [Performance section](../performance.md) later in the chapter.
+When neither latency nor load is an issue for our app, we don’t need to concern ourselves with performance, and our current implementation is fine. If either becomes an issue (or if we’re certain that it will be when our API is completed and released), then we have different ways we can improve performance. This section is mainly about using SQL JOIN statements, which we’re currently not using. We discuss more performance topics in the [Performance section](../extended-topics/performance.md) later in the chapter.
 
 Let’s consider this GraphQL query:
 
@@ -1592,4 +1592,3 @@ Lastly, let’s see how it handles a reviews query with `author` selected:
 ```
 
 ✨ Perfect! It only fetched the fields needed and used a single statement.
-

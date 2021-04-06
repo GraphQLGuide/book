@@ -7,7 +7,7 @@ description: Fetching REST data from our GraphQL server
 
 > If you’re jumping in here, `git checkout 25_0.2.0` (tag [25_0.2.0](https://github.com/GraphQLGuide/guide-api/tree/25_0.2.0), or compare [25...rest](https://github.com/GraphQLGuide/guide-api/compare/25_0.2.0...rest_0.2.0))
 
-Instead of fetching our data directly from the database, we may want to make use of our company’s legacy REST services (yes, any service that doesn’t speak GraphQL and support [Apollo Federation](../apollo-federation.md) is now a *legacy* service 😉😄). Or we may want to use data from third-party REST APIs. In either case, we use `RESTDataSource` to create a data source that makes REST requests.
+Instead of fetching our data directly from the database, we may want to make use of our company’s legacy REST services (yes, any service that doesn’t speak GraphQL and support [Apollo Federation](../extended-topics/apollo-federation.md) is now a *legacy* service 😉😄). Or we may want to use data from third-party REST APIs. In either case, we use `RESTDataSource` to create a data source that makes REST requests.
 
 Users of the Guide site need to be able to purchase the book, so we need to display the price to them. And let’s say we wanted to make the book more affordable in locations outside of the United States where it was originally priced. [Purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity) (PPP) produces a conversion factor based on the actual purchasing power in a different location. For example, if the book is $100 in the U.S., and the conversion factor for India is 0.26, then charging `100 * 0.26 = $26` for the book to customers in India would make it equivalently affordable for them.
 

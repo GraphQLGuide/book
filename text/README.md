@@ -33,21 +33,21 @@ This book will be especially poignant to these groups of people:
 
 ## Background
 
-We have a [Background](background/index.md) chapter that provides concise introductions to various background topics. You’re welcome to either look through them now or individually as you go along—at the beginning of a section, you’ll find a list of topics it assumes knowledge of, like the [Anywhere: HTTP](client/#anywhere-http) section, which has two listed:
+We have a [Background](background/index.md) chapter that provides concise introductions to various background topics. You’re welcome to either look through them now or individually as you go along—at the beginning of a section, you’ll find a list of topics it assumes knowledge of, like the [Anywhere: HTTP](client/anywhere-http.md) section, which has two listed:
 
 > Background: [HTTP](background/http.md), [JSON](background/json.md)
 
-Some topics like [Git](background/git.md) and [Node](background/node.md) are necessary for following along with the coding. Others, like [Tokens vs. sessions](background/authentication.md#tokens-vs-sessions), are nice to know, but not necessary.
+Some topics like [Git](background/git.md) and [Node](background/node-npm-and-nvm.md) are necessary for following along with the coding. Others, like [Tokens vs. sessions](background/authentication.md#tokens-vs-sessions), are nice to know, but not necessary.
 
 ## The book
 
 While this book is great when read cover-to-cover, we don’t expect everyone to be interested in all the topics. A junior dev who wants to learn GraphQL and full-stack React Native might start with the Background and read straight through, skipping Vue, iOS, and Android, whereas a senior backend dev who’s already familiar with GraphQL might just read the spec and server chapters, and then come back to them as a reference when needed.
 
-We’ve organized the table of contents for easy referencing. For instance, if you’re familiar with most GraphQL types but want to learn about Unions, you can look them up in the Table of Contents under Chapter 3: Type System > [Unions](type-system/#unions). Or if you’re already doing basic queries in your React app, and you want to implement infinite scrolling, you can look it up under Chapter 6: React > Advanced querying > [Paginating](react/#paginating).
+We’ve organized the table of contents for easy referencing. For instance, if you’re familiar with most GraphQL types but want to learn about Unions, you can look them up in the Table of Contents under Chapter 3: Type System > [Unions](type-system/unions.md). Or if you’re already doing basic queries in your React app, and you want to implement infinite scrolling, you can look it up under Chapter 6: React > Advanced querying > [Paginating](react/advanced/paginating.md).
 
 [Chapter 1](understanding-graphql/index.md) introduces GraphQL and shows why it’s better than REST.
 
-Chapters [2](query-language/index.md) and [3](type-system/index.md) explain the language itself and its type system.
+[Chapter 2](query-language/index.md) and [Chapter 3](type-system/index.md) explain the language itself and its type system.
 
 [Chapter 4](validation-and-execution/index.md) goes in depth on how a GraphQL server responds to a query. It’s great for a full understanding of the technology, but you don’t *need* to know it unless you’re contributing to a GraphQL server library. So it’s totally fine to skip this—you’ll still understand everything if you go straight to [Chapter 11](server/index.md), the practical server coding chapter.
 
@@ -59,7 +59,7 @@ Chapters [2](query-language/index.md) and [3](type-system/index.md) explain the 
 - [Chapter 9: iOS](ios/index.md)
 - [Chapter 10: Android](android/index.md)
 
-[Chapter 11: Server Dev](server/index.md) is our server coding chapter. It and Chapter 6 are by far the longest chapters. All of the server examples are in Node with the `apollo-server` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](server/#introduction).
+[Chapter 11: Server Dev](server/index.md) is our server coding chapter. It and Chapter 6 are by far the longest chapters. All of the server examples are in Node with the `apollo-server` library, but almost all of the concepts can be applied to [other languages’ GraphQL libraries](server/introduction.md).
 
 ## The code
 
@@ -73,7 +73,7 @@ Code snippets are better formatted and sized in the HTML and PDF versions of the
 
 In Chapters 6–11, you’ll learn through writing an app, step by step. Each chapter has its own repository. Each step has a branch in that repo, for example, branch `0` is the starter template, branch `1` has the code you write in step 1, etc. The branches we link to in the text also have a version number, and have the format: `[step]_[version]`. When the first version of the Guide was published, the Chapter 6 code version was `0.1.0`, so step 1 linked to branch `1_0.1.0`. The current version is `0.2.0`, so step 1 links to `1_0.2.0`.
 
-If you skip the beginning of Chapter 6 and go straight to the [Listing reviews](react/#listing-reviews) section, it says to start with step 9 (`9_0.2.0`). So we can look at the app in that state with these terminal commands:
+If you skip the beginning of Chapter 6 and go straight to the [Listing reviews](react/mutating.md#listing-reviews) section, it says to start with step 9 (`9_0.2.0`). So we can look at the app in that state with these terminal commands:
 
 ```sh
 git clone https://github.com/GraphQLGuide/guide.git

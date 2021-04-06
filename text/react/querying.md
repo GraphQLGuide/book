@@ -37,7 +37,7 @@ export default () => {
 
 But how do we get the `count` number? First we write the query, which is
 pretty simple, since it’s a top-level
-[scalar](../type-system/#scalar-types) query field:
+[scalar](../type-system/scalars.md) query field:
 
 ```js
 import { gql } from '@apollo/client'
@@ -54,7 +54,7 @@ constants. We use an
 [operation name](http://graphql.org/learn/queries/#operation-name)
 (`StarsQuery`) so that it’s easier to find and debug. `gql` is a
 [template literal tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals)
-that parses our [query document](../query-language/#document) string, converting it into a structured object
+that parses our [query document](../query-language/document.md) string, converting it into a structured object
 that we can pass to Apollo—now we can give it to Apollo’s `useQuery` hook:
 
 ```js
@@ -162,7 +162,7 @@ Right now our star count is static—once it’s fetched, the number remains on 
 page until the page is refreshed. If the actual number of stars on the
 repository changes, we won’t know until we refresh. If we want to keep the
 number (and any other GraphQL data) up to date, we can do so in two different
-ways: polling and [subscriptions](../query-language/#subscriptions). Polling is much easier to
+ways: polling and [subscriptions](../query-language/subscriptions.md). Polling is much easier to
 implement, so let’s do that first. We can add a [`pollInterval`](https://www.apollographql.com/docs/react/api/react/hooks/#params) option to our query in `StarCount.js`:
 
 [`src/components/StarCount.js`](https://github.com/GraphQLGuide/guide/blob/2_1.0.0/src/components/StarCount.js)
@@ -262,7 +262,7 @@ In these cases we can use GraphQL
 in which our server will send us updates to our data as they occur. The main
 drawback to subscriptions is that it takes extra work to implement on the
 server. (In the last chapter we’ll learn how to
-[add subscription support](../server/#subscriptions).) Another possible drawback is
+[add subscription support](../server/building/subscriptions.md).) Another possible drawback is
 that if the subscription data changes frequently, it can hurt client performance
 by taking up time receiving, updating the cache, and re-rendering the page.
 
@@ -520,7 +520,7 @@ Now let’s delete `githubStars`, and with our cursor in between the `query` bra
 ![Playground with query suggestions](../img/play-suggestions.png)
 
 The one we want is `chapters`. Now we can add an inner set of braces (the
-[selection set](../query-language/#selection-sets) on `chapters`), move our cursor inside, and hit `control-space` again to see the available fields of a `Chapter` (which is the type that `chapters` returns):
+[selection set](../query-language/selection-sets.md) on `chapters`), move our cursor inside, and hit `control-space` again to see the available fields of a `Chapter` (which is the type that `chapters` returns):
 
 ```gql
 query {
@@ -1247,7 +1247,7 @@ export default () => {
 
 Now when we open [/introduction](http://localhost:3000/introduction) or [/1-Understanding-GraphQL-through-REST/1-Introduction](http://localhost:3000/1-Understanding-GraphQL-through-REST/1-Introduction) in new tabs, we get the right section content instead of an error! 🐞✅ 
 
-In [Apollo devtools](../client/#devtools), we can look at the active queries on the page, which will let us see which of our three section queries is being used:
+In [Apollo devtools](../client/client-libraries.md#devtools), we can look at the active queries on the page, which will let us see which of our three section queries is being used:
 
 ![SectionContent](../img/SectionContent.png)
 

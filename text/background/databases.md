@@ -133,7 +133,7 @@ redis.del('latest-review')
 
 SQL (Structured Query Language) is a language for querying relational databases like SQLite and PostgreSQL. Relational databases have *tables* instead of MongoDB’s collections, and *rows* instead of documents. A row is made up of *values* for each *column* in the table. Columns have a name and a type—for instance a `reviews` table with a column named `star` of type `INTEGER`, which could have a value of `5` in the first row:
 
-![reviews table with three columns and three rows](../img/)
+![reviews table with three columns and three rows](../img/reviews-table.png)
 
 Unlike MongoDB collections, each table has a schema—its name and list of columns. Both the table schema and query statements are written in SQL. Here are the `CREATE TABLE` and `INSERT` statements to create the pictured table and rows. Then, the `SELECT` statement returns the table’s contents:
 
@@ -205,7 +205,7 @@ tldr|1|lorensr
 
 `Breathtaking|5` is from the reviews table while `lorensr` is from the users table.
 
-While we can send SQL statements as strings in our code, we usually use a library for convenience and security (avoiding [SQL injection](https://en.wikipedia.org/wiki/SQL_injection)). In [Chapter 11: SQL](../server/#sql), we use the [Knex](https://knexjs.org/) library, which looks like this:
+While we can send SQL statements as strings in our code, we usually use a library for convenience and security (avoiding [SQL injection](https://en.wikipedia.org/wiki/SQL_injection)). In [Chapter 11: Server > SQL](../server/more-data-sources/sql.md), we use the [Knex](https://knexjs.org/) library, which looks like this:
 
 ```js
 this.knex

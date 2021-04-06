@@ -36,7 +36,7 @@ Chapter contents:
     * [githubStars](building/subscriptions.md#githubstars)
     * [reviewCreated](building/subscriptions.md#reviewcreated)
 * [Testing](testing/index.md)
-  * [Static testing](testing/static-tests.md)
+  * [Static testing](testing/static-testing.md)
   * [Review integration tests](testing/review-integration-tests.md)
   * [Code coverage](testing/code-coverage.md)
   * [User integration tests](testing/user-integration-tests.md)

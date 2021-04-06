@@ -40,8 +40,8 @@ Chapter contents:
 
 ---
 
-This chapter provides concise introductions to various background topics. You’re welcome to either read them all up front or individually as you go along—at the beginning of a section, you’ll find a list of topics it assumes knowledge of, like the [Anywhere: HTTP](../client/#anywhere-http) section, which has two listed:
+This chapter provides concise introductions to various background topics. You’re welcome to either read them all up front or individually as you go along—at the beginning of a section, you’ll find a list of topics it assumes knowledge of, like the [Anywhere: HTTP](../client/anywhere-http.md) section, which has two listed:
 
 > Background: [HTTP](http.md), [JSON](json.md)
 
-Some topics, like [Git](git.md) and [Node](node.md), are necessary for following along with the coding. Others, like [Tokens vs. sessions](authentication.md#tokens-vs-sessions), are nice to know, but not essential.
+Some topics, like [Git](git.md) and [Node](node-npm-and-nvm.md), are necessary for following along with the coding. Others, like [Tokens vs. sessions](authentication.md#tokens-vs-sessions), are nice to know, but not essential.
