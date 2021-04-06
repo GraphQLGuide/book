@@ -46,7 +46,7 @@ While this book is great when read cover-to-cover, we don’t expect everyone to
 
 We’ve organized the table of contents for easy referencing. For instance, if you’re familiar with most GraphQL types but want to learn about Unions, you can look them up in the Table of Contents under Chapter 3: Type System > [Unions](type-system/unions.md). Or if you’re already doing basic queries in your React app, and you want to implement infinite scrolling, you can look it up under Chapter 6: React > Advanced querying > [Paginating](react/advanced/paginating.md).
 
-There are many intra-book links like the two above, and depending on your e-book reader, there may be a way to “Go back” to your previous location after tapping a link. For example, in Mac Preview, you can use the `Cmd-[` shortcut. Otherwise, you may be able to bookmark the current location before tapping or remember the page number and then use a “Go to page/location” feature. Alternatively, it’s easy to go back and forward in a web browser, if you’re using the HTML version of the book: [graphql.guide/introduction](https://graphql.guide/introduction).
+There are many intra-book links like the two above, and depending on your e-book reader, there may be a way to “Go back” to your previous location after tapping a link. For example, in Mac Preview, you can use the `Cmd-[` shortcut. Otherwise, you may be able to bookmark the current location before tapping or remember the page number and then use a “Go to page/location” feature. Alternatively, it’s easy to go back and forward in a web browser if you’re using the HTML version of the book: [graphql.guide/introduction](https://graphql.guide/introduction).
 
 ### The chapters
 
