@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import { gql, useQuery } from '@apollo/client'
 import classNames from 'classnames'
-import Odometer from 'react-odometerjs'
+import loadable from '@loadable/component'
 
 import { ReactComponent as StarIcon } from '../assets/star.svg'
 import './StarCount.css'
+
+const Odometer = loadable(() => import('./Odometer'))
 
 const STARS_QUERY = gql`
   query StarsQuery {

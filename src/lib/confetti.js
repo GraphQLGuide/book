@@ -1,5 +1,7 @@
 import confetti from 'canvas-confetti'
 
+import { inBrowser } from './helpers'
+
 export const fireworks = () => {
   const DURATION_IN_MS = 3 * 1000
   const endTime = Date.now() + DURATION_IN_MS
@@ -26,4 +28,6 @@ export const fireworks = () => {
   firework()
 }
 
-window.fireworks = fireworks
+if (inBrowser) {
+  window.fireworks = fireworks
+}
