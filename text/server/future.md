@@ -2,7 +2,7 @@
 title: Future
 ---
 
-## Future
+# Future
 
 The largest change to GraphQL-land in the coming years will be its size! The [S curve](https://en.wikipedia.org/wiki/Sigmoid_function) of GraphQL adoption is currently in the exponential phase (*seemingly* exponential—technically, it’s logistic). Here’s a graph of the [`graphql`](https://www.npmjs.com/package/graphql) package’s weekly npm downloads over the first 5 years:
 

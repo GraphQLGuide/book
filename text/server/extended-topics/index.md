@@ -41,7 +41,6 @@ description: Table of contents for the Extended topics part of the server chapte
 * [Performance](performance.md)
   * [Data fetching](performance.md#data-fetching)
   * [Caching](performance.md#caching)
-* [Future](future.md)
 
 This section includes miscellaneous server topics that we didn’t get to in the main-line [Building](../building/index.md) tutorial, the [Testing](../testing/index.md) sequence, the [Production](../production/index.md) section, or the [data sources](../more-data-sources/index.md) section. Some topics are short, and some are long (yes, we know—the length of this chapter is ridiculous 😆). Most of the code will be branched off of `25`, the end of the Building and Testing sequence.
 

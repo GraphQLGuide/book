@@ -4,6 +4,7 @@
   * [Who is this book for?](README.md#who-is-this-book-for)
   * [Background](README.md#background)
   * [The book](README.md#the-book)
+    * [The chapters](README.md#the-chapters)
   * [The code](README.md#the-code)
     * [Git](README.md#git)
     * [Formatting](README.md#formatting)
@@ -305,7 +306,7 @@
     * [Performance](server/extended-topics/performance.md)
       * [Data fetching](server/extended-topics/performance.md#data-fetching)
       * [Caching](server/extended-topics/performance.md#caching)
-    * [Future](server/extended-topics/future.md)
+  * [Future](server/future.md)
 
 ### Part IV: Extras
 

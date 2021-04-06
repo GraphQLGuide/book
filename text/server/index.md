@@ -101,4 +101,4 @@ Chapter contents:
   * [Performance](extended-topics/performance.md)
     * [Data fetching](extended-topics/performance.md#data-fetching)
     * [Caching](extended-topics/performance.md#caching)
-  * [Future](extended-topics/future.md)
+* [Future](future.md)
