@@ -22,6 +22,16 @@ class Package {
       return this.price
     }
   }
+
+  individualPackage() {
+    if (this.basic) {
+      return 'basic'
+    } else if (this.pro || this.team) {
+      return 'pro'
+    } else {
+      return 'full'
+    }
+  }
 }
 
 const packages = [
