@@ -50,7 +50,7 @@ const FavoriteButton = ({ id, favorited }) => {
             cache.modify({
               id: currentUserRef.__ref,
               fields: {
-                favoriteReviews: (reviewRefs, { readField }) =>
+                favoriteReviews: (reviewRefs = [], { readField }) =>
                   favoriteReview.favorited
                     ? [...reviewRefs, { __ref: `Review:${id}` }]
                     : reviewRefs.filter(

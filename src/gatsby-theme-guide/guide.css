@@ -66,10 +66,14 @@ export const iPadMaxW = 1023
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
   color: var(--text);
   background-color: var(--bg);
-  line-height: 1.6em;
+}
+
+.Landing {
+  font-size: 1rem;
+  /* font-family: 'Roboto', sans-serif;
+  line-height: 1.6em; */
 }
 
 /* -- override styles.less -- */

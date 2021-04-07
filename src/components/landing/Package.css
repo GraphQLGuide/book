@@ -3,7 +3,7 @@
   width: 310px;
   margin: 0 calc(5px + 1vw);
   --package-padding: 10px 20px;
-  --package-font: 0.875rem;
+  --package-font: 0.9rem;
 }
 
 .Package:not(.recommended) {

@@ -32,7 +32,7 @@ const EDIT_REVIEW_MUTATION = gql`
   }
 `
 
-export default ({ done, review }) => {
+export default React.forwardRef(({ done, review }, ref) => {
   const [text, setText] = useState(review ? review.text : ''),
     [stars, setStars] = useState(review ? review.stars : null),
     [errorText, setErrorText] = useState()
@@ -136,6 +136,7 @@ export default ({ done, review }) => {
       className={classNames('ReviewForm', { editing: isEditing })}
       autoComplete="off"
       onSubmit={handleSubmit}
+      ref={ref}
     >
       <TextField
         className="AddReview-text"
@@ -174,4 +175,4 @@ export default ({ done, review }) => {
       </div>
     </form>
   )
-}
+})
