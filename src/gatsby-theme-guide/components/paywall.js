@@ -48,6 +48,7 @@ export const Paywall = ({
   title,
   image,
   description,
+  conditionalRender,
 }) => {
   const { user } = useUser()
 
@@ -107,6 +108,14 @@ export const Paywall = ({
           )}
         </Fragment>
       )
+    }
+  }
+
+  if (conditionalRender) {
+    if (hide) {
+      return null
+    } else {
+      return children
     }
   }
 
