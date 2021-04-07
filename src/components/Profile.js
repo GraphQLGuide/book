@@ -125,6 +125,11 @@ export default () => {
                 <code>{user.username}</code>
               </a>
             </dd>
+
+            <dt>Web version of book</dt>
+            <dd>
+              <Link to="/preface">/preface</Link>
+            </dd>
           </dl>
 
           <button className="Profile-logout" onClick={logout}>

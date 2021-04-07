@@ -10,7 +10,7 @@ export default () => (
   <Wrapper>
     <h1>Page not found</h1>
     <p>
-      If this page should be here, or if there’s a broken link on this site,
+      If there should be a page here, or if there’s a broken link on our site,
       please let us know of the issue:
     </p>
     <p>

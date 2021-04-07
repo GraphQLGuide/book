@@ -13,8 +13,8 @@ const Container = styled.div({
   },
 })
 
-export const AboveNav = () => (
+export const AboveNav = ({ onClick }) => (
   <Container>
-    <CurrentUser inline />
+    <CurrentUser inline onClick={onClick} />
   </Container>
 )

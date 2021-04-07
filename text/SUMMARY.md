@@ -1,3 +1,8 @@
+---
+title: Table of Contents
+slug: /contents
+---
+
 * [Preface](preface.md)
 
 * [Introduction](README.md)

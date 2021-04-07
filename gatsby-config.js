@@ -238,7 +238,7 @@ module.exports = {
         contentDir: 'text',
         siteName: 'The GraphQL Guide',
         pageTitle: 'The GraphQL Guide',
-        description: 'The complete reference text for GraphQL and Apollo',
+        description: 'The complete reference for GraphQL and Apollo',
         githubRepo: 'GraphQLGuide/book',
         defaultVersion: '1.0',
         ffWidgetId: '80119a3c-6bb7-469f-9ee9-fa3f719c2805',

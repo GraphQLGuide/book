@@ -90,7 +90,7 @@ const Topics = () => (
       Topics We Cover
     </Typography>
 
-    <Link to="/preface" className="Topics-toc">
+    <Link to="/contents" className="Topics-toc">
       View table of contents
     </Link>
 

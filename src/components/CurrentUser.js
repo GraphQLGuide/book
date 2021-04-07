@@ -6,7 +6,7 @@ import './CurrentUser.css'
 import { useUser } from '../lib/useUser'
 import { login } from '../lib/auth'
 
-export default ({ inline, buttonText }) => {
+export default ({ inline, buttonText, onClick }) => {
   const { user, loggingIn } = useUser()
 
   let content
@@ -17,7 +17,7 @@ export default ({ inline, buttonText }) => {
     content = <button onClick={login}>{buttonText || 'Sign in'}</button>
   } else {
     content = (
-      <Link to="/me" className="User">
+      <Link to="/me" className="User" onClick={onClick}>
         <img src={user.photo} alt={user.firstName} />
         {user.firstName}
       </Link>
