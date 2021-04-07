@@ -96,7 +96,7 @@ const Pricing = () => (
         GraphQL is the best data-fetching system out there. (Which is probably a
         long time—REST has been around for {REST_LIFESPAN} years!)
         <br />
-        <sup>2</sup> Videos coming soon.
+        <sup>2</sup> Coming soon.
       </div>
     </div>
 

@@ -10,6 +10,7 @@ const Footer = ({ legal }) => (
       <Fragment>
         <hr />
         <div className="Footer-row">
+          <Link to="/reviews">Reviews</Link>
           <LinkNewTab href="https://twitter.com/graphqlguide">
             Twitter
           </LinkNewTab>
