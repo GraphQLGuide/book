@@ -5,7 +5,8 @@
     "build": "gatsby clean && gatsby build",
     "serve": "gatsby serve",
     "watch-theme": "connect-deps --connect --watch link ../gatsby-theme-apollo/packages/gatsby-theme-apollo-docs ../gatsby-theme-apollo/packages/gatsby-theme-apollo-core",
-    "update-toc": "doctoc README.md"
+    "update-toc": "doctoc README.md",
+    "update-algolia": "docker run -it --env-file=.env.docsearch -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",
@@ -37,9 +38,11 @@
     "formik": "^0.11.11",
     "gatsby": "^2.32.11",
     "gatsby-plugin-heap": "^1.1.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-use-query-params": "^1.0.1",
+    "gatsby-redirect-from": "^0.3.0",
     "gatsby-theme-apollo": "^3.0.3",
-    "gatsby-theme-guide": "^4.7.9",
+    "gatsby-theme-guide": "^4.7.10",
     "gatsby-theme-guide-core": "^3.0.26",
     "graphql": "^14.0.0",
     "graphql-anywhere": "^4.2.7",

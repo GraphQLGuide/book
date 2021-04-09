@@ -2,6 +2,8 @@
 title: Introduction
 slug: '/introduction'
 description: Introduction to the book, its contents, and formatting.
+redirect_from:
+  - /README/
 ---
 
 # Introduction
