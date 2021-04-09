@@ -76,6 +76,13 @@ body {
   line-height: 1.6em; */
 }
 
+.content-wrapper a[target='_blank']:after {
+  position: relative;
+  bottom: 2px;
+  left: 1px;
+  content: url(/external.svg);
+}
+
 /* -- override styles.less -- */
 
 img {
