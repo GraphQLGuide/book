@@ -1,6 +1,7 @@
 {
   "index_name": "guide",
-  "start_urls": ["https://graphql.guide/contents"],
+  "start_urls": ["https://graphql.guide/"],
+  "stop_urls": ["https://graphql.guide/preface$"],
   "selectors": {
     "default": {
       "lvl0": ".content-wrapper h1",
