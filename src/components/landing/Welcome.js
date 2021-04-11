@@ -80,10 +80,11 @@ export default function Welcome() {
       </p>
       {loggedIn || (
         <p>
-          To receive the book, please create an account through GitHub OAuth:
+          To receive the book, please connect your GitHub account and return to
+          this page:
         </p>
       )}
-      <CurrentUser buttonText="Create account" inline />
+      <CurrentUser buttonText="Connect account" inline />
       {loggedIn && (
         <div className="Welcome-user">
           <p>

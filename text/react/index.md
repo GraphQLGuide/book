@@ -69,7 +69,7 @@ In this chapter, we’ll learn to use the [`@apollo/client`](https://www.apollog
 
 ![Guide app](../img/guide-app.png)
 
-We’ll be using Apollo’s hooks API. For an older version of this chapter that uses Apollo’s [render prop](https://www.apollographql.com/docs/react/api/react/components/) and [higher-order component](https://www.apollographql.com/docs/react/api/react/hoc/) APIs or the Apollo Client 2.* cache API, see version r5 of the Guide:
+We’ll be using Apollo’s hooks API. For an older version of this chapter that uses Apollo’s [render prop](https://www.apollographql.com/docs/react/api/react/components/) and [higher-order component](https://www.apollographql.com/docs/react/api/react/hoc/) APIs or the Apollo Client 2.* cache API, see version `r5` of the Guide:
 
 - [r5.pdf](https://s3.graphql.guide/the-graphql-guide-r5.pdf)
 - [r5.mobi](https://s3.graphql.guide/the-graphql-guide-r5.mobi)

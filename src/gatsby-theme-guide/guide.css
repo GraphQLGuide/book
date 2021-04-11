@@ -654,7 +654,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .odometer.odometer-auto-theme,
 .odometer.odometer-theme-default {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   /* font-family: 'Helvetica Neue', sans-serif; */
   line-height: 1.1em;
 }
