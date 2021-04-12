@@ -99,6 +99,7 @@ const TshirtOrderForm = () => (
                     <InputLabel htmlFor="product">Option</InputLabel>
                     <Select
                       native
+                      name="product"
                       value={values.product}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -117,6 +118,7 @@ const TshirtOrderForm = () => (
                     <InputLabel htmlFor="size">Size</InputLabel>
                     <Select
                       native
+                      name="size"
                       value={values.size}
                       onChange={handleChange}
                       onBlur={handleBlur}
