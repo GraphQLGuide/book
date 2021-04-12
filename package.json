@@ -60,6 +60,7 @@
     "react-odometerjs": "^2.1.1",
     "react-star-rating-component": "^1.4.1",
     "react-style-proptype": "^3.2.2",
+    "react-youtube": "^7.13.1",
     "revalidate": "^1.2.0",
     "scroll-into-view-if-needed": "^2.2.26",
     "subscriptions-transport-ws": "^0.9.18",

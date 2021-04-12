@@ -6,6 +6,7 @@ import './Profile.css'
 import { useUser } from '../lib/useUser'
 import { login, logout } from '../lib/auth'
 import { apolloSpace } from '../lib/apollo'
+import { getPackage } from '../lib/packages'
 
 const LAUNCH_QUERY = spaceql`
   query LaunchQuery {
@@ -79,6 +80,7 @@ function Launch() {
 export default () => {
   const { user, loggingIn } = useUser()
   const [showLaunch, setShowLaunch] = useState(false)
+  const pkg = getPackage(user?.hasPurchased)
 
   if (loggingIn) {
     return (
@@ -108,11 +110,17 @@ export default () => {
             <dt>Membership level</dt>
             <dd>
               <code>{user.hasPurchased || 'GUEST'}</code>
-              {!user.hasPurchased ? (
-                <Link to="/#pricing" className="Profile-purchase">
+              {user.hasPurchased ? (
+                pkg.individualPackage() === 'full' ? (
+                  <Link to="/videos" className="Profile-membership-link">
+                    videos
+                  </Link>
+                ) : null
+              ) : (
+                <Link to="/#pricing" className="Profile-membership-link">
                   purchase
                 </Link>
-              ) : null}
+              )}
             </dd>
 
             <dt>OAuth Github account</dt>

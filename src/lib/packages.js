@@ -87,6 +87,7 @@ const packages = [
 //   'team'
 //   { team: true, full: false}
 export const getPackage = (which) => {
+  if (!which) return null
   if (typeof which === 'object') {
     for (const prop in which) {
       if (which[prop]) {
