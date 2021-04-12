@@ -73,14 +73,13 @@ const Package = ({
                     Videos:<Sup>2</Sup>
                   </Fragment>
                 ) : (
-                  <Fragment>
-                    More videos:<Sup>2</Sup>
-                  </Fragment>
+                  <Fragment>More videos:</Fragment>
                 )}
               </div>
               {videos.map((video, i) => (
                 <div className="Package-extra-item" key={i}>
                   {video}
+                  {full && i === 0 ? <Sup>2</Sup> : null}
                 </div>
               ))}
             </li>
