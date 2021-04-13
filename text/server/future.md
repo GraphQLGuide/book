@@ -14,13 +14,13 @@ And it doesn’t even include client packages like `apollo-client`, which are al
 
 As adoption grows, more resources will be put into GraphQL libraries, tools, and services. The existing ones will improve, and new ones will be created. 
 
-- Apollo Server’s [roadmap](https://github.com/apollographql/apollo-server/blob/master/ROADMAP.md#future-work) lists near-term future work, including: 
+- Apollo Server’s [roadmap](https://github.com/apollographql/apollo-server/blob/main/ROADMAP.md#future-work) lists near-term future work, including:
   - Adding subscription support to Apollo Federation.
   - Adding `@defer` and `@stream` directives.
   - Invalidation of whole-query cache through cache tags with CDN integration.
   - Building a “graph” caching layer for the gateway.
 - Apollo Client also has a [roadmap](https://github.com/apollographql/apollo-client/blob/master/ROADMAP.md) as well.
-- For some futuristic-seeming services and tooling, check out [this video](https://www.youtube.com/watch?v=JilN_PvQOqs) from the creator of [OneGraph](https://www.onegraph.com/docs/) (a GraphQL API that combines many different companies’ APIs).
+- For some futuristic-seeming services and tooling, check out [this video](https://www.youtube.com/watch?v=JilN_PvQOqs) from the creator of [OneGraph](https://www.onegraph.com/docs/) (a GraphQL API we use in the [Stripe and Service Integrations](../service-integrations/index.md) chapter that combines many different companies’ APIs).
 - An exciting area in which we’re looking forward to growth is full-stack GraphQL frameworks—the Ruby on Rails of GraphQL, Node, and React. Our current favorite is [RedwoodJS](https://redwoodjs.com/), a new project based on Apollo, serverless, and Prisma.
 
 There will also be changes to the language itself. In 2018, Facebook transferred the GraphQL project (which includes the spec, the [`graphql-js`](https://github.com/graphql/graphql-js) reference implementation, GraphiQL, and DataLoader) to a new Linux Foundation called the [GraphQL Foundation](https://foundation.graphql.org/). Anyone can discuss or propose changes to the specification in its GitHub repo, [graphql/graphql-spec](https://github.com/graphql/graphql-spec), or in the [GraphQL Working Group](https://github.com/graphql/graphql-wg), a monthly virtual meeting of maintainers.

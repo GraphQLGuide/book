@@ -6,6 +6,7 @@
   text-decoration: none;
   transition: transform 200ms;
   color: var(--link);
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -17,6 +18,7 @@
 .StarCount::after {
   content: 'stars';
   padding-left: 5px;
+  padding-bottom: 1px;
 }
 
 .StarCount.loading {
