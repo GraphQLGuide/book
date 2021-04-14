@@ -7,6 +7,7 @@ import { useUser } from '../lib/useUser'
 import { login, logout } from '../lib/auth'
 import { apolloSpace } from '../lib/apollo'
 import { getPackage } from '../lib/packages'
+import LinkNewTab from './landing/LinkNewTab'
 
 const LAUNCH_QUERY = spaceql`
   query LaunchQuery {
@@ -122,6 +123,19 @@ export default () => {
                 </Link>
               )}
             </dd>
+
+            {user.hasPurchased ? (
+              <>
+                <dt>E-book links</dt>
+                <dd>
+                  <LinkNewTab href={user.ebookUrl + '.pdf'}>PDF</LinkNewTab>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <LinkNewTab href={user.ebookUrl + '.epub'}>EPUB</LinkNewTab>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <LinkNewTab href={user.ebookUrl + '.mobi'}>MOBI</LinkNewTab>
+                </dd>
+              </>
+            ) : null}
 
             <dt>OAuth Github account</dt>
             <dd>

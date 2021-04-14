@@ -18,6 +18,7 @@ export const USER_QUERY = gql`
       photo
       hasPurchased
       hasTshirt
+      ebookUrl
       favoriteReviews {
         id
       }
