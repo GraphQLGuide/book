@@ -265,6 +265,7 @@ module.exports = {
       },
     },
     'gatsby-redirect-from',
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-meta-redirect', // make sure this is always the last one
   ],
 }
