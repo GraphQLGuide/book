@@ -54,9 +54,19 @@
   margin-bottom: 24px;
 }
 
+.Topics a {
+  color: var(--pink);
+}
+
+.Topics a:hover,
+.Topics a:active,
+.Topics a:focus {
+  color: var(--pink-light);
+  text-decoration: underline;
+}
+
 .Topics-toc {
-  /* color: var(--link); */
-  margin-bottom: 45px;
+  margin-bottom: 55px;
 }
 
 @media only screen and (max-width: 800px) {

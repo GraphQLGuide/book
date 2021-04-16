@@ -96,7 +96,7 @@ After we authenticate the client, we either have their decoded token object (in 
 
 Once we have the user’s permission info, our server has to determine which data to allow the user to query and which mutations to allow the user to call. There are a number of different places where we can make this determination:
 
-- **REST services**: In the case of putting a GraphQL gateway in front of existing REST services that already do authorization checks, we can continue to let them do the checks.
+- **Services**: In the case of putting a GraphQL gateway in front of existing services that already do authorization checks, we can continue to let them do the checks.
 - **Context**: If we only want logged-in users to be able to use our API, we can throw an `AuthenticationError` in our `context()` function whenever the HTTP header is missing or the decoding/session lookup fails.
 - **Model**: We can do the checks in our data-fetching code. This is the best option when we have both a GraphQL and REST API, both of which call the model code. (This way, we don’t have to duplicate authorization checks.)
 - **Directives**: We can add directives to fields or types in our schema—for instance, `@isAuthenticated` or `@hasRoles(roles: [ADMIN])`. A library we can use that defines these directives for us is [graphql-auth-directives](https://github.com/grand-stack/graphql-auth-directives).

@@ -8,7 +8,7 @@ import Review from '../Review'
 const REVIEWS = [
   {
     text:
-      'This is the most comprehensive coverage of modern GraphQL, going from the basics of the Query Language, to excruciating detail on Validation and Execution internals that you’ll be thankful for when things go wrong, to the latest and greatest in the ecosystem, like Apollo Federation and Hasura. It normally takes a developer months to get up to speed on putting together all these pieces. The GraphQL Guide teaches it in just a few hours!',
+      'This is the most comprehensive coverage of modern GraphQL, going from the basics of the Query Language to excruciating detail on Validation and Execution internals that you’ll be thankful for when things go wrong, to the latest and greatest in the ecosystem, like Apollo Federation and Hasura. It normally takes a developer months to get up to speed on putting together all these pieces. The GraphQL Guide teaches it in just a few hours!',
     stars: 5,
     author: {
       name: 'Shawn Wang',
