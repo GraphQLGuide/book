@@ -77,19 +77,6 @@ Sending the above document and variables would result in the below response:
 }
 ```
 
-Sending the above document and variables would result in the below response:
-
-```json
-{
-  "data":  {
-    "user": {
-      "id": 1,
-      "name": "John Resig"
-    }
-  }
-}
-```
-
 ## @deprecated
 
 Unlike `@skip` and `@include`, which are used in executable documents, [`@deprecated`](http://spec.graphql.org/draft/#sec--deprecated) is used in schema documents. It is placed after a field definition or enum value to communicate that the field/value is deprecated and why—it has an optional `reason` String argument that defaults to “No longer supported.”
