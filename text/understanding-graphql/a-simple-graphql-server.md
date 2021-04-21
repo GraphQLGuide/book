@@ -94,7 +94,7 @@ We have a couple of options if we want to run this query and get the data back f
 
 ```sh
 $ curl -X POST -H "Content-Type:application/json" \
->     -d '{"query": "{user(id: \"123\"){_id username}}"}' \`
+>     -d '{"query": "{user(id: \"123\"){_id username}}"}' \
 >     http://localhost:3000/graphql
 {"data":{"user":{"_id":"123","username":"jeresig"}}}
 ```
@@ -105,7 +105,7 @@ What happens when we attempt to query for a user that doesn’t exist? Does it r
 
 ```sh
 $ curl -X POST -H "Content-Type:application/json" \
->     -d '{"query": "{user(id: \"123\"){_id username}}"}' \
+>     -d '{"query": "{user(id: \"abc\"){_id username}}"}' \
 >     http://localhost:3000/graphql
 {"data":{"user":null}}
 ```
