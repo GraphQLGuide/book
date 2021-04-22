@@ -60,14 +60,15 @@ export default function Welcome() {
         <p>
           If this takes more than a minute, please reply to the receipt email
           with your GitHub username so that we can manually associate your
-          payment. Sorry for the trouble!
+          payment and send you the ebook. Sorry for the trouble!
         </p>
       </Fragment>
     ) : (
       <p>
         Sorry, we’re unable to associate your user account with your Stripe
-        checkout session. Please either open this page in the browser you
-        checked out in or reply to the receipt email with your GitHub username.
+        checkout session. To receive the book, please either open this page in
+        the browser you checked out in or reply to the receipt email with your
+        GitHub username.
       </p>
     )
 
@@ -80,11 +81,10 @@ export default function Welcome() {
       </p>
       {loggedIn || (
         <p>
-          To receive the book, please connect your GitHub account and return to
-          this page:
+          To access the book, please create an account and return to this page:
         </p>
       )}
-      <CurrentUser buttonText="Connect account" inline />
+      <CurrentUser buttonText="Create account (via GitHub OAuth)" inline />
       {loggedIn && (
         <div className="Welcome-user">
           <p>
