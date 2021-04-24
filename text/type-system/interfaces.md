@@ -4,7 +4,7 @@ title: Interfaces
 
 # Interfaces
 
-[Interfaces](http://graphql.org/learn/schema/#interfaces) define a list of fields that must be included in any object types implementing them. For instance, here are two interfaces, `BankAccount` and `InsuredAccount`, and and an object type that implements them, `CheckingAccount`:
+[Interfaces](http://graphql.org/learn/schema/#interfaces) define a list of fields that must be included in any object types implementing them. For instance, here are two interfaces, `BankAccount` and `InsuredAccount`, and an object type that implements them, `CheckingAccount`:
 
 ```gql
 interface BankAccount {
