@@ -103,6 +103,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-wrapper a[target='_blank']:after {
+  display: inline;
   position: relative;
   bottom: 2px;
   left: 1px;
