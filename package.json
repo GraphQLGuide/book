@@ -43,7 +43,7 @@
     "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-redirect-from": "^0.3.0",
     "gatsby-theme-apollo": "^3.0.3",
-    "gatsby-theme-guide": "^4.7.14",
+    "gatsby-theme-guide": "^4.7.15",
     "gatsby-theme-guide-core": "^3.0.26",
     "graphql": "^14.0.0",
     "graphql-anywhere": "^4.2.7",
