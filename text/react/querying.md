@@ -957,7 +957,7 @@ const SECTION_BY_CHAPTER_TITLE_QUERY = gql`
 `
 
 const SECTION_BY_NUMBER_QUERY = gql`
-  query SectionByChapterTitle($chapterNumber: Int!, $sectionNumber: Int!) {
+  query SectionByNumber($chapterNumber: Int!, $sectionNumber: Int!) {
     chapterByNumber(number: $chapterNumber) {
       number
       section(number: $sectionNumber) {
