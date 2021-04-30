@@ -766,7 +766,7 @@ export default () => {
 
 Now `data.section` will have the same `content` string that we saw returned in Playground, and we can display it:
 
-[src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
+[`src/components/Section.js`](https://github.com/GraphQLGuide/guide/blob/5_1.0.0/src/components/Section.js)
 
 ```js
 import get from 'lodash/get'
