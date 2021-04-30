@@ -44,7 +44,7 @@ INPUT_FIELD_DEFINITION
 
 Directives can work on multiple locations, like `@deprecated`:
 
-```
+```gql
 directive @deprecated(
   reason: String = "No longer supported"
 ) on FIELD_DEFINITION | ENUM_VALUE
@@ -63,4 +63,3 @@ type User {
   fullName: String @deprecated("Use `name` instead")
 }
 ```
-
