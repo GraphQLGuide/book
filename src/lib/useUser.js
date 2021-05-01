@@ -5,7 +5,7 @@ import ReactGA from 'react-ga'
 
 import { loginInProgressVar } from './auth'
 import { associateSession } from './payment'
-import { inBrowser } from './helpers'
+import { inBrowser, inDevelopment } from './helpers'
 
 export const USER_QUERY = gql`
   query UserQuery {
@@ -27,6 +27,8 @@ export const USER_QUERY = gql`
 `
 
 function track(user) {
+  if (inDevelopment) return
+
   const { id, name, email, hasPurchased } = user
   const userData = {
     name,

@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 
 import './Footer.css'
 import LinkNewTab from './LinkNewTab'
+import { login } from '../../lib/auth'
 
 const Footer = ({ legal }) => (
   <footer className="Footer">
@@ -26,7 +27,11 @@ const Footer = ({ legal }) => (
       <div>The GraphQL Guide © {new Date().getFullYear()}</div>
       <Link to="/terms">Terms</Link>
       <Link to="/privacy">Privacy</Link>
-      {legal || (
+      {legal ? (
+        <button onClick={() => login(() => navigate('/introduction'))}>
+          Sign in
+        </button>
+      ) : (
         <div>
           <LinkNewTab href="https://github.com/apollographql/gatsby-theme-apollo/tree/master/packages/gatsby-theme-apollo-docs">
             Gatsby theme

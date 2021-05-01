@@ -10,6 +10,11 @@
   display: flex;
   justify-content: flex-end;
 }
+.AboveFold-container > .CurrentUser {
+  z-index: 1;
+  padding-top: 50px;
+  right: 10vw;
+}
 .AboveFold-main-container {
   position: relative;
   display: flex;
@@ -33,6 +38,9 @@
 .AboveFold-hero {
   max-width: 90%;
   max-height: 85vh;
+}
+.AboveFold.withUser .AboveFold-hero {
+  max-height: 65vh;
 }
 .AboveFold-main-container > .LogoName {
   position: absolute;
@@ -101,6 +109,9 @@
     margin: 0;
     margin-top: 60px;
   }
+  .AboveFold.withUser .AboveFold-main-container {
+    margin-top: 100px;
+  }
   .AboveFold-hero-container {
     position: relative;
     left: 0;
@@ -131,6 +142,9 @@
   }
   .AboveFold-main-container {
     margin-top: 0px;
+  }
+  .AboveFold.withUser .AboveFold-main-container {
+    margin-top: 100px;
   }
   .AboveFold-title {
     font-size: 40px !important;
