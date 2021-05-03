@@ -70,12 +70,12 @@ query {
 
 The N+1 problem is when our server does 1 query for the post document and then N comment queries—one for each ID in the `post.commentIds` array. There are actually two issues with this:
 
-- The comment queries are done in parallel, but the post and the group of comment queries are done in series—the post is fetched before the comments. This is a significant hit to our GraphQL server’s response time.
+- The comment queries are done in parallel, but the post and the group of comment queries are done in series—the comment queries have to wait until the post query has returned. This is a significant hit to our GraphQL server’s response time.
 - When there are a lot of comments, there are a lot of comment queries, which is a high load on the server.
 
 The second issue is fixed by DataLoader, which batches all the comment queries into a single query. To learn how to use DataLoader, see the [Custom data source](../more-data-sources/custom-data-source.md) section. Also, if our data source is existing REST APIs, we can generate DataLoader code with Yelp’s [`dataloader-codegen`](https://github.com/Yelp/dataloader-codegen) library.
 
-To fix the first issue, we need the `post` resolver to fetch both the post and the comments at the same time. If we use Join Monster or Hasura, this is done for us. If we use MongoDB, we have two options:
+To fix the first issue, we need the `post` resolver to fetch both the post and the comments at the same time. If we use Join Monster, Hasura, or [Neo4j’s graphql library](https://www.npmjs.com/package/@neo4j/graphql), this is done for us. If we use MongoDB, we have two options:
 
 - Use a de-normalized structure in the posts collection, storing an array of comment objects inside each post document—then fetching the post will get the comments as well.
 - Use the `info` resolver arg:

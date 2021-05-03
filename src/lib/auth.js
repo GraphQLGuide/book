@@ -44,7 +44,11 @@ export const login = (cb) => {
         return
       }
 
-      apollo.reFetchObservableQueries().then(() => cb && cb())
+      apollo.reFetchObservableQueries().then(() => {
+        if (typeof cb === 'function') {
+          cb()
+        }
+      })
     },
   })
 }
