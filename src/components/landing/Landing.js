@@ -20,7 +20,7 @@ class Landing extends Component {
   "@type": "Product",
   "name": "The GraphQL Guide",
   "image": [
-    "https://res.cloudinary.com/graphql/image/upload/c_scale,f_auto,q_90,w_1000/book",
+    "https://res.cloudinary.com/graphql/image/upload/c_scale,f_auto,q_90,w_1000/book"
    ],
   "description": "A comprehensive book from John Resig, the creator of jQuery. The complete guide to GraphQL, from a beginner introduction to advanced client and server topics.",
   "review": {
