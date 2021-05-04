@@ -58,7 +58,10 @@ const AboveFold = () => {
           className="AboveFold-hero"
           publicId="book"
           fetchFormat="auto"
-          quality="auto"
+          width="1000"
+          crop="scale"
+          quality="80"
+          secure="true"
         />
       </div>
     </div>

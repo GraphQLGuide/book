@@ -24,6 +24,7 @@ const ElonLanding = () => (
         publicId="bored-elon-musk"
         fetchFormat="auto"
         quality="auto"
+        secure="true"
       />
     </a>
   </div>

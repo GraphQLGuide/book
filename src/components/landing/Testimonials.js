@@ -12,7 +12,8 @@ const REVIEWS = [
     stars: 5,
     author: {
       name: 'Shawn Wang',
-      photo: 'https://avatars.githubusercontent.com/u/6764957?v=4',
+      photo:
+        'https://res.cloudinary.com/graphql/c_scale,f_auto,q_80,w_80/shawn',
     },
   },
   {
@@ -21,16 +22,16 @@ const REVIEWS = [
     stars: 5,
     author: {
       name: 'Enno Thoma',
-      photo: 'https://avatars.githubusercontent.com/u/32581439?v=4',
+      photo: 'https://res.cloudinary.com/graphql/c_scale,f_auto,q_80,w_80/enno',
     },
   },
   {
     text:
-      'I’d already had the opportunity to work with and learn GraphQL, but The GraphQL Guide really cemented the core concepts (and enlightened me on some details I’d overlooked before). I always struggled with the concept of Subscriptions in GraphQL—after reading this guide, my understanding improved tenfold. Highly recommend reading if you want to be successful with GraphQL!',
+      'I’d already had the opportunity to work with and learn GraphQL, but the GraphQL Guide really cemented the core concepts (and enlightened me on some details I’d overlooked before). I always struggled with the concept of Subscriptions in GraphQL—after reading this book, my understanding improved tenfold. Highly recommend reading if you want to be successful with GraphQL!',
     stars: 5,
     author: {
       name: 'Ryan Glover',
-      photo: 'https://avatars.githubusercontent.com/u/874210?v=4',
+      photo: 'https://res.cloudinary.com/graphql/c_scale,f_auto,q_80,w_80/ryan',
     },
   },
 ]

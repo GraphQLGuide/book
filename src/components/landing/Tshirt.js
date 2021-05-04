@@ -23,6 +23,7 @@ const LinkedShirt = ({ filename }) => {
         publicId={filename}
         fetchFormat="auto"
         quality="auto"
+        secure="true"
       />
     </LinkNewTab>
   )

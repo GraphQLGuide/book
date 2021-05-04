@@ -112,7 +112,10 @@ const Package = ({
                   className="Package-tshirt"
                   publicId="guide-tshirt"
                   fetchFormat="auto"
-                  quality="auto"
+                  width="540"
+                  crop="scale"
+                  quality="70"
+                  secure="true"
                 />
                 T-shirt options
               </Link>

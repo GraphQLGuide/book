@@ -13,7 +13,7 @@ const Authors = () => (
       <Author
         name="John Resig"
         twitter="jeresig"
-        avatar="//res.cloudinary.com/graphql/jeresig.jpg"
+        avatar="//res.cloudinary.com/graphql/c_scale,f_auto,q_90,w_200/jeresig.jpg"
       >
         John is a JavaScript expert. He created jQuery and is Chief Software
         Architect at Khan Academy. Nine years ago, he stepped back from jQuery
@@ -24,7 +24,7 @@ const Authors = () => (
       <Author
         name="Loren Sands-Ramshaw"
         twitter="lorendsr"
-        avatar="//res.cloudinary.com/graphql/loren.png"
+        avatar="//res.cloudinary.com/graphql/c_scale,f_auto,q_90,w_200/loren.png"
       >
         Loren is a consultant who loves teaching and writing. He has worked on
         Apollo and the Meteor Guide, built full-stack web and mobile apps for
