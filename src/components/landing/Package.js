@@ -116,6 +116,7 @@ const Package = ({
                   crop="scale"
                   quality="70"
                   secure="true"
+                  alt="T-shirt"
                 />
                 T-shirt options
               </Link>
@@ -140,9 +141,36 @@ const Package = ({
       <div className="Package-header">
         {recommended && (
           <div className="Package-recommendation">
-            <Emoji name="ok_hand" />
-            <Emoji name="point_down" />
-            <Emoji name="ok_hand" />
+            <Image
+              className="Emoji"
+              publicId="ok_hand"
+              fetchFormat="auto"
+              width="72"
+              crop="scale"
+              quality="80"
+              secure="true"
+              alt="OK hand emoji"
+            />
+            <Image
+              className="Emoji"
+              publicId="point_down"
+              fetchFormat="auto"
+              width="72"
+              crop="scale"
+              quality="80"
+              secure="true"
+              alt="OK hand emoji"
+            />
+            <Image
+              className="Emoji"
+              publicId="ok_hand"
+              fetchFormat="auto"
+              width="72"
+              crop="scale"
+              quality="80"
+              secure="true"
+              alt="OK hand emoji"
+            />
           </div>
         )}
         <div className="Package-header-bg" />

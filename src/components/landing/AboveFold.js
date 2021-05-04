@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Image } from 'cloudinary-react'
 import { Typography, Button } from '@material-ui/core'
 import scrollIntoView from 'scroll-into-view-if-needed'
 
@@ -55,8 +54,9 @@ const AboveFold = () => {
       </div>
       <div className="AboveFold-hero-container">
         <img
-          class="AboveFold-hero"
+          className="AboveFold-hero"
           src="https://res.cloudinary.com/graphql/image/upload/c_scale,f_auto,q_80,w_1000/book"
+          alt="Cover of The GraphQL Guide"
         />
       </div>
     </div>

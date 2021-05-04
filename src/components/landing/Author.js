@@ -13,7 +13,7 @@ const Author = ({ name, twitter, avatar, children }) => (
       <TwitterLogo />
       {twitter}
     </LinkNewTab>
-    <Avatar className="Author-avatar" src={avatar} />
+    <Avatar className="Author-avatar" src={avatar} alt={name} />
     <Typography className="Author-name" variant="h5">
       {name}
     </Typography>

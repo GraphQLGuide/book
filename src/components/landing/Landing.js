@@ -13,6 +13,10 @@ class Landing extends Component {
         <AboveFold />
         <BelowFold />
         <Helmet>
+          <meta
+            name="description"
+            content="A comprehensive book from John Resig, the creator of jQuery. The complete guide to GraphQL, from a beginner introduction to advanced client and server topics."
+          />
           <script type="application/ld+json">
             {`
 {

@@ -24,6 +24,7 @@ const LinkedShirt = ({ filename }) => {
         fetchFormat="auto"
         quality="auto"
         secure="true"
+        alt="T-shirt"
       />
     </LinkNewTab>
   )
