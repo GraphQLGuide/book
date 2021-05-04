@@ -137,6 +137,11 @@ export default () => {
               </>
             ) : null}
 
+            <dt>Web version of book</dt>
+            <dd>
+              <Link to="/preface">/preface</Link>
+            </dd>
+
             <dt>OAuth Github account</dt>
             <dd>
               <a
@@ -146,11 +151,6 @@ export default () => {
               >
                 <code>{user.username}</code>
               </a>
-            </dd>
-
-            <dt>Web version of book</dt>
-            <dd>
-              <Link to="/preface">/preface</Link>
             </dd>
           </dl>
 

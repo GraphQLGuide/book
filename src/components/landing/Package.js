@@ -145,9 +145,9 @@ const Package = ({
               className="Emoji"
               publicId="ok_hand"
               fetchFormat="auto"
-              width="72"
+              width="100"
               crop="scale"
-              quality="80"
+              quality="90"
               secure="true"
               alt="OK hand emoji"
             />
@@ -155,9 +155,9 @@ const Package = ({
               className="Emoji"
               publicId="point_down"
               fetchFormat="auto"
-              width="72"
+              width="100"
               crop="scale"
-              quality="80"
+              quality="90"
               secure="true"
               alt="OK hand emoji"
             />
