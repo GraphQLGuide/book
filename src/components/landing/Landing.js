@@ -41,7 +41,7 @@ class Landing extends Component {
     "ratingValue": "5",
     "reviewCount": "7"
   },
-  "offers": {
+  "offers": [{
     "@type": "Offer",
     "url": "https://graphql.guide/#pricing",
     "priceCurrency": "USD",
@@ -49,7 +49,7 @@ class Landing extends Component {
     "availability": "https://schema.org/InStock",
     "name": "The GraphQL Guide (Basic)"
   },
-  "offers": {
+  {
     "@type": "Offer",
     "url": "https://graphql.guide/#pricing",
     "priceCurrency": "USD",
@@ -57,14 +57,14 @@ class Landing extends Component {
     "availability": "https://schema.org/InStock",
     "name": "The GraphQL Guide (Pro)"
   },
-  "offers": {
+  {
     "@type": "Offer",
     "url": "https://graphql.guide/#pricing",
     "priceCurrency": "USD",
     "price": "289",
     "availability": "https://schema.org/InStock",
     "name": "The GraphQL Guide (Full)"
-  }
+  }]
 }
 `}
           </script>
