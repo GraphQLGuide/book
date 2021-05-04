@@ -54,14 +54,9 @@ const AboveFold = () => {
         </div>
       </div>
       <div className="AboveFold-hero-container">
-        <Image
-          className="AboveFold-hero"
-          publicId="book"
-          fetchFormat="auto"
-          width="1000"
-          crop="scale"
-          quality="80"
-          secure="true"
+        <img
+          class="AboveFold-hero"
+          src="https://res.cloudinary.com/graphql/image/upload/c_scale,f_auto,q_80,w_1000/book"
         />
       </div>
     </div>

@@ -12,8 +12,8 @@
 }
 .AboveFold-container > .CurrentUser {
   z-index: 1;
-  padding: 50px 0 0;
-  right: calc(50vw - 114px / 2);
+  padding-top: 50px;
+  right: 10vw;
 }
 .AboveFold-main-container {
   position: relative;
@@ -145,6 +145,10 @@
   }
   .AboveFold.withUser .AboveFold-main-container {
     margin-top: 100px;
+  }
+  .AboveFold-container > .CurrentUser {
+    padding: 50px 0 0;
+    right: calc(50vw - 114px / 2);
   }
   .AboveFold.withUser .AboveFold-main {
     margin-top: 0;
