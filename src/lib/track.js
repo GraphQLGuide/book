@@ -5,8 +5,12 @@ import defer from 'lodash/defer'
 const EVENTS = [
   {
     name: 'purchase',
-    category: 'User'
-  }
+    category: 'User',
+  },
+  {
+    name: 'checkout',
+    category: 'User',
+  },
 ]
 
 const track = (name, data) => {
@@ -19,7 +23,7 @@ const track = (name, data) => {
     ReactGA.event({
       category: event.category,
       action: name,
-      ...(data.package && { label: data.package })
+      ...(data.package && { label: data.package }),
     })
     window.heap.track(name, data)
   })

@@ -25,7 +25,7 @@ Thank you to everyone who has contributed 😃🙌
 
 ## Contributing
 
-We welcome issues and PRs! For large changes, we recommend opening an issue first to get feedback before putting in the work of a PR. Minor things like typo fixes or suggested rewordings can go directly to PRs and will usually get a quick response 😊
+We welcome issues and PRs! For large changes, we recommend opening an issue first to get feedback before putting in the work of a PR. Minor things like typo fixes or suggested re-wordings can go directly to PRs and will usually get a quick response 😊
 
 ### Text
 
@@ -50,6 +50,7 @@ cd scripts
 #### With local theme
 
 ```
+git clone https://github.com/GraphQLGuide/gatsby-theme-apollo.git
 git clone https://github.com/GraphQLGuide/book.git
 cd book/
 connect-deps link ../gatsby-theme-apollo/packages/gatsby-theme-apollo-docs ../gatsby-theme-apollo/packages/gatsby-theme-apollo-core --connect --watch
