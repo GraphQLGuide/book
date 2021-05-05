@@ -388,7 +388,9 @@ class AuthenticatedDataSource extends RemoteGraphQLDataSource {
 }
 ```
 
-Here are further capabilities we aren’t using:
+We can also use [Apollo Workbench](https://apollographql.github.io/apollo-workbench-vscode/) to design our federated data graph before implementing it.
+
+For further reading, here are some federation capabilities we aren’t using:
 
 - Having [multiple primary keys](https://www.apollographql.com/docs/apollo-server/federation/entities/#defining-multiple-primary-keys) or [compound primary keys](https://www.apollographql.com/docs/apollo-server/federation/entities/#defining-a-compound-primary-key)
 - Resolving other services’ fields with the [`@provides`](https://www.apollographql.com/docs/apollo-server/federation/entities/#resolving-another-services-field-advanced) directive
