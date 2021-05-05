@@ -1,13 +1,21 @@
+.Welcome-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .Welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10vw;
   text-align: center;
+  max-width: 600px;
 }
 
 .Welcome h2 {
-  padding: 40px 0;
+  padding: 80px 0;
+  font-size: 3rem;
 }
 
 .Welcome > .CurrentUser > button {
@@ -15,7 +23,7 @@
 }
 
 .Welcome .Spinner {
-  color: var(--gray-light);
+  color: var(--pink);
 }
 
 .Welcome-user {
@@ -24,7 +32,6 @@
 
 .Welcome-user .Spinner {
   margin: -20px 0 50px calc(50% - 12.5px);
-  color: var(--pink);
 }
 
 .Welcome-tshirt > a {

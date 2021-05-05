@@ -5,6 +5,8 @@ const KNOWN_ERRORS = [
   'already-associated',
   'order-failed',
   'checkout-session-not-completed',
+  'unknown-token',
+  'signup-token-has-already-been-used',
 ]
 
 export const errorLink = onError(({ graphQLErrors, networkError }) => {
