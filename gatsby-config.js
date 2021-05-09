@@ -266,6 +266,12 @@ module.exports = {
     },
     'gatsby-redirect-from',
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-twitter-pixel`,
+      options: {
+        pixelId: 'o608e',
+      },
+    },
     'gatsby-plugin-meta-redirect', // make sure this is always the last one
   ],
 }

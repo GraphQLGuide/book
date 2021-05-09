@@ -56,19 +56,19 @@ export default function Welcome({ location }) {
     if (user && !user.hasPurchased && inviteCode) {
       associateSignupToken({ variables: { token: inviteCode } })
     }
-  }, [user?.id])
+  }, [user?.id, inviteCode, associateSignupToken])
 
   useEffect(() => {
     if (user && !user.hasPurchased && !inviteCode) {
       pollAssociateSession()
     }
-  }, [user?.id])
+  }, [user?.id, inviteCode])
 
   useEffect(() => {
     if (!inviteCode) {
       fireworks()
     }
-  }, [])
+  }, [inviteCode])
 
   if (user) {
     packageInfo = getPackage(user.hasPurchased)

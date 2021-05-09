@@ -6,7 +6,6 @@ import { Image } from 'cloudinary-react'
 
 import './Package.css'
 import { getPackage } from '../../lib/packages'
-import Emoji from './Emoji'
 import Payment from './Payment'
 import Sup from './Sup'
 

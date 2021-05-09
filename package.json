@@ -40,6 +40,7 @@
     "gatsby-plugin-heap": "^1.1.0",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-sitemap": "^3.3.0",
+    "gatsby-plugin-twitter-pixel": "^2.0.2",
     "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-redirect-from": "^0.3.0",
     "gatsby-theme-apollo": "^3.0.3",
