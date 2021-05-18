@@ -124,9 +124,8 @@ export default function Welcome({ location }) {
         {loggedIn ||
           (inviteCode ? (
             <p>
-              To get your complimentary copy of{' '}
-              <Link to="/">The GraphQL Guide</Link>, please create an account
-              and return to this page:
+              To get your copy of <Link to="/">The GraphQL Guide</Link>, please
+              create an account and return to this page:
             </p>
           ) : (
             <p>

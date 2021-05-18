@@ -8,9 +8,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 10vw;
   text-align: center;
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .Welcome h2 {
