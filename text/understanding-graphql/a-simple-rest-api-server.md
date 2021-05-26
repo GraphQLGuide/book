@@ -6,7 +6,7 @@ title: A simple REST API server
 
 Background: [Node](../background/node-npm-and-nvm.md), [HTTP](../background/http.md), [JSON](../background/json.md), [MongoDB](../background/databases.md#mongodb)
 
-We’ll start our process of understanding GraphQL by building a simple REST API using Node.js and the popular Express web framework. We’ll be retrieving data from a MongoDB database and using Mongoose as our object-relational mapping (ORM) to simplify querying the data we have stored.
+We’ll start our process of understanding GraphQL by building a simple REST API using Node.js and the popular Express web framework. We’ll be retrieving data from a MongoDB database and using Mongoose as our object-relational mapper (ORM) to simplify querying the data we have stored.
 
 > Learn about MongoDB, the Node driver, and Mongoose in [Background > MongoDB](../background/databases.md#mongodb).
 
