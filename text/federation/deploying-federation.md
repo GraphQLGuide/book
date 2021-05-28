@@ -4,7 +4,7 @@ title: Deploying federation
 
 # Deploying federation
 
-The gateway and our services are all just Node.js servers, so we can use any of the deployment options we discussed in the main [Deployment section](../server/production/deployment.md). And Apollo gateway doesn’t yet support subscriptions, so FaaS websocket support isn’t an issue like it was before. One new issue is the recommendation that services not be publicly accessible. Federation services need to expose extra information to work with the gateway (note the added `_service` and `_entities` root query fields), and we might not want people to be able to access it. 
+The gateway and our services are all just Node.js servers, so we can use any of the deployment options we discussed in the main [Deployment section](../server/production/deployment.md). And Apollo gateway doesn’t support subscriptions, so FaaS websocket support isn’t an issue like it was before. (When we want to use both Federation and subscriptions, we can do so with a [separate subscription endpoint](https://www.apollographql.com/blog/backend/federation/using-subscriptions-with-your-federated-data-graph/).) One new issue is the recommendation that services not be publicly accessible. Federation services need to expose extra information to work with the gateway (note the added `_service` and `_entities` root query fields), and we might not want people to be able to access it. 
 
 There are a number of different options for deploying services privately, including:
 
