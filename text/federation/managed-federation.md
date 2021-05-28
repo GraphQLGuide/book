@@ -3,7 +3,7 @@ title: Managed federation
 description: Registering services with Apollo
 ---
 
-### Managed federation
+# Managed federation
 
 As we’ve been running the gateway, we’ve been seeing the output:
 

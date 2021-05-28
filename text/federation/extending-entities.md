@@ -2,7 +2,7 @@
 title: Extending entities
 ---
 
-### Extending entities
+# Extending entities
 
 > If you’re jumping in here, `git checkout federation3_0.1.0` (tag [federation3_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/federation3_0.1.0), or compare [federation3...federation4](https://github.com/GraphQLGuide/guide-api/compare/federation2_0.1.0...federation4_0.1.0))
 

@@ -27,7 +27,7 @@ Here are a few levels of vulnerability relevant to securing servers from the abo
   - Avoid personal use of work devices.
   - Install [antivirus](https://thewirecutter.com/blog/best-antivirus/) on work computers.
   - [Vet](https://checkr.com/) employee candidates.
-  - Access production systems and data from a limited number of devices that are not used for email or web browsing.
+  - Access production systems and data from a limited number of devices that are not used for high-risk activities like web browsing, clicking links in emails, or plugging in USB devices.
 - **Physical access**: The capability to physically get to servers that store or handle our data.
   - Make sure device hard drives are encrypted with complex login passwords, or locked away when not in use.
   - Assess risk level of our service companies (for example [AWS perimeter security](https://aws.amazon.com/compliance/data-center/perimeter-layer)).

@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-## Apollo federation
+# Apollo federation
 
 * [Federated service](federated-service.md)
 * [Federated gateway](federated-gateway.md)

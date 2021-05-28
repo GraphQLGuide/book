@@ -2,7 +2,7 @@
 title: Federated gateway
 ---
 
-### Federated gateway
+# Federated gateway
 
 > If you’re jumping in here, `git checkout federation2_0.1.0` (tag [federation2_0.1.0](https://github.com/GraphQLGuide/guide-api/tree/federation2_0.1.0), or compare [federation2...federation3](https://github.com/GraphQLGuide/guide-api/compare/federation2_0.1.0...federation3_0.1.0))
 
