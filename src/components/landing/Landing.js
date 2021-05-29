@@ -15,7 +15,7 @@ class Landing extends Component {
         <Helmet>
           <meta
             name="description"
-            content="The complete guide to GraphQL, from a beginner introduction to advanced client and server topics. A comprehensive book from John Resig, the creator of jQuery. 
+            content="The complete guide to GraphQL, from a beginner introduction to advanced client and server topics. A comprehensive 886-page book from John Resig, the creator of jQuery. 
             A comprehensive book from John Resig, the creator of jQuery."
           />
           <script type="application/ld+json">
@@ -27,7 +27,7 @@ class Landing extends Component {
   "image": [
     "https://res.cloudinary.com/graphql/image/upload/c_scale,f_auto,q_90,w_1000/book"
    ],
-  "description": "The complete guide to GraphQL, from a beginner introduction to advanced client and server topics. A comprehensive book from John Resig, the creator of jQuery. 
+  "description": "The complete guide to GraphQL, from a beginner introduction to advanced client and server topics. A comprehensive 886-page book from John Resig, the creator of jQuery. 
   A comprehensive book from John Resig, the creator of jQuery.",
   "review": {
     "@type": "Review",
