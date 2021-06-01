@@ -91,6 +91,12 @@ const Team = ({ urlToken }) => {
   } = data
 
   const seatsLeft = totalSeats - members.length
+  const packageDisplayName =
+    packageType === 'FULLTEAM' ? 'Full package' : 'Pro package'
+  const stripeLink =
+    packageType === 'FULLTEAM'
+      ? '//buy.stripe.com/8wM0290DO4l7enCdQQ'
+      : '//buy.stripe.com/fZebKR72c4l73IY8wx'
 
   return (
     <main className="Team">
@@ -126,13 +132,20 @@ const Team = ({ urlToken }) => {
           </ul>
         </div>
         <p className="Team-summary">
-          {totalSeats}-seat license:{' '}
-          {packageType === 'FULLTEAM' ? 'Full package' : 'Pro package'}. Add 5
-          more seats{' '}
-          <a href={`//paypal.me/graphqlguide/${getPackage(packageType).price}`}>
-            by PayPal
+          {`${totalSeats}-seat license: ${packageDisplayName}. Seats are non-transferable. Add 
+          more seats `}
+          <a href={stripeLink}>via Stripe</a>
+          {' or '}
+          <a
+            href={`//paypal.me/graphqlguide/${
+              getPackage(packageType).seatPrice
+            }`}
+          >
+            PayPal
           </a>
-          . (Put your team name in the payment note.)
+          {`, and we’ll process it shortly. Or send a purchase order to `}
+          <a href="mailto:sales@graphql.guide">sales@graphql.guide</a>
+          {`, and we’ll send you an invoice.`}
         </p>
       </div>
     </main>
