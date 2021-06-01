@@ -24,7 +24,7 @@ In this section, we’ll look at three databases:
 
 ## MongoDB
 
-While MongoDB can be used as an in-memory database, it’s usually used as a persistent database. The data is organized in *collections* of JSON-like *documents*. Developers communicate with the database using [MongoDB *schema statements*](https://docs.mongodb.com/manual/crud/):
+While MongoDB can be used as an in-memory database, it’s usually used as a persistent database. The data is organized in *collections* of JSON-like *documents*. Developers communicate with the database using [MongoDB *schema statements*](https://docs.mongodb.com/manual/crud/) like the `insertOne`, `updateOne`, `findOne`, and `deleteOne` statements below:
 
 ```js
 import { MongoClient } from 'mongodb'
