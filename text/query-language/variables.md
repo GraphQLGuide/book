@@ -20,7 +20,7 @@ query UserName($id: Int!) {
 }
 ```
 
-After the operation name, we declare `($id: Int!)`: the name of the variable with a `$` and the type of the variable. `Int` is an integer and `!` means non-null (required). Then, we use the variable name `$id` in an argument in place of the value: `user(id: 2) => user(id: $id)`. Finally, we send a JSON object with variable values along with the query document.
+After the operation name, we declare `($id: Int!)`: the name of the variable with a `$` and the type of the variable. `Int` is an integer and `!` means that it's required ("non-null"). Then, we use the variable name `$id` in an argument in place of the value: `user(id: $id)` instead of `user(id: 2)`. Finally, we send a JSON object with variable values along with the query document.
 
 We can also give variables default values, for instance:
 

@@ -4,7 +4,7 @@ title: Subscriptions
 
 # Subscriptions
 
-[Subscriptions](http://spec.graphql.org/draft/#sec-Subscription) are long-lived requests in which the server sends the client data from events as they happen. The manner in which the data is sent is not specified, but the most common implementation is WebSockets, and other implementations include HTTP long polling, server-sent events (supported by all browsers except for IE 11), and webhooks (when the client is another publicly-addressable server). 
+[Subscriptions](http://spec.graphql.org/draft/#sec-Subscription) are long-lived requests in which the server sends the client data from events as they happen. The manner in which the data is sent is not specified, but the most common implementation is WebSockets, and other implementations include HTTP long polling, server-sent events (supported by all browsers except for IE 11), and webhooks (when the client is another publicly addressable server). 
 
 The client initiates a subscription with:
 

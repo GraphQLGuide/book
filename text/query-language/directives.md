@@ -27,7 +27,7 @@ query UserDeets($id: Int!, $textOnly: Boolean!) {
 }
 ```
 
-Sending the above document and variables would result in the below response:
+Sending the above document and variables would result in this response:
 
 ```json
 {
@@ -44,7 +44,7 @@ Sending the above document and variables would result in the below response:
 
 ## @include
 
-[`@include(if: Boolean!)`](http://spec.graphql.org/draft/#sec--include) is the opposite of `@skip`, only including the field/spread in the response when `if` argument is true.
+[`@include(if: Boolean!)`](http://spec.graphql.org/draft/#sec--include) is the opposite of `@skip`, only including the field/spread in the response when the `if` argument is true.
 
 ```gql
 query UserDeets($id: Int!, $adminMode: Boolean!) {
@@ -64,20 +64,7 @@ query UserDeets($id: Int!, $adminMode: Boolean!) {
 }
 ```
 
-Sending the above document and variables would result in the below response:
-
-```json
-{
-  "data":  {
-    "user": {
-      "id": 1,
-      "name": "John Resig"
-    }
-  }
-}
-```
-
-Sending the above document and variables would result in the below response:
+Sending the above document and variables would result in this response:
 
 ```json
 {

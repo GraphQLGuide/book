@@ -17,7 +17,7 @@ We can give a field an [*alias*](http://spec.graphql.org/draft/#sec-Field-Alias)
 }
 ```
 
-The response object is:
+The response object will be:
 
 ```
 {

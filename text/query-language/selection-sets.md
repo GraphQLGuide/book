@@ -4,7 +4,7 @@ title: Selection sets
 
 # Selection sets
 
-The content between a pair of curly braces is called a [*selection set*](http://spec.graphql.org/draft/#sec-Selection-Sets)—the list of data fields we’re requesting. For instance, the `StarsAndChapter` selection set lists the `githubStars` and `chapter` fields:
+The content between a pair of curly braces is called a [*selection set*](http://spec.graphql.org/draft/#sec-Selection-Sets)—the list of data fields we’re requesting. For instance, the selection set in the above `StarsAndChapter` query lists the `githubStars` and `chapter` fields:
 
 ```gql
 {
