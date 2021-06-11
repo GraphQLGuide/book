@@ -15,11 +15,14 @@ title: Scalars
 We can also define our own scalars, like `Url` and `DateTime`. In the description of our custom scalars, we write how they’re serialized so the frontend developer knows what value to provide for arguments. For instance, `DateTime` could be serialized as an integer (milliseconds since [Epoch](https://en.wikipedia.org/wiki/Epoch_(computing))) or as an ISO string:
 
 ```gql
-# schema
+scalar DateTime
+
 type Mutation {
   dayOfTheWeek(when: DateTime): String
 }
 ```
+
+Given the above schema, the client would send one of the below operations, depending on the definition of `DateTime`:
 
 ```gql
 # if DateTime is serialized as an integer
@@ -33,6 +36,6 @@ mutation {
 }
 ```
 
-The benefits to using custom scalars are clarity (`when: DateTime` is clearer than `when: Int`) and consistent validation (whatever value we pass is checked to make sure it’s a valid DateTime).
+The benefits to using custom scalars are clarity (`when: DateTime` is clearer than `when: Int`) and consistent validation (whatever value we pass is checked to make sure it’s a valid `DateTime`).
 
 We define our [own custom scalar](../server/building/custom-scalars.md) in Chapter 11.

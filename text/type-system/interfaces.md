@@ -55,7 +55,7 @@ type User {
 }
 ```
 
-We can now query for fields in `BankAccount`
+We can now query for fields in `BankAccount`:
 
 ```gql
 query {

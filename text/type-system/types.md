@@ -21,5 +21,5 @@ The two wrapping types are:
 - [List](lists.md)
 - [Non-null](non-null.md)
 
-When the named types appear by themselves, they are singular and nullable—i.e., when the client requests a field, the server will return either one item or `null`. These two wrapping types change this default behavior.
+When the named types appear by themselves, they are singular and nullable—i.e., when the client requests a field, the server will return either one item or `null`. Using a wrapping type changes this default behavior.
 
