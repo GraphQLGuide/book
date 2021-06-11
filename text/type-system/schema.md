@@ -42,5 +42,5 @@ and receive this response:
 }
 ```
 
-The root fields—those listed under `type Query { ... }`, `type Mutation { ... }`, and `type Subscription { ... }` are the entry points to our schema—the fields that can be selected by the client at the root level of an operation.
+The root fields—those listed under `type Query { ... }`, `type Mutation { ... }`, and `type Subscription { ... }`—are the entry points to our schema. They’re the fields that can be selected by the client at the root level of an operation.
 

@@ -19,9 +19,9 @@ type User {
 }
 ```
 
-A field’s type can be anything but an input object. In the `Post` type, the `id` and `text` fields are scalars, while `author` is an object type. 
+A field’s type can be any type but an input object. In the `Post` type, the `id` and `text` fields are scalars, while `author` is an object type. 
 
-When selecting a field that has an object type, at least one of that object’s fields must be selected. For instance, in the below schema, `post` field is of type `Post`:
+When selecting a field that has an object type, at least one of that object’s fields must be selected. For instance, in the below schema, the `post` field is of type `Post`:
 
 ```gql
 type Query {
@@ -29,7 +29,7 @@ type Query {
 }
 ```
 
-Since `Post` is an object type, at least one `Post` field must be selected in query A below—in this case, `text`. And in query B, `post.author` is of type `User`, so at least one `User` field must be selected.
+Since `Post` is an object type, at least one `Post` field must be selected in query A below—in this case, `text` is selected. And in query B, `post.author` is of type `User`, so at least one `User` field must be selected.
 
 ```gql
 query A {

@@ -41,5 +41,5 @@ query {
 }
 ```
 
-Since unions don’t guarantee any fields in common, any field we select has to be inside a fragment (which have a specific object type).
+Since unions don’t guarantee any fields in common, any field we select has to be inside a fragment (which has a specific object type).
 

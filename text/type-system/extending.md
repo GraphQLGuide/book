@@ -13,7 +13,6 @@ type Query {
 }
 
 type Direction {
-  NORTHWEST @deprecated
   NORTH
   EAST
   SOUTH
