@@ -164,3 +164,4 @@ This content is included in the Full edition of the book:
 
 [Preventing DoS Attacks](../../preventing-dos-attacks/index.md)
 
+For more on GraphQL security, check out OWASP’s [GraphQL Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html).
