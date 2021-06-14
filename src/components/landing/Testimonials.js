@@ -27,13 +27,23 @@ const REVIEWS = [
   },
   {
     text:
-      'I’d already had the opportunity to work with and learn GraphQL, but the GraphQL Guide really cemented the core concepts (and enlightened me on some details I’d overlooked before). I always struggled with the concept of Subscriptions in GraphQL—after reading this book, my understanding improved tenfold. Highly recommend reading if you want to be successful with GraphQL!',
+      'This is an incredibly in-depth and well-structured resource on everything related to GraphQL. It reads lightly and has tons of great examples, and I definitely recommend it to both beginners and experienced developers.',
     stars: 5,
     author: {
-      name: 'Ryan Glover',
-      photo: 'https://res.cloudinary.com/graphql/c_scale,f_auto,q_80,w_80/ryan',
+      name: 'Mads Brodt',
+      photo:
+        'https://pbs.twimg.com/profile_images/1083255447744843776/Gbr1qaRw_400x400.jpg',
     },
   },
+  // {
+  //   text:
+  //     'I’d already had the opportunity to work with and learn GraphQL, but the GraphQL Guide really cemented the core concepts (and enlightened me on some details I’d overlooked before). I always struggled with the concept of Subscriptions in GraphQL—after reading this book, my understanding improved tenfold. Highly recommend reading if you want to be successful with GraphQL!',
+  //   stars: 5,
+  //   author: {
+  //     name: 'Ryan Glover',
+  //     photo: 'https://res.cloudinary.com/graphql/c_scale,f_auto,q_80,w_80/ryan',
+  //   },
+  // },
 ]
 
 const Testimonials = () => (
