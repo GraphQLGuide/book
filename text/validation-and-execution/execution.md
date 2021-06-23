@@ -104,7 +104,7 @@ In the above example response, the error only has a single key, `message`. Often
 
 The `path` key has the path to the field where the error occurred:
 
-> If an error can be associated with a particular field in the GraphQL result, it must contain an entry with the key path that details the path of the response field which experienced the error. This allows clients to identify whether a null result is intentional or caused by a runtime error.
+> If an error can be associated with a particular field in the GraphQL result, it must contain an entry with the key `path` that details the path of the response field which experienced the error. This allows clients to identify whether a null result is intentional or caused by a runtime error.
 
 The `extensions` key is for adding fields beyond those in the spec. A common added field is `code`. That and `timestamp` are included in the below example:
 
@@ -157,7 +157,7 @@ The `extensions` key is for adding fields beyond those in the spec. A common add
 
 The error location is `{ "line": 6, "column": 7 }` because the `name` field is on the 6th line of the operation, and the `n` is the 7th character on that line.
 
-The path is `[ "hero", "friends", 1, "name" ]` because the error `name` field is in the second object (`1`) in the array (it is zero-indexed, so the second object is object number 1) value of the `friends` attribute, which is a field on `hero`.
+The path is `[ "hero", "friends", 1, "name" ]` because the error `name` field is in the second object in the array (it is zero-indexed, so the second object is object number 1) value of the `friends` attribute, which is a field on `hero`.
 
 Let’s say `hero` resolves to a `Hero` object, and `Hero.friends` resolves to a list of `Hero` objects. In the above example, `Hero.name` is nullable, so when the error occurs during the resolution of `hero.friends.1.name`, the server returns null for the value. However, if `Hero.name` were non-null, then the server wouldn’t be able to return `"name": null`. Instead, it would have to return null for the `Hero`, like this:
 
@@ -229,4 +229,4 @@ query {
   "data": null
 ```
 
-The client doesn’t get `bestHero`, even if it resolved without error, because `hero` can’t be null.
+The client doesn’t get `bestHero`, even if it resolved without error, because `hero` can’t be null. If we want to avoid the possibility of this happening, we can make sure each root Query and Mutation field is nullable.

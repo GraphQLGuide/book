@@ -4,12 +4,12 @@ title: Validation
 
 # Validation
 
-GraphQL servers [validate](http://spec.graphql.org/draft/#sec-Validation) requests against the schema. They usually validate all requests before the [execution step](execution.md); however, the server can skip it if:
+GraphQL servers [validate](http://spec.graphql.org/draft/#sec-Validation) requests against the schema. They usually validate all requests before the [execution step](execution.md); however, the server can skip validation if:
 
 - it recognizes that an identical request has been previously validated, or
 - the requests were validated during development.
 
-One example validation error is selecting a field that doesn't exist. If we send this query:
+One example of a validation error is selecting a field that doesn't exist. If we send this query:
 
 ```gql
 query {
@@ -19,7 +19,7 @@ query {
 }
 ```
 
-the server’s validation step will fail, so it won’t execute the query, instead responding with:
+the server’s validation step will fail, so it won’t execute the query. Instead, it will respond with:
 
 ```json
 {
