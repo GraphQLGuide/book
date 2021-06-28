@@ -9,7 +9,10 @@ title: Federated service
 In this section we’ll build a users service: A GraphQL server that supports Apollo federation and handles queries related to the `User` type. We’ll start from a new tag:
 
 ```sh
+$ git clone https://github.com/GraphQLGuide/guide-api.git
+$ cd guide-api/
 $ git checkout federation_0.1.0
+$ npm install
 ```
 Here is our starting file structure:
 
