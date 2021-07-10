@@ -26,7 +26,7 @@ const FULL_PATHS = ['/service-integrations/', '/preventing-dos-attacks/']
 
 const Hide = styled.div`
   height: ${(props) => (props.hide ? '1px' : 'auto')};
-  overflow-y: hidden;
+  overflow-y: ${(props) => (props.hide ? 'hidden' : 'auto')};
 `
 
 const Overlay = styled.div`
