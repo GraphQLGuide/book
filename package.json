@@ -66,6 +66,7 @@
     "revalidate": "^1.2.0",
     "scroll-into-view-if-needed": "^2.2.26",
     "subscriptions-transport-ws": "^0.9.18",
+    "url": "^0.11.0",
     "use-query-params": "^1.2.0"
   },
   "devDependencies": {

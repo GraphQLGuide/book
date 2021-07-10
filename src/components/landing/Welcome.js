@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core'
 import { Link } from 'gatsby'
 import queryString from 'query-string'
 import { gql, useMutation } from '@apollo/client'
+import { pick } from 'lodash'
 
 import './Welcome.css'
 import { getPackage } from '../../lib/packages'
@@ -50,19 +51,21 @@ export default function Welcome({ location }) {
 
   const [associateSignupToken, { error }] = useMutation(ASSOCIATE_SIGNUP_TOKEN)
 
+  const userDep = pick(user, ['id', 'hasPurchased'])
+
   const query = queryString.parse(location.search)
   const inviteCode = query['invite-code']
   useEffect(() => {
-    if (user && !user.hasPurchased && inviteCode) {
+    if (userDep.id && !userDep.hasPurchased && inviteCode) {
       associateSignupToken({ variables: { token: inviteCode } })
     }
-  }, [user?.id, inviteCode, associateSignupToken])
+  }, [userDep, inviteCode, associateSignupToken])
 
   useEffect(() => {
-    if (user && !user.hasPurchased && !inviteCode) {
+    if (userDep.id && !userDep.hasPurchased && !inviteCode) {
       pollAssociateSession()
     }
-  }, [user?.id, inviteCode])
+  }, [userDep, inviteCode])
 
   useEffect(() => {
     if (!inviteCode) {
