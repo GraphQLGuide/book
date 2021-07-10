@@ -228,6 +228,12 @@ const shareImageConfig = {
 }
 
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true, // https://github.com/gatsbyjs/gatsby/discussions/28331
+    FAST_DEV: true,
+    DEV_SSR: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+  },
   plugins: [
     {
       resolve: 'gatsby-theme-guide',
