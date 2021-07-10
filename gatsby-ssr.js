@@ -1,7 +1,5 @@
-const React = require(`react`)
-const { URL } = require(`url`)
-
-console.log('ON FILE LOAD')
+import React from 'react'
+import { URL } from 'url'
 
 function getLinkProps({ crossOrigin, pathname }) {
   switch (typeof crossOrigin) {
@@ -14,7 +12,7 @@ function getLinkProps({ crossOrigin, pathname }) {
   }
 }
 
-exports.onRenderBody = (
+export const onRenderBody = (
   { setHeadComponents, pathname = `/` },
   { crossOrigin = `anonymous` } = {}
 ) => {
@@ -40,7 +38,6 @@ exports.onRenderBody = (
       } catch (e) {
         assetProps = { crossOrigin: `anonymous` }
       }
-      console.log('props', assetProps)
 
       return (
         <link key={href} as="font" href={href} rel="preload" {...assetProps} />
