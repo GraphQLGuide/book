@@ -14,3 +14,4 @@ As a view library, React is responsible for what the user sees on the screen. So
 - **One-way data binding**: Component state determines the values of form controls, and when the user changes form controls, the state isn’t automatically updated. (Whereas in Angular’s [two-way binding](https://angular.io/guide/two-way-binding#adding-two-way-data-binding), state can be automatically updated.)
 - **Virtual DOM**: React creates a model of the page, and when we return different JSX from our components, React compares the new JSX to the previous JSX, and uses the difference to make the smallest possible changes to the DOM. This process improves the rendering speed.
 
+To learn React, we recommend Kent C. Dodds’s course: [Epic React](https://epicreact.dev/).
