@@ -23,7 +23,6 @@ export const onRenderBody = (
     'https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf',
     'https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf',
   ]
-  console.log('ON RENDER BODY')
 
   setHeadComponents(
     assets.map((href) => {
