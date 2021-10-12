@@ -56,7 +56,7 @@ class FooDataSource extends DataSource {
   }
 
   async get(id, { ttlInSeconds } = {}) {
-    const cacheDoc = await cache.get(this.cacheKey(id))
+    const cacheDoc = await this.cache.get(this.cacheKey(id))
     if (cacheDoc) {
       return JSON.parse(cacheDoc)
     }
@@ -64,7 +64,7 @@ class FooDataSource extends DataSource {
     const doc = await this.loader.load(id)
 
     if (ttlInSeconds) {
-      cache.set(this.cacheKey(id), JSON.stringify(doc), { ttl: ttlInSeconds })
+      this.cache.set(this.cacheKey(id), JSON.stringify(doc), { ttl: ttlInSeconds })
     }
 
     return doc
@@ -122,7 +122,7 @@ We use the `connectionURI` in the cache key to avoid collisions. A collision cou
 
 ```js
   async get(id, { ttlInSeconds } = {}) {
-    const cacheDoc = await cache.get(this.cacheKey(id))
+    const cacheDoc = await this.cache.get(this.cacheKey(id))
     if (cacheDoc) {
       return JSON.parse(cacheDoc)
     }
@@ -130,7 +130,7 @@ We use the `connectionURI` in the cache key to avoid collisions. A collision cou
     const doc = await this.loader.load(id)
 
     if (ttlInSeconds) {
-      cache.set(this.cacheKey(id), JSON.stringify(doc), { ttl: ttlInSeconds })
+      this.cache.set(this.cacheKey(id), JSON.stringify(doc), { ttl: ttlInSeconds })
     }
 
     return doc
