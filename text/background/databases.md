@@ -9,7 +9,7 @@ Databases are organized collections of data stored on a computer. That computer 
 There are two main categories of databases: 
 
 - **Relational databases**: These usually use SQL (Structured Query Language), and follow the relational model, with *tables* of *columns*, *rows*, and unique keys. The most popular relational databases are SQLite for development and PostgreSQL for production. 
-- **Non-relational (NoSQL) databases**: These usually use their own query language, although some (like the [Dgraph](https://dgraph.io/) graph database and distributed [FaunaDB](https://fauna.com/)) support GraphQL as a way to query the database! 😄 There are a few categories of NoSQL databases:
+- **Non-relational (NoSQL) databases**: These usually use their own query language, although some (like the [Dgraph](https://dgraph.io/) graph database and serverless [FaunaDB](https://fauna.com/)) support GraphQL as a way to query the database! 😄 There are a few categories of NoSQL databases:
   - **Document databases** like MongoDB
   - **Graph databases** like [Neo4J](https://neo4j.com/)
   - **Key-value databases** like Redis
