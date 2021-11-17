@@ -5,7 +5,7 @@ description: Arguments can be added to any field in the schema
 
 # Field arguments
 
-Any field can accept a named, unordered list of [arguments](http://spec.graphql.org/draft/#sec-Field-Arguments). Arguments can be scalars, enums, or *input objects*. An argument can be non-null to indicate it is required. Optional arguments can have a default value, like `name` below.
+Any field can accept a named, unordered list of [arguments](http://spec.graphql.org/draft/#sec-Field-Arguments). Arguments can be scalars, enums, or *input objects*. An argument can be non-null to indicate it is required. Optional arguments can have a default value, like `width` below.
 
 ```gql
 type User {
