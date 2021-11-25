@@ -21,7 +21,7 @@ If you'd like to read the Guide, and if you can afford to purchase it or if your
 
 [/GraphQLGuide/book/graphs/contributors](https://github.com/GraphQLGuide/book/graphs/contributors)
 
-Thank you to everyone who has contributed 😃🙌
+Thank you to everyone who has contributed 😃 🙌
 
 ## Contributing
 
