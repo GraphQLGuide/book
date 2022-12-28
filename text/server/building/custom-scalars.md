@@ -175,7 +175,7 @@ export default {
       }
 
       const date = new Date(parseInt(ast.value))
-      if (!isValid) {
+      if (!isValid(date)) {
         throw new Error('Invalid Date literal')
       }
 
