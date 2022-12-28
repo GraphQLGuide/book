@@ -693,7 +693,7 @@ export const withHyphens = (string) => string.replace(/ /g, '-')
 // `/1-Understanding-GraphQL-through-REST/1-Introduction`
 export const slugify = (chapter, section) => {
   if (!section) {
-    if (chapter.sections.length) {
+    if (chapter.number !== null) {
       // default to the first section
       section = chapter.sections[0]
     } else {
