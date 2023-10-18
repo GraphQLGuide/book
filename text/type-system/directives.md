@@ -60,6 +60,6 @@ type Direction {
 type User {
   id: Int!
   name: String
-  fullName: String @deprecated("Use `name` instead")
+  fullName: String @deprecated(reason: "Use `name` instead")
 }
 ```
