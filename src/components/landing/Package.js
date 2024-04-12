@@ -67,18 +67,13 @@ const Package = ({
             <hr />
             <li>
               <div className={classNames('Package-feature-list', { full })}>
-                {pro ? (
-                  <Fragment>
-                    Videos:<Sup>2</Sup>
-                  </Fragment>
-                ) : (
-                  <Fragment>More videos:</Fragment>
+                {full && (
+                  <Fragment>Videos:</Fragment><Fragment>                  
                 )}
               </div>
               {videos.map((video, i) => (
                 <div className="Package-extra-item" key={i}>
                   {video}
-                  {full && i === 0 ? <Sup>2</Sup> : null}
                 </div>
               ))}
             </li>
