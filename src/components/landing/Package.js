@@ -68,7 +68,7 @@ const Package = ({
             <li>
               <div className={classNames('Package-feature-list', { full })}>
                 {full && (
-                  <Fragment>Videos:</Fragment><Fragment>                  
+                  <Fragment>Videos:</Fragment>
                 )}
               </div>
               {videos.map((video, i) => (

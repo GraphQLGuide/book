@@ -95,8 +95,6 @@ const Pricing = () => (
         to date for at least 4 years, but we hope to continue for as long as
         GraphQL is the best data-fetching system out there. (Which is probably a
         long time—REST has been around for {REST_LIFESPAN} years!)
-        <br />
-        <sup>2</sup> Coming soon.
       </div>
     </div>
 
