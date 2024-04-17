@@ -19,11 +19,6 @@ const Pricing = () => (
           'Apollo Federation',
           'Server Analytics',
         ]}
-        videos={[
-          'Introduction to the codebases',
-          'Apollo Devtools',
-          'Apollo Studio',
-        ]}
       />
       <Package
         full
@@ -40,7 +35,6 @@ const Pricing = () => (
           'Preventing DoS Attacks',
         ]}
         videos={[
-          'Code run-throughs of Chapters 6–11',
           <span>
             Interview with{' '}
             <a
@@ -95,8 +89,6 @@ const Pricing = () => (
         to date for at least 4 years, but we hope to continue for as long as
         GraphQL is the best data-fetching system out there. (Which is probably a
         long time—REST has been around for {REST_LIFESPAN} years!)
-        <br />
-        <sup>2</sup> Coming soon.
       </div>
     </div>
 
