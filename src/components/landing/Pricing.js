@@ -19,11 +19,6 @@ const Pricing = () => (
           'Apollo Federation',
           'Server Analytics',
         ]}
-        videos={[
-          'Introduction to the codebases',
-          'Apollo Devtools',
-          'Apollo Studio',
-        ]}
       />
       <Package
         full
@@ -40,7 +35,6 @@ const Pricing = () => (
           'Preventing DoS Attacks',
         ]}
         videos={[
-          'Code run-throughs of Chapters 6–11',
           <span>
             Interview with{' '}
             <a
