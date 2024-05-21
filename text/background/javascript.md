@@ -90,7 +90,7 @@ class Dog extends Animal {
 `Dog` is a subclass of `Animal`. `this.constructor.name` is the name of the class (`'Dog'` if `new Dog()` or `'Animal'` if `new Animal()`). In its constructor, it calls the superclass’s constructor (`super(name)`) and then logs. So now if we do:
 
 ```js
-const graphy = new Dog()
+const graphy = new Dog('Graphy')
 console.log(graphy.name)
 graphy.speak()
 ```
@@ -110,10 +110,15 @@ A subclass can override a superclass’s method or define new methods:
 class Dog extends Animal {
   constructor(name) {
     super(name)
+    console.log('Subspecies: Canis lupus familiaris.')
   }
 
   speak() {
     console.log(`${this.name} barks.`)
+  }
+
+  sit() {
+    console.log(`${this.name} sits.`)
   }
 }
 
